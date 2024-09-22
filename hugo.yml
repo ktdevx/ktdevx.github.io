@@ -1,6 +1,6 @@
 baseURL: https://ktdevx.github.io/
 title: KTDEVX
-theme: ananke
+theme: mainroad
 
 defaultContentLanguage: ja
 defaultContentLanguageInSubDir: true
