@@ -9,7 +9,34 @@ languages:
     contentDir: content/ja
     languageCode: ja
     languageName: 日本語
+    menus:
+      main:
+      - name: ホーム
+        pageRef: /
+        weight: 1
+      - name: 私について
+        pageRef: /about
+        weight: 2
+      - name: ブログ
+        pageRef: /blog
+        weight: 3
+      - name: 連絡先
+        pageRef: /contact
+        weight: 4
+      footer:
+      - name: 利用規約
+        pageRef: /terms-of-use
+        weight: 1
+      - name: プライバシーポリシー
+        pageRef: /privacy-policy
+        weight: 2
+      - name: サイトマップ
+        pageRef: /sitemap
+        weight: 3
     weight: 1
 
 params:
+  style:
+    vars:
+      highlightColor: "#00A95F"
   copyright: Kaito Takemura
