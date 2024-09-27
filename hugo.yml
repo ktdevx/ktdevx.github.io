@@ -33,9 +33,11 @@ languages:
       - name: サイトマップ
         pageRef: /sitemap
         weight: 3
+    hasCJKlanguage: true
     weight: 1
 
 params:
+  opengraph: true
   style:
     vars:
       highlightColor: "#00A95F"
