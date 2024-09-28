@@ -42,6 +42,7 @@ services:
 
 params:
   opengraph: true
+  schema: true
   style:
     vars:
       highlightColor: "#00A95F"
