@@ -36,6 +36,10 @@ languages:
     hasCJKlanguage: true
     weight: 1
 
+services:
+  googleAnalytics:
+    ID: G-GMLG57PZ6L
+
 params:
   opengraph: true
   style:
