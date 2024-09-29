@@ -2,6 +2,9 @@
 title: GitHubでリポジトリを作成する
 date: 2024-09-27T20:27:23+09:00
 draft: false
+params:
+  pager: true
+  toc: true
 ---
 
 GitHubでリポジトリを作成する手順は非常にシンプルです。以下に、具体的な手順を説明します。

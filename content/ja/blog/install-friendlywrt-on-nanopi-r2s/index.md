@@ -2,6 +2,9 @@
 title: NanoPi R2SにFriendlyWrtをインストールする
 date: 2024-09-29T21:35:25+09:00
 draft: false
+params:
+  pager: true
+  toc: true
 ---
 
 NanoPi R2SにFriendlyWrtをインストールすると、誰でも簡単にルーターを構築することができます。

@@ -2,6 +2,9 @@
 title: aptとapt-getの違いと使い分け
 date: 2024-09-29T15:30:35+09:00
 draft: false
+params:
+  pager: true
+  toc: true
 ---
 
 aptとapt-getは、どちらもDebian系のLinuxディストリビューションで使用されるパッケージ管理ツールです。

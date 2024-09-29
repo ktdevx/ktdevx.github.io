@@ -2,6 +2,9 @@
 title: Raspberry PiにUbuntuをインストールする
 date: 2024-09-30T00:26:00+09:00
 draft: false
+params:
+  pager: true
+  toc: true
 ---
 
 Raspberry Piは、Raspberry Pi OSの他にUbuntuを起動することもできます。

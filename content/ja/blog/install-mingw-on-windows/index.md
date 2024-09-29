@@ -2,6 +2,9 @@
 title: WindowsにMinGWをインストールする
 date: 2024-09-28T16:25:47+09:00
 draft: false
+params:
+  pager: true
+  toc: true
 ---
 
 MinGWは、C/C++開発環境として無料で使用できるツールです。MinGW自体はほぼ開発終了していますが、後継のMinGW-w64は積極的に開発されています。
