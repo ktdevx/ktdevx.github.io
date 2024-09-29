@@ -2,6 +2,9 @@
 title: HugoとGitHub Pagesで静的なWebサイトを公開する
 date: 2024-09-27T21:11:39+09:00
 draft: false
+params:
+  pager: true
+  toc: true
 ---
 
 HugoとGitHub Pagesを利用することで、非常に簡単に静的なWebサイトを公開することができます。ここでは、その手順について解説します。

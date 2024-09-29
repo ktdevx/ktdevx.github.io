@@ -2,6 +2,9 @@
 title: 【Windows】Gitのインストール手順
 date: 2024-09-28T14:51:19+09:00
 draft: false
+params:
+  pager: true
+  toc: true
 ---
 
 Gitは、バージョン管理システムの一種で、プログラムや文書などの変更履歴を管理するためのツールです。

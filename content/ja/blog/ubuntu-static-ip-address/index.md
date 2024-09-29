@@ -2,6 +2,9 @@
 title: 【Ubuntu】固定IPアドレスを割り当てる
 date: 2024-09-29T21:05:11+09:00
 draft: false
+params:
+  pager: true
+  toc: true
 ---
 
 サーバーのOSとしてUbuntuを利用する場合、IPアドレスが変化しないように設定する必要があります。

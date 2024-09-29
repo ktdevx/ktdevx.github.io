@@ -2,6 +2,9 @@
 title: Win32 Disk Imagerのインストールと使い方
 date: 2024-09-29T21:30:39+09:00
 draft: false
+params:
+  pager: true
+  toc: true
 ---
 
 Win32 Disk Imagerは、Windows上で動作するディスクイメージ書き込みソフトです。

@@ -2,6 +2,9 @@
 title: Raspberry Pi OSでSSH接続を有効化する
 date: 2024-09-30T00:16:27+09:00
 draft: false
+params:
+  pager: true
+  toc: true
 ---
 
 Raspberry Pi OSは、Raspberry Pi財団が提供している、Raspberry Pi用のOSです。SSH接続を有効にすることで、リモートでRaspberry Piにアクセスすることができます。
