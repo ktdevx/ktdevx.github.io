@@ -35,6 +35,35 @@ languages:
         weight: 3
     hasCJKlanguage: true
     weight: 1
+  en:
+    contentDir: content/en
+    languageCode: en
+    languageName: English
+    menus:
+      main:
+      - name: Home
+        pageRef: /
+        weight: 1
+      - name: About
+        pageRef: /about
+        weight: 2
+      - name: Blog
+        pageRef: /blog
+        weight: 3
+      - name: Contact
+        pageRef: /contact
+        weight: 4
+      footer:
+      - name: Terms of Use
+        pageRef: /terms-of-use
+        weight: 1
+      - name: Privacy Policy
+        pageRef: /privacy-policy
+        weight: 2
+      - name: Sitemap
+        pageRef: /sitemap
+        weight: 3
+    weight: 2
 
 services:
   googleAnalytics:
