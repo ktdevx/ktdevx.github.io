@@ -1,6 +1,6 @@
 baseURL: https://www.ktdevx.com/
 title: KTDEVX
-theme: mainroad
+theme: anubis2
 
 defaultContentLanguage: ja
 defaultContentLanguageInSubDir: true
@@ -70,9 +70,9 @@ services:
     ID: G-GMLG57PZ6L
 
 params:
-  opengraph: true
-  schema: true
-  style:
-    vars:
-      highlightColor: "#00A95F"
-  copyright: Kaito Takemura
+  author:
+    name: Kaito Takemura
+    email: ktdevx@gmail.com
+  toc: false
+  paginationSinglePost: true
+  readMore: true

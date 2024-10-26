@@ -3,7 +3,6 @@ title: Raspberry Piで自宅にGitサーバーを構築する
 date: 2024-09-30T00:41:00+09:00
 draft: false
 params:
-  pager: true
   toc: true
 ---
 

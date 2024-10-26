@@ -3,7 +3,6 @@ title: How to Install Git on Windows
 date: 2024-09-28T14:51:19+09:00
 draft: false
 params:
-  pager: true
   toc: true
 ---
 

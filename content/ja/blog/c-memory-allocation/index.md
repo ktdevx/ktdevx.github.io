@@ -3,7 +3,6 @@ title: 【C言語】動的メモリ確保の方法と注意点
 date: 2024-09-29T17:54:41+09:00
 draft: false
 params:
-  pager: true
   toc: true
 ---
 

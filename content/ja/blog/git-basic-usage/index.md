@@ -3,7 +3,6 @@ title: Gitの基本操作
 date: 2024-09-29T23:00:26+09:00
 draft: false
 params:
-  pager: true
   toc: true
 ---
 

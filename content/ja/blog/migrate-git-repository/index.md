@@ -3,7 +3,6 @@ title: Gitリポジトリを別のサーバーに移行する
 date: 2024-09-29T22:57:58+09:00
 draft: false
 params:
-  pager: true
   toc: true
 ---
 

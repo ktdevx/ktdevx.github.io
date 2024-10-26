@@ -3,7 +3,6 @@ title: APTパッケージの自動更新を無効化する
 date: 2024-09-29T19:22:50+09:00
 draft: false
 params:
-  pager: true
   toc: true
 ---
 
