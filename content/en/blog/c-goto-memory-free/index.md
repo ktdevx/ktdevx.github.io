@@ -1,5 +1,5 @@
 ---
-title: "[C] Simplify Memory Management with goto Statements"
+title: Simplify Memory Management with goto Statements in C
 date: 2024-09-29T17:02:39+09:00
 draft: false
 params:
