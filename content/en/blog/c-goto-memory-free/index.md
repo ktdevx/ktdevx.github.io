@@ -62,7 +62,7 @@ int example(size_t num)
 
 While this code works, each memory allocation and deallocation is handled individually, and freeing memory needs to be coded each time an error occurs. This makes the code redundant and increases the risk of memory leaks.
 
-## Simplifying Memory Deallocation with goto
+## Simplify Memory Deallocation with goto
 
 Using the `goto` statement, you can centralize error handling and manage memory deallocation more simply.
 
