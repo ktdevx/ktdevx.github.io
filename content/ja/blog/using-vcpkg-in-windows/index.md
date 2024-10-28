@@ -136,5 +136,5 @@ cmake [<プロジェクトへのパス>] -D VCPKG_TARGET_TRIPLET=<ターゲッ�
 
 ## 外部リンク
 
-* [vcpkg - Open source C/C++ dependency manager from Microsoft](https://vcpkg.io/en/)
-* [GitHub - microsoft/vcpkg: C++ Library Manager for Windows, Linux, and MacOS](https://github.com/microsoft/vcpkg)
+- [vcpkg - Open source C/C++ dependency manager from Microsoft](https://vcpkg.io/en/)
+- [GitHub - microsoft/vcpkg: C++ Library Manager for Windows, Linux, and MacOS](https://github.com/microsoft/vcpkg)

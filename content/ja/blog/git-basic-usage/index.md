@@ -109,4 +109,4 @@ git pull
 
 ## 外部リンク
 
-* [Git](https://git-scm.com/)
+- [Git](https://git-scm.com/)

@@ -109,4 +109,4 @@ This reflects the changes from the remote repository locally.
 
 ## External Links
 
-* [Git](https://git-scm.com/)
+- [Git](https://git-scm.com/)
