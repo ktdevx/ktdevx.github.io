@@ -23,7 +23,7 @@ BUFFALOのWSR-2533DHPにOpenWrtをインストールする方法について説�
 
 ## イメージのダウンロード
 
-今回はOpenWrt 24.10.00をインストールします。[OpenWrtの公式ダウンロードページ](https://downloads.openwrt.org/releases/24.10.0/targets/ramips/mt7621/)から、initramfsイメージとsysupgradeイメージをダウンロードしましょう。
+今回はOpenWrt 24.10.0をインストールします。[OpenWrtの公式ダウンロードページ](https://downloads.openwrt.org/releases/24.10.0/targets/ramips/mt7621/)から、initramfsイメージとsysupgradeイメージをダウンロードしましょう。
 
 - buffalo_wsr-2533dhpl-initramfs-kernel.bin  
   initramfsイメージ。
@@ -131,7 +131,7 @@ sysupgrade /tmp/<sysupgradeイメージ>
 scp <メーカーファームへのパス> root@192.168.1.1:/tmp
 ```
 
-転送が完了したらOpenWrtでmtdコマンドを使用して、フラッシュにメーカーファームを書き込みましょう。
+転送が完了したらOpenWrtでmtdコマンドを使用して、フラッシュにメーカーファームを書き込みましょう。ファームウェアはfirmwareパーティションに書き込みます。
 
 ```
 mtd write /tmp/<メーカーファーム> "firmware"
