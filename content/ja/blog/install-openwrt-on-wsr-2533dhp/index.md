@@ -15,7 +15,7 @@ BUFFALOのWSR-2533DHPにOpenWrtをインストールする方法について説�
 | メーカー           | BUFFALO                     |
 | ------------------ | --------------------------- |
 | モデル             | WSR-2533DHP                 |
-| CPU                | Media Tek MT7621A 880MHz    |
+| CPU                | Media Tek MT7621AT 880MHz   |
 | フラッシュ         | 16MB                        |
 | メモリ             | 128MB                       |
 | イーサネットポート | 1Gbps×5                    |
