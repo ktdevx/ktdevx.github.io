@@ -1,6 +1,7 @@
 ---
 title: プライバシーポリシー
 date: 2024-09-26T22:06:59+09:00
+lastmod: 2025-03-30T14:05:00+09:00
 draft: false
 ---
 
@@ -58,6 +59,8 @@ Cookieによる情報収集を好まれない場合、ユーザーご自身で�
 Google Analyticsはデータの収集のためにCookieを使用し、個人を特定することなくサービスの利用動向を収集します。なお、詳細についてはGoogleが公開している「[Google アナリティクス利用規約](https://marketingplatform.google.com/about/analytics/terms/jp/)」および「[ポリシーと規約](https://policies.google.com/technologies/partner-sites)」からご確認いただけます。
 
 ## 広告について
+
+Amazonのアソシエイトとして、当サイトは適格販売により収入を得ています。
 
 当サイトでは、第三者配信の広告サービスGoogle AdSenseを利用しており、ユーザーの興味に応じた商品やサービスの広告を表示するため、Cookieを使用しております。
 

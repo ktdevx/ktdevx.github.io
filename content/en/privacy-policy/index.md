@@ -1,6 +1,7 @@
 ---
 title: Privacy Policy
 date: 2024-09-26T22:06:59+09:00
+lastmod: 2025-03-30T14:05:00+09:00
 draft: false
 ---
 
@@ -58,6 +59,8 @@ This site uses Google Analytics to understand usage patterns.
 Google Analytics uses cookies to collect data without identifying individuals. For more information, please refer to [Google Analytics Terms of Service](https://marketingplatform.google.com/about/analytics/terms/us/) and [Privacy & Terms](https://policies.google.com/technologies/partner-sites).
 
 ## Advertising
+
+As an Amazon associate, this site receives income from qualified sales.
 
 This site uses Google AdSense, a third-party advertising service, to display ads based on user interests by using cookies.
 
