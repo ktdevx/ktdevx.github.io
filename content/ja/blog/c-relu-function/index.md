@@ -2,6 +2,8 @@
 title: 【C言語】ReLU関数の実装
 date: 2024-09-30T01:07:48+09:00
 draft: false
+tags:
+  - C
 params:
   toc: true
   math: true

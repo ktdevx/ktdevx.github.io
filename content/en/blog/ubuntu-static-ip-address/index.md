@@ -2,6 +2,8 @@
 title: Assign a Static Address on Ubuntu
 date: 2024-09-29T21:05:11+09:00
 draft: false
+tags:
+  - Ubuntu
 params:
   toc: true
 ---

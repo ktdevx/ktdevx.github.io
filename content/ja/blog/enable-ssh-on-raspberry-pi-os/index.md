@@ -2,6 +2,9 @@
 title: Raspberry Pi OSでSSH接続を有効化する
 date: 2024-09-30T00:16:27+09:00
 draft: false
+tags:
+  - Raspberry Pi
+  - SSH
 params:
   toc: true
 ---

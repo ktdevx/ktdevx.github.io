@@ -2,6 +2,8 @@
 title: 【C言語】goto文でメモリ解放の管理を容易にする
 date: 2024-09-29T17:02:39+09:00
 draft: false
+tags:
+  - C
 params:
   toc: true
 ---

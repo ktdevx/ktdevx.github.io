@@ -2,6 +2,8 @@
 title: Differences and Use Cases of apt and apt-get
 date: 2024-09-29T15:30:35+09:00
 draft: false
+tags:
+  - APT
 params:
   toc: true
 ---

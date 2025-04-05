@@ -2,6 +2,8 @@
 title: How to Generate an SSH Key
 date: 2024-09-29T19:51:46+09:00
 draft: false
+tags:
+  - SSH
 params:
   toc: true
 ---

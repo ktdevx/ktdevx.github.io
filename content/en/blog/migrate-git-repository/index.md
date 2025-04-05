@@ -2,6 +2,8 @@
 title: Migrate a Git Repository to Another Server
 date: 2024-09-29T22:57:58+09:00
 draft: false
+tags:
+  - Git
 params:
   toc: true
 ---

@@ -2,6 +2,8 @@
 title: Aterm WG2600HP3にOpenWrtをインストールする
 date: 2025-03-22T00:15:28+09:00
 draft: false
+tags:
+  - OpenWrt
 params:
   toc: true
 ---

@@ -2,6 +2,8 @@
 title: Proxmox VEで仮想マシン(VM)を作成する
 date: 2025-04-05T14:38:12+09:00
 draft: false
+tags:
+  - Proxmox VE
 params:
   toc: true
 ---

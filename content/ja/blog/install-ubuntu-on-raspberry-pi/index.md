@@ -2,6 +2,9 @@
 title: Raspberry PiにUbuntuをインストールする
 date: 2024-09-30T00:26:00+09:00
 draft: false
+tags:
+  - Raspberry Pi
+  - Ubuntu
 params:
   toc: true
 ---

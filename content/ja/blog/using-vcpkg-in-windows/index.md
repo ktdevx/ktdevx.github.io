@@ -2,6 +2,12 @@
 title: vcpkgを使用してWindowsでC/C++ライブラリを簡単にインストールする
 date: 2024-09-29T23:48:53+09:00
 draft: false
+tags:
+  - vcpkg
+  - C
+  - C++
+params:
+  toc: true
 ---
 
 vcpkgとは、Microsoftが提供するC/C++ライブラリ向けのパッケージ管理システムです。

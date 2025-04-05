@@ -2,6 +2,8 @@
 title: Install and Using Win32 Disk Imager
 date: 2024-09-29T21:30:39+09:00
 draft: false
+tags:
+  - Win32 Disk Imager
 params:
   toc: true
 ---

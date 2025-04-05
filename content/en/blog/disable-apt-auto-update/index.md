@@ -2,6 +2,8 @@
 title: Disable Automatic Updates for APT Packages
 date: 2024-09-29T19:22:50+09:00
 draft: false
+tags:
+  - APT
 params:
   toc: true
 ---

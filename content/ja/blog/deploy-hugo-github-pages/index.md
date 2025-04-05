@@ -2,6 +2,9 @@
 title: HugoとGitHub Pagesで静的なWebサイトを公開する
 date: 2024-09-27T21:11:39+09:00
 draft: false
+tags:
+  - GitHub
+  - Hugo
 params:
   toc: true
 ---

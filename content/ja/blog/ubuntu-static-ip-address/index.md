@@ -2,6 +2,8 @@
 title: 【Ubuntu】固定IPアドレスを割り当てる
 date: 2024-09-29T21:05:11+09:00
 draft: false
+tags:
+  - Ubuntu
 params:
   toc: true
 ---

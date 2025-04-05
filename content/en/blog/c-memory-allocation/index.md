@@ -2,6 +2,8 @@
 title: How to Allocate Dynamic Memory in C and Points of Caution
 date: 2024-09-29T17:54:41+09:00
 draft: false
+tags:
+  - C
 params:
   toc: true
 ---

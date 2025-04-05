@@ -2,6 +2,8 @@
 title: 【C言語】シグモイド関数の実装
 date: 2024-09-30T01:28:23+09:00
 draft: false
+tags:
+  - C
 params:
   toc: true
   math: true

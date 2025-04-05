@@ -2,6 +2,8 @@
 title: Proxmox VEをインストールする
 date: 2025-03-30T11:10:09+09:00
 draft: false
+tags:
+  - Proxmox VE
 params:
   toc: true
 ---

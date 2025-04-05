@@ -2,6 +2,10 @@
 title: WindowsにMinGWをインストールする
 date: 2024-09-28T16:25:47+09:00
 draft: false
+tags:
+  - MinGW
+  - C
+  - C++
 params:
   toc: true
 ---

@@ -2,6 +2,8 @@
 title: WSR-2533DHPにOpenWrtをインストールする
 date: 2025-03-20T10:59:25+09:00
 draft: false
+tags:
+  - OpenWrt
 params:
   toc: true
 ---

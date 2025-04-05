@@ -2,6 +2,9 @@
 title: 【Ubuntu】公開鍵認証でSSH接続する方法
 date: 2025-03-06T22:45:49+09:00
 draft: false
+tags:
+  - Ubuntu
+  - SSH
 params:
   toc: true
 ---

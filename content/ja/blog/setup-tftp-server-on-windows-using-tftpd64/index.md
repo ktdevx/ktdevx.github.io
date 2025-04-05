@@ -2,6 +2,8 @@
 title: WindowsでTftpd64を使用してTFTPサーバーを立てる
 date: 2025-03-16T16:44:58+09:00
 draft: false
+tags:
+  - Tftpd64
 params:
   toc: true
 ---

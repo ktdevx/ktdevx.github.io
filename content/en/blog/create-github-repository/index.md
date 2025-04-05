@@ -2,6 +2,8 @@
 title: Create a Repository on GitHub
 date: 2024-09-27T20:27:23+09:00
 draft: false
+tags:
+  - GitHub
 params:
   toc: true
 ---
