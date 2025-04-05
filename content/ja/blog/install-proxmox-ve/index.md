@@ -47,7 +47,7 @@ Win32 Disk Imagerを使用した書き込み方法については、[Win32 Disk 
 
 ## Proxmox VEのインストール
 
-Proxmo VEをインストールしたいPCにUSBメモリを接続し、PCを起動してUSBメモリからブートさせましょう。起動するとProxmox VEのインストール画面が表示されます。
+Proxmox VEをインストールしたいPCにUSBメモリを接続し、PCを起動してUSBメモリからブートさせましょう。起動するとProxmox VEのインストール画面が表示されます。
 
 ### インストールタイプの選択
 
