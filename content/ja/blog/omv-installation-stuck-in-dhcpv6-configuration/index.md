@@ -1,6 +1,7 @@
 ---
 title: OpenMediaVaultのインストールがDHCPv6の設定でスタックする
 date: 2025-04-07T23:28:22+09:00
+lastmod: 2025-04-08T19:29:22+09:00
 draft: false
 tags:
   - OpenMediaVault
@@ -24,11 +25,13 @@ OpenMediaVaultのインストールをしていたところ、DHCPv6の自動設
 
 私の環境では、IPv6アドレスはISPからSLAAC方式で割り当てられており、ルーター側でRAとDHCPv6、NDPプロキシを全てリレーする設定にしておりました。
 
-SLAAC方式では、IPv6アドレスのプレフィックスはRAで割り当てられ、DNSの情報取得はDHCPv6のInformation-requestにて行われます。
+SLAAC方式では、IPv6アドレスのプレフィックスがRAで通知されます。そして、DNSサーバーのアドレスについては、DHCPv6のInformation-requestか、RDNSSのいずれかで取得することになります。
 
-ルーターでDHCPv6をリレーする場合、クライアントから送られてきたInformation-requestを、ルーターがDHCPv6サーバーに向けてRelay-forwordで転送します。
+ルーターのパケットを解析すると、私の環境ではDNSサーバーのアドレスはInformation-requestにより取得されていました。
 
-私の環境では、DHCPv6サーバーがRelay-forwordに対応していなかったようで、クライアントにInformation-requestの応答が返らない状態となっていました。
+ルーターでDHCPv6をリレーする場合、クライアントから送られてきたInformation-requestを、ルーターがDHCPv6サーバーに向けてRelay-forwordで転送することになります。
+
+DHCPv6リレー時のパケットを解析したところ、DHCPv6サーバーがRelay-forwordに対応していなかったようで、結果的にクライアントにInformation-requestの応答が返らない状態となっていました。
 
 これにより、OpenMediaVaultのインストールがスタックしてしまっていたようです。
 
