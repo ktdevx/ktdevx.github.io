@@ -16,6 +16,8 @@ OpenMediaVault(OMV)は、DebianをベースにしたオープンソースのNAS�
 
 サーバーのハードウェアには、GMKtecのNucBox M5 Plusを選択しました。
 
+{{< ads/nucbox-m5-plus >}}
+
 ミニPCには仮想化プラットフォームのProxmox VEをインストールしているため、そこに仮想マシンを作成してOpenMediaVaultをインストールします。
 
 ## OpenMediaVaultのインストール

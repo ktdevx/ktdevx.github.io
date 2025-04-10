@@ -16,7 +16,7 @@ Proxmox VE(Virtual Environment)は、KVMとLXCをベースにしたオープン�
 
 今回は、GMKtecが販売しているミニPCの[NucBox M5 Plus](https://www.gmktec.com/products/amd-ryzen-7-5825u-mini-pc-nucbox-m5-plus)に、Proxmox VEをインストールします。
 
-![GMKtec NucBox M5 Plus](images/gmktec-nucbox-m5-plus.webp)
+{{< ads/nucbox-m5-plus >}}
 
 NucBox M5 Plusのスペックは以下の通りです。
 
@@ -30,8 +30,6 @@ NucBox M5 Plusのスペックは以下の通りです。
 | ネットワーク     | LAN (2.5Gb)×2、Wi-Fi 6E、Bluetooth 5.2         |
 | インターフェース | USB Type-C (映像出力対応)×1、USB3.2 Gen1×2、USB2.0×2、HDMI×1、DisplayPort×1、オーディオ端子 (3.5mm 4極) |
 | 拡張スロット     | M.2スロット×3 (ストレージ用×2、Wi-Fi用×1)    |
-
-RAM 16GB、SSD 512GBが搭載されたものを楽天市場で35,000円程で購入しました。
 
 ## Proxmox VEのダウンロード
 
