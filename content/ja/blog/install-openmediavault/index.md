@@ -1,7 +1,7 @@
 ---
 title: OpenMediaVaultをインストールする
 date: 2025-04-05T21:59:14+09:00
-lastmod: 2025-04-07T23:42:46+09:00
+lastmod: 2025-04-12T19:36:21+09:00
 draft: false
 tags:
   - OpenMediaVault
@@ -12,6 +12,16 @@ params:
 OpenMediaVault(OMV)は、DebianをベースにしたオープンソースのNASソフトウェアで、ユーザーが簡単にNASを構築できるように設計されています。
 
 ここでは、OpenMediaVaultをインストールする方法について説明します。
+
+## はじめに
+
+サーバーのハードウェアには、GMKtecのNucBox M5 Plusを選択しました。
+
+{{< ads/nucbox-m5-plus >}}
+
+ミニPCには仮想化プラットフォームのProxmox VEをインストールしているため、そこに仮想マシンを作成してDebianをインストールします。
+
+Proxmox VE上の仮想マシンにインストールする場合は、「[Proxmox VEで仮想マシン(VM)を作成する](/blog/create-vm-in-proxmox-ve)」の記事も参考にしてください。
 
 ## OpenMediaVaultのダウンロード
 
