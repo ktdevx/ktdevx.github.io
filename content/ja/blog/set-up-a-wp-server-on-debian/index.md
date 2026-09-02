@@ -8,16 +8,39 @@ params:
 
 ## パッケージのインストール
 
-```
+WordPress サーバーを構築するために必要なパッケージをインストールします。まず、パッケージリストを最新に更新してから、必要なパッケージをインストールします。
+
+```bash
 sudo apt update
 sudo apt install -y wordpress curl apache2 mariadb-server
 ```
 
+**インストールするパッケージの説明：**
+- `wordpress`: WordPress のアプリケーションおよびファイル（PHP ファイル、テンプレートなど）
+- `curl`: ウェブからファイルをダウンロードしたり、API リクエストを送信するためのツール
+- `apache2`: ウェブサーバーソフトウェア。WordPress の PHP ファイルを実行してブラウザに表示します
+- `mariadb-server`: データベースサーバー。WordPress の記事、ユーザー情報などのデータを保存します
+
+`-y` フラグは、インストール中の確認プロンプトに自動的に「yes」と答えます。インストールにはインターネット接続と若干の時間がかかります。
+
 ## MariaDB のセキュア設定
 
-```
-sudo mysql_secure_installation
+MariaDB をインストール直後は、セキュリティ設定が緩い状態です。`mysql_secure_installation` スクリプトを実行して、セキュリティを強化します。このスクリプトは以下の項目をセキュアに設定します：
 
+- **root ユーザーのパスワード設定**: 初期状態では root パスワードが空の場合があります
+- **匿名ユーザーの削除**: 誰でもデータベースにアクセスできる匿名ユーザーを削除
+- **リモートアクセスの制限**: root ユーザーがネットワーク経由でアクセスするのを禁止
+- **テストデータベースの削除**: テスト用の「test」という名前のデータベースを削除
+
+以下のコマンドでセキュア設定を開始します：
+
+```bash
+sudo mysql_secure_installation
+```
+
+実行すると以下のようなプロンプトが表示されます。各段階での推奨される回答を説明します：
+
+```
 NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB
       SERVERS IN PRODUCTION USE!  PLEASE READ EACH STEP CAREFULLY!
 
@@ -26,6 +49,11 @@ password for the root user. If you've just installed MariaDB, and
 haven't set the root password yet, you should just press enter here.
 
 Enter current password for root (enter for none): <Enterキー押下>
+```
+
+**説明：** MariaDB インストール直後は root パスワードが設定されていません。`Enter` キーを押して進みます。
+
+```
 OK, successfully used password, moving on...
 
 Setting the root password or using the unix_socket ensures that nobody
@@ -37,8 +65,11 @@ Switch to unix_socket authentication [Y/n] y
 Enabled successfully!
 Reloading privilege tables..
  ... Success!
+```
 
+**説明：** unix_socket 認証を有効にすることで、OS ユーザー認証を利用したセキュアなアクセス制御が可能になります。`y` と入力して有効化します。
 
+```
 You already have your root account protected, so you can safely answer 'n'.
 
 Change the root password? [Y/n] y
@@ -47,8 +78,11 @@ Re-enter new password: <パスワードを再入力>
 Password updated successfully!
 Reloading privilege tables..
  ... Success!
+```
 
+**説明：** `y` と入力して root ユーザーのパスワードを設定します。**安全で覚えやすいパスワードを設定してください** —このパスワードは後ほど MariaDB に接続する際に必要になります。
 
+```
 By default, a MariaDB installation has an anonymous user, allowing anyone
 to log into MariaDB without having to have a user account created for
 them.  This is intended only for testing, and to make the installation
@@ -57,13 +91,21 @@ production environment.
 
 Remove anonymous users? [Y/n] y
  ... Success!
+```
 
+**説明：** 匿名ユーザーはセキュリティリスクです。本番環境では削除する必要があります。`y` と入力して削除します。
+
+```
 Normally, root should only be allowed to connect from 'localhost'.  This
 ensures that someone cannot guess at the root password from the network.
 
 Disallow root login remotely? [Y/n] y
  ... Success!
+```
 
+**説明：** root ユーザーがネットワーク経由（リモート）でアクセスするのを禁止することで、セキュリティが向上します。`y` と入力して禁止します。
+
+```
 By default, MariaDB comes with a database named 'test' that anyone can
 access.  This is also intended only for testing, and should be removed
 before moving into a production environment.
@@ -73,8 +115,12 @@ Remove test database and access to it? [Y/n] y
  ... Success!
  - Removing privileges on test database...
  ... Success!
+```
 
-Reloading the privilege tables will ensure that all changes made so far
+**説明：** テストデータベースは不要なので削除します。`y` と入力してください。
+
+```
+Reloading privilege tables will ensure that all changes made so far
 will take effect immediately.
 
 Reload privilege tables now? [Y/n] y
