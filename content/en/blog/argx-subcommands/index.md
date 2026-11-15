@@ -1,6 +1,6 @@
 ---
 title: Build a CLI with Subcommands in C Using ArgX
-date: 2026-11-15T00:00:00+09:00
+date: 2026-11-16T08:00:00+09:00
 draft: false
 tags:
   - C
