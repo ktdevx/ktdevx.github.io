@@ -1,0 +1,153 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:42+0000\n"
+"PO-Revision-Date: 2026-11-15 23:40+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/apt-vs-apt-get/index.md:2
+msgid "aptとapt-getの違いと使い分け"
+msgstr "Differences and Use Cases of apt and apt-get"
+
+#. paragraph
+#: content/ja/blog/apt-vs-apt-get/index.md:11
+msgid ""
+"aptとapt-getは、どちらもDebian系のLinuxディストリビューションで使用されるパッ"
+"ケージ管理ツールです。"
+msgstr ""
+"Both apt and apt-get are package management tools used in Debian-based Linux "
+"distributions."
+
+#. paragraph
+#: content/ja/blog/apt-vs-apt-get/index.md:13
+msgid "ここでは、２つのコマンドの違いと使い分けについて解説します。"
+msgstr ""
+"This article explains the differences between these two commands and when to "
+"use each."
+
+#. heading (level 2)
+#: content/ja/blog/apt-vs-apt-get/index.md:15
+msgid "apt-getとは"
+msgstr "What is apt-get?"
+
+#. paragraph
+#: content/ja/blog/apt-vs-apt-get/index.md:17
+msgid ""
+"apt-getは、古くからあるパッケージ管理ツールの1つです。このツールを使用するこ"
+"とで、リポジトリからパッケージを取得し、インストール、アップグレード、削除な"
+"どの操作が可能です。"
+msgstr ""
+"apt-get is one of the older package management tools. It allows you to fetch "
+"packages from repositories, install, upgrade, and remove them."
+
+#. paragraph
+#: content/ja/blog/apt-vs-apt-get/index.md:19
+msgid ""
+"依存関係の解決や競合するパッケージの処理を自動的に行い、キャッシュ管理も行い"
+"ます。さらに、システム全体のアップグレードを実行することも可能です。"
+msgstr ""
+"It automatically handles dependency resolution, deals with conflicting "
+"packages, and manages the cache. Additionally, it can perform system-wide "
+"upgrades."
+
+#. heading (level 2)
+#: content/ja/blog/apt-vs-apt-get/index.md:21
+msgid "aptとは"
+msgstr "What is apt?"
+
+#. paragraph
+#: content/ja/blog/apt-vs-apt-get/index.md:23
+msgid ""
+"aptは、apt-getの後継として開発されたパッケージ管理ツールです。apt-getと同様"
+"に、インターネット上のリポジトリからパッケージを取得し、インストール、アップ"
+"グレード、削除などの操作が可能です。"
+msgstr ""
+"apt was developed as a successor to apt-get. Like apt-get, it allows you to "
+"fetch packages from online repositories, install, upgrade, and remove them."
+
+#. paragraph
+#: content/ja/blog/apt-vs-apt-get/index.md:25
+msgid ""
+"より直感的でシンプルなインターフェースを提供し、高速で、ディスク容量の節約に"
+"も貢献します。また、依存関係や競合パッケージの処理、キャッシュ管理も自動的に"
+"行います。"
+msgstr ""
+"It offers a more intuitive and simpler interface, operates faster, and helps "
+"save disk space. It also automatically handles dependencies, conflicting "
+"packages, and cache management."
+
+#. heading (level 2)
+#: content/ja/blog/apt-vs-apt-get/index.md:27
+msgid "aptとapt-getの違い"
+msgstr "Differences Between apt and apt-get"
+
+#. paragraph
+#: content/ja/blog/apt-vs-apt-get/index.md:29
+msgid ""
+"apt-getは、古い設計ゆえに依存関係の解決に問題があったり、進捗表示やエラーメッ"
+"セージがわかりにくいという欠点が指摘されてきました。これに対してaptは、これら"
+"の問題を解決するために開発され、よりシンプルで直感的なコマンド体系、進捗表"
+"示、詳細なエラーメッセージの表示、自動データベース更新など、多くの改良点があ"
+"ります。"
+msgstr ""
+"apt-get has been criticized for its older design, which can struggle with "
+"dependency resolution and has unclear progress indicators and error "
+"messages. In response, apt was developed to address these issues, providing "
+"a simpler and more intuitive command structure, clear progress indicators, "
+"detailed error messages, and automatic database updates, among other "
+"improvements."
+
+#. paragraph
+#: content/ja/blog/apt-vs-apt-get/index.md:31
+msgid ""
+"また、apt-getのインターフェースは明確に定義され、下位互換性が維持されることが"
+"保証されていますが、aptのインターフェースは将来的な改良のために変更される可能"
+"性があります。"
+msgstr ""
+"While apt-get has a well-defined interface with guaranteed backward "
+"compatibility, the interface of apt may change in the future to accommodate "
+"further improvements."
+
+#. heading (level 2)
+#: content/ja/blog/apt-vs-apt-get/index.md:33
+msgid "どう使い分けるべきか"
+msgstr "When to Use Each"
+
+#. paragraph
+#: content/ja/blog/apt-vs-apt-get/index.md:35
+msgid ""
+"基本的には、aptを使用することが推奨されます。aptは、よりシンプルで直感的なイ"
+"ンターフェースを持ち、高速で効率的なパッケージ管理を実現しています。"
+msgstr ""
+"In most cases, it is recommended to use apt. It offers a more "
+"straightforward and intuitive interface, making package management faster "
+"and more efficient."
+
+#. paragraph
+#: content/ja/blog/apt-vs-apt-get/index.md:37
+msgid ""
+"ただし、aptは将来的にインターフェースが変更される可能性があるため、スクリプト"
+"や外部ツールでの使用を考慮する場合、安定した互換性を確保するためにapt-getを使"
+"用することが推奨されます。"
+msgstr ""
+"However, because the interface of apt may change in the future, if you are "
+"using it in scripts or external tools, it is recommended to use apt-get to "
+"ensure stable compatibility."
+
+#. heading (level 2)
+#: content/ja/blog/apt-vs-apt-get/index.md:39
+msgid "外部リンク"
+msgstr "External Links"
+
+#. list item > paragraph
+#: content/ja/blog/apt-vs-apt-get/index.md:40
+msgid "[ja/Apt - Debian Wiki](https://wiki.debian.org/ja/Apt)"
+msgstr "[Apt - Debian Wiki](https://wiki.debian.org/Apt)"

@@ -2,3 +2,5 @@
 /resources/_gen/
 /.hugo_build.lock
 /hugo.exe
+# tools/l10n.sh build が po/ から作る
+/content/en/

@@ -1,0 +1,581 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:45+0000\n"
+"PO-Revision-Date: 2026-11-15 23:40+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/install-openmediavault/index.md:2
+msgid "OpenMediaVaultをインストールする"
+msgstr "Install OpenMediaVault"
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:12
+msgid ""
+"OpenMediaVault(OMV)は、DebianをベースにしたオープンソースのNASソフトウェア"
+"で、ユーザーが簡単にNASを構築できるように設計されています。"
+msgstr ""
+"OpenMediaVault (OMV) is open-source NAS software based on Debian, designed "
+"to make it easy for users to build a NAS."
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:14
+msgid "ここでは、OpenMediaVaultをインストールする方法について説明します。"
+msgstr "This article explains how to install OpenMediaVault."
+
+#. heading (level 2)
+#: content/ja/blog/install-openmediavault/index.md:16
+msgid "はじめに"
+msgstr "Introduction"
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:18
+msgid "サーバーのハードウェアには、GMKtecのNucBox M5 Plusを選択しました。"
+msgstr "For the server hardware, I chose GMKtec's NucBox M5 Plus."
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:20
+msgid "{{< ads/nucbox-m5-plus >}}"
+msgstr "{{< ads/nucbox-m5-plus >}}"
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:22
+msgid ""
+"ミニPCには仮想化プラットフォームのProxmox VEをインストールしているため、そこ"
+"に仮想マシンを作成してDebianをインストールします。"
+msgstr ""
+"Since the Proxmox VE virtualization platform is installed on the mini PC, I "
+"create a virtual machine there and install Debian on it."
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:24
+msgid ""
+"Proxmox VE上の仮想マシンにインストールする場合は、「[Proxmox VEで仮想マシン"
+"(VM)を作成する](/blog/create-vm-in-proxmox-ve)」の記事も参考にしてください。"
+msgstr ""
+"When installing on a virtual machine on Proxmox VE, also see \"[Create a "
+"Virtual Machine (VM) on Proxmox VE](/blog/create-vm-in-proxmox-ve)\"."
+
+#. heading (level 2)
+#: content/ja/blog/install-openmediavault/index.md:26
+msgid "OpenMediaVaultのダウンロード"
+msgstr "Download OpenMediaVault"
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:28
+msgid ""
+"[OpenMediaVaultのダウンロードページ](https://www.openmediavault.org/download)"
+"から、ISOイメージをダウンロードします。今回はOpenMediaVault 7.4.14をダウン"
+"ロードしました。"
+msgstr ""
+"Download the ISO image from the [OpenMediaVault download page](https://www."
+"openmediavault.org/download). This time, I downloaded OpenMediaVault 7.4.14."
+
+#. heading (level 2)
+#: content/ja/blog/install-openmediavault/index.md:30
+msgid "インストール用USBメモリの作成"
+msgstr "Create an Installation USB Drive"
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:32
+msgid ""
+"先ほどダウンロードしたISOイメージを、USBメモリに書き込みます。Win32 Disk "
+"Imagerなどのイメージ書き込みソフトを使用してUSBメモリへ書き込みましょう。"
+msgstr ""
+"Write the ISO image you just downloaded to a USB drive using image-writing "
+"software such as Win32 Disk Imager."
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:34
+msgid ""
+"Win32 Disk Imagerを使用した書き込み方法については、[Win32 Disk Imagerのインス"
+"トールと使い方](/blog/install-win32-disk-imager)で詳しく説明しています。そち"
+"らを参考にしてください。"
+msgstr ""
+"For details on how to write images with Win32 Disk Imager, see [How to "
+"Install and Use Win32 Disk Imager](/blog/install-win32-disk-imager)."
+
+#. heading (level 2)
+#: content/ja/blog/install-openmediavault/index.md:36
+msgid "OpenMediaVaultのインストール"
+msgstr "Install OpenMediaVault"
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:38
+msgid ""
+"OpenMediaVaultをインストールしたいPCにUSBメモリを接続し、PCを起動してUSBメモ"
+"リからブートさせましょう。起動するとOpenMediaVaultのインストール画面が表示さ"
+"れます。"
+msgstr ""
+"Connect the USB drive to the PC on which you want to install OpenMediaVault, "
+"start the PC, and boot from the USB drive. The OpenMediaVault installation "
+"screen is displayed."
+
+#. heading (level 3)
+#: content/ja/blog/install-openmediavault/index.md:40
+msgid "インストール方法の選択"
+msgstr "Select the Installation Method"
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:42
+msgid "![OpenMediaVaultのインストール画面](images/install-omv-1.webp)"
+msgstr "![OpenMediaVault installation screen](images/install-omv-1.webp)"
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:44
+msgid ""
+"インストール方法が表示されます。「Install」を選択してEnterキーを押すか、自動"
+"でインストールが開始されるまで待ちましょう。"
+msgstr ""
+"The installation methods are displayed. Select \"Install\" and press Enter, "
+"or wait for the installation to start automatically."
+
+#. heading (level 3)
+#: content/ja/blog/install-openmediavault/index.md:46
+msgid "言語の設定"
+msgstr "Configure the Language"
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:48
+msgid "![OpenMediaVaultのインストール画面](images/install-omv-2.webp)"
+msgstr "![OpenMediaVault installation screen](images/install-omv-2.webp)"
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:50
+msgid ""
+"インストール中に表示される言語の設定を行います。日本語を選択してEnterキーを押"
+"しましょう。"
+msgstr ""
+"Configure the language displayed during installation. Select Japanese and "
+"press Enter."
+
+#. heading (level 3)
+#: content/ja/blog/install-openmediavault/index.md:52
+msgid "ロケールの設定"
+msgstr "Configure the Locale"
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:54
+msgid "![OpenMediaVaultのインストール画面](images/install-omv-3.webp)"
+msgstr "![OpenMediaVault installation screen](images/install-omv-3.webp)"
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:56
+msgid ""
+"ロケールの設定を行います。この設定はタイムゾーンの設定やシステムのロケールの"
+"選択の支援に使用されます。"
+msgstr ""
+"Configure the locale. This setting is used to help set the time zone and "
+"select the system locale."
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:58
+msgid "日本を選択してEnterキーを押しましょう。"
+msgstr "Select Japan and press Enter."
+
+#. heading (level 3)
+#: content/ja/blog/install-openmediavault/index.md:60
+msgid "キーボードの設定"
+msgstr "Configure the Keyboard"
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:62
+msgid "![OpenMediaVaultのインストール画面](images/install-omv-4.webp)"
+msgstr "![OpenMediaVault installation screen](images/install-omv-4.webp)"
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:64
+msgid ""
+"キーボードの設定を行います。使用しているキーボードの配列に合わせて選択し、"
+"Enterキーを押しましょう。"
+msgstr ""
+"Configure the keyboard. Select the layout that matches your keyboard and "
+"press Enter."
+
+#. heading (level 3)
+#: content/ja/blog/install-openmediavault/index.md:66
+msgid "追加コンポーネントのロード・ネットワークの自動設定"
+msgstr "Load Additional Components and Configure the Network Automatically"
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:68
+msgid "![OpenMediaVaultのインストール画面](images/install-omv-5.webp)"
+msgstr "![OpenMediaVault installation screen](images/install-omv-5.webp)"
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:70
+msgid "追加コンポーネントのロードや、ネットワークの自動設定が動作します。"
+msgstr ""
+"Additional components are loaded and the network is configured automatically."
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:72
+msgid ""
+"この時、**IPv6環境下でDHCPv6の設定後にインストーラーが止まる**場合がありま"
+"す。原因と対処法について以下の記事にまとめているので、困ったら参考にしてくだ"
+"さい。"
+msgstr ""
+"At this point, **the installer may get stuck after configuring DHCPv6 in an "
+"IPv6 environment**. I have summarized the cause and solution in the "
+"following article, so refer to it if you run into trouble."
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:74
+msgid ""
+"[OpenMediaVaultのインストールがDHCPv6の設定でスタックする](/blog/omv-"
+"installation-stuck-in-dhcpv6-configuration)"
+msgstr ""
+"[OpenMediaVault Installation Stuck During DHCPv6 Configuration](/blog/omv-"
+"installation-stuck-in-dhcpv6-configuration)"
+
+#. heading (level 3)
+#: content/ja/blog/install-openmediavault/index.md:76
+msgid "ホスト名の設定"
+msgstr "Configure the Hostname"
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:78
+msgid "![OpenMediaVaultのインストール画面](images/install-omv-6.webp)"
+msgstr "![OpenMediaVault installation screen](images/install-omv-6.webp)"
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:80
+msgid "サーバーのホスト名を設定します。"
+msgstr "Set the server hostname."
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:82
+msgid ""
+"デフォルトは`openmediavault`になっています。特に指定がなければそのままでも問"
+"題ありません。"
+msgstr ""
+"The default is `openmediavault`. If you have no particular requirement, you "
+"can leave it as is."
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:84
+msgid ""
+"ホスト名を入力して「<続ける>」にカーソルを合わせてEnterキーを押しましょう。"
+msgstr ""
+"Enter a hostname, move the cursor to \"\\<Continue\\>\", and press Enter."
+
+#. heading (level 3)
+#: content/ja/blog/install-openmediavault/index.md:86
+msgid "ドメイン名の設定"
+msgstr "Configure the Domain Name"
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:88
+msgid "![OpenMediaVaultのインストール画面](images/install-omv-7.webp)"
+msgstr "![OpenMediaVault installation screen](images/install-omv-7.webp)"
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:90
+msgid "サーバーのドメイン名を設定します。"
+msgstr "Set the server domain name."
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:92
+msgid ""
+"デフォルトは`local`になっています。特に指定がなければそのままでも問題ありませ"
+"ん。"
+msgstr ""
+"The default is `local`. If you have no particular requirement, you can leave "
+"it as is."
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:94
+msgid ""
+"ドメイン名を入力して「<続ける>」にカーソルを合わせてEnterキーを押しましょう。"
+msgstr ""
+"Enter a domain name, move the cursor to \"\\<Continue\\>\", and press Enter."
+
+#. heading (level 3)
+#: content/ja/blog/install-openmediavault/index.md:96
+msgid "管理者のパスワードの設定"
+msgstr "Configure the Administrator Password"
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:98
+msgid "![OpenMediaVaultのインストール画面](images/install-omv-8.webp)"
+msgstr "![OpenMediaVault installation screen](images/install-omv-8.webp)"
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:100
+msgid "管理者ユーザー(`root`)のパスワードを設定します。"
+msgstr "Set the password for the administrator user (`root`)."
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:102
+msgid ""
+"パスワードを入力して「<続ける>」にカーソルを合わせてEnterキーを押しましょう。"
+msgstr ""
+"Enter a password, move the cursor to \"\\<Continue\\>\", and press Enter."
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:104
+msgid "![OpenMediaVaultのインストール画面](images/install-omv-9.webp)"
+msgstr "![OpenMediaVault installation screen](images/install-omv-9.webp)"
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:106
+msgid ""
+"確認のため再度同じパスワードを入力して「<続ける>」にカーソルを合わせてEnter"
+"キーを押しましょう。"
+msgstr ""
+"Enter the same password again for confirmation, move the cursor to "
+"\"\\<Continue\\>\", and press Enter."
+
+#. heading (level 3)
+#: content/ja/blog/install-openmediavault/index.md:108
+msgid "Debianパッケージリポジトリの設定"
+msgstr "Configure the Debian Package Repository"
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:110
+msgid "![OpenMediaVaultのインストール画面](images/install-omv-10.webp)"
+msgstr "![OpenMediaVault installation screen](images/install-omv-10.webp)"
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:112
+msgid ""
+"Debianのパッケージリポジトリの設定を行います。「日本」を選択してEnterキーを押"
+"しましょう。"
+msgstr ""
+"Configure the Debian package repository. Select \"Japan\" and press Enter."
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:114
+msgid "![OpenMediaVaultのインストール画面](images/install-omv-11.webp)"
+msgstr "![OpenMediaVault installation screen](images/install-omv-11.webp)"
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:116
+msgid ""
+"パッケージリポジトリとそのミラーが一覧で表示されます。特に指定がなければ`deb."
+"debian.org`で問題ありません。"
+msgstr ""
+"A list of package repositories and their mirrors is displayed. If you have "
+"no particular requirement, `deb.debian.org` is fine."
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:118
+msgid "リポジトリを選択してEnterキーを押しましょう。"
+msgstr "Select a repository and press Enter."
+
+#. heading (level 3)
+#: content/ja/blog/install-openmediavault/index.md:120
+msgid "HTTPプロキシの設定"
+msgstr "Configure the HTTP Proxy"
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:122
+msgid "![OpenMediaVaultのインストール画面](images/install-omv-12.webp)"
+msgstr "![OpenMediaVault installation screen](images/install-omv-12.webp)"
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:124
+msgid "HTTPプロキシの設定を行います。"
+msgstr "Configure the HTTP proxy."
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:126
+msgid ""
+"プロキシを介してインターネットへアクセスする必要がある場合は、プロキシ情報を"
+"入力しましょう。必要ない場合は空のままにします。"
+msgstr ""
+"If you need to access the internet through a proxy, enter the proxy "
+"information. If not, leave it blank."
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:128
+msgid "設定したら「<続ける>」にカーソルを合わせてEnterキーを押しましょう。"
+msgstr ""
+"When you are done, move the cursor to \"\\<Continue\\>\" and press Enter."
+
+#. heading (level 3)
+#: content/ja/blog/install-openmediavault/index.md:130
+msgid "ブートローダのインストール"
+msgstr "Install the Boot Loader"
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:132
+msgid "![OpenMediaVaultのインストール画面](images/install-omv-13.webp)"
+msgstr "![OpenMediaVault installation screen](images/install-omv-13.webp)"
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:134
+msgid "GRUBブートローダーのインストール先を選択します。"
+msgstr "Select where to install the GRUB boot loader."
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:136
+msgid ""
+"GRUBブートローダーをインストールするデバイスを選択してEnterキーを押しましょ"
+"う。"
+msgstr ""
+"Select the device on which to install the GRUB boot loader and press Enter."
+
+#. heading (level 3)
+#: content/ja/blog/install-openmediavault/index.md:138
+msgid "システムの再起動"
+msgstr "Restart the System"
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:140
+msgid "![OpenMediaVaultのインストール画面](images/install-omv-14.webp)"
+msgstr "![OpenMediaVault installation screen](images/install-omv-14.webp)"
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:142
+msgid ""
+"インストールに使用したUSBメモリを取り外し、「<続ける>」にカーソルを合わせて"
+"Enterキーを押しましょう。"
+msgstr ""
+"Remove the USB drive used for the installation, move the cursor to "
+"\"\\<Continue\\>\", and press Enter."
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:144
+msgid "これによりシステムが再起動され、OpenMediaVaultが立ち上がります。"
+msgstr "The system restarts and OpenMediaVault boots."
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:146
+msgid "![OpenMediaVaultのインストール画面](images/install-omv-15.webp)"
+msgstr "![OpenMediaVault installation screen](images/install-omv-15.webp)"
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:148
+msgid ""
+"シェルのログイン画面が表示されました。OpenMediaVaultのインストールは完了で"
+"す。"
+msgstr ""
+"The shell login screen is displayed. The OpenMediaVault installation is now "
+"complete."
+
+#. heading (level 2)
+#: content/ja/blog/install-openmediavault/index.md:150
+msgid "OpenMediaVaultの管理画面にアクセス"
+msgstr "Access the OpenMediaVault Management Interface"
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:152
+msgid "OpenMediaVaultの管理画面にアクセスしてみましょう。"
+msgstr "Let's access the OpenMediaVault management interface."
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:154
+msgid ""
+"ホスト名とドメイン名の組み合わせ(デフォルトは`openmediavault.local`)か、IPア"
+"ドレスを指定してウェブブラウザからHTTPでアクセスします。"
+msgstr ""
+"From a web browser, access it over HTTP using either the combination of the "
+"hostname and domain name (by default, `openmediavault.local`) or the IP "
+"address."
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:156
+msgid "IPアドレスは先ほど表示されたシェルのログイン画面でも確認できます。"
+msgstr ""
+"You can also check the IP address on the shell login screen displayed "
+"earlier."
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:158
+msgid "![OpenMediaVaultの管理画面](images/omv-login.webp)"
+msgstr "![OpenMediaVault management interface](images/omv-login.webp)"
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:160
+msgid ""
+"管理画面にアクセスするとログイン画面が表示されます。ユーザー名は`admin`、パス"
+"ワードは`openmediavault`でログインできます。"
+msgstr ""
+"When you access the management interface, a login screen is displayed. You "
+"can log in with the username `admin` and the password `openmediavault`."
+
+#. heading (level 2)
+#: content/ja/blog/install-openmediavault/index.md:162
+msgid "管理画面の言語を変更"
+msgstr "Change the Management Interface Language"
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:164
+msgid "![OpenMediaVaultの管理画面](images/omv-lang.webp)"
+msgstr "![OpenMediaVault management interface](images/omv-lang.webp)"
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:166
+msgid "管理画面の言語はデフォルトで英語になっているため、日本語に変更します。"
+msgstr ""
+"The management interface is in English by default, so change it to Japanese."
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:168
+msgid ""
+"管理画面の右上にある人のアイコンをクリックし、「Language」にカーソルを合わせ"
+"ましょう。設定可能な言語が表示されるので日本語を選択します。"
+msgstr ""
+"Click the person icon in the upper-right corner of the management interface "
+"and hover over \"Language\". The available languages are displayed, so "
+"select Japanese."
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:170
+msgid "これにより、OpenMediaVaultの管理画面が日本語に変わります。"
+msgstr "The OpenMediaVault management interface is now displayed in Japanese."
+
+#. heading (level 2)
+#: content/ja/blog/install-openmediavault/index.md:172
+msgid "管理者のパスワードを変更"
+msgstr "Change the Administrator Password"
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:174
+msgid "![OpenMediaVaultの管理画面](images/omv-password.webp)"
+msgstr "![OpenMediaVault management interface](images/omv-password.webp)"
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:176
+msgid ""
+"管理者ユーザー(`admin`)のパスワードはデフォルトで`openmediavault`になっていま"
+"す。このままでは危険なのでパスワードを変更しましょう。"
+msgstr ""
+"The password for the administrator user (`admin`) is `openmediavault` by "
+"default. Leaving it as is is dangerous, so change the password."
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:178
+msgid ""
+"管理画面の右上にある人のアイコンをクリックし、「パスワードの変更」にカーソル"
+"を合わせてクリックしましょう。"
+msgstr ""
+"Click the person icon in the upper-right corner of the management interface, "
+"then hover over and click \"Change Password\"."
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:180
+msgid ""
+"パスワードの変更画面が表示されるため、設定したいパスワードを入力して「保存」"
+"をクリックしましょう。"
+msgstr ""
+"The password change screen is displayed. Enter the password you want to use "
+"and click \"Save\"."
+
+#. paragraph
+#: content/ja/blog/install-openmediavault/index.md:182
+msgid ""
+"これにより、OpenMediaVaultの管理画面にて管理者ユーザーでログインする際のパス"
+"ワードが変更されます。"
+msgstr ""
+"This changes the password used to log in as the administrator user on the "
+"OpenMediaVault management interface."

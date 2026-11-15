@@ -1,0 +1,349 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:42+0000\n"
+"PO-Revision-Date: 2026-11-15 23:40+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:2
+msgid "WSR-2533DHPにOpenWrtをインストールする"
+msgstr "Install OpenWrt on a BUFFALO WSR-2533DHP"
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:11
+msgid "BUFFALOのWSR-2533DHPにOpenWrtをインストールする方法について説明します。"
+msgstr "This article explains how to install OpenWrt on a BUFFALO WSR-2533DHP."
+
+#. heading (level 2)
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:13
+msgid "ハードウェア情報"
+msgstr "Hardware Information"
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:15
+msgid "![WSR-2533DHP](images/wsr-2533dhp.webp)"
+msgstr "![WSR-2533DHP](images/wsr-2533dhp.webp)"
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:17
+msgid ""
+"| メーカー           | BUFFALO                     |\n"
+"| ------------------ | --------------------------- |\n"
+"| モデル             | WSR-2533DHP                 |\n"
+"| CPU                | Media Tek MT7621AT 880MHz   |\n"
+"| フラッシュ         | 16MB                        |\n"
+"| メモリ             | 128MB                       |\n"
+"| イーサネットポート | 1Gbps×5                    |\n"
+"| 無線LAN            | 2.4GHz: b/g/n, 5GHz: a/n/ac |"
+msgstr ""
+"| Manufacturer | BUFFALO |\n"
+"| --- | --- |\n"
+"| Model | WSR-2533DHP |\n"
+"| CPU | Media Tek MT7621AT 880MHz |\n"
+"| Flash | 16MB |\n"
+"| Memory | 128MB |\n"
+"| Ethernet ports | 5 x 1Gbps |\n"
+"| Wireless LAN | 2.4GHz: b/g/n, 5GHz: a/n/ac |"
+
+#. heading (level 2)
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:26
+msgid "イメージのダウンロード"
+msgstr "Download the Images"
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:28
+msgid ""
+"今回はOpenWrt 24.10.0をインストールします。[OpenWrtの公式ダウンロードページ]"
+"(https://downloads.openwrt.org/releases/24.10.0/targets/ramips/mt7621/)から、"
+"initramfsイメージとsysupgradeイメージをダウンロードしましょう。"
+msgstr ""
+"This example installs OpenWrt 24.10.0. Download the initramfs and sysupgrade "
+"images from the [official OpenWrt download page](https://downloads.openwrt."
+"org/releases/24.10.0/targets/ramips/mt7621/)."
+
+#. list item > paragraph
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:30
+msgid ""
+"buffalo_wsr-2533dhpl-initramfs-kernel.bin  \n"
+"initramfsイメージ。"
+msgstr ""
+"`buffalo_wsr-2533dhpl-initramfs-kernel.bin`  \n"
+"initramfs image."
+
+#. list item > paragraph
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:32
+msgid ""
+"buffalo_wsr-2533dhpl-squashfs-sysupgrade.bin  \n"
+"sysupgradeイメージ。"
+msgstr ""
+"`buffalo_wsr-2533dhpl-squashfs-sysupgrade.bin`  \n"
+"sysupgrade image."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:35
+msgid ""
+"wsr-2533dhplと書いてありますが、WSR-2533DHPでも問題なくインストールできます。"
+msgstr ""
+"Although the name contains wsr-2533dhpl, it can also be installed on the "
+"WSR-2533DHP."
+
+#. heading (level 2)
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:37
+msgid "TFTPサーバーのセットアップ"
+msgstr "Set Up a TFTP Server"
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:39
+msgid ""
+"initramfsイメージの書き込みはTFTP経由で行われるため、TFTPサーバーをセットアッ"
+"プする必要があります。"
+msgstr ""
+"The initramfs image is written over TFTP, so a TFTP server must be set up."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:41
+msgid ""
+"今回はWindowsがインストールされたPCと、Windows向けのTFTPサーバーソフトウェア"
+"であるTftpd64を使用して、TFTPサーバーを構築します。"
+msgstr ""
+"In this example, a Windows PC and Tftpd64, a TFTP server application for "
+"Windows, are used to build the TFTP server."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:43
+msgid ""
+"まずは、TFTPサーバーとなるPCのIPアドレスを`192.168.11.2/24`に設定しましょう。"
+msgstr "First, set the IP address of the TFTP server PC to `192.168.11.2/24`."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:45
+msgid ""
+"そして、TFTPで公開する適当なディレクトリを作成し、そこにinitramfsイメージを"
+"`linux.trx-recovery`というファイル名にリネームして配置します。"
+msgstr ""
+"Create a directory to publish over TFTP, rename the initramfs image to "
+"`linux.trx-recovery`, and place it in that directory."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:47
+msgid ""
+"最後にTftpd64でTFTPサーバーを立ち上げてinitramfsイメージを公開します。Tftpd64"
+"の詳細なセットアップ方法は以下を参考にしてください。"
+msgstr ""
+"Finally, start the TFTP server in Tftpd64 and publish the initramfs image. "
+"See the following article for detailed Tftpd64 setup instructions."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:49
+msgid ""
+"[WindowsでTftpd64を使用してTFTPサーバーを立てる](/blog/setup-tftp-server-on-"
+"windows-using-tftpd64)"
+msgstr ""
+"[Set Up a TFTP Server on Windows Using Tftpd64](/blog/setup-tftp-server-on-"
+"windows-using-tftpd64)"
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:51
+msgid "これでTFTPサーバーのセットアップは完了です。"
+msgstr "The TFTP server setup is complete."
+
+#. heading (level 2)
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:53
+msgid "initramfsイメージのインストール"
+msgstr "Install the initramfs Image"
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:55
+msgid ""
+"TFTPサーバーとWSR-2533DHPをLANケーブルで接続しましょう。WSR-2533DHPのLANポー"
+"トはLAN1からLAN4のどれでも構いません。"
+msgstr ""
+"Connect the TFTP server and the WSR-2533DHP with a LAN cable. Any LAN port "
+"from LAN1 through LAN4 can be used on the WSR-2533DHP."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:57
+msgid ""
+"この状態で、WSR-2533DHPのAOSSボタンを押しながら電源を入れてください。AOSSボタ"
+"ンを押し続けて数秒待つと、WSR-2533DHPがTFTPサーバーからinitramfsイメージを取"
+"得しに行きます。"
+msgstr ""
+"While holding down the AOSS button on the WSR-2533DHP, turn it on. Continue "
+"holding the AOSS button for a few seconds; the WSR-2533DHP then retrieves "
+"the initramfs image from the TFTP server."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:59
+msgid "![Tftpd64](images/tftpd64.webp)"
+msgstr "![Tftpd64](images/tftpd64.webp)"
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:61
+msgid ""
+"転送が完了したことを確認できたら、TFTPサーバーは閉じてPCのIPアドレスを自動取"
+"得に戻しましょう。"
+msgstr ""
+"After confirming that the transfer is complete, close the TFTP server and "
+"return the PC's IP address setting to automatic."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:63
+msgid ""
+"ここまで出来たら、IPアドレス`192.168.1.1`にSSHで接続します。ユーザー名は"
+"`root`、パスワードは設定されていません。"
+msgstr ""
+"Now connect to `192.168.1.1` over SSH. The username is `root` and no "
+"password is set."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:65
+msgid "![OpenWrtのコンソール画面](images/openwrt-ssh.webp)"
+msgstr "![OpenWrt console](images/openwrt-ssh.webp)"
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:67
+msgid "このような表示が出たらinitramfsイメージのインストールは完了です。"
+msgstr ""
+"When this screen is displayed, the initramfs image installation is complete."
+
+#. heading (level 2)
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:69
+msgid "メーカーファームのバックアップ"
+msgstr "Back Up the Manufacturer Firmware"
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:71
+msgid ""
+"将来的にメーカーファームに戻す可能性がある場合は、sysupgradeイメージを書き込"
+"む前にバックアップを取りましょう。"
+msgstr ""
+"If you may want to return to the manufacturer firmware in the future, create "
+"a backup before writing the sysupgrade image."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:73
+msgid "まずは、OpenWrtでフラッシュの中身を確認をします。"
+msgstr "First, check the flash contents in OpenWrt."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:90
+msgid ""
+"firmwareパーティションにメーカーファームが配置されています。デバイスを確認し"
+"てddコマンドでバックアップを取りましょう。"
+msgstr ""
+"The manufacturer firmware is stored in the firmware partition. Check the "
+"device and back it up with `dd`."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:96
+msgid ""
+"バックアップを取った後は、PCでscpコマンドを使ってメーカーファームを取得しま"
+"す。"
+msgstr ""
+"After creating the backup, retrieve the manufacturer firmware on the PC with "
+"`scp`."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:102
+msgid "これでメーカーファームのバックアップは完了です。大切に保管しましょう。"
+msgstr "The manufacturer firmware backup is complete. Store it carefully."
+
+#. heading (level 2)
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:104
+msgid "sysupgradeイメージのインストール"
+msgstr "Install the sysupgrade Image"
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:106
+msgid ""
+"scpコマンドを使用して、PCからWSR-2533DHPにsysupgradeイメージを転送します。"
+msgstr ""
+"Transfer the sysupgrade image from the PC to the WSR-2533DHP with `scp`."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:112
+msgid ""
+"転送後、WSR-2533DHPでsysupgradeコマンドを使用して、sysupgradeイメージを書き込"
+"みましょう。"
+msgstr ""
+"After transferring it, write the sysupgrade image on the WSR-2533DHP with "
+"`sysupgrade`."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:118
+msgid ""
+"これによりsysupgradeイメージのインストールが開始されます。インストールが完了"
+"し、再起動されるまでしばらく待ちましょう。"
+msgstr ""
+"The sysupgrade image installation starts. Wait for the installation and "
+"reboot to complete."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:120
+msgid ""
+"再起動後、確認のためにブラウザで`192.168.1.1`へアクセスしてみます。ログイン画"
+"面が表示されたら、ssh接続と同様にユーザー名は`root`、パスワードは空でログイン"
+"できます。"
+msgstr ""
+"After the reboot, access `192.168.1.1` in a browser to verify the "
+"installation. When the login screen is displayed, log in with username "
+"`root` and an empty password, as with SSH."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:122
+msgid "![OpenWrtのホーム画面](images/openwrt-home.webp)"
+msgstr "![OpenWrt home screen](images/openwrt-home.webp)"
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:124
+msgid "問題なくログインできました。これでOpenWrtのインストールは完了です。"
+msgstr "You can now log in successfully. The OpenWrt installation is complete."
+
+#. heading (level 2)
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:126
+msgid "メーカーファームに戻す"
+msgstr "Return to the Manufacturer Firmware"
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:128
+msgid ""
+"事前にメーカーファームのバックアップを取っていた場合、OpenWrtからメーカー"
+"ファームに戻すことができます。ここでは、その方法について説明します。"
+msgstr ""
+"If you created a backup of the manufacturer firmware, you can return to it "
+"from OpenWrt."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:130
+msgid ""
+"まずは、scpコマンドを使用して、バックアップしておいたメーカーファームをPCから"
+"WSR-2533DHPに転送します。"
+msgstr ""
+"First, transfer the backed-up manufacturer firmware from the PC to the "
+"WSR-2533DHP with `scp`."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:136
+msgid ""
+"転送が完了したらOpenWrtでmtdコマンドを使用して、フラッシュにメーカーファーム"
+"を書き込みましょう。ファームウェアはfirmwareパーティションに書き込みます。"
+msgstr ""
+"After the transfer completes, write the manufacturer firmware to the flash "
+"with the `mtd` command. Write it to the firmware partition."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:142
+msgid ""
+"書き込み完了後はrebootコマンドを実行して再起動しましょう。再起動後、メーカー"
+"ファームで起動されます。"
+msgstr ""
+"After writing is complete, run `reboot` to restart the device. It boots with "
+"the manufacturer firmware after restarting."

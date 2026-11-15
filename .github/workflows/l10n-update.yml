@@ -1,0 +1,47 @@
+name: Update translation files
+
+# content/ja が main で変わったのに po/ が追従していないとき、po/ を更新する PR を作る。
+# 前提: リポジトリの Settings > Actions > General で
+# "Allow GitHub Actions to create and approve pull requests" を有効にする。
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - content/ja/**
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install monde
+        env:
+          GH_TOKEN: ${{ secrets.MONDE_TOKEN }}
+          MONDE_VERSION: "0.1.0"
+        run: |
+          dir=${{ runner.temp }}/monde
+          gh release download "v${MONDE_VERSION}" --repo ktdevx/monde-private --dir "$dir" \
+            --pattern "monde-${MONDE_VERSION}-linux-x64.tar.gz" --pattern SHA256SUMS
+          cd "$dir"
+          sha256sum --check --ignore-missing SHA256SUMS
+          tar -xzf "monde-${MONDE_VERSION}-linux-x64.tar.gz"
+          sudo install "monde-${MONDE_VERSION}-linux-x64/monde" /usr/local/bin/monde
+      - name: Update po/
+        run: tools/l10n.sh update
+      - name: Create a pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: l10n/update-po
+          commit-message: Update the translation files
+          title: Update the translation files
+          body: |
+            `content/ja` changed, so `tools/l10n.sh update` updated `po/`.
+            Translate the new and fuzzy entries before merging; untranslated pages are not published in that language.
+          add-paths: po/**

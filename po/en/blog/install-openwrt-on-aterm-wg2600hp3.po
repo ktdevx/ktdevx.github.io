@@ -1,0 +1,366 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:42+0000\n"
+"PO-Revision-Date: 2026-11-15 23:40+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:2
+msgid "Aterm WG2600HP3にOpenWrtをインストールする"
+msgstr "Install OpenWrt on an Aterm WG2600HP3"
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:11
+msgid "NECのAterm WG2600HP3にOpenWrtをインストールする方法について説明します。"
+msgstr ""
+"This article explains how to install OpenWrt on an NEC Aterm WG2600HP3."
+
+#. heading (level 2)
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:13
+msgid "ハードウェア情報"
+msgstr "Hardware Information"
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:15
+msgid "![Aterm WG2600HP3](images/aterm-wg2600hp3.webp)"
+msgstr "![Aterm WG2600HP3](images/aterm-wg2600hp3.webp)"
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:17
+msgid ""
+"| メーカー           | NEC                           |\n"
+"| ------------------ | ----------------------------- |\n"
+"| モデル             | Aterm WG2600HP3               |\n"
+"| CPU                | Qualcomm Atheros IPQ8062 1GHz |\n"
+"| フラッシュ         | 32MB                          |\n"
+"| メモリ             | 512MB                         |\n"
+"| イーサネットポート | 1Gbps×5                      |\n"
+"| 無線LAN            | 2.4GHz: b/g/n, 5GHz: a/n/ac   |"
+msgstr ""
+"| Manufacturer | NEC |\n"
+"| --- | --- |\n"
+"| Model | Aterm WG2600HP3 |\n"
+"| CPU | Qualcomm Atheros IPQ8062 1GHz |\n"
+"| Flash | 32MB |\n"
+"| Memory | 512MB |\n"
+"| Ethernet ports | 5 x 1Gbps |\n"
+"| Wireless LAN | 2.4GHz: b/g/n, 5GHz: a/n/ac |"
+
+#. heading (level 2)
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:26
+msgid "イメージのダウンロード"
+msgstr "Download the Images"
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:28
+msgid ""
+"今回はOpenWrt 24.10.0をインストールします。[OpenWrtの公式ダウンロードページ]"
+"(https://downloads.openwrt.org/releases/24.10.0/targets/ipq806x/generic/)か"
+"ら、initramfsイメージとsysupgradeイメージをダウンロードしましょう。"
+msgstr ""
+"This example installs OpenWrt 24.10.0. Download the initramfs and sysupgrade "
+"images from the [official OpenWrt download page](https://downloads.openwrt."
+"org/releases/24.10.0/targets/ipq806x/generic/)."
+
+#. list item > paragraph
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:30
+msgid ""
+"nec_wg2600hp3-initramfs-uImage  \n"
+"initramfsイメージ。"
+msgstr ""
+"`nec_wg2600hp3-initramfs-uImage`  \n"
+"initramfs image."
+
+#. list item > paragraph
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:32
+msgid ""
+"nec_wg2600hp3-squashfs-sysupgrade.bin  \n"
+"sysupgradeイメージ。"
+msgstr ""
+"`nec_wg2600hp3-squashfs-sysupgrade.bin`  \n"
+"sysupgrade image."
+
+#. heading (level 2)
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:35
+msgid "TFTPサーバーのセットアップ"
+msgstr "Set Up a TFTP Server"
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:37
+msgid ""
+"initramfsイメージの書き込みはTFTP経由で行われるため、TFTPサーバーをセットアッ"
+"プする必要があります。"
+msgstr ""
+"The initramfs image is written over TFTP, so a TFTP server must be set up."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:39
+msgid ""
+"今回はWindowsがインストールされたPCと、Windows向けのTFTPサーバーソフトウェア"
+"であるTftpd64を使用して、TFTPサーバーを構築します。"
+msgstr ""
+"In this example, a Windows PC and Tftpd64, a TFTP server application for "
+"Windows, are used to build the TFTP server."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:41
+msgid ""
+"まずは、TFTPサーバーとなるPCのIPアドレスを`192.168.1.2/24`に設定しましょう。"
+msgstr "Set the IP address of the TFTP server PC to `192.168.1.2/24`."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:43
+msgid ""
+"そして、TFTPで公開する適当なディレクトリを作成し、そこにinitramfsイメージを配"
+"置します。"
+msgstr ""
+"Create a directory to publish over TFTP and place the initramfs image in it."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:45
+msgid ""
+"最後にTftpd64でTFTPサーバーを立ち上げてinitramfsイメージを公開します。Tftpd64"
+"の詳細なセットアップ方法は以下を参考にしてください。"
+msgstr ""
+"Finally, start the TFTP server in Tftpd64 and publish the initramfs image. "
+"See the following article for details."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:47
+msgid ""
+"[WindowsでTftpd64を使用してTFTPサーバーを立てる](/blog/setup-tftp-server-on-"
+"windows-using-tftpd64)"
+msgstr ""
+"[Set Up a TFTP Server on Windows Using Tftpd64](/blog/setup-tftp-server-on-"
+"windows-using-tftpd64)"
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:49
+msgid "これでTFTPサーバーのセットアップは完了です。"
+msgstr "The TFTP server setup is complete."
+
+#. heading (level 2)
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:51
+msgid "シリアルコンソールに接続する"
+msgstr "Connect to the Serial Console"
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:53
+msgid "Aterm WG2600HP3からUARTを引き出してシリアルコンソールに接続します。"
+msgstr ""
+"Connect to the serial console by exposing the UART pins on the Aterm "
+"WG2600HP3."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:55
+msgid "![Aterm WG2600HP3 UARTの端子](images/aterm-wg2600hp3-uart.webp)"
+msgstr "![Aterm WG2600HP3 UART pins](images/aterm-wg2600hp3-uart.webp)"
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:57
+msgid ""
+"J3がUARTの端子です。左端からVCC(3.3V)、2番目がGND、4番目がTX、5番目がRXです。"
+"USB-TTLシリアル変換ケーブル等を用いてPCと接続しましょう。"
+msgstr ""
+"J3 is the UART connector. From the left, the pins are VCC (3.3V), GND on the "
+"second pin, TX on the fourth pin, and RX on the fifth pin. Connect the "
+"router to the PC using a USB-TTL serial converter cable or similar device."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:59
+msgid ""
+"| 項目           | 設定      |\n"
+"| -------------- | --------- |\n"
+"| ボーレート     | 115200bps |\n"
+"| データビット   | 8bit      |\n"
+"| パリティビット | none      |\n"
+"| ストップビット | 1bit      |\n"
+"| フロー制御     | none      |"
+msgstr ""
+"| Item | Setting |\n"
+"| --- | --- |\n"
+"| Baud rate | 115200bps |\n"
+"| Data bits | 8bit |\n"
+"| Parity bits | none |\n"
+"| Stop bits | 1bit |\n"
+"| Flow control | none |"
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:67
+msgid ""
+"Aterm WG2600HP3の電源を入れ、u-bootの出力が出たところでEscキーを押下すると、"
+"コンソールのログイン画面が表示されます。パスワードに`chiron`と入力してログイ"
+"ンしましょう。"
+msgstr ""
+"Turn on the Aterm WG2600HP3 and press Esc when the u-boot output appears. "
+"The console login screen is displayed. Log in with `chiron` as the password."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:69
+msgid "これで、シリアルコンソールの接続は完了です。"
+msgstr "The serial console connection is now complete."
+
+#. heading (level 2)
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:71
+msgid "initramfsイメージのインストール"
+msgstr "Install the initramfs Image"
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:73
+msgid ""
+"TFTPサーバーとAterm WG2600HP3をLANケーブルで接続しましょう。Aterm WG2600HP3の"
+"LANポートはLAN1からLAN4のどれでも構いません。"
+msgstr ""
+"Connect the TFTP server and the Aterm WG2600HP3 with a LAN cable. Any LAN "
+"port from LAN1 through LAN4 can be used."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:75
+msgid ""
+"接続後、シリアルで以下のコマンドを実行して、initramfsイメージをインストールし"
+"ます。"
+msgstr ""
+"After connecting them, run the following commands over the serial connection "
+"to install the initramfs image."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:104
+msgid ""
+"これによりTFTPサーバーからinitramfsイメージがインストールされ、OpenWrtが起動"
+"します。しばらく待った後Enterキーを押下しましょう。"
+msgstr ""
+"The initramfs image is installed from the TFTP server and OpenWrt boots. "
+"Wait a while, then press Enter."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:125
+msgid "このような表示が出たらinitramfsイメージのインストールは完了です。"
+msgstr ""
+"When this screen is displayed, the initramfs image installation is complete."
+
+#. heading (level 2)
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:127
+msgid "メーカーファームのバックアップ"
+msgstr "Back Up the Manufacturer Firmware"
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:129
+msgid ""
+"将来的にメーカーファームに戻す可能性がある場合は、sysupgradeイメージを書き込"
+"む前にバックアップを取りましょう。"
+msgstr ""
+"If you may want to return to the manufacturer firmware in the future, create "
+"a backup before writing the sysupgrade image."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:131
+msgid "まずは、OpenWrtでフラッシュの中身を確認をします。"
+msgstr "First, check the flash contents in OpenWrt."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:156
+msgid ""
+"firmwareパーティションにメーカーファームが配置されています。デバイスを確認し"
+"てddコマンドでバックアップを取りましょう。"
+msgstr ""
+"The manufacturer firmware is stored in the firmware partition. Check the "
+"device and back it up with `dd`."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:162
+msgid ""
+"バックアップを取った後は、PCでscpコマンドを使ってメーカーファームを取得しま"
+"す。"
+msgstr ""
+"After creating the backup, retrieve the manufacturer firmware on the PC with "
+"`scp`."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:168
+msgid "これでメーカーファームのバックアップは完了です。大切に保管しましょう。"
+msgstr "The manufacturer firmware backup is complete. Store it carefully."
+
+#. heading (level 2)
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:170
+msgid "sysupgradeイメージのインストール"
+msgstr "Install the sysupgrade Image"
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:172
+msgid ""
+"scpコマンドを使用して、PCからAterm WG2600HP3にsysupgradeイメージを転送しま"
+"す。"
+msgstr ""
+"Transfer the sysupgrade image from the PC to the Aterm WG2600HP3 with `scp`."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:178
+msgid ""
+"転送後、Aterm WG2600HP3でsysupgradeコマンドを使用して、sysupgradeイメージを書"
+"き込みましょう。"
+msgstr ""
+"After transferring it, write the sysupgrade image on the Aterm WG2600HP3 "
+"with `sysupgrade`."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:184
+msgid ""
+"これによりsysupgradeイメージのインストールが開始されます。インストールが完了"
+"し、再起動されるまでしばらく待ちましょう。"
+msgstr ""
+"The sysupgrade image installation starts. Wait for the installation and "
+"reboot to complete."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:186
+msgid "再起動後、OpenWrtが起動します。これでOpenWrtのインストールは完了です。"
+msgstr "OpenWrt boots after the reboot. The OpenWrt installation is complete."
+
+#. heading (level 2)
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:188
+msgid "メーカーファームに戻す"
+msgstr "Return to the Manufacturer Firmware"
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:190
+msgid ""
+"事前にメーカーファームのバックアップを取っていた場合、OpenWrtからメーカー"
+"ファームに戻すことができます。ここでは、その方法について説明します。"
+msgstr ""
+"If you created a backup of the manufacturer firmware, you can return to it "
+"from OpenWrt."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:192
+msgid ""
+"まずは、scpコマンドを使用して、バックアップしておいたメーカーファームをPCから"
+"Aterm WG2600HP3に転送します。"
+msgstr ""
+"First, transfer the backed-up manufacturer firmware from the PC to the Aterm "
+"WG2600HP3 with `scp`."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:198
+msgid ""
+"転送が完了したらOpenWrtでmtdコマンドを使用して、フラッシュにメーカーファーム"
+"を書き込みましょう。ファームウェアはfirmwareパーティションに書き込みます。"
+msgstr ""
+"After the transfer completes, write the manufacturer firmware to the flash "
+"with the `mtd` command. Write it to the firmware partition."
+
+#. paragraph
+#: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:204
+msgid ""
+"書き込み完了後はAterm WG2600HP3を再起動しましょう。再起動後、メーカーファーム"
+"で起動されます。"
+msgstr ""
+"After writing is complete, restart the Aterm WG2600HP3. It boots with the "
+"manufacturer firmware after restarting."

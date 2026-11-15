@@ -1,0 +1,474 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:42+0000\n"
+"PO-Revision-Date: 2026-11-15 23:40+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:2
+msgid "Proxmox VEで仮想マシン(VM)を作成する"
+msgstr "Create a Virtual Machine (VM) on Proxmox VE"
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:11
+msgid ""
+"Proxmox VE(Virtual Environment)は、KVMとLXCをベースにしたオープンソースの仮想"
+"化プラットフォームで、Web UIから簡単に仮想マシンとコンテナの作成、管理が行え"
+"ます。"
+msgstr ""
+"Proxmox VE (Virtual Environment) is an open-source virtualization platform "
+"based on KVM and LXC. It allows you to easily create and manage virtual "
+"machines and containers from a web UI."
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:13
+msgid "ここでは、Proxmox VEで仮想マシンを作成する方法について説明します。"
+msgstr "This article explains how to create a virtual machine on Proxmox VE."
+
+#. heading (level 2)
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:15
+msgid "ISOイメージのダウンロード"
+msgstr "Download an ISO Image"
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:17
+msgid ""
+"仮想マシンにインストールするゲストOSのISOイメージをダウンロードしましょう。"
+msgstr ""
+"Download the ISO image of the guest OS to install on the virtual machine."
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:19
+msgid ""
+"今回はNASプラットフォームの[OpenMediaVault](https://www.openmediavault.org/)"
+"を選択しました。"
+msgstr ""
+"In this example, [OpenMediaVault](https://www.openmediavault.org/), a NAS "
+"platform, is selected."
+
+#. heading (level 2)
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:21
+msgid "ISOイメージのアップロード"
+msgstr "Upload the ISO Image"
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:23
+msgid "ISOイメージのアップロードはProxmox VEの管理画面から行えます。"
+msgstr "You can upload an ISO image from the Proxmox VE management interface."
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:25
+msgid "![Proxmox VE ISOイメージの管理画面](images/pve-upload-iso-1.webp)"
+msgstr ""
+"![Proxmox VE ISO image management screen](images/pve-upload-iso-1.webp)"
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:27
+msgid ""
+"管理画面左端で対象ノードから「local (<対象ノード>)」を選択、「ISOイメージ」を"
+"押して、ISOイメージの管理画面を開きます。"
+msgstr ""
+"On the left side of the management interface, select local (<target node>) "
+"under the target node, select ISO Images, and open the ISO image management "
+"screen."
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:29
+msgid "「アップロード」を選択してISOイメージのアップロード画面を開きましょう。"
+msgstr "Select Upload to open the ISO image upload screen."
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:31
+msgid ""
+"![Proxmox VE ISOイメージのアップロード画面](images/pve-upload-iso-2.webp)"
+msgstr "![Proxmox VE ISO image upload screen](images/pve-upload-iso-2.webp)"
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:33
+msgid ""
+"ダウンロードしたISOイメージを選択してアップロードします。ISOイメージと一緒に"
+"公開されているハッシュ値を入力して検証することもできます。"
+msgstr ""
+"Select and upload the downloaded ISO image. You can also enter the hash "
+"value published with the ISO image to verify it."
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:35
+msgid "アップロードが完了するまでしばらく待ちましょう。"
+msgstr "Wait for the upload to complete."
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:37
+msgid "![Proxmox VE ISOイメージの管理画面](images/pve-upload-iso-3.webp)"
+msgstr ""
+"![Proxmox VE ISO image management screen](images/pve-upload-iso-3.webp)"
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:39
+msgid "ISOイメージがアップロードできました。"
+msgstr "The ISO image has been uploaded."
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:41
+msgid ""
+"今回はPCからISOイメージをアップロードしましたが、「URLからダウンロード」を選"
+"択すれば、ダウンロードページのURLを指定してISOイメージをダウンロードすること"
+"ができます。"
+msgstr ""
+"In this example, the ISO image was uploaded from a PC. You can also select "
+"Download from URL and specify the URL of a download page to download the ISO "
+"image."
+
+#. heading (level 2)
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:43
+msgid "仮想マシンの作成"
+msgstr "Create a Virtual Machine"
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:45
+msgid "画面右上の「VMを作成」を押して仮想マシンの作成画面を開きましょう。"
+msgstr ""
+"Select Create VM in the upper-right corner to open the virtual machine "
+"creation screen."
+
+#. heading (level 3)
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:47
+msgid "全般設定"
+msgstr "General Settings"
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:49
+msgid "![Proxmox VE 仮想マシンの作成画面](images/pve-create-vm-1.webp)"
+msgstr ""
+"![Proxmox VE virtual machine creation screen](images/pve-create-vm-1.webp)"
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:51
+msgid ""
+"仮想マシンを作成したいノードを指定し、仮想マシンの名前を入力します。VM IDは連"
+"番が割り当てられます。特に指定がなければそのままにしましょう。"
+msgstr ""
+"Specify the node on which to create the virtual machine and enter its name. "
+"A sequential VM ID is assigned. Leave it unchanged unless you have a "
+"specific requirement."
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:53
+msgid ""
+"Proxmox VE起動時に仮想マシンを自動で起動したい場合は、「ブート時に起動」に"
+"チェックを入れましょう。"
+msgstr ""
+"If you want the virtual machine to start automatically when Proxmox VE "
+"starts, select Start at boot."
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:55
+msgid "設定したら「次へ」を押してOSの設定画面を開きましょう。"
+msgstr ""
+"After configuring the settings, select Next to open the OS settings screen."
+
+#. heading (level 3)
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:57
+msgid "OS設定"
+msgstr "OS Settings"
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:59
+msgid "![Proxmox VE 仮想マシンの作成画面](images/pve-create-vm-2.webp)"
+msgstr ""
+"![Proxmox VE virtual machine creation screen](images/pve-create-vm-2.webp)"
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:61
+msgid "仮想マシンのOSの設定を行います。"
+msgstr "Configure the virtual machine's OS."
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:63
+msgid ""
+"アップロードしたISOイメージを使用するため、「CD/DVD イメージファイル (iso) を"
+"使用」にチェックを入れ、アップロードしたISOイメージを選択しましょう。"
+msgstr ""
+"To use the uploaded ISO image, select Use CD/DVD disc image file (iso) and "
+"select the uploaded ISO image."
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:65
+msgid ""
+"仮想マシンのOSの種別を選択し、「次へ」を押してシステムの設定画面を開きましょ"
+"う。"
+msgstr ""
+"Select the type of the virtual machine's OS and select Next to open the "
+"system settings screen."
+
+#. heading (level 3)
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:67
+msgid "システム設定"
+msgstr "System Settings"
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:69
+msgid "![Proxmox VE 仮想マシンの作成画面](images/pve-create-vm-3.webp)"
+msgstr ""
+"![Proxmox VE virtual machine creation screen](images/pve-create-vm-3.webp)"
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:71
+msgid "システムに関する設定を行います。"
+msgstr "Configure the system settings."
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:73
+msgid "ここは特に指定がなければ変更せずにそのままでも問題ありません。"
+msgstr ""
+"There is no need to change these settings unless you have a specific "
+"requirement."
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:75
+msgid ""
+"仮想マシン上でQEMUゲストエージェントをインストールする場合は、Qemuエージェン"
+"トにチェックを入れましょう。"
+msgstr ""
+"If you will install the QEMU guest agent in the virtual machine, select Qemu "
+"Agent."
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:77
+msgid ""
+"QEMUゲストエージェントは仮想マシン内で動作するもので、Proxmox VEからlibvirtを"
+"介して、仮想マシン側でコマンドを実行するための仕組みです。"
+msgstr ""
+"The QEMU guest agent runs inside the virtual machine and provides a "
+"mechanism for executing commands on the virtual machine through libvirt from "
+"Proxmox VE."
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:79
+msgid "設定したら「次へ」を押してディスクの設定画面を開きましょう。"
+msgstr ""
+"After configuring the settings, select Next to open the disk settings screen."
+
+#. heading (level 3)
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:81
+msgid "ディスク設定"
+msgstr "Disk Settings"
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:83
+msgid "![Proxmox VE 仮想マシンの作成画面](images/pve-create-vm-4.webp)"
+msgstr ""
+"![Proxmox VE virtual machine creation screen](images/pve-create-vm-4.webp)"
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:85
+msgid "ディスクに関する設定を行います。"
+msgstr "Configure the disk settings."
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:87
+msgid ""
+"バス/デバイスの設定は、特に指定がなければSCSIを選択しましょう。これによりシス"
+"テム設定で選んだSCSIコントローラに接続されます。VirtIO SCSIまたはVirtIO SCSI "
+"Singleを選択していると高速にディスクアクセスが可能です。"
+msgstr ""
+"For the bus/device setting, select SCSI unless you have a specific "
+"requirement. This connects the disk to the SCSI controller selected in the "
+"system settings. Selecting VirtIO SCSI or VirtIO SCSI Single enables faster "
+"disk access."
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:89
+msgid ""
+"ストレージを選択してディスクサイズを入力したら、「次へ」を押してCPUの設定画面"
+"を開きましょう。"
+msgstr ""
+"Select the storage and enter the disk size, then select Next to open the CPU "
+"settings screen."
+
+#. heading (level 3)
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:91
+msgid "CPU設定"
+msgstr "CPU Settings"
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:93
+msgid "![Proxmox VE 仮想マシンの作成画面](images/pve-create-vm-5.webp)"
+msgstr ""
+"![Proxmox VE virtual machine creation screen](images/pve-create-vm-5.webp)"
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:95
+msgid "CPUに関する設定を行います。"
+msgstr "Configure the CPU settings."
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:97
+msgid ""
+"ここでは主に、仮想マシンに割り当てる仮想コアの数を指定します。割り当てられる"
+"合計のコア数はソケット数×コア数で決まります。"
+msgstr ""
+"Here, you mainly specify the number of virtual cores assigned to the virtual "
+"machine. The total number of assignable cores is determined by the number of "
+"sockets multiplied by the number of cores."
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:99
+msgid ""
+"ソケットの設定で値を2以上にすることで、仮想マシンに対してまるで複数のCPUが搭"
+"載されているようにみせることができます。通常は1で問題ありません。"
+msgstr ""
+"Setting the number of sockets to 2 or more makes the virtual machine appear "
+"to have multiple CPUs. Normally, 1 is sufficient."
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:101
+msgid ""
+"種別の設定では、仮想マシンにみせるCPUの種別を選択できます。特に指定がなければ"
+"そのままで問題ありません。"
+msgstr ""
+"The type setting allows you to select the CPU type presented to the virtual "
+"machine. Leave it unchanged unless you have a specific requirement."
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:103
+msgid "設定したら「次へ」を押してメモリの設定画面を開きましょう。"
+msgstr ""
+"After configuring the settings, select Next to open the memory settings "
+"screen."
+
+#. heading (level 3)
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:105
+msgid "メモリ設定"
+msgstr "Memory Settings"
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:107
+msgid "![Proxmox VE 仮想マシンの作成画面](images/pve-create-vm-6.webp)"
+msgstr ""
+"![Proxmox VE virtual machine creation screen](images/pve-create-vm-6.webp)"
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:109
+msgid "メモリに関する設定を行います。"
+msgstr "Configure the memory settings."
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:111
+msgid "仮想マシンに割り当てるメモリを入力しましょう。"
+msgstr "Enter the amount of memory to allocate to the virtual machine."
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:113
+msgid ""
+"Ballooningとは、仮想マシンに割り当てるメモリを動的に調整するための機能です。"
+"リソースを節約できる一方で、パフォーマンスが不安定になることもあるため、"
+"「Ballooningデバイス」のチェックは外しておくことを推奨します。"
+msgstr ""
+"Ballooning is a feature that dynamically adjusts the memory allocated to the "
+"virtual machine. Although it can save resources, it can also make "
+"performance unstable, so disabling Ballooning Device is recommended."
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:115
+msgid "設定したら「次へ」を押してネットワークの設定画面を開きましょう。"
+msgstr ""
+"After configuring the settings, select Next to open the network settings "
+"screen."
+
+#. heading (level 3)
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:117
+msgid "ネットワーク設定"
+msgstr "Network Settings"
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:119
+msgid "![Proxmox VE 仮想マシンの作成画面](images/pve-create-vm-7.webp)"
+msgstr ""
+"![Proxmox VE virtual machine creation screen](images/pve-create-vm-7.webp)"
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:121
+msgid "ネットワークの設定を行います。"
+msgstr "Configure the network settings."
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:123
+msgid ""
+"使用したいブリッジを選択し、モデルは特に指定がなければVirtIOのままとしましょ"
+"う。"
+msgstr ""
+"Select the bridge you want to use. Unless you have a specific requirement, "
+"leave the model set to VirtIO."
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:125
+msgid "設定したら「次へ」を押して確認画面を開きましょう。"
+msgstr ""
+"After configuring the settings, select Next to open the confirmation screen."
+
+#. heading (level 3)
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:127
+msgid "設定の確認"
+msgstr "Review the Settings"
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:129
+msgid "![Proxmox VE 仮想マシンの作成画面](images/pve-create-vm-8.webp)"
+msgstr ""
+"![Proxmox VE virtual machine creation screen](images/pve-create-vm-8.webp)"
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:131
+msgid ""
+"設定した内容が表示されます。特に問題がなければ「完了」を押して仮想マシンの設"
+"定を終了します。"
+msgstr ""
+"The configured settings are displayed. If everything is correct, select "
+"Finish to complete the virtual machine configuration."
+
+#. heading (level 2)
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:133
+msgid "ゲストOSのインストール"
+msgstr "Install the Guest OS"
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:135
+msgid "![Proxmox VE 仮想マシンの管理画面](images/pve-install-os-1.webp)"
+msgstr ""
+"![Proxmox VE virtual machine management screen](images/pve-install-os-1.webp)"
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:137
+msgid "全般設定で指定したノードに仮想マシンが作成されています。"
+msgstr ""
+"The virtual machine has been created on the node specified in the general "
+"settings."
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:139
+msgid ""
+"画面右上の「開始」を押した後、「コンソール」を押して、ゲストOSのインストール"
+"画面を開きましょう。"
+msgstr ""
+"Select Start in the upper-right corner, then select Console to open the "
+"guest OS installation screen."
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:141
+msgid "![Proxmox VE ゲストOSのインストール画面](images/pve-install-os-2.webp)"
+msgstr ""
+"![Proxmox VE guest OS installation screen](images/pve-install-os-2.webp)"
+
+#. paragraph
+#: content/ja/blog/create-vm-in-proxmox-ve/index.md:143
+msgid "後は通常通り、ゲストOSをインストールしましょう。"
+msgstr "Install the guest OS as usual."

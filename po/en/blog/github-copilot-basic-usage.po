@@ -1,0 +1,746 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:42+0000\n"
+"PO-Revision-Date: 2026-11-15 23:40+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/github-copilot-basic-usage/index.md:2
+msgid "VS CodeでGitHub Copilotを使う基本操作"
+msgstr "Basic GitHub Copilot Usage in VS Code"
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:13
+msgid ""
+"GitHub CopilotをVisual Studio Code（VS Code）で使うと、コードの入力、調査、修"
+"正をAIに相談できます。"
+msgstr ""
+"GitHub Copilot in Visual Studio Code (VS Code) can help you write, "
+"investigate, and modify code with AI assistance."
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:15
+msgid ""
+"この記事では、VS CodeにGitHub Copilotを導入し、コード補完やチャットなどの基本"
+"操作を試す手順を解説します。生成されたコードは必ず内容を確認し、必要に応じて"
+"テストやレビューを行ってください。"
+msgstr ""
+"This article explains how to set up GitHub Copilot in VS Code and try its "
+"basic features, including code completion and chat. Always review generated "
+"code and run tests when appropriate."
+
+#. heading (level 2)
+#: content/ja/blog/github-copilot-basic-usage/index.md:17
+msgid "前提条件"
+msgstr "Prerequisites"
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:19
+msgid "次のものを準備します。"
+msgstr "Prepare the following:"
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:21
+msgid "VS Code"
+msgstr "VS Code"
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:22
+msgid "GitHubアカウント"
+msgstr "A GitHub account"
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:23
+msgid "GitHub Copilotを利用できるプランまたは無料枠"
+msgstr "A plan or free allowance that supports GitHub Copilot"
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:25
+msgid ""
+"VS Codeは、できるだけ新しいバージョンを使用してください。GitHub Copilotのプラ"
+"ンや利用上限は変更される場合があるため、最新情報は[GitHub Copilotの料金ペー"
+"ジ](https://github.com/features/copilot/plans)で確認します。"
+msgstr ""
+"Use a recent version of VS Code when possible. GitHub Copilot plans and "
+"usage limits may change, so check the [GitHub Copilot plans page](https://"
+"github.com/features/copilot/plans) for the latest information."
+
+#. heading (level 2)
+#: content/ja/blog/github-copilot-basic-usage/index.md:27
+msgid "GitHub Copilot拡張機能をインストールする"
+msgstr "Install the GitHub Copilot extension"
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:29
+msgid "VS Codeを起動します。"
+msgstr "Start VS Code."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:30
+msgid "左側のアクティビティバーで、拡張機能アイコンを選択します。"
+msgstr "Select the Extensions icon in the Activity Bar."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:31
+msgid "検索欄に`GitHub Copilot`と入力します。"
+msgstr "Enter `GitHub Copilot` in the search box."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:32
+msgid "GitHubが公開しているGitHub Copilot関連の拡張機能を選択します。"
+msgstr "Select the GitHub Copilot extension published by GitHub."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:33
+msgid "**インストール**を選択します。"
+msgstr "Select **Install**."
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:35
+msgid ""
+"バージョンによっては、GitHub Copilot Chatが同じ拡張機能に含まれている場合があ"
+"ります。検索結果に表示される公開元と説明を確認してからインストールしてくださ"
+"い。"
+msgstr ""
+"Depending on the version, GitHub Copilot Chat may be included in the same "
+"extension. Check the publisher and description in the search results before "
+"installing an extension."
+
+#. heading (level 2)
+#: content/ja/blog/github-copilot-basic-usage/index.md:37
+msgid "GitHubアカウントでサインインする"
+msgstr "Sign in with your GitHub account"
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:39
+msgid ""
+"拡張機能をインストールすると、GitHubアカウントへのサインインを求められること"
+"があります。"
+msgstr ""
+"After installing the extension, VS Code may ask you to sign in to your "
+"GitHub account."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:41
+msgid ""
+"VS CodeのステータスバーまたはアカウントメニューからGitHubへのサインインを選択"
+"します。"
+msgstr ""
+"Start GitHub sign-in from the status bar or the Accounts menu in VS Code."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:42
+msgid "ブラウザーが開いたら、GitHubアカウントでサインインします。"
+msgstr "When your browser opens, sign in to your GitHub account."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:43
+msgid "VS Codeによる認証を許可します。"
+msgstr "Authorize VS Code."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:44
+msgid ""
+"VS Codeに戻り、アカウントメニューでサインイン済みであることを確認します。"
+msgstr ""
+"Return to VS Code and confirm that the Accounts menu shows you are signed in."
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:46
+msgid ""
+"サインインできない場合は、VS Codeを再起動してからアカウントメニューを確認しま"
+"す。組織のアカウントを使用している場合は、管理者による利用制限が設定されてい"
+"ないか確認してください。"
+msgstr ""
+"If sign-in does not work, restart VS Code and check the Accounts menu again. "
+"If you use an organization account, check whether an administrator has "
+"restricted GitHub Copilot access."
+
+#. heading (level 2)
+#: content/ja/blog/github-copilot-basic-usage/index.md:48
+msgid "コード補完を使う"
+msgstr "Use code completion"
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:50
+msgid ""
+"コード補完は、入力中のコードやコメントをもとに続きを提案する機能です。例とし"
+"て、Pythonファイルに次のコメントを入力します。"
+msgstr ""
+"Code completion suggests continuations based on the code and comments you "
+"are entering. For example, enter the following comment in a Python file:"
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:56
+msgid ""
+"コメントの次の行で関数名を入力すると、関数の実装候補が表示されます。薄い文字"
+"で表示された候補を採用するには、通常は`Tab`キーを押します。候補を採用せず入力"
+"を続ける場合は`Esc`キーを押します。"
+msgstr ""
+"Start entering a function on the next line. A suggested implementation may "
+"appear as faint text. To accept the suggestion, press `Tab` in the usual "
+"configuration. To dismiss it and continue typing, press `Esc`."
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:58
+msgid ""
+"候補の内容が目的と合わないときは、コメントを具体的に書き直します。例えば、引"
+"数名、戻り値、例外処理の必要性などを明記すると、意図を伝えやすくなります。"
+msgstr ""
+"When a suggestion does not match your goal, make the comment more specific. "
+"Including argument names, the return value, and whether error handling is "
+"required can make your intent clearer."
+
+#. heading (level 2)
+#: content/ja/blog/github-copilot-basic-usage/index.md:60
+msgid "複数の候補を確認する"
+msgstr "Review multiple suggestions"
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:62
+msgid ""
+"候補が表示された状態で、別の候補を確認できる場合があります。候補を切り替える"
+"キーボード操作は、VS Codeや拡張機能のバージョン、キーボード配列によって異なる"
+"ことがあります。"
+msgstr ""
+"When a suggestion is displayed, other suggestions may be available. The "
+"keyboard commands for switching suggestions can vary with the VS Code "
+"version, extension version, and keyboard layout."
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:64
+msgid ""
+"候補一覧を表示するには、エディター上で右クリックしてGitHub Copilotの候補に関"
+"するメニューを確認するか、コマンドパレット（`Ctrl+Shift+P`）で`Copilot`を検索"
+"します。採用する前に、候補の処理内容、エラー処理、外部入力の扱いを確認してく"
+"ださい。"
+msgstr ""
+"To view available commands, right-click in the editor and inspect the GitHub "
+"Copilot menu, or search for `Copilot` in the Command Palette "
+"(`Ctrl+Shift+P`). Before accepting a suggestion, review its logic, error "
+"handling, and treatment of external input."
+
+#. heading (level 2)
+#: content/ja/blog/github-copilot-basic-usage/index.md:66
+msgid "Copilot Chatで質問する"
+msgstr "Ask questions in Copilot Chat"
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:68
+msgid "Copilot Chatでは、コードやエラーについて自然な文章で質問できます。"
+msgstr ""
+"Copilot Chat lets you ask questions about code and errors in natural "
+"language."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:70
+msgid "アクティビティバーでChatを開きます。"
+msgstr "Open Chat from the Activity Bar."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:71
+msgid "入力欄に質問を入力します。"
+msgstr "Enter a question in the input box."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:72
+msgid "必要に応じて、対象のファイルやコードをコンテキストとして指定します。"
+msgstr "Add relevant files or code as context when necessary."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:73
+msgid "送信して回答を確認します。"
+msgstr "Send the question and review the answer."
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:75
+msgid "例えば、次のように具体的な質問を入力します。"
+msgstr "For example, enter a specific request such as:"
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:81
+msgid ""
+"回答をそのまま正解とみなさず、説明と実際のコードが一致しているか確認します。"
+"プロジェクトの目的、使用しているライブラリ、エラーメッセージなどを必要な範囲"
+"で伝えると、質問しやすくなります。"
+msgstr ""
+"Do not assume that the answer is correct. Check that the explanation matches "
+"the actual code. Including the project goal, libraries in use, and relevant "
+"error messages can make your question more useful."
+
+#. heading (level 2)
+#: content/ja/blog/github-copilot-basic-usage/index.md:83
+msgid "Ask、Plan、Agentモードを使い分ける"
+msgstr "Choose Ask, Plan, or Agent mode"
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:85
+msgid ""
+"Copilot Chatの入力欄では、目的に応じてモードを選択できます。利用できるモード"
+"や表示名は、VS CodeとCopilotのバージョンによって異なる場合があります。"
+msgstr ""
+"The mode selector in Copilot Chat lets you choose an interaction style for "
+"your task. The available modes and their names may vary with the VS Code and "
+"Copilot versions."
+
+#. heading (level 3)
+#: content/ja/blog/github-copilot-basic-usage/index.md:87
+msgid "Askモード"
+msgstr "Ask mode"
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:89
+msgid ""
+"Askモードは、コードについて質問したり、処理の説明やエラーの原因を調べたりする"
+"ためのモードです。通常はファイルを変更せず、回答やコード例を確認したいときに"
+"使います。"
+msgstr ""
+"Ask mode is for asking questions about code, explaining behavior, and "
+"investigating errors. It is generally useful when you want an answer or code "
+"example without asking Copilot to modify files."
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:91
+msgid "例えば、次のような質問を入力します。"
+msgstr "For example, you could enter:"
+
+#. heading (level 3)
+#: content/ja/blog/github-copilot-basic-usage/index.md:97
+msgid "Planモード"
+msgstr "Plan mode"
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:99
+msgid ""
+"Planモードは、実装を始める前に、調査内容や変更手順を計画するためのモードで"
+"す。複数のファイルにまたがる作業では、いきなり変更を依頼するのではなく、まず"
+"Planモードで対象ファイル、手順、確認方法を整理するとレビューしやすくなりま"
+"す。"
+msgstr ""
+"Plan mode is for organizing the investigation and implementation steps "
+"before making changes. For work involving several files, creating a plan "
+"first can make the target files, sequence of changes, and verification steps "
+"easier to review."
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:101
+msgid ""
+"計画を確認したあと、必要な修正点を追加で指示してから実装を依頼します。計画が"
+"作成されたことだけで、コードが正しく変更されたとは判断しないでください。"
+msgstr ""
+"Review the plan and provide any corrections before asking Copilot to "
+"implement it. Creating a plan does not mean that the code has been changed "
+"correctly."
+
+#. heading (level 3)
+#: content/ja/blog/github-copilot-basic-usage/index.md:103
+msgid "Agentモード"
+msgstr "Agent mode"
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:105
+msgid ""
+"Agentモードは、目的を伝えると、必要なファイルの調査、コードの編集、テストやコ"
+"マンドの実行などを段階的に進めるモードです。例えば、次のような作業を依頼でき"
+"ます。"
+msgstr ""
+"Agent mode lets Copilot work through a task step by step, which can include "
+"inspecting files, editing code, and running tests or commands. For example, "
+"you could ask:"
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:111
+msgid ""
+"Agentモードではファイル変更やコマンド実行が行われることがあります。実行前の確"
+"認を求められた場合は内容を確認し、完了後は差分、テスト結果、実行されたコマン"
+"ドをレビューします。小さな調査はAsk、計画が必要な作業はPlan、明確な実装作業は"
+"Agentというように使い分けると分かりやすくなります。"
+msgstr ""
+"Agent mode may change files or run commands. Review any confirmation request "
+"before allowing the action, then review the diff, test results, and commands "
+"after it finishes. As a simple rule, use Ask for a small investigation, Plan "
+"for work that needs preparation, and Agent for a clearly defined "
+"implementation task."
+
+#. heading (level 2)
+#: content/ja/blog/github-copilot-basic-usage/index.md:113
+msgid "モデルを選択する"
+msgstr "Choose a model"
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:115
+msgid ""
+"Chatのモデル選択メニューでは、利用可能なAIモデルを切り替えられます。モデルに"
+"よって、回答の速度、得意な処理、コンテキストの扱い、利用量の計算方法が異なる"
+"ことがあります。"
+msgstr ""
+"The model picker in Chat lets you switch between available AI models. Models "
+"can differ in response speed, strengths, context handling, and how usage is "
+"calculated."
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:117
+msgid "モデルを選ぶときは、次のように目的とコストのバランスを考えます。"
+msgstr "Consider the balance between the task and usage when choosing a model:"
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:119
+msgid "短い説明や簡単な質問では、標準または高速なモデルを選ぶ"
+msgstr ""
+"Choose a standard or faster model for short explanations and simple "
+"questions."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:120
+msgid "複雑な設計、デバッグ、複数ファイルの変更では、推論に強いモデルを選ぶ"
+msgstr ""
+"Choose a model with stronger reasoning for complex design, debugging, or "
+"multi-file changes."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:121
+msgid ""
+"利用量を抑えたいときは、モデル名の近くに表示される利用倍率や説明を確認する"
+msgstr ""
+"When you want to reduce usage, check the multiplier or description shown "
+"next to the model name."
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:123
+msgid ""
+"表示されるモデルと利用倍率は、Copilotのプラン、組織の設定、時期によって異なり"
+"ます。特定のモデルが常に利用できるとは限らないため、Chatのモデル選択メニュー"
+"に表示される最新の情報を確認してください。"
+msgstr ""
+"The available models and multipliers depend on your Copilot plan, "
+"organization settings, and the current service. A particular model may not "
+"always be available, so use the latest information shown in the Chat model "
+"picker."
+
+#. heading (level 2)
+#: content/ja/blog/github-copilot-basic-usage/index.md:125
+msgid "思考量を選択する"
+msgstr "Choose thinking effort"
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:127
+msgid ""
+"推論に対応したモデルでは、回答にかける思考量（推論の強さ）を選択できる場合が"
+"あります。思考量を高くすると複雑な問題を詳しく検討しやすくなりますが、回答に"
+"時間がかかったり、利用量が多くなったりすることがあります。"
+msgstr ""
+"Models that support reasoning may provide a thinking effort setting. A "
+"higher effort can make it easier to work through a complex problem, but it "
+"may take longer and use more of your allowance."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:129
+msgid "低い思考量: 用語の確認、短い説明、単純な修正"
+msgstr ""
+"Low effort: checking terminology, short explanations, and simple changes"
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:130
+msgid "中程度の思考量: 一般的なデバッグやテスト作成"
+msgstr "Medium effort: ordinary debugging and test creation"
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:131
+msgid "高い思考量: 複雑な設計、原因の切り分け、広い範囲の変更"
+msgstr ""
+"High effort: complex design, isolating a difficult cause, and broad changes"
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:133
+msgid ""
+"すべてのモデルやプランで思考量を変更できるわけではありません。選択欄が表示さ"
+"れる場合だけ、タスクの複雑さに合わせて設定します。思考量を高くしても回答の正"
+"しさが保証されるわけではないため、生成結果の確認は必要です。"
+msgstr ""
+"Not every model or plan provides a thinking effort setting. Use it when the "
+"selector is available and match it to the complexity of the task. A higher "
+"effort does not guarantee a correct answer, so review the generated result."
+
+#. heading (level 2)
+#: content/ja/blog/github-copilot-basic-usage/index.md:135
+msgid "クレジットとは"
+msgstr "Understand credits"
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:137
+msgid ""
+"GitHub Copilotでいうクレジットは、AIの利用量を管理するための単位です。プラン"
+"によって毎月利用できる量が決められ、Chatへの依頼やモデルの種類、機能によって"
+"消費量が変わります。高性能なモデルや高度な処理では、1回の依頼で複数のクレジッ"
+"トを消費することがあります。"
+msgstr ""
+"Credits are a way to measure AI usage in GitHub Copilot. The amount "
+"available each month depends on the plan, and the amount consumed can vary "
+"by the request, model, and feature. An advanced model or task may consume "
+"more than one credit for a single request."
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:139
+msgid ""
+"クレジットは、コードの品質や正しさを表す点数ではありません。また、VS Codeの画"
+"面に表示される利用可能量や呼び方は、契約やGitHubの請求方式によって異なる場合"
+"があります。アカウントの設定画面や利用状況ページで残量とリセット時期を確認"
+"し、必要に応じて低コストのモデルやAskモードを選びます。"
+msgstr ""
+"Credits are not a score for code quality or correctness. The quantity and "
+"terminology shown in VS Code can also vary with your subscription and "
+"GitHub's billing system. Check your account settings or usage page for the "
+"remaining amount and reset date. When appropriate, choose a lower-cost model "
+"or Ask mode to manage usage."
+
+#. heading (level 2)
+#: content/ja/blog/github-copilot-basic-usage/index.md:141
+msgid "選択したコードを説明・修正する"
+msgstr "Explain or modify selected code"
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:143
+msgid "ファイル内のコードを選択すると、選択範囲を対象に質問できます。"
+msgstr "You can ask questions about a selected section of code."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:145
+msgid "エディターで説明してほしいコードを選択します。"
+msgstr "Select the code you want to understand in the editor."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:146
+msgid "右クリックしてCopilotに関するメニューを開きます。"
+msgstr "Right-click and open the GitHub Copilot menu."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:147
+msgid "コードの説明、修正、テスト作成などの操作を選択します。"
+msgstr ""
+"Choose an action such as explaining the code, modifying it, or creating "
+"tests."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:148
+msgid "提案された変更を確認します。"
+msgstr "Review the proposed change."
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:150
+msgid ""
+"修正を依頼する場合は、目的を具体的に伝えます。例えば、次のように入力します。"
+msgstr "When asking for a modification, state the goal precisely. For example:"
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:156
+msgid ""
+"提案された変更は、差分を確認してから適用します。変更範囲が広い場合は、1つずつ"
+"内容を確認し、不要な変更を取り消してください。"
+msgstr ""
+"Review the diff before applying the proposed change. If the change is broad, "
+"inspect each part and undo anything unnecessary."
+
+#. heading (level 2)
+#: content/ja/blog/github-copilot-basic-usage/index.md:158
+msgid "インラインチャットを使う"
+msgstr "Use inline chat"
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:160
+msgid ""
+"インラインチャットを使うと、エディターを離れずに現在のコードについて依頼でき"
+"ます。"
+msgstr ""
+"Inline chat lets you make a request about the current code without leaving "
+"the editor."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:162
+msgid "エディターで対象のコードを選択します。"
+msgstr "Select the target code in the editor."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:163
+msgid ""
+"コマンドパレットで`Copilot`を検索し、インラインチャットを開始する操作を選択し"
+"ます。"
+msgstr ""
+"Search for `Copilot` in the Command Palette and choose the command that "
+"starts inline chat."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:164
+msgid "変更したい内容を入力します。"
+msgstr "Enter the change you want."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:165
+msgid "表示された差分を確認し、適用またはキャンセルします。"
+msgstr "Review the displayed diff, then apply or cancel it."
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:167
+msgid ""
+"依頼文には、変更する範囲と維持する条件を含めます。例えば、`この関数だけを変更"
+"し、公開されている関数名は変えないでください`のように指定します。"
+msgstr ""
+"Include both the scope and constraints in your request. For example: `Modify "
+"only this function and do not change the name of its public API`."
+
+#. heading (level 2)
+#: content/ja/blog/github-copilot-basic-usage/index.md:169
+msgid "提案を確認して適用する"
+msgstr "Review and apply suggestions"
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:171
+msgid "GitHub Copilotの提案を利用するときは、次の順番で確認します。"
+msgstr "Use the following process when adopting a GitHub Copilot suggestion:"
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:173
+msgid "変更前後の差分を確認する。"
+msgstr "Review the diff before and after the change."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:174
+msgid "生成された処理が依頼内容に合っているか確認する。"
+msgstr "Confirm that the generated logic matches your request."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:175
+msgid "型、戻り値、例外処理、境界値を確認する。"
+msgstr "Check types, return values, exceptions, and boundary cases."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:176
+msgid "テストや静的解析を実行する。"
+msgstr "Run tests and static analysis."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:177
+msgid "問題がなければ変更を保存してコミットする。"
+msgstr "Save and commit the change only after it passes your checks."
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:179
+msgid ""
+"エラーを修正する場合も、エラーメッセージを隠さずに原因を確認します。Copilotの"
+"提案だけでエラーが解消したと判断せず、実際にアプリケーションやテストを実行し"
+"てください。"
+msgstr ""
+"When fixing an error, investigate the error message instead of hiding it. Do "
+"not assume that an error is resolved just because Copilot suggested a "
+"change. Run the application or tests to verify the result."
+
+#. heading (level 2)
+#: content/ja/blog/github-copilot-basic-usage/index.md:181
+msgid "利用時の注意点"
+msgstr "Things to keep in mind"
+
+#. heading (level 3)
+#: content/ja/blog/github-copilot-basic-usage/index.md:183
+msgid "機密情報を入力しない"
+msgstr "Do not enter sensitive information"
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:185
+msgid ""
+"APIキー、パスワード、個人情報、顧客情報、社内の機密情報をプロンプトやチャット"
+"に入力しないでください。必要な場合は、実際の値を伏せた最小限の例に置き換えま"
+"す。"
+msgstr ""
+"Do not enter API keys, passwords, personal information, customer "
+"information, or confidential company information in prompts or chat. Replace "
+"real values with a minimal example that does not expose sensitive data."
+
+#. heading (level 3)
+#: content/ja/blog/github-copilot-basic-usage/index.md:187
+msgid "生成されたコードを検証する"
+msgstr "Verify generated code"
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:189
+msgid ""
+"生成されたコードには、誤り、脆弱性、非効率な処理が含まれる可能性があります。"
+"特に認証、認可、入力値の検証、暗号化、データベース操作に関わるコードは、公式"
+"ドキュメントやテスト結果と照らし合わせて確認します。"
+msgstr ""
+"Generated code may contain errors, vulnerabilities, or inefficient "
+"processing. Review code involving authentication, authorization, input "
+"validation, encryption, and database operations against official "
+"documentation and test results."
+
+#. heading (level 3)
+#: content/ja/blog/github-copilot-basic-usage/index.md:191
+msgid "ライセンスと依存関係を確認する"
+msgstr "Check licenses and dependencies"
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:193
+msgid ""
+"生成されたコードを公開ソフトウェアで利用する場合は、プロジェクトのライセンス"
+"や依存ライブラリの条件を確認します。コードの出所や利用条件に懸念がある場合"
+"は、採用前に確認してください。"
+msgstr ""
+"If you use generated code in publicly distributed software, check the "
+"project's license and the terms of dependent libraries. Investigate any "
+"concerns about the origin or usage conditions of code before adopting it."
+
+#. heading (level 3)
+#: content/ja/blog/github-copilot-basic-usage/index.md:195
+msgid "変更を小さく保つ"
+msgstr "Keep changes small"
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:197
+msgid ""
+"大きな機能を一度に生成させるより、目的を小さな単位に分けて依頼すると、差分を"
+"確認しやすくなります。Gitで作業ブランチを作成し、変更前の状態を戻せるようにし"
+"ておくと安心です。"
+msgstr ""
+"Small, focused requests make generated diffs easier to review than a request "
+"to generate a large feature all at once. Consider working on a Git branch so "
+"you can restore the previous state when necessary."
+
+#. heading (level 2)
+#: content/ja/blog/github-copilot-basic-usage/index.md:199
+msgid "まとめ"
+msgstr "Summary"
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:201
+msgid ""
+"VS Codeでは、GitHub Copilotを使ってコード補完、チャットによる質問、選択した"
+"コードの説明や修正、インラインチャットを利用できます。"
+msgstr ""
+"In VS Code, GitHub Copilot can help with code completion, questions in chat, "
+"explanations and modifications of selected code, and inline chat."
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:203
+msgid ""
+"Copilotは開発を支援するツールであり、生成結果を無条件に採用するものではありま"
+"せん。依頼内容と差分を確認し、テスト、静的解析、セキュリティ確認を行いながら"
+"活用しましょう。"
+msgstr ""
+"Copilot is a development aid, not a replacement for review. Check the "
+"request and the diff, and use tests, static analysis, and security reviews "
+"as part of your workflow."
+
+#. paragraph
+#: content/ja/blog/github-copilot-basic-usage/index.md:205
+msgid ""
+"詳しいセットアップ方法は、[GitHub Copilotのセットアップ（GitHub Docs）]"
+"(https://docs.github.com/en/copilot/how-tos/set-up)を参照してください。"
+msgstr ""
+"For detailed setup instructions, see [Setting up GitHub Copilot (GitHub "
+"Docs)](https://docs.github.com/en/copilot/how-tos/set-up)."

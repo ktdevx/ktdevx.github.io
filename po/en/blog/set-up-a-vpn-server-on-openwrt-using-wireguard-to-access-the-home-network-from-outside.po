@@ -1,0 +1,482 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:45+0000\n"
+"PO-Revision-Date: 2026-11-15 23:40+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:2
+msgid ""
+"WireGuardを利用してOpenWrt上にVPNサーバーを構築し、外部から自宅ネットワークに"
+"アクセスできるようにする"
+msgstr ""
+"Build a VPN Server on OpenWrt with WireGuard for Remote Access to Your Home "
+"Network"
+
+#. heading (level 2)
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:12
+msgid "はじめに"
+msgstr "Introduction"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:14
+msgid ""
+"本記事では、OpenWrtを導入したルーター上にWireGuardを使ったVPNサーバーを構築"
+"し、外出先から自宅ネットワークへ安全にアクセスする方法を解説します。"
+msgstr ""
+"This article explains how to build a VPN server using WireGuard on a router "
+"running OpenWrt and securely access your home network while away from home."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:16
+msgid ""
+"WireGuardは、軽量で高速かつセキュアなVPNプロトコルであり、自宅にVPN環境を手軽"
+"に構築することができます。"
+msgstr ""
+"WireGuard is a lightweight, fast, and secure VPN protocol that makes it easy "
+"to build a VPN environment at home."
+
+#. heading (level 2)
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:18
+msgid "パッケージのインストール"
+msgstr "Install the Package"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:20
+msgid ""
+"OpenWrtのWeb管理画面（LuCI）にログインし、`luci-proto-wireguard`をインストー"
+"ルします。これにより、`wireguard-tools`などの必要なパッケージもインストールさ"
+"れます。"
+msgstr ""
+"Log in to the OpenWrt web management interface (LuCI) and install `luci-"
+"proto-wireguard`. This also installs required packages such as `wireguard-"
+"tools`."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:22
+msgid "インストール完了後はルーターを再起動してください。"
+msgstr "Restart the router after the installation is complete."
+
+#. heading (level 2)
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:24
+msgid "ネットワークインターフェースの追加"
+msgstr "Add a Network Interface"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:26
+msgid ""
+"LuCIの「ネットワーク > インターフェース」にアクセスし、「インターフェースを新"
+"規作成...」をクリックして以下の設定で作成します。"
+msgstr ""
+"In LuCI, go to \"Network > Interfaces\", click \"Add new interface...\", and "
+"create an interface with the following settings."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:28
+msgid ""
+"| 項目       | 設定                 |\n"
+"| ---------- | -------------------- |\n"
+"| 名前       | <インターフェース名> |\n"
+"| プロトコル | WireGuard VPN        |"
+msgstr ""
+"| Item       | Setting              |\n"
+"| ---------- | -------------------- |\n"
+"| Name       | \\<Interface name>    |\n"
+"| Protocol   | WireGuard VPN        |"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:33
+msgid ""
+"名前は`vpn`や`wg`などの分かりやすい名前を設定しましょう。今回は`vpn`としまし"
+"た。"
+msgstr ""
+"Choose an easy-to-understand name such as `vpn` or `wg`. This time, I used "
+"`vpn`."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:35
+msgid "次に「一般設定」タブで以下を設定します。"
+msgstr "Next, configure the following on the \"General Settings\" tab."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:37
+msgid ""
+"| 項目           | 設定                                    |\n"
+"| -------------- | --------------------------------------- |\n"
+"| リッスンポート | 51820                                   |\n"
+"| IPアドレス     | <WireGuardインターフェースのIPアドレス> |"
+msgstr ""
+"| Item           | Setting                                 |\n"
+"| -------------- | --------------------------------------- |\n"
+"| Listen Port    | 51820                                   |\n"
+"| IP Addresses   | \\<IP address of the WireGuard interface> |"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:42
+msgid ""
+"特に意図がなければIPアドレスは既存のセグメントと被らないように設定しましょ"
+"う。今回は`10.0.0.1`に設定しました。"
+msgstr ""
+"Unless you have a specific reason, choose an IP address that does not "
+"overlap with an existing network segment. This time, I set it to `10.0.0.1`."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:44
+msgid ""
+"最後に「Generate new key pair」をクリックして、サーバー用の秘密鍵・公開鍵を生"
+"成します。"
+msgstr ""
+"Finally, click \"Generate new key pair\" to generate the server's private "
+"and public keys."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:46
+msgid "設定完了後、「保存」をクリックしてください。"
+msgstr "After configuring the settings, click \"Save\"."
+
+#. heading (level 2)
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:48
+msgid "ファイアウォールの設定"
+msgstr "Configure the Firewall"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:50
+msgid ""
+"LuCIにて「ネットワーク > ファイアウォール」にアクセスし、「一般設定」タブから"
+"ゾーンの設定を行います。"
+msgstr ""
+"In LuCI, go to \"Network > Firewall\" and configure the zones on the "
+"\"General Settings\" tab."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:52
+msgid ""
+"`lan`インターフェースと同じ設定を適用させたいので、`lan`ゾーンを編集して「対"
+"象ネットワーク」に`vpn`インターフェースを追加します。"
+msgstr ""
+"Since I want to apply the same settings as the `lan` interface, edit the "
+"`lan` zone and add the `vpn` interface to \"Covered networks\"."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:54
+msgid ""
+"次に、「トラフィック・ルール」タブを開いて、WireGuardの接続を許可する設定を追"
+"加します。`wan`側からの通信はデフォルトで無効化されているため、`wan`からVPN"
+"サーバー（OpenWrt）への通信を許可しましょう。"
+msgstr ""
+"Next, open the \"Traffic Rules\" tab and add a rule to allow WireGuard "
+"connections. Traffic from the `wan` side is blocked by default, so allow "
+"traffic from `wan` to the VPN server (OpenWrt)."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:56
+msgid "「追加」をクリックして以下の内容でルールを追加します。"
+msgstr "Click \"Add\" and create a rule with the following settings."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:58
+msgid ""
+"| 項目         | 設定            | \n"
+"| ------------ | --------------- |\n"
+"| 名前         | Allow-WireGuard |\n"
+"| プロトコル   | UDP             |\n"
+"| 送信元ゾーン | wan             |\n"
+"| 宛先ゾーン   | デバイス (入力) |\n"
+"| 宛先ポート   | 51820           |"
+msgstr ""
+"| Item         | Setting         |\n"
+"| ------------ | --------------- |\n"
+"| Name         | Allow-WireGuard |\n"
+"| Protocol     | UDP             |\n"
+"| Source zone  | wan             |\n"
+"| Destination zone | Device (input)  |\n"
+"| Destination port | 51820           |"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:68
+msgid "設定完了後、「保存&適用」をクリックしましょう。"
+msgstr "After configuring the rule, click \"Save & Apply\"."
+
+#. heading (level 2)
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:70
+msgid "ピアの追加"
+msgstr "Add a Peer"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:72
+msgid "VPNサーバーに接続を許可するクライアント（ピア）の情報を追加します。"
+msgstr ""
+"Add information for the clients (peers) that are allowed to connect to the "
+"VPN server."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:74
+msgid ""
+"ここでは、クライアントの鍵ペアをサーバー側で生成し、設定ファイルをクライアン"
+"トへ共有する手順で説明します。この方法では、一時的にサーバー側にクライアント"
+"の秘密鍵を保持することになるため注意が必要です。"
+msgstr ""
+"Here, I explain the procedure in which the client's key pair is generated on "
+"the server and the configuration file is shared with the client. Note that "
+"with this method, the client's private key is temporarily kept on the server."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:76
+msgid ""
+"LuCIにて「ネットワーク > インターフェース」にアクセスし、先ほど追加した`vpn`"
+"を編集します。「ピア」タブを開いて「ピアを追加」をクリックしましょう。"
+msgstr ""
+"In LuCI, go to \"Network > Interfaces\" and edit the `vpn` interface added "
+"earlier. Open the \"Peers\" tab and click \"Add peer\"."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:78
+msgid "ピアの設定画面が開かれたら設定を以下のように編集します。"
+msgstr "When the peer settings screen opens, edit the settings as follows."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:80
+msgid ""
+"| 項目                   | 設定                         |\n"
+"| ---------------------- | ---------------------------- |\n"
+"| 説明                   | <ピアの説明>                 |\n"
+"| 許可されたIP           | <ピアが指定可能なIPアドレス> |\n"
+"| 許可されたIPのルート   | 有効                         |\n"
+"| 永続的なキープアライブ | 25                           |"
+msgstr ""
+"| Item                   | Setting                      |\n"
+"| ---------------------- | ---------------------------- |\n"
+"| Description            | \\<Peer description>          |\n"
+"| Allowed IPs            | \\<IP addresses the peer may use> |\n"
+"| Route Allowed IPs      | Enabled                      |\n"
+"| Persistent Keep Alive  | 25                           |"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:87
+msgid ""
+"「説明」は、ピアを識別できるような名前をつけておきましょう。「許可されたIP」"
+"では、ピアに指定を許可するIPアドレスを設定します。"
+msgstr ""
+"For \"Description\", give the peer a name that identifies it. In \"Allowed "
+"IPs\", set the IP addresses that the peer is allowed to use."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:89
+msgid ""
+"基本的には1つの公開鍵につき1つのピアとするため、あまり意識する必要はありませ"
+"んが、「許可されたIP」の設定では以下のようにサブネットマスクが適用されます。"
+msgstr ""
+"Since you will usually create one peer per public key, you don't need to "
+"worry about this much, but note that the \"Allowed IPs\" setting applies the "
+"subnet mask as follows."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:91
+msgid ""
+"| 許可されたIP | 指定可能なピアのアドレス |\n"
+"| ------------ | ------------------------ |\n"
+"| 10.0.0.2     | 10.0.0.2                 |\n"
+"| 10.0.0.2/32  | 同上                     |\n"
+"| 10.0.0.0/24  | 10.0.0.0～10.0.0.255     |\n"
+"| 10.0.0.2/24  | 同上                     |"
+msgstr ""
+"| Allowed IPs  | Addresses the peer may use |\n"
+"| ------------ | ------------------------ |\n"
+"| 10.0.0.2     | 10.0.0.2                 |\n"
+"| 10.0.0.2/32  | Same as above            |\n"
+"| 10.0.0.0/24  | 10.0.0.0 to 10.0.0.255   |\n"
+"| 10.0.0.2/24  | Same as above            |"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:98
+msgid "今回は`10.0.0.2`に設定しました。"
+msgstr "This time, I set it to `10.0.0.2`."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:100
+msgid ""
+"設定が完了したら「Generate new key pair」と「Generate preshared key」をクリッ"
+"クして各種鍵を生成します。"
+msgstr ""
+"After configuring the settings, click \"Generate new key pair\" and "
+"\"Generate preshared key\" to generate the keys."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:102
+msgid ""
+"ここまで実施すると、「Configuration Export」から「Generate configuration...」"
+"がクリックできるようになっているのでクリックしましょう。"
+msgstr ""
+"At this point, \"Generate configuration...\" under \"Configuration Export\" "
+"becomes clickable, so click it."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:104
+msgid ""
+"| 項目                | 設定                                 |\n"
+"| ------------------- | ------------------------------------ |\n"
+"| Connection endpoint | <VPNサーバーのIPアドレス/ドメイン名> |\n"
+"| 許可されたIP        | <VPNを経由させたい宛先>              |"
+msgstr ""
+"| Item                | Setting                              |\n"
+"| ------------------- | ------------------------------------ |\n"
+"| Connection endpoint | \\<IP address/domain name of the VPN server> |\n"
+"| Allowed IPs         | \\<Destinations to route through the VPN> |"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:109
+msgid ""
+"「Connection endpoint」では、VPNサーバーのIPアドレスまたはドメイン名を指定し"
+"ましょう。今回はOpenWrtにVPNサーバーを立てているため、`wan`にISPから割り当て"
+"られたIPアドレスを設定します。"
+msgstr ""
+"For \"Connection endpoint\", specify the IP address or domain name of the "
+"VPN server. Since the VPN server is running on OpenWrt in this case, set the "
+"IP address assigned to `wan` by the ISP."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:111
+msgid ""
+"「許可されたIP」の設定では、VPNを経由させたいIPアドレスを設定します。デフォル"
+"トでは、`0.0.0.0/0`と`::/0`が指定されており、全ての通信がVPNを経由する設定に"
+"なっています。「許可されたIP」の設定は必要に応じて変更しましょう。"
+msgstr ""
+"In the \"Allowed IPs\" setting, specify the IP addresses whose traffic "
+"should go through the VPN. By default, `0.0.0.0/0` and `::/0` are specified, "
+"so all traffic goes through the VPN. Change the \"Allowed IPs\" setting as "
+"needed."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:113
+msgid ""
+"設定画面の下のほうに行くとQRコードとクライアント用の設定が表示されています。"
+"これらをクライアント側で読み込ませることで簡単に設定を適用することができま"
+"す。"
+msgstr ""
+"Near the bottom of the settings screen, a QR code and the client "
+"configuration are displayed. By importing these on the client side, you can "
+"easily apply the configuration."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:115
+msgid ""
+"クライアントへ設定適用後は、サーバー側にクライアントの秘密鍵の情報は必要ない"
+"ため、削除した後ピアの設定を保存しましょう。"
+msgstr ""
+"After applying the configuration to the client, the server no longer needs "
+"the client's private key, so delete it and then save the peer settings."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:117
+msgid ""
+"「保存&適用」をクリックして設定を反映後、この時点で`vpn`インターフェースの再"
+"起動も行っておきましょう。"
+msgstr ""
+"Click \"Save & Apply\" to apply the settings, and restart the `vpn` "
+"interface at this point as well."
+
+#. heading (level 2)
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:119
+msgid "クライアントから接続"
+msgstr "Connect from the Client"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:121
+msgid ""
+"AndroidからVPNサーバーに接続してみます。先ほど表示された設定を`wg.conf`などの"
+"ファイルに書き込んでクライアントに送信します。"
+msgstr ""
+"Let's connect to the VPN server from Android. Write the configuration "
+"displayed earlier to a file such as `wg.conf` and send it to the client."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:123
+msgid "Playストアで「WireGuard」で検索してアプリをインストールしましょう。"
+msgstr "Search for \"WireGuard\" in the Play Store and install the app."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:125
+msgid ""
+"{{< figure src=\"/images/android-01.webp\" alt=\"Playストア WireGuard\" "
+"width=375 >}}"
+msgstr ""
+"{{< figure src=\"/images/android-01.webp\" alt=\"WireGuard in the Play "
+"Store\" width=375 >}}"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:127
+msgid "インストールしたアプリを開きます。"
+msgstr "Open the installed app."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:129
+msgid ""
+"{{< figure src=\"/images/android-02.webp\" alt=\"WireGuard Androidアプリ\" "
+"width=375 >}}"
+msgstr ""
+"{{< figure src=\"/images/android-02.webp\" alt=\"WireGuard Android app\" "
+"width=375 >}}"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:131
+msgid ""
+"右下に表示されているプラスアイコンを押した後、「ファイル、アーカイブからイン"
+"ポート」を選択します。サーバーからダウンロードした設定ファイルを選択してイン"
+"ポートしましょう。"
+msgstr ""
+"Tap the plus icon in the lower-right corner, then select \"Import from file "
+"or archive\". Select and import the configuration file downloaded from the "
+"server."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:133
+msgid ""
+"{{< figure src=\"/images/android-03.webp\" alt=\"WireGuard Androidアプリ\" "
+"width=375 >}}"
+msgstr ""
+"{{< figure src=\"/images/android-03.webp\" alt=\"WireGuard Android app\" "
+"width=375 >}}"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:135
+msgid ""
+"設定が追加されました。追加直後はVPNが無効になっています。右横に表示されている"
+"スイッチを押してVPNを有効にしましょう。"
+msgstr ""
+"The configuration has been added. The VPN is disabled right after it is "
+"added. Tap the switch on the right to enable the VPN."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:137
+msgid ""
+"有効にした後、確認のためにSMBクライアントアプリ「Network Browser」を使って、"
+"自宅のファイルサーバーにアクセスしてみます。"
+msgstr ""
+"After enabling it, I use the SMB client app \"Network Browser\" to access my "
+"home file server to verify the connection."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:139
+msgid ""
+"{{< figure src=\"/images/android-04.webp\" alt=\"WireGuard Androidアプリ\" "
+"width=375 >}}"
+msgstr ""
+"{{< figure src=\"/images/android-04.webp\" alt=\"WireGuard Android app\" "
+"width=375 >}}"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-wireguard-to-access-the-home-network-from-outside/index.md:141
+msgid ""
+"実際に接続できていることを確認できました。これにより、VPNサーバーの構築は完了"
+"です。"
+msgstr ""
+"I confirmed that the connection actually works. This completes the VPN "
+"server setup."

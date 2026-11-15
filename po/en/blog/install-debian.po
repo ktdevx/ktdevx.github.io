@@ -1,0 +1,707 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:47+0000\n"
+"PO-Revision-Date: 2026-11-15 23:40+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/install-debian/index.md:2
+msgid "Debianをインストールする"
+msgstr "Install Debian"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:11
+msgid "ここでは、Debianをインストールする方法について説明します。"
+msgstr "This article explains how to install Debian."
+
+#. heading (level 2)
+#: content/ja/blog/install-debian/index.md:13
+msgid "はじめに"
+msgstr "Introduction"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:15
+msgid "サーバーのハードウェアには、GMKtecのNucBox M5 Plusを選択しました。"
+msgstr "For the server hardware, I chose GMKtec's NucBox M5 Plus."
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:17
+msgid "{{< ads/nucbox-m5-plus >}}"
+msgstr "{{< ads/nucbox-m5-plus >}}"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:19
+msgid ""
+"ミニPCには仮想化プラットフォームのProxmox VEをインストールしているため、そこ"
+"に仮想マシンを作成してDebianをインストールします。"
+msgstr ""
+"Since the Proxmox VE virtualization platform is installed on the mini PC, "
+"Debian is installed in a virtual machine created on it."
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:21
+msgid ""
+"Proxmox VE上の仮想マシンにインストールする場合は、「[Proxmox VEで仮想マシン"
+"(VM)を作成する](/blog/create-vm-in-proxmox-ve)」の記事も参考にしてください。"
+msgstr ""
+"When installing Debian in a virtual machine on Proxmox VE, also see the "
+"article \"[Create a Virtual Machine (VM) on Proxmox VE](/blog/create-vm-in-"
+"proxmox-ve)\"."
+
+#. heading (level 2)
+#: content/ja/blog/install-debian/index.md:23
+msgid "Debianのダウンロード"
+msgstr "Download Debian"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:25
+msgid ""
+"[Debianのダウンロードページ](https://www.debian.org/distrib/)から、ISOイメー"
+"ジをダウンロードします。今回はDebian 12.10.0をダウンロードしました。"
+msgstr ""
+"Download the ISO image from the [Debian download page](https://www.debian."
+"org/distrib/). In this example, Debian 12.10.0 was downloaded."
+
+#. heading (level 2)
+#: content/ja/blog/install-debian/index.md:27
+msgid "インストール用USBメモリの作成"
+msgstr "Create an Installation USB Drive"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:29
+msgid ""
+"先ほどダウンロードしたISOイメージを、USBメモリに書き込みます。Win32 Disk "
+"Imagerなどのイメージ書き込みソフトを使用してUSBメモリへ書き込みましょう。"
+msgstr ""
+"Write the downloaded ISO image to a USB drive. Use an image-writing tool "
+"such as Win32 Disk Imager to write it to the USB drive."
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:31
+msgid ""
+"Win32 Disk Imagerを使用した書き込み方法については、[Win32 Disk Imagerのインス"
+"トールと使い方](/blog/install-win32-disk-imager)で詳しく説明しています。そち"
+"らを参考にしてください。"
+msgstr ""
+"For details on writing images with Win32 Disk Imager, see [How to Install "
+"and Use Win32 Disk Imager](/blog/install-win32-disk-imager)."
+
+#. heading (level 2)
+#: content/ja/blog/install-debian/index.md:33
+msgid "Debianのインストール"
+msgstr "Install Debian"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:35
+msgid ""
+"DebianをインストールしたいPCにUSBメモリを接続し、PCを起動してUSBメモリから"
+"ブートさせましょう。起動するとDebianのインストール画面が表示されます。"
+msgstr ""
+"Connect the USB drive to the PC on which you want to install Debian, start "
+"the PC, and boot from the USB drive. The Debian installation screen is "
+"displayed."
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:37
+msgid "インストール方法の選択"
+msgstr "Select the Installation Method"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:39
+msgid "![Debianのインストール画面](images/install-debian-1.webp)"
+msgstr "![Debian installation screen](images/install-debian-1.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:41
+msgid ""
+"インストール方法が表示されます。「Graphical Install」を選択してEnterキーを押"
+"すか、自動でインストールが開始されるまで待ちましょう。"
+msgstr ""
+"The installation methods are displayed. Select Graphical Install and press "
+"Enter, or wait for the installation to start automatically."
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:43
+msgid "言語の設定"
+msgstr "Configure the Language"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:45
+msgid "![Debianのインストール画面](images/install-debian-2.webp)"
+msgstr "![Debian installation screen](images/install-debian-2.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:47
+msgid ""
+"インストール中に表示される言語の設定を行います。日本語を選択して「Continue」"
+"を押しましょう。"
+msgstr ""
+"Configure the language displayed during installation. Select Japanese and "
+"press Continue."
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:49
+msgid "ロケールの設定"
+msgstr "Configure the Locale"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:51
+msgid "![Debianのインストール画面](images/install-debian-3.webp)"
+msgstr "![Debian installation screen](images/install-debian-3.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:53
+msgid ""
+"ロケールの設定を行います。この設定はタイムゾーンの設定やシステムのロケールの"
+"選択の支援に使用されます。"
+msgstr ""
+"Configure the locale. This setting is used to help configure the time zone "
+"and select the system locale."
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:55
+msgid "日本を選択して「続ける」を押しましょう。"
+msgstr "Select Japan and press Continue."
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:57
+msgid "キーボードの設定"
+msgstr "Configure the Keyboard"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:59
+msgid "![Debianのインストール画面](images/install-debian-4.webp)"
+msgstr "![Debian installation screen](images/install-debian-4.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:61
+msgid ""
+"キーボードの設定を行います。使用しているキーボードの配列に合わせて選択し、"
+"「続ける」を押しましょう。"
+msgstr ""
+"Configure the keyboard. Select the layout that matches your keyboard and "
+"press Continue."
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:63
+msgid "ホスト名の設定"
+msgstr "Configure the Hostname"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:65
+msgid "![Debianのインストール画面](images/install-debian-5.webp)"
+msgstr "![Debian installation screen](images/install-debian-5.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:67
+msgid "サーバーのホスト名を設定します。"
+msgstr "Configure the server hostname."
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:69
+msgid ""
+"デフォルトは`debian`になっています。特に指定がなければそのままでも問題ありま"
+"せん。ホスト名を入力して「続ける」を押しましょう。"
+msgstr ""
+"The default is `debian`. If you have no specific requirement, you can leave "
+"it unchanged. Enter a hostname and press Continue."
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:71
+msgid "ドメイン名の設定"
+msgstr "Configure the Domain Name"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:73
+msgid "![Debianのインストール画面](images/install-debian-6.webp)"
+msgstr "![Debian installation screen](images/install-debian-6.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:75
+msgid "サーバーのドメイン名を設定します。"
+msgstr "Configure the server domain name."
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:77
+msgid ""
+"デフォルトは空欄になっています。特に指定がなければそのままでも問題ありませ"
+"ん。ドメイン名を入力して「続ける」を押しましょう。"
+msgstr ""
+"The default is blank. If you have no specific requirement, you can leave it "
+"blank. Enter a domain name and press Continue."
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:79
+msgid "管理者のパスワードの設定"
+msgstr "Configure the Administrator Password"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:81
+msgid "![Debianのインストール画面](images/install-debian-7.webp)"
+msgstr "![Debian installation screen](images/install-debian-7.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:83
+msgid "管理者ユーザー(`root`)のパスワードを設定します。"
+msgstr "Configure the password for the administrator user (`root`)."
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:85
+msgid ""
+"パスワードを入力すると`su`コマンドで`root`ユーザーへのログインが可能になりま"
+"す。"
+msgstr ""
+"Entering a password allows you to log in as the `root` user with the `su` "
+"command."
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:87
+msgid ""
+"空にすると`root`ユーザーへのログインが制限され、後に作成するユーザーに`sudo`"
+"権限が与えられます。"
+msgstr ""
+"If you leave it blank, login as the `root` user is restricted and the user "
+"created later is given `sudo` privileges."
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:89
+msgid "ユースケースに合わせて設定し、「続ける」を押しましょう。"
+msgstr "Configure this according to your use case and press Continue."
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:91
+msgid "ユーザーの表示名の設定"
+msgstr "Configure the User's Full Name"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:93
+msgid "![Debianのインストール画面](images/install-debian-8.webp)"
+msgstr "![Debian installation screen](images/install-debian-8.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:95
+msgid ""
+"非管理者権限のユーザーを作成します。作成するアカウントを所有するユーザーのフ"
+"ルネームを入力しましょう。"
+msgstr ""
+"Create a non-administrator user. Enter the full name of the user who owns "
+"the account being created."
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:97
+msgid ""
+"この情報はユーザーの本名を表示、利用するプログラムのほか、このユーザーから送"
+"られるメールのデフォルトの発信元といった形で使用されます。一般的には本名を入"
+"力しましょう。"
+msgstr ""
+"This information is used, for example, by programs that display or use the "
+"user's real name, and as the default sender of emails sent by this user. In "
+"general, enter the user's real name."
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:99
+msgid "ユーザーの表示名を入力して「続ける」を押しましょう。"
+msgstr "Enter the user's full name and press Continue."
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:101
+msgid "ユーザー名の設定"
+msgstr "Configure the Username"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:103
+msgid "![Debianのインストール画面](images/install-debian-9.webp)"
+msgstr "![Debian installation screen](images/install-debian-9.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:105
+msgid ""
+"非管理者権限のユーザーを作成します。作成するアカウントのユーザー名を入力しま"
+"す。"
+msgstr ""
+"Create a non-administrator user. Enter the username for the account being "
+"created."
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:107
+msgid ""
+"ユーザー名の先頭は小文字のアルファベットでなければなりません。ユーザー名を入"
+"力して「続ける」を押しましょう。"
+msgstr ""
+"The username must begin with a lowercase letter. Enter a username and press "
+"Continue."
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:109
+msgid "パスワードの設定"
+msgstr "Configure the Password"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:111
+msgid "![Debianのインストール画面](images/install-debian-10.webp)"
+msgstr "![Debian installation screen](images/install-debian-10.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:113
+msgid ""
+"非管理者権限のユーザーを作成します。作成するアカウントのパスワードを入力しま"
+"す。"
+msgstr ""
+"Create a non-administrator user. Enter the password for the account being "
+"created."
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:115
+msgid "パスワードを入力して「続ける」を押しましょう。"
+msgstr "Enter a password and press Continue."
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:117
+msgid "パーティショニング方法の設定"
+msgstr "Configure the Partitioning Method"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:119
+msgid "![Debianのインストール画面](images/install-debian-11.webp)"
+msgstr "![Debian installation screen](images/install-debian-11.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:121
+msgid "パーティショニングの方法を設定します。"
+msgstr "Configure the partitioning method."
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:123
+msgid ""
+"特に指定がなければ「ガイド・ディスク全体を使う」を選択して「続ける」を押しま"
+"しょう。"
+msgstr ""
+"If you have no specific requirement, select Guided - use entire disk and "
+"press Continue."
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:125
+msgid "パーティショニングするディスクの設定"
+msgstr "Select the Disk to Partition"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:127
+msgid "![Debianのインストール画面](images/install-debian-12.webp)"
+msgstr "![Debian installation screen](images/install-debian-12.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:129
+msgid "パーティショニングするディスクを設定します。"
+msgstr "Select the disk to partition."
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:131
+msgid "ディスクを選択して「続ける」を押しましょう。"
+msgstr "Select a disk and press Continue."
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:133
+msgid "パーティショニング機構の設定"
+msgstr "Configure the Partitioning Scheme"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:135
+msgid "![Debianのインストール画面](images/install-debian-13.webp)"
+msgstr "![Debian installation screen](images/install-debian-13.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:137
+msgid "パーティショニング機構の設定をします。"
+msgstr "Configure the partitioning scheme."
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:139
+msgid ""
+"特に指定がなければ「すべてのファイルを1つのパーティションに」を選択して「続け"
+"る」を押しましょう。"
+msgstr ""
+"If you have no specific requirement, select All files in one partition and "
+"press Continue."
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:141
+msgid "パーティションの詳細設定"
+msgstr "Configure the Partition Details"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:143
+msgid "![Debianのインストール画面](images/install-debian-14.webp)"
+msgstr "![Debian installation screen](images/install-debian-14.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:145
+msgid "パーティションの詳細が設定できます。"
+msgstr "You can configure the partition details."
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:147
+msgid ""
+"特に指定がなければデフォルトのまま、「パーティショニングの終了とディスクへの"
+"変更の書き込み」を選択して「続ける」を押しましょう。」"
+msgstr ""
+"If you have no specific requirement, leave the defaults unchanged, select "
+"Finish partitioning and write changes to disk, and press Continue."
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:149
+msgid "パーティションの作成"
+msgstr "Create the Partitions"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:151
+msgid "![Debianのインストール画面](images/install-debian-15.webp)"
+msgstr "![Debian installation screen](images/install-debian-15.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:153
+msgid "作成されるパーティションの最終確認です。"
+msgstr "This is the final confirmation of the partitions to be created."
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:155
+msgid ""
+"内容に問題がなければ「はい」にチェックを入れ、「続ける」を押しましょう。"
+msgstr "If everything is correct, select Yes and press Continue."
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:157
+msgid "メディアの検査"
+msgstr "Check the Installation Media"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:159
+msgid "![Debianのインストール画面](images/install-debian-16.webp)"
+msgstr "![Debian installation screen](images/install-debian-16.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:161
+msgid ""
+"パッケージマネージャー(apt)によって使用される追加のメディアの検査を指定できま"
+"す。"
+msgstr ""
+"You can specify whether to scan additional media for use by the package "
+"manager (apt)."
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:163
+msgid ""
+"特に指定がなければ「いいえ」にチェックを入れ、「続ける」を押しましょう。"
+msgstr "If you have no specific requirement, select No and press Continue."
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:165
+msgid "Debianパッケージリポジトリの設定"
+msgstr "Configure the Debian Package Repository"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:167
+msgid "![Debianのインストール画面](images/install-debian-17.webp)"
+msgstr "![Debian installation screen](images/install-debian-17.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:169
+msgid ""
+"Debianのパッケージリポジトリの設定を行います。「日本」を選択して「続ける」を"
+"押しましょう。"
+msgstr ""
+"Configure the Debian package repository. Select Japan and press Continue."
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:171
+msgid "![Debianのインストール画面](images/install-debian-18.webp)"
+msgstr "![Debian installation screen](images/install-debian-18.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:173
+msgid ""
+"パッケージリポジトリとそのミラーが一覧で表示されます。特に指定がなければ`deb."
+"debian.org`で問題ありません。"
+msgstr ""
+"A list of package repositories and mirrors is displayed. If you have no "
+"specific requirement, `deb.debian.org` is fine."
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:175
+msgid "リポジトリを選択して「続ける」を押しましょう。"
+msgstr "Select a repository and press Continue."
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:177
+msgid "HTTPプロキシの設定"
+msgstr "Configure the HTTP Proxy"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:179
+msgid "![Debianのインストール画面](images/install-debian-19.webp)"
+msgstr "![Debian installation screen](images/install-debian-19.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:181
+msgid "HTTPプロキシの設定を行います。"
+msgstr "Configure the HTTP proxy."
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:183
+msgid ""
+"プロキシを介してインターネットへアクセスする必要がある場合は、プロキシ情報を"
+"入力しましょう。必要ない場合は空のままにします。"
+msgstr ""
+"If you need to access the internet through a proxy, enter the proxy "
+"information. Otherwise, leave it blank."
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:185
+msgid "設定したら「続ける」を押しましょう。"
+msgstr "After configuring it, press Continue."
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:187
+msgid "Debian Popularity Contestの設定"
+msgstr "Configure Debian Popularity Contest"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:189
+msgid "![Debianのインストール画面](images/install-debian-20.webp)"
+msgstr "![Debian installation screen](images/install-debian-20.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:191
+msgid ""
+"このシステムで最も利用したパッケージについての統計を、Debianコミュニティに匿"
+"名で提供するようシステムを設定できます。"
+msgstr ""
+"You can configure the system to anonymously provide the Debian community "
+"with statistics about the packages most used on this system."
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:193
+msgid ""
+"参加することを選ぶと、自動送信スクリプトが毎週1回自動的に実行され、Debianコ"
+"ミュニティに統計が送られます。収集された統計は、[Debian Popularity Contest]"
+"(https://popcon.debian.org/)で確認できます。"
+msgstr ""
+"If you choose to participate, an automatic submission script runs once a "
+"week and sends statistics to the Debian community. The collected statistics "
+"can be viewed at [Debian Popularity Contest](https://popcon.debian.org/)."
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:195
+msgid "いずれかを選択して「続ける」を押しましょう。"
+msgstr "Select either option and press Continue."
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:197
+msgid "インストールするソフトウェアの選択"
+msgstr "Select Software to Install"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:199
+msgid "![Debianのインストール画面](images/install-debian-21.webp)"
+msgstr "![Debian installation screen](images/install-debian-21.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:201
+msgid ""
+"デフォルトでは、システムのコア機能のみがインストールされます。ここで追加でイ"
+"ンストールするソフトウェアを選択することができます。"
+msgstr ""
+"By default, only the core system functions are installed. You can select "
+"additional software to install here."
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:203
+msgid ""
+"デスクトップPCとして使用する場合など、GUI環境が必要な場合は「Debian デスク"
+"トップ環境」と「GNOME」にチェックを入れましょう。"
+msgstr ""
+"If you need a GUI environment, such as when using the system as a desktop "
+"PC, select Debian desktop environment and GNOME."
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:205
+msgid ""
+"サーバー用途で使用する場合など、リモート接続環境が必要な場合は「SSHサーバー」"
+"にチェックを入れましょう。"
+msgstr ""
+"If you need a remote connection environment, such as when using the system "
+"as a server, select SSH server."
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:207
+msgid "インストールするソフトウェアを選択したら「続ける」を押しましょう。"
+msgstr "Select the software to install and press Continue."
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:209
+msgid "ブートローダのインストール"
+msgstr "Install the Boot Loader"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:211
+msgid "![Debianのインストール画面](images/install-debian-22.webp)"
+msgstr "![Debian installation screen](images/install-debian-22.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:213
+msgid ""
+"GRUBブートローダーをインストールします。「はい」にチェックを入れ、「続ける」"
+"を押しましょう。"
+msgstr "Install the GRUB boot loader. Select Yes and press Continue."
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:215
+msgid "![Debianのインストール画面](images/install-debian-23.webp)"
+msgstr "![Debian installation screen](images/install-debian-23.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:217
+msgid ""
+"GRUBブートローダーをインストールするデバイスを選択し、「続ける」を押します。"
+"インストールが完了するまで待ちましょう。"
+msgstr ""
+"Select the device on which to install the GRUB boot loader and press "
+"Continue. Wait for the installation to complete."
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:219
+msgid "システムの再起動"
+msgstr "Restart the System"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:221
+msgid "![Debianのインストール画面](images/install-debian-24.webp)"
+msgstr "![Debian installation screen](images/install-debian-24.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:223
+msgid "インストールに使用したUSBメモリを取り外し、「続ける」を押しましょう。"
+msgstr "Remove the USB drive used for installation and press Continue."
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:225
+msgid "これによりシステムが再起動され、Debianが立ち上がります。"
+msgstr "The system restarts and Debian boots."
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:227
+msgid "![Debianのログイン画面](images/install-debian-25.webp)"
+msgstr "![Debian login screen](images/install-debian-25.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:229
+msgid "シェルのログイン画面が表示されました。Debianのインストールは完了です。"
+msgstr ""
+"The shell login screen is displayed. The Debian installation is complete."

@@ -1,0 +1,176 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:47+0000\n"
+"PO-Revision-Date: 2026-11-15 23:40+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/install-win32-disk-imager/index.md:2
+msgid "Win32 Disk Imagerのインストールと使い方"
+msgstr "Install and Using Win32 Disk Imager"
+
+#. paragraph
+#: content/ja/blog/install-win32-disk-imager/index.md:11
+msgid ""
+"Win32 Disk Imagerは、Windows上で動作するディスクイメージ書き込みソフトです。"
+msgstr "Win32 Disk Imager is a disk imaging tool for Windows."
+
+#. paragraph
+#: content/ja/blog/install-win32-disk-imager/index.md:13
+msgid "ここでは、Win32 Disk Imagerのインストールと使い方について、解説します。"
+msgstr "This guide explains how to install and use Win32 Disk Imager."
+
+#. heading (level 2)
+#: content/ja/blog/install-win32-disk-imager/index.md:15
+msgid "Win32 Disk Imagerとは"
+msgstr "What is Win32 Disk Imager?"
+
+#. paragraph
+#: content/ja/blog/install-win32-disk-imager/index.md:17
+msgid ""
+"Win32 Disk Imagerは、SDカードやUSBメモリにディスクイメージを書き込むための"
+"Windowsツールです。IMG形式のディスクイメージに対応しています。"
+msgstr ""
+"Win32 Disk Imager is a Windows tool for writing disk images to SD cards and "
+"USB drives. It supports disk images in IMG format."
+
+#. paragraph
+#: content/ja/blog/install-win32-disk-imager/index.md:19
+msgid "![Win32 Disk Imager](images/win32-disk-imager.webp)"
+msgstr "![Win32 Disk Imager](images/win32-disk-imager.webp)"
+
+#. paragraph
+#: content/ja/blog/install-win32-disk-imager/index.md:21
+msgid ""
+"このツールを使用すると、ディスクイメージをリムーバブルディスクに書き込んだ"
+"り、リムーバブルディスクの内容をイメージファイルとして保存することができま"
+"す。"
+msgstr ""
+"With this tool, you can write a disk image to a removable drive or save the "
+"contents of a removable drive as an image file."
+
+#. paragraph
+#: content/ja/blog/install-win32-disk-imager/index.md:23
+msgid ""
+"このツールは、オープンソースで開発されており、無料でダウンロードして使用する"
+"ことができます。"
+msgstr "This tool is open-source, and you can download and use it for free."
+
+#. heading (level 2)
+#: content/ja/blog/install-win32-disk-imager/index.md:25
+msgid "Win32 Disk Imagerのインストール"
+msgstr "Install Win32 Disk Imager"
+
+#. paragraph
+#: content/ja/blog/install-win32-disk-imager/index.md:27
+msgid ""
+"[公式サイト](https://sourceforge.net/projects/win32diskimager/)からWin32 "
+"Disk Imagerのインストーラーをダウンロードし、ダウンロードが完了したらインス"
+"トーラーを起動してツールをインストールします。"
+msgstr ""
+"Download the installer for Win32 Disk Imager from the [official website]"
+"(https://sourceforge.net/projects/win32diskimager/), and once the download "
+"is complete, run the installer to install the tool."
+
+#. paragraph
+#: content/ja/blog/install-win32-disk-imager/index.md:29
+msgid ""
+"インストール時に、保存先やショートカットの作成可否について問われますが、特に"
+"指定がなければデフォルトの設定で進めて問題ありません。"
+msgstr ""
+"During installation, you may be asked about the installation location and "
+"shortcut creation, but you can proceed with the default settings if no "
+"specific preferences are needed."
+
+#. heading (level 2)
+#: content/ja/blog/install-win32-disk-imager/index.md:31
+msgid "ディスクイメージの書き込み"
+msgstr "Write a Disk Image"
+
+#. paragraph
+#: content/ja/blog/install-win32-disk-imager/index.md:33
+msgid "SDカード・USBメモリにディスクイメージを書き込みます。"
+msgstr "Write a disk image to an SD card or USB drive."
+
+#. paragraph
+#: content/ja/blog/install-win32-disk-imager/index.md:35
+msgid "![Win32 Disk Imager](images/win32-disk-imager-write.webp)"
+msgstr "![Win32 Disk Imager](images/win32-disk-imager-write.webp)"
+
+#. paragraph
+#: content/ja/blog/install-win32-disk-imager/index.md:37
+msgid ""
+"Image Fileで書き込みたいイメージファイルを指定し、Deviceから書き込み先のドラ"
+"イブを選択します。Writeをクリックすると書き込みが開始されます。"
+msgstr ""
+"In the \"Image File\" field, specify the image file you want to write, and "
+"select the target drive from \"Device.\" Click \"Write\" to start the "
+"writing process."
+
+#. heading (level 2)
+#: content/ja/blog/install-win32-disk-imager/index.md:39
+msgid "ディスクイメージの読み出し"
+msgstr "Read a Disk Image"
+
+#. paragraph
+#: content/ja/blog/install-win32-disk-imager/index.md:41
+msgid "SDカード・USBメモリからディスクイメージを読み出します。"
+msgstr "Read a disk image from an SD card or USB drive."
+
+#. paragraph
+#: content/ja/blog/install-win32-disk-imager/index.md:43
+msgid "![Win32 Disk Imager](images/win32-disk-imager-read.webp)"
+msgstr "![Win32 Disk Imager](images/win32-disk-imager-read.webp)"
+
+#. paragraph
+#: content/ja/blog/install-win32-disk-imager/index.md:45
+msgid ""
+"Image Fileにイメージファイルの保存先を指定し、Deviceから読み出したいドライブ"
+"を選択します。Readをクリックすると読み出しが開始されます。"
+msgstr ""
+"Specify the save location for the image file in the \"Image File\" field, "
+"and select the drive you want to read from under \"Device.\" Click \"Read\" "
+"to start the reading process."
+
+#. heading (level 2)
+#: content/ja/blog/install-win32-disk-imager/index.md:47
+msgid "ハッシュ値の計算"
+msgstr "Calculate Hash Values"
+
+#. paragraph
+#: content/ja/blog/install-win32-disk-imager/index.md:49
+msgid ""
+"イメージファイルのハッシュ値を計算します。これにより、イメージファイルの提供"
+"元で公開されているハッシュ値と比較し、破損や改ざんを検出することができます。"
+msgstr ""
+"Calculate the hash value of an image file. This allows you to compare it "
+"with the hash value provided by the image file’s source to check for "
+"corruption or tampering."
+
+#. paragraph
+#: content/ja/blog/install-win32-disk-imager/index.md:51
+msgid "![Win32 Disk Imager](images/win32-disk-imager-hash.webp)"
+msgstr "![Win32 Disk Imager](images/win32-disk-imager-hash.webp)"
+
+#. paragraph
+#: content/ja/blog/install-win32-disk-imager/index.md:53
+msgid ""
+"Image Fileにハッシュ値を計算したいイメージファイルを指定し、Hashからアルゴリ"
+"ズムを選択します。Generateをクリックするとハッシュ値が表示されます。"
+msgstr ""
+"Specify the image file in the \"Image File\" field for which you want to "
+"calculate the hash, and select an algorithm from \"Hash.\" Click "
+"\"Generate\" to display the hash value."
+
+#. paragraph
+#: content/ja/blog/install-win32-disk-imager/index.md:55
+msgid "ハッシュ値計算のアルゴリズムは、MD5・SHA1・SHA256から選択できます。"
+msgstr "Available hash algorithms are MD5, SHA1, and SHA256."

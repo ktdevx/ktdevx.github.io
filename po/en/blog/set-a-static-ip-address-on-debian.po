@@ -1,0 +1,113 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:42+0000\n"
+"PO-Revision-Date: 2026-11-15 23:40+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/set-a-static-ip-address-on-debian/index.md:2
+msgid "Debianで静的IPアドレスを設定する"
+msgstr "Set a Static IP Address on Debian"
+
+#. paragraph
+#: content/ja/blog/set-a-static-ip-address-on-debian/index.md:11
+msgid ""
+"サーバーのOSとしてDebianを利用する場合、IPアドレスが変化しないように設定する"
+"必要があります。"
+msgstr ""
+"When using Debian as a server operating system, you may need to configure it "
+"so that its IP address does not change."
+
+#. paragraph
+#: content/ja/blog/set-a-static-ip-address-on-debian/index.md:13
+msgid "ここでは、DebianでIPアドレスを固定化する方法について解説します。"
+msgstr "This article explains how to set a static IP address on Debian."
+
+#. heading (level 2)
+#: content/ja/blog/set-a-static-ip-address-on-debian/index.md:15
+msgid "ネットワークインターフェース情報の確認"
+msgstr "Check the Network Interface Information"
+
+#. paragraph
+#: content/ja/blog/set-a-static-ip-address-on-debian/index.md:17
+msgid "`ip a`と入力し、ネットワークインターフェースの情報を確認します。"
+msgstr "Enter `ip a` to check the network interface information."
+
+#. paragraph
+#: content/ja/blog/set-a-static-ip-address-on-debian/index.md:38
+msgid ""
+"今回は、`ens18`という名前のネットワークインターフェースのIPアドレスを固定化し"
+"ます。"
+msgstr ""
+"In this example, the IP address of the network interface named `ens18` is "
+"set to a static address."
+
+#. heading (level 2)
+#: content/ja/blog/set-a-static-ip-address-on-debian/index.md:40
+msgid "ネットワーク設定ファイルの編集"
+msgstr "Edit the Network Configuration File"
+
+#. paragraph
+#: content/ja/blog/set-a-static-ip-address-on-debian/index.md:42
+msgid ""
+"IPアドレスを固定化するため、`/etc/network/interfaces`という名前の設定ファイル"
+"を編集します。"
+msgstr ""
+"To set a static IP address, edit the configuration file named `/etc/network/"
+"interfaces`."
+
+#. paragraph
+#: content/ja/blog/set-a-static-ip-address-on-debian/index.md:44
+msgid ""
+"DHCPが有効な設定になっていると、`iface ens18 inet dhcp`といったような行がある"
+"かと思います。このdhcpの箇所をstaticに変更することで手動設定に変更します。"
+msgstr ""
+"When DHCP is enabled, there may be a line such as `iface ens18 inet dhcp`. "
+"Change `dhcp` to `static` to switch to manual configuration."
+
+#. paragraph
+#: content/ja/blog/set-a-static-ip-address-on-debian/index.md:54
+msgid ""
+"この例では、`ens18`のIPアドレスが`192.168.2.3/24`、デフォルトゲートウェイと"
+"DNSサーバーのIPアドレスが`192.168.2.1`となるように設定しています。"
+msgstr ""
+"In this example, the IP address of `ens18` is configured as "
+"`192.168.2.3/24`, and the default gateway and DNS server are configured as "
+"`192.168.2.1`."
+
+#. paragraph
+#: content/ja/blog/set-a-static-ip-address-on-debian/index.md:56
+msgid "内容に問題がなければファイルを保存してください。"
+msgstr "Save the file if the configuration is correct."
+
+#. heading (level 2)
+#: content/ja/blog/set-a-static-ip-address-on-debian/index.md:58
+msgid "ネットワーク設定の反映"
+msgstr "Apply the Network Configuration"
+
+#. paragraph
+#: content/ja/blog/set-a-static-ip-address-on-debian/index.md:60
+msgid "以下のコマンドで設定を反映します。"
+msgstr "Run the following command to apply the configuration."
+
+#. paragraph
+#: content/ja/blog/set-a-static-ip-address-on-debian/index.md:66
+msgid ""
+"これによりネットワーク設定が反映されます。`ip a`と入力して設定が反映されたか"
+"確認しましょう。"
+msgstr ""
+"The network configuration is now applied. Enter `ip a` to verify that the "
+"settings have been applied."
+
+#. paragraph
+#: content/ja/blog/set-a-static-ip-address-on-debian/index.md:87
+msgid "`ens18`の設定が反映されていることが確認できました。"
+msgstr "You can confirm that the `ens18` configuration has been applied."

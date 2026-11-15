@@ -1,0 +1,186 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:42+0000\n"
+"PO-Revision-Date: 2026-11-15 23:40+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/git-solo-flow/index.md:2
+msgid "個人開発におすすめなGitワークフロー"
+msgstr "Recommended Git Workflow for Solo Development"
+
+#. paragraph
+#: content/ja/blog/git-solo-flow/index.md:11
+msgid ""
+"個人開発においても、Gitを使った運用方法は重要です。Gitを使うことで、バージョ"
+"ン管理やコードの履歴管理が容易になります。"
+msgstr ""
+"A Git-based workflow is important even for solo development. Git makes "
+"version control and code history management easier."
+
+#. paragraph
+#: content/ja/blog/git-solo-flow/index.md:13
+msgid "以下では、個人開発でおすすめのGitワークフローについて解説します。"
+msgstr "This article explains a recommended Git workflow for solo development."
+
+#. heading (level 2)
+#: content/ja/blog/git-solo-flow/index.md:15
+msgid "ワークフローの概要"
+msgstr "Workflow Overview"
+
+#. paragraph
+#: content/ja/blog/git-solo-flow/index.md:17
+msgid "![Gitソロフロー](images/git-solo-flow.webp)"
+msgstr "![Git solo flow](images/git-solo-flow.webp)"
+
+#. paragraph
+#: content/ja/blog/git-solo-flow/index.md:19
+msgid ""
+"このワークフローでは、機能やバグ修正ごとに作業ブランチを作成して開発を行い、"
+"最終的にメインブランチにマージするという流れを取ります。"
+msgstr ""
+"In this workflow, you create a working branch for each feature or bug fix, "
+"develop on that branch, and finally merge it into the main branch."
+
+#. paragraph
+#: content/ja/blog/git-solo-flow/index.md:21
+msgid ""
+"開発者は、新しい機能を実装するために作業ブランチを作成し、開発を行います。完"
+"成した機能は、メインブランチにマージされます。この手法により、開発者は機能ご"
+"とに分離された開発環境で作業し、本番環境への影響を最小限に抑えることができま"
+"す。"
+msgstr ""
+"To implement a new feature, the developer creates a working branch and "
+"develops on it. Once the feature is complete, it is merged into the main "
+"branch. This approach lets the developer work in an environment separated by "
+"feature and minimizes the impact on the production environment."
+
+#. heading (level 2)
+#: content/ja/blog/git-solo-flow/index.md:23
+msgid "メインブランチから作業ブランチを作成"
+msgstr "Create a Working Branch from the Main Branch"
+
+#. paragraph
+#: content/ja/blog/git-solo-flow/index.md:25
+msgid ""
+"各機能やバグ修正毎に別々のブランチを作成し、変更を加えるためにチェックアウト"
+"します。ブランチ名は、後から見てもわかりやすい名前をつけることを心がけましょ"
+"う。"
+msgstr ""
+"Create a separate branch for each feature or bug fix and check it out before "
+"making changes. Try to choose a branch name that is easy to understand later."
+
+#. paragraph
+#: content/ja/blog/git-solo-flow/index.md:32
+msgid ""
+"これにより、メインブランチから作業ブランチが作成され、チェックアウトされま"
+"す。"
+msgstr "This creates and checks out a working branch from the main branch."
+
+#. heading (level 2)
+#: content/ja/blog/git-solo-flow/index.md:34
+msgid "作業ブランチ上で開発"
+msgstr "Develop on the Working Branch"
+
+#. paragraph
+#: content/ja/blog/git-solo-flow/index.md:36
+msgid ""
+"作成した作業ブランチで機能の追加やバグの修正を行います。コード変更後は、変更"
+"を行ったファイルを追加し、コミットとプッシュを行います。"
+msgstr ""
+"Add features or fix bugs on the working branch you created. After changing "
+"the code, add the modified files, then commit and push the changes."
+
+#. paragraph
+#: content/ja/blog/git-solo-flow/index.md:44
+msgid "これにより、変更を行った内容がリモートリポジトリに反映されます。"
+msgstr "The changes are now reflected in the remote repository."
+
+#. heading (level 2)
+#: content/ja/blog/git-solo-flow/index.md:46
+msgid "メインブランチに変更をマージ"
+msgstr "Merge Changes into the Main Branch"
+
+#. paragraph
+#: content/ja/blog/git-solo-flow/index.md:48
+msgid "開発が完了したら、メインブランチへ変更内容をマージします。"
+msgstr "When development is complete, merge the changes into the main branch."
+
+#. paragraph
+#: content/ja/blog/git-solo-flow/index.md:56
+msgid ""
+"これにより、作業ブランチの変更内容がメインブランチにマージされ、リモートリポ"
+"ジトリに反映されます。"
+msgstr ""
+"The changes from the working branch are merged into the main branch and "
+"reflected in the remote repository."
+
+#. heading (level 2)
+#: content/ja/blog/git-solo-flow/index.md:58
+msgid "作業ブランチの削除"
+msgstr "Delete the Working Branch"
+
+#. paragraph
+#: content/ja/blog/git-solo-flow/index.md:60
+msgid ""
+"不要なブランチが多数存在すると、プロジェクト内のブランチの可視性や、保守性が"
+"低下します。"
+msgstr ""
+"Having many unnecessary branches reduces the visibility and maintainability "
+"of the project's branches."
+
+#. paragraph
+#: content/ja/blog/git-solo-flow/index.md:62
+msgid ""
+"そのため、メインブランチへマージ後は、不要となった作業ブランチを削除します。"
+msgstr ""
+"Therefore, delete working branches that are no longer needed after merging "
+"them into the main branch."
+
+#. paragraph
+#: content/ja/blog/git-solo-flow/index.md:69
+msgid ""
+"これにより、ローカルリポジトリとリモートリポジトリから作業ブランチが削除され"
+"ます。"
+msgstr "This deletes the branch from both the local and remote repositories."
+
+#. heading (level 2)
+#: content/ja/blog/git-solo-flow/index.md:71
+msgid "バージョンタグの作成"
+msgstr "Create a Version Tag"
+
+#. paragraph
+#: content/ja/blog/git-solo-flow/index.md:73
+msgid ""
+"このワークフローでは、メインブランチの変更が機能単位ごとに行われるため、どの"
+"リビジョンをリリースしたかを簡単に見つけることができません。"
+msgstr ""
+"Because changes to the main branch are made by feature, it can be difficult "
+"to determine which revision was released in this workflow."
+
+#. paragraph
+#: content/ja/blog/git-solo-flow/index.md:75
+msgid ""
+"そのため、リリース時のリビジョンにバージョンタグを作成することで、リビジョン"
+"とリリースとの関係を明確にし、リリースの管理を容易にします。"
+msgstr ""
+"Creating a version tag for the revision at release time clarifies the "
+"relationship between revisions and releases, making release management "
+"easier."
+
+#. paragraph
+#: content/ja/blog/git-solo-flow/index.md:82
+msgid ""
+"これにより、リリースバージョンの名前でタグが作成され、リモートリポジトリに反"
+"映されます。"
+msgstr ""
+"This creates a tag with the release version name and reflects it in the "
+"remote repository."
