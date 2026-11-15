@@ -1,8 +1,9 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-15 23:56+0000\n"
+"POT-Creation-Date: 2026-11-15 23:59+0000\n"
 "PO-Revision-Date: 2026-11-15 23:56+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,7 +15,7 @@ msgstr ""
 #. front matter: title
 #: content/ja/terms-of-use/index.md:2
 msgid "利用規約"
-msgstr ""
+msgstr "使用条款"
 
 #. paragraph
 #: content/ja/terms-of-use/index.md:7
@@ -23,23 +24,25 @@ msgid ""
 "います。）をご利用いただく方は、以下の利用規約に同意いただいたものとみなしま"
 "す。"
 msgstr ""
+"凡使用在 ktdevx.com 及其子域名上公开的网站（以下称“本网站”）者，均视为已同意"
+"以下使用条款。"
 
 #. heading (level 2)
 #: content/ja/terms-of-use/index.md:9
 msgid "個人情報の取り扱いについて"
-msgstr ""
+msgstr "关于个人信息的处理"
 
 #. paragraph
 #: content/ja/terms-of-use/index.md:11
 msgid ""
 "当サイトが収集した個人情報については、[プライバシーポリシー](/privacy-policy)"
 "に従って取り扱われます。"
-msgstr ""
+msgstr "本网站收集的个人信息将按照[隐私政策](/privacy-policy)进行处理。"
 
 #. heading (level 2)
 #: content/ja/terms-of-use/index.md:13
 msgid "著作権・肖像権について"
-msgstr ""
+msgstr "关于著作权和肖像权"
 
 #. paragraph
 #: content/ja/terms-of-use/index.md:15
@@ -48,6 +51,8 @@ msgid ""
 "囲を超えて、無断で転載することを禁止します。引用する際は、引用元の明示をお守"
 "りください。"
 msgstr ""
+"禁止超出法律所允许的引用范围，擅自转载本网站刊登的文字、图片等内容。引用时，"
+"请注明出处。"
 
 #. paragraph
 #: content/ja/terms-of-use/index.md:17
@@ -56,18 +61,20 @@ msgid ""
 "している文章や画像の著作権・肖像権等は当サイト運営者または各権利所有者に帰属"
 "致します。"
 msgstr ""
+"本网站并非以侵犯著作权或肖像权为目的。本网站刊登的文字、图片等的著作权、肖像"
+"权等归本网站运营者或各权利所有者所有。"
 
 #. paragraph
 #: content/ja/terms-of-use/index.md:19
 msgid ""
 "著作権や肖像権に関して問題がございましたら、[こちら](/contact)からご連絡くだ"
 "さい。"
-msgstr ""
+msgstr "如果在著作权或肖像权方面存在问题，请通过[此处](/contact)与我们联系。"
 
 #. heading (level 2)
 #: content/ja/terms-of-use/index.md:21
 msgid "免責事項"
-msgstr ""
+msgstr "免责声明"
 
 #. paragraph
 #: content/ja/terms-of-use/index.md:23
@@ -76,6 +83,9 @@ msgid ""
 "おりますが、正確性や安全性を保証するものではありません。当サイトに掲載された"
 "内容によって生じた損害等の一切の責任を負いかねますのでご了承ください。"
 msgstr ""
+"对于本网站的内容和信息，我们会尽可能努力刊登准确的信息，但并不保证其准确性和"
+"安全性。对于因本网站刊登的内容而造成的损害等，本网站概不承担任何责任，敬请谅"
+"解。"
 
 #. paragraph
 #: content/ja/terms-of-use/index.md:25
@@ -83,11 +93,13 @@ msgid ""
 "当サイトからリンクやバナーなどによって他のサイトに移動した場合、移動先サイト"
 "で提供される情報、サービス等について一切の責任を負いません。"
 msgstr ""
+"通过本网站的链接或横幅等跳转到其他网站时，对于跳转目标网站所提供的信息、服务"
+"等，本网站概不承担任何责任。"
 
 #. heading (level 2)
 #: content/ja/terms-of-use/index.md:27
 msgid "リンクについて"
-msgstr ""
+msgstr "关于链接"
 
 #. paragraph
 #: content/ja/terms-of-use/index.md:29
@@ -96,11 +108,13 @@ msgid ""
 "は不要です。記事の引用などを行う際は、引用元の明示と該当ページへのリンクをお"
 "願いします。"
 msgstr ""
+"本网站原则上可自由链接。链接时无需获得本网站的许可，也无需与本网站联系。引用"
+"文章等内容时，请注明出处并链接到相应页面。"
 
 #. heading (level 2)
 #: content/ja/terms-of-use/index.md:31
 msgid "利用規約の変更について"
-msgstr ""
+msgstr "关于使用条款的变更"
 
 #. paragraph
 #: content/ja/terms-of-use/index.md:33
@@ -108,8 +122,10 @@ msgid ""
 "当サイトは、利用規約を予告なく変更することがあります。利用規約の最新情報を入"
 "手するため、定期的に本ページを閲覧することを推奨します。"
 msgstr ""
+"本网站可能会在不事先通知的情况下变更使用条款。为了获取使用条款的最新信息，建"
+"议定期浏览本页面。"
 
 #. paragraph
 #: content/ja/terms-of-use/index.md:35
 msgid "利用規約の変更は、当サイトに掲載された時点で有効になるものとします。"
-msgstr ""
+msgstr "使用条款的变更自刊登于本网站之时起生效。"
