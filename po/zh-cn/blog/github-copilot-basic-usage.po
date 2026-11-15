@@ -1,8 +1,9 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-15 23:56+0000\n"
+"POT-Creation-Date: 2026-11-15 23:59+0000\n"
 "PO-Revision-Date: 2026-11-15 23:56+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,7 +15,7 @@ msgstr ""
 #. front matter: title
 #: content/ja/blog/github-copilot-basic-usage/index.md:2
 msgid "VS CodeでGitHub Copilotを使う基本操作"
-msgstr ""
+msgstr "在 VS Code 中使用 GitHub Copilot 的基本操作"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:13
@@ -22,6 +23,8 @@ msgid ""
 "GitHub CopilotをVisual Studio Code（VS Code）で使うと、コードの入力、調査、修"
 "正をAIに相談できます。"
 msgstr ""
+"在 Visual Studio Code（VS Code）中使用 GitHub Copilot，可以就代码的编写、调查"
+"和修改向 AI 寻求帮助。"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:15
@@ -30,31 +33,33 @@ msgid ""
 "操作を試す手順を解説します。生成されたコードは必ず内容を確認し、必要に応じて"
 "テストやレビューを行ってください。"
 msgstr ""
+"本文将介绍在 VS Code 中引入 GitHub Copilot，并试用代码补全和聊天等基本操作的"
+"步骤。请务必检查生成的代码内容，并根据需要进行测试和审查。"
 
 #. heading (level 2)
 #: content/ja/blog/github-copilot-basic-usage/index.md:17
 msgid "前提条件"
-msgstr ""
+msgstr "前提条件"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:19
 msgid "次のものを準備します。"
-msgstr ""
+msgstr "请准备以下内容。"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:21
 msgid "VS Code"
-msgstr ""
+msgstr "VS Code"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:22
 msgid "GitHubアカウント"
-msgstr ""
+msgstr "GitHub 账户"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:23
 msgid "GitHub Copilotを利用できるプランまたは無料枠"
-msgstr ""
+msgstr "可以使用 GitHub Copilot 的套餐或免费额度"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:25
@@ -63,36 +68,39 @@ msgid ""
 "ンや利用上限は変更される場合があるため、最新情報は[GitHub Copilotの料金ペー"
 "ジ](https://github.com/features/copilot/plans)で確認します。"
 msgstr ""
+"请尽量使用较新版本的 VS Code。GitHub Copilot 的套餐和使用上限可能会发生变化，"
+"最新信息请在 [GitHub Copilot 的价格页面](https://github.com/features/copilot/"
+"plans)上确认。"
 
 #. heading (level 2)
 #: content/ja/blog/github-copilot-basic-usage/index.md:27
 msgid "GitHub Copilot拡張機能をインストールする"
-msgstr ""
+msgstr "安装 GitHub Copilot 扩展"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:29
 msgid "VS Codeを起動します。"
-msgstr ""
+msgstr "启动 VS Code。"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:30
 msgid "左側のアクティビティバーで、拡張機能アイコンを選択します。"
-msgstr ""
+msgstr "在左侧的活动栏中选择扩展图标。"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:31
 msgid "検索欄に`GitHub Copilot`と入力します。"
-msgstr ""
+msgstr "在搜索栏中输入 `GitHub Copilot`。"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:32
 msgid "GitHubが公開しているGitHub Copilot関連の拡張機能を選択します。"
-msgstr ""
+msgstr "选择由 GitHub 发布的 GitHub Copilot 相关扩展。"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:33
 msgid "**インストール**を選択します。"
-msgstr ""
+msgstr "选择 **“Install”**。"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:35
@@ -101,41 +109,43 @@ msgid ""
 "ります。検索結果に表示される公開元と説明を確認してからインストールしてくださ"
 "い。"
 msgstr ""
+"根据版本不同，GitHub Copilot Chat 可能包含在同一个扩展中。请先确认搜索结果中"
+"显示的发布者和说明，然后再安装。"
 
 #. heading (level 2)
 #: content/ja/blog/github-copilot-basic-usage/index.md:37
 msgid "GitHubアカウントでサインインする"
-msgstr ""
+msgstr "使用 GitHub 账户登录"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:39
 msgid ""
 "拡張機能をインストールすると、GitHubアカウントへのサインインを求められること"
 "があります。"
-msgstr ""
+msgstr "安装扩展后，可能会要求您登录 GitHub 账户。"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:41
 msgid ""
 "VS CodeのステータスバーまたはアカウントメニューからGitHubへのサインインを選択"
 "します。"
-msgstr ""
+msgstr "从 VS Code 的状态栏或账户菜单中选择登录 GitHub。"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:42
 msgid "ブラウザーが開いたら、GitHubアカウントでサインインします。"
-msgstr ""
+msgstr "浏览器打开后，使用 GitHub 账户登录。"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:43
 msgid "VS Codeによる認証を許可します。"
-msgstr ""
+msgstr "允许 VS Code 进行认证。"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:44
 msgid ""
 "VS Codeに戻り、アカウントメニューでサインイン済みであることを確認します。"
-msgstr ""
+msgstr "返回 VS Code，在账户菜单中确认已经登录。"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:46
@@ -144,11 +154,13 @@ msgid ""
 "す。組織のアカウントを使用している場合は、管理者による利用制限が設定されてい"
 "ないか確認してください。"
 msgstr ""
+"如果无法登录，请重启 VS Code 后再查看账户菜单。如果使用的是组织账户，请确认管"
+"理员是否设置了使用限制。"
 
 #. heading (level 2)
 #: content/ja/blog/github-copilot-basic-usage/index.md:48
 msgid "コード補完を使う"
-msgstr ""
+msgstr "使用代码补全"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:50
@@ -156,6 +168,8 @@ msgid ""
 "コード補完は、入力中のコードやコメントをもとに続きを提案する機能です。例とし"
 "て、Pythonファイルに次のコメントを入力します。"
 msgstr ""
+"代码补全是根据正在输入的代码和注释来建议后续内容的功能。例如，在 Python 文件"
+"中输入以下注释。"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:56
@@ -164,6 +178,8 @@ msgid ""
 "で表示された候補を採用するには、通常は`Tab`キーを押します。候補を採用せず入力"
 "を続ける場合は`Esc`キーを押します。"
 msgstr ""
+"在注释的下一行输入函数名后，会显示函数的实现候选。要采用以浅色文字显示的候"
+"选，通常按 `Tab` 键。如果不采用候选而继续输入，则按 `Esc` 键。"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:58
@@ -171,11 +187,13 @@ msgid ""
 "候補の内容が目的と合わないときは、コメントを具体的に書き直します。例えば、引"
 "数名、戻り値、例外処理の必要性などを明記すると、意図を伝えやすくなります。"
 msgstr ""
+"当候选内容与目的不符时，请将注释改写得更具体。例如，明确写出参数名、返回值以"
+"及是否需要异常处理等，可以更容易传达意图。"
 
 #. heading (level 2)
 #: content/ja/blog/github-copilot-basic-usage/index.md:60
 msgid "複数の候補を確認する"
-msgstr ""
+msgstr "查看多个候选"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:62
@@ -184,6 +202,8 @@ msgid ""
 "キーボード操作は、VS Codeや拡張機能のバージョン、キーボード配列によって異なる"
 "ことがあります。"
 msgstr ""
+"在显示候选的状态下，有时可以查看其他候选。切换候选的键盘操作可能因 VS Code 和"
+"扩展的版本以及键盘布局而有所不同。"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:64
@@ -193,41 +213,44 @@ msgid ""
 "します。採用する前に、候補の処理内容、エラー処理、外部入力の扱いを確認してく"
 "ださい。"
 msgstr ""
+"要显示候选列表，可以在编辑器中右键单击并查看与 GitHub Copilot 候选相关的菜"
+"单，或者在命令面板（`Ctrl+Shift+P`）中搜索 `Copilot`。在采用之前，请确认候选"
+"的处理内容、错误处理以及对外部输入的处理。"
 
 #. heading (level 2)
 #: content/ja/blog/github-copilot-basic-usage/index.md:66
 msgid "Copilot Chatで質問する"
-msgstr ""
+msgstr "在 Copilot Chat 中提问"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:68
 msgid "Copilot Chatでは、コードやエラーについて自然な文章で質問できます。"
-msgstr ""
+msgstr "在 Copilot Chat 中，可以用自然语言就代码和错误进行提问。"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:70
 msgid "アクティビティバーでChatを開きます。"
-msgstr ""
+msgstr "在活动栏中打开 Chat。"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:71
 msgid "入力欄に質問を入力します。"
-msgstr ""
+msgstr "在输入栏中输入问题。"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:72
 msgid "必要に応じて、対象のファイルやコードをコンテキストとして指定します。"
-msgstr ""
+msgstr "根据需要，将目标文件或代码指定为上下文。"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:73
 msgid "送信して回答を確認します。"
-msgstr ""
+msgstr "发送并查看回答。"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:75
 msgid "例えば、次のように具体的な質問を入力します。"
-msgstr ""
+msgstr "例如，输入如下具体的问题。"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:81
@@ -236,11 +259,13 @@ msgid ""
 "プロジェクトの目的、使用しているライブラリ、エラーメッセージなどを必要な範囲"
 "で伝えると、質問しやすくなります。"
 msgstr ""
+"不要把回答直接当作正确答案，而要确认说明与实际代码是否一致。在必要范围内告知"
+"项目目的、所使用的库、错误信息等，可以让提问更加顺利。"
 
 #. heading (level 2)
 #: content/ja/blog/github-copilot-basic-usage/index.md:83
 msgid "Ask、Plan、Agentモードを使い分ける"
-msgstr ""
+msgstr "区分使用 Ask、Plan 和 Agent 模式"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:85
@@ -248,11 +273,13 @@ msgid ""
 "Copilot Chatの入力欄では、目的に応じてモードを選択できます。利用できるモード"
 "や表示名は、VS CodeとCopilotのバージョンによって異なる場合があります。"
 msgstr ""
+"在 Copilot Chat 的输入栏中，可以根据目的选择模式。可用的模式和显示名称可能因 "
+"VS Code 和 Copilot 的版本而有所不同。"
 
 #. heading (level 3)
 #: content/ja/blog/github-copilot-basic-usage/index.md:87
 msgid "Askモード"
-msgstr ""
+msgstr "Ask 模式"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:89
@@ -261,16 +288,18 @@ msgid ""
 "ためのモードです。通常はファイルを変更せず、回答やコード例を確認したいときに"
 "使います。"
 msgstr ""
+"Ask 模式用于就代码提问、了解处理说明或调查错误原因。通常在不修改文件、只想查"
+"看回答或代码示例时使用。"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:91
 msgid "例えば、次のような質問を入力します。"
-msgstr ""
+msgstr "例如，输入如下问题。"
 
 #. heading (level 3)
 #: content/ja/blog/github-copilot-basic-usage/index.md:97
 msgid "Planモード"
-msgstr ""
+msgstr "Plan 模式"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:99
@@ -280,6 +309,9 @@ msgid ""
 "Planモードで対象ファイル、手順、確認方法を整理するとレビューしやすくなりま"
 "す。"
 msgstr ""
+"Plan 模式用于在开始实现之前规划调查内容和修改步骤。对于涉及多个文件的工作，不"
+"要直接要求修改，而是先在 Plan 模式下整理目标文件、步骤和确认方法，这样更便于"
+"审查。"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:101
@@ -287,11 +319,13 @@ msgid ""
 "計画を確認したあと、必要な修正点を追加で指示してから実装を依頼します。計画が"
 "作成されたことだけで、コードが正しく変更されたとは判断しないでください。"
 msgstr ""
+"确认计划后，补充必要的修改意见，再要求进行实现。请不要仅凭计划已创建就认为代"
+"码已被正确修改。"
 
 #. heading (level 3)
 #: content/ja/blog/github-copilot-basic-usage/index.md:103
 msgid "Agentモード"
-msgstr ""
+msgstr "Agent 模式"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:105
@@ -300,6 +334,8 @@ msgid ""
 "マンドの実行などを段階的に進めるモードです。例えば、次のような作業を依頼でき"
 "ます。"
 msgstr ""
+"Agent 模式下，只需告知目的，就会逐步进行必要文件的调查、代码编辑以及测试和命"
+"令的执行等。例如，可以要求执行如下工作。"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:111
@@ -309,11 +345,14 @@ msgid ""
 "ドをレビューします。小さな調査はAsk、計画が必要な作業はPlan、明確な実装作業は"
 "Agentというように使い分けると分かりやすくなります。"
 msgstr ""
+"在 Agent 模式下可能会修改文件或执行命令。如果在执行前被要求确认，请检查其内"
+"容；完成后，请审查差异、测试结果和执行的命令。小规模的调查用 Ask，需要计划的"
+"工作用 Plan，明确的实现工作用 Agent，这样区分使用会更清晰。"
 
 #. heading (level 2)
 #: content/ja/blog/github-copilot-basic-usage/index.md:113
 msgid "モデルを選択する"
-msgstr ""
+msgstr "选择模型"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:115
@@ -322,27 +361,29 @@ msgid ""
 "よって、回答の速度、得意な処理、コンテキストの扱い、利用量の計算方法が異なる"
 "ことがあります。"
 msgstr ""
+"在 Chat 的模型选择菜单中，可以切换可用的 AI 模型。不同模型在回答速度、擅长的"
+"处理、上下文的处理方式以及用量的计算方法上可能有所不同。"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:117
 msgid "モデルを選ぶときは、次のように目的とコストのバランスを考えます。"
-msgstr ""
+msgstr "选择模型时，请按以下方式权衡目的与成本。"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:119
 msgid "短い説明や簡単な質問では、標準または高速なモデルを選ぶ"
-msgstr ""
+msgstr "对于简短的说明或简单的问题，选择标准或高速的模型"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:120
 msgid "複雑な設計、デバッグ、複数ファイルの変更では、推論に強いモデルを選ぶ"
-msgstr ""
+msgstr "对于复杂的设计、调试或多个文件的修改，选择推理能力强的模型"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:121
 msgid ""
 "利用量を抑えたいときは、モデル名の近くに表示される利用倍率や説明を確認する"
-msgstr ""
+msgstr "想要控制用量时，确认模型名称旁显示的用量倍率或说明"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:123
@@ -351,11 +392,13 @@ msgid ""
 "ます。特定のモデルが常に利用できるとは限らないため、Chatのモデル選択メニュー"
 "に表示される最新の情報を確認してください。"
 msgstr ""
+"显示的模型和用量倍率因 Copilot 的套餐、组织的设置和时期而异。特定模型不一定始"
+"终可用，请确认 Chat 模型选择菜单中显示的最新信息。"
 
 #. heading (level 2)
 #: content/ja/blog/github-copilot-basic-usage/index.md:125
 msgid "思考量を選択する"
-msgstr ""
+msgstr "选择思考量"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:127
@@ -364,21 +407,23 @@ msgid ""
 "あります。思考量を高くすると複雑な問題を詳しく検討しやすくなりますが、回答に"
 "時間がかかったり、利用量が多くなったりすることがあります。"
 msgstr ""
+"对于支持推理的模型，有时可以选择回答时投入的思考量（推理强度）。提高思考量更"
+"便于详细研究复杂的问题，但回答可能需要更长时间，用量也可能增加。"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:129
 msgid "低い思考量: 用語の確認、短い説明、単純な修正"
-msgstr ""
+msgstr "低思考量：确认术语、简短说明、简单修改"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:130
 msgid "中程度の思考量: 一般的なデバッグやテスト作成"
-msgstr ""
+msgstr "中等思考量：一般的调试和测试编写"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:131
 msgid "高い思考量: 複雑な設計、原因の切り分け、広い範囲の変更"
-msgstr ""
+msgstr "高思考量：复杂的设计、原因排查、大范围的修改"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:133
@@ -387,11 +432,13 @@ msgid ""
 "れる場合だけ、タスクの複雑さに合わせて設定します。思考量を高くしても回答の正"
 "しさが保証されるわけではないため、生成結果の確認は必要です。"
 msgstr ""
+"并非所有模型和套餐都可以更改思考量。仅在显示选择栏时，根据任务的复杂程度进行"
+"设置。即使提高思考量也不能保证回答的正确性，因此仍需确认生成结果。"
 
 #. heading (level 2)
 #: content/ja/blog/github-copilot-basic-usage/index.md:135
 msgid "クレジットとは"
-msgstr ""
+msgstr "什么是额度（Credit）"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:137
@@ -401,6 +448,9 @@ msgid ""
 "消費量が変わります。高性能なモデルや高度な処理では、1回の依頼で複数のクレジッ"
 "トを消費することがあります。"
 msgstr ""
+"GitHub Copilot 中的额度（Credit）是用于管理 AI 用量的单位。每月可用的量由套餐"
+"决定，消耗量会因 Chat 请求、模型种类和功能而变化。使用高性能模型或进行高级处"
+"理时，一次请求可能会消耗多个额度。"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:139
@@ -410,42 +460,45 @@ msgid ""
 "があります。アカウントの設定画面や利用状況ページで残量とリセット時期を確認"
 "し、必要に応じて低コストのモデルやAskモードを選びます。"
 msgstr ""
+"额度并不是表示代码质量或正确性的分数。此外，VS Code 界面中显示的可用量及其名"
+"称，可能因合同或 GitHub 的计费方式而有所不同。请在账户设置页面或用量页面上确"
+"认剩余量和重置时间，并根据需要选择低成本的模型或 Ask 模式。"
 
 #. heading (level 2)
 #: content/ja/blog/github-copilot-basic-usage/index.md:141
 msgid "選択したコードを説明・修正する"
-msgstr ""
+msgstr "解释和修改所选代码"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:143
 msgid "ファイル内のコードを選択すると、選択範囲を対象に質問できます。"
-msgstr ""
+msgstr "选中文件中的代码后，可以针对所选范围进行提问。"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:145
 msgid "エディターで説明してほしいコードを選択します。"
-msgstr ""
+msgstr "在编辑器中选择希望解释的代码。"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:146
 msgid "右クリックしてCopilotに関するメニューを開きます。"
-msgstr ""
+msgstr "右键单击，打开与 Copilot 相关的菜单。"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:147
 msgid "コードの説明、修正、テスト作成などの操作を選択します。"
-msgstr ""
+msgstr "选择解释代码、修改代码或编写测试等操作。"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:148
 msgid "提案された変更を確認します。"
-msgstr ""
+msgstr "确认建议的修改。"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:150
 msgid ""
 "修正を依頼する場合は、目的を具体的に伝えます。例えば、次のように入力します。"
-msgstr ""
+msgstr "要求修改时，请具体说明目的。例如，输入如下内容。"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:156
@@ -453,40 +506,42 @@ msgid ""
 "提案された変更は、差分を確認してから適用します。変更範囲が広い場合は、1つずつ"
 "内容を確認し、不要な変更を取り消してください。"
 msgstr ""
+"请在确认差异后再应用建议的修改。如果修改范围较大，请逐一确认内容，并撤销不需"
+"要的修改。"
 
 #. heading (level 2)
 #: content/ja/blog/github-copilot-basic-usage/index.md:158
 msgid "インラインチャットを使う"
-msgstr ""
+msgstr "使用内联聊天"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:160
 msgid ""
 "インラインチャットを使うと、エディターを離れずに現在のコードについて依頼でき"
 "ます。"
-msgstr ""
+msgstr "使用内联聊天，可以在不离开编辑器的情况下就当前代码提出请求。"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:162
 msgid "エディターで対象のコードを選択します。"
-msgstr ""
+msgstr "在编辑器中选择目标代码。"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:163
 msgid ""
 "コマンドパレットで`Copilot`を検索し、インラインチャットを開始する操作を選択し"
 "ます。"
-msgstr ""
+msgstr "在命令面板中搜索 `Copilot`，选择启动内联聊天的操作。"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:164
 msgid "変更したい内容を入力します。"
-msgstr ""
+msgstr "输入想要修改的内容。"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:165
 msgid "表示された差分を確認し、適用またはキャンセルします。"
-msgstr ""
+msgstr "确认显示的差异，然后应用或取消。"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:167
@@ -494,41 +549,43 @@ msgid ""
 "依頼文には、変更する範囲と維持する条件を含めます。例えば、`この関数だけを変更"
 "し、公開されている関数名は変えないでください`のように指定します。"
 msgstr ""
+"请求中应包含要修改的范围和需要保持的条件。例如，可以指定 `只修改这个函数，不"
+"要更改公开的函数名`。"
 
 #. heading (level 2)
 #: content/ja/blog/github-copilot-basic-usage/index.md:169
 msgid "提案を確認して適用する"
-msgstr ""
+msgstr "确认并应用建议"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:171
 msgid "GitHub Copilotの提案を利用するときは、次の順番で確認します。"
-msgstr ""
+msgstr "使用 GitHub Copilot 的建议时，请按以下顺序进行确认。"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:173
 msgid "変更前後の差分を確認する。"
-msgstr ""
+msgstr "确认修改前后的差异。"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:174
 msgid "生成された処理が依頼内容に合っているか確認する。"
-msgstr ""
+msgstr "确认生成的处理是否符合请求内容。"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:175
 msgid "型、戻り値、例外処理、境界値を確認する。"
-msgstr ""
+msgstr "确认类型、返回值、异常处理和边界值。"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:176
 msgid "テストや静的解析を実行する。"
-msgstr ""
+msgstr "运行测试和静态分析。"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:177
 msgid "問題がなければ変更を保存してコミットする。"
-msgstr ""
+msgstr "如果没有问题，保存修改并提交。"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:179
@@ -537,16 +594,18 @@ msgid ""
 "提案だけでエラーが解消したと判断せず、実際にアプリケーションやテストを実行し"
 "てください。"
 msgstr ""
+"修复错误时，也不要隐藏错误信息，而要确认其原因。请不要仅凭 Copilot 的建议就判"
+"断错误已经解决，而应实际运行应用程序或测试。"
 
 #. heading (level 2)
 #: content/ja/blog/github-copilot-basic-usage/index.md:181
 msgid "利用時の注意点"
-msgstr ""
+msgstr "使用时的注意事项"
 
 #. heading (level 3)
 #: content/ja/blog/github-copilot-basic-usage/index.md:183
 msgid "機密情報を入力しない"
-msgstr ""
+msgstr "不要输入机密信息"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:185
@@ -555,11 +614,13 @@ msgid ""
 "に入力しないでください。必要な場合は、実際の値を伏せた最小限の例に置き換えま"
 "す。"
 msgstr ""
+"请不要在提示词或聊天中输入 API 密钥、密码、个人信息、客户信息或公司内部机密信"
+"息。如有需要，请替换为隐去实际值的最小示例。"
 
 #. heading (level 3)
 #: content/ja/blog/github-copilot-basic-usage/index.md:187
 msgid "生成されたコードを検証する"
-msgstr ""
+msgstr "验证生成的代码"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:189
@@ -568,11 +629,13 @@ msgid ""
 "特に認証、認可、入力値の検証、暗号化、データベース操作に関わるコードは、公式"
 "ドキュメントやテスト結果と照らし合わせて確認します。"
 msgstr ""
+"生成的代码可能包含错误、漏洞或低效的处理。特别是涉及认证、授权、输入值验证、"
+"加密和数据库操作的代码，请对照官方文档和测试结果进行确认。"
 
 #. heading (level 3)
 #: content/ja/blog/github-copilot-basic-usage/index.md:191
 msgid "ライセンスと依存関係を確認する"
-msgstr ""
+msgstr "确认许可证和依赖关系"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:193
@@ -581,11 +644,13 @@ msgid ""
 "や依存ライブラリの条件を確認します。コードの出所や利用条件に懸念がある場合"
 "は、採用前に確認してください。"
 msgstr ""
+"在公开发布的软件中使用生成的代码时，请确认项目的许可证和依赖库的条件。如果对"
+"代码的来源或使用条件有疑虑，请在采用前进行确认。"
 
 #. heading (level 3)
 #: content/ja/blog/github-copilot-basic-usage/index.md:195
 msgid "変更を小さく保つ"
-msgstr ""
+msgstr "保持小规模的修改"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:197
@@ -594,11 +659,13 @@ msgid ""
 "確認しやすくなります。Gitで作業ブランチを作成し、変更前の状態を戻せるようにし"
 "ておくと安心です。"
 msgstr ""
+"与其让其一次生成一个大型功能，不如将目的拆分成小的单元来请求，这样更容易确认"
+"差异。在 Git 中创建工作分支，以便能够恢复到修改前的状态，会更加放心。"
 
 #. heading (level 2)
 #: content/ja/blog/github-copilot-basic-usage/index.md:199
 msgid "まとめ"
-msgstr ""
+msgstr "总结"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:201
@@ -606,6 +673,8 @@ msgid ""
 "VS Codeでは、GitHub Copilotを使ってコード補完、チャットによる質問、選択した"
 "コードの説明や修正、インラインチャットを利用できます。"
 msgstr ""
+"在 VS Code 中，可以使用 GitHub Copilot 进行代码补全、通过聊天提问、解释和修改"
+"所选代码，以及使用内联聊天。"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:203
@@ -614,6 +683,8 @@ msgid ""
 "せん。依頼内容と差分を確認し、テスト、静的解析、セキュリティ確認を行いながら"
 "活用しましょう。"
 msgstr ""
+"Copilot 是辅助开发的工具，并不意味着可以无条件地采用生成结果。请在确认请求内"
+"容和差异，并进行测试、静态分析和安全检查的同时加以利用。"
 
 #. paragraph
 #: content/ja/blog/github-copilot-basic-usage/index.md:205
@@ -621,3 +692,5 @@ msgid ""
 "詳しいセットアップ方法は、[GitHub Copilotのセットアップ（GitHub Docs）]"
 "(https://docs.github.com/en/copilot/how-tos/set-up)を参照してください。"
 msgstr ""
+"详细的设置方法请参阅 [GitHub Copilot 的设置（GitHub Docs）](https://docs."
+"github.com/en/copilot/how-tos/set-up)。"

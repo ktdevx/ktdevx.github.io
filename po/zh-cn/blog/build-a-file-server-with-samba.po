@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-15 23:56+0000\n"
+"POT-Creation-Date: 2026-11-15 23:59+0000\n"
 "PO-Revision-Date: 2026-11-15 23:56+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,9 @@ msgstr "使用 Samba 搭建文件服务器"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-samba/index.md:11
-msgid "今回は、Sambaを使用して、Windowsからアクセスできるファイルサーバーを構築します。"
+msgid ""
+"今回は、Sambaを使用して、Windowsからアクセスできるファイルサーバーを構築しま"
+"す。"
 msgstr "本文将使用 Samba 搭建一台可以从 Windows 访问的文件服务器。"
 
 #. heading (level 2)
@@ -39,15 +41,19 @@ msgstr "{{< ads/nucbox-m5-plus >}}"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-samba/index.md:19
-msgid "ミニPCにはDebianをインストールしているため、そこにSambaをインストールしてファイルサーバーを構築していきます。"
-msgstr "由于迷你 PC 上已经安装了 Debian，因此将在其上安装 Samba 来搭建文件服务器。"
+msgid ""
+"ミニPCにはDebianをインストールしているため、そこにSambaをインストールしてファ"
+"イルサーバーを構築していきます。"
+msgstr ""
+"由于迷你 PC 上已经安装了 Debian，因此将在其上安装 Samba 来搭建文件服务器。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-samba/index.md:21
 msgid ""
-"新たにDebianをインストールする場合は、「[Debianをインストールする](/blog/install-"
-"debian)」の記事も参考にしてください。"
-msgstr "如需全新安装 Debian，也请参考“[安装 Debian](/blog/install-debian)”一文。"
+"新たにDebianをインストールする場合は、「[Debianをインストールする](/blog/"
+"install-debian)」の記事も参考にしてください。"
+msgstr ""
+"如需全新安装 Debian，也请参考“[安装 Debian](/blog/install-debian)”一文。"
 
 #. heading (level 2)
 #: content/ja/blog/build-a-file-server-with-samba/index.md:23
@@ -61,7 +67,9 @@ msgstr "使用 apt 安装 Samba。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-samba/index.md:31
-msgid "Sambaのインストールはこれで完了です。依存パッケージは自動でインストールされます。"
+msgid ""
+"Sambaのインストールはこれで完了です。依存パッケージは自動でインストールされま"
+"す。"
 msgstr "Samba 的安装到此完成。依赖的软件包会自动安装。"
 
 #. heading (level 2)
@@ -71,22 +79,31 @@ msgstr "创建分区"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-samba/index.md:35
-msgid "共有フォルダを作成したいディスクにパーティションを作成します。まずは`lsblk`でディスクの一覧を確認します。"
+msgid ""
+"共有フォルダを作成したいディスクにパーティションを作成します。まずは`lsblk`で"
+"ディスクの一覧を確認します。"
 msgstr "在要创建共享文件夹的磁盘上创建分区。首先使用 `lsblk` 查看磁盘列表。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-samba/index.md:48
-msgid "`sdb`が今回共有フォルダを作成したいディスクです。`fdisk`コマンドを使用して`sdb`にパーティションを作成します。"
-msgstr "`sdb` 是本次要创建共享文件夹的磁盘。使用 `fdisk` 命令在 `sdb` 上创建分区。"
+msgid ""
+"`sdb`が今回共有フォルダを作成したいディスクです。`fdisk`コマンドを使用して"
+"`sdb`にパーティションを作成します。"
+msgstr ""
+"`sdb` 是本次要创建共享文件夹的磁盘。使用 `fdisk` 命令在 `sdb` 上创建分区。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-samba/index.md:79
-msgid "実際にパーティションが作成されたか、もう一度`lsblk`でディスク一覧を表示して確認します。"
+msgid ""
+"実際にパーティションが作成されたか、もう一度`lsblk`でディスク一覧を表示して確"
+"認します。"
 msgstr "再次使用 `lsblk` 显示磁盘列表，确认分区是否已实际创建。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-samba/index.md:93
-msgid "パーティション`sdb1`が追加されていることを確認できました。次はこのパーティションにファイルシステムを作成します。"
+msgid ""
+"パーティション`sdb1`が追加されていることを確認できました。次はこのパーティ"
+"ションにファイルシステムを作成します。"
 msgstr "可以确认已添加了分区 `sdb1`。接下来在该分区上创建文件系统。"
 
 #. heading (level 2)
@@ -96,7 +113,9 @@ msgstr "创建文件系统"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-samba/index.md:97
-msgid "`mkfs`コマンドを使用して、先ほど作成した`sdb1`パーティションにExt4でファイルシステムを作成します。"
+msgid ""
+"`mkfs`コマンドを使用して、先ほど作成した`sdb1`パーティションにExt4でファイル"
+"システムを作成します。"
 msgstr "使用 `mkfs` 命令，在刚才创建的 `sdb1` 分区上创建 Ext4 文件系统。"
 
 #. paragraph
@@ -114,31 +133,42 @@ msgstr "挂载文件系统"
 msgid ""
 "先ほど作成したファイルシステムをマウントします。まずは`ls -l /dev/disk/by-"
 "uuid/`と打ってディスクパーティションのUUIDを確認します。"
-msgstr "挂载刚才创建的文件系统。首先输入 `ls -l /dev/disk/by-uuid/`，查看磁盘分区的 UUID。"
+msgstr ""
+"挂载刚才创建的文件系统。首先输入 `ls -l /dev/disk/by-uuid/`，查看磁盘分区的 "
+"UUID。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-samba/index.md:130
 msgid ""
-"これは、各ディスクパーティションをUUIDで示したシンボリックリンクを一覧表示するコマンドです。マウントさせたいパーティションのUUIDが`2cc13138-06d1-4c28-ae9f-fc126067921a`であることが確認できました。"
+"これは、各ディスクパーティションをUUIDで示したシンボリックリンクを一覧表示す"
+"るコマンドです。マウントさせたいパーティションのUUIDが`2cc13138-06d1-4c28-"
+"ae9f-fc126067921a`であることが確認できました。"
 msgstr ""
 "该命令会列出以 UUID 表示各磁盘分区的符号链接。可以确认要挂载的分区的 UUID 为 "
 "`2cc13138-06d1-4c28-ae9f-fc126067921a`。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-samba/index.md:132
-msgid "今確認したパーティションをマウントさせるディレクトリを作成しましょう。今回は`/srv/share`というディレクトリを作成します。"
+msgid ""
+"今確認したパーティションをマウントさせるディレクトリを作成しましょう。今回は"
+"`/srv/share`というディレクトリを作成します。"
 msgstr "创建用于挂载刚才确认的分区的目录。本次创建名为 `/srv/share` 的目录。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-samba/index.md:138
-msgid "ディレクトリが作成されました。今作成したディレクトリに先ほど作成したファイルシステムが自動でマウントされるように設定していきます。"
+msgid ""
+"ディレクトリが作成されました。今作成したディレクトリに先ほど作成したファイル"
+"システムが自動でマウントされるように設定していきます。"
 msgstr "目录已创建。接下来进行设置，使刚才创建的文件系统自动挂载到该目录。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-samba/index.md:140
 msgid ""
-"自動マウントの設定は`/etc/fstab`ファイルで設定できます。テキストエディタでファイルを開いて設定を変更しましょう。以下は自動マウントの例です。"
-msgstr "自动挂载可以在 `/etc/fstab` 文件中设置。用文本编辑器打开该文件并修改设置。以下是自动挂载的示例。"
+"自動マウントの設定は`/etc/fstab`ファイルで設定できます。テキストエディタで"
+"ファイルを開いて設定を変更しましょう。以下は自動マウントの例です。"
+msgstr ""
+"自动挂载可以在 `/etc/fstab` 文件中设置。用文本编辑器打开该文件并修改设置。以"
+"下是自动挂载的示例。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-samba/index.md:147
@@ -185,19 +215,24 @@ msgstr ""
 #: content/ja/blog/build-a-file-server-with-samba/index.md:157
 msgid ""
 "dump  \n"
-"`dump`コマンドによるバックアップ対象にするかどうかを指定します。1ならバックアップ対象に、0ならdumpの対象外になります。"
+"`dump`コマンドによるバックアップ対象にするかどうかを指定します。1ならバック"
+"アップ対象に、0ならdumpの対象外になります。"
 msgstr ""
 "dump  \n"
-"指定是否作为 `dump` 命令的备份对象。1 表示作为备份对象，0 表示不作为 dump 的对象。"
+"指定是否作为 `dump` 命令的备份对象。1 表示作为备份对象，0 表示不作为 dump 的"
+"对象。"
 
 #. list item > paragraph
 #: content/ja/blog/build-a-file-server-with-samba/index.md:159
 msgid ""
 "pass  \n"
-"起動時に`fsck`がチェックする順番を指定します。1はチェックの優先度が一番高いです。ルートファイルシステムは1である必要があります。その他のファイルシステムでは2を指定しましょう。0を指定するとチェックされません。"
+"起動時に`fsck`がチェックする順番を指定します。1はチェックの優先度が一番高いで"
+"す。ルートファイルシステムは1である必要があります。その他のファイルシステムで"
+"は2を指定しましょう。0を指定するとチェックされません。"
 msgstr ""
 "pass  \n"
-"指定启动时 `fsck` 检查的顺序。1 的检查优先级最高。根文件系统必须为 1。其他文件系统请指定 2。指定 0 则不进行检查。"
+"指定启动时 `fsck` 检查的顺序。1 的检查优先级最高。根文件系统必须为 1。其他文"
+"件系统请指定 2。指定 0 则不进行检查。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-samba/index.md:162
@@ -206,12 +241,16 @@ msgstr "修改设置后，使用以下命令进行挂载。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-samba/index.md:169
-msgid "これにより、`/etc/fstab`の内容に沿ってマウントが実行されます。マウントできたか`df`コマンドで確認してみましょう。"
-msgstr "这样就会按照 `/etc/fstab` 的内容执行挂载。使用 `df` 命令确认是否已挂载。"
+msgid ""
+"これにより、`/etc/fstab`の内容に沿ってマウントが実行されます。マウントできた"
+"か`df`コマンドで確認してみましょう。"
+msgstr ""
+"这样就会按照 `/etc/fstab` 的内容执行挂载。使用 `df` 命令确认是否已挂载。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-samba/index.md:183
-msgid "マウントされていることを確認できました。これで自動マウントの設定は完了です。"
+msgid ""
+"マウントされていることを確認できました。これで自動マウントの設定は完了です。"
 msgstr "可以确认已经挂载。自动挂载的设置到此完成。"
 
 #. heading (level 2)
@@ -221,19 +260,27 @@ msgstr "创建访问共享文件夹的组"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-samba/index.md:187
-msgid "今回は、特定のグループに所属するユーザーのみ共有フォルダにアクセスできるようにファイルサーバーを構築します。"
+msgid ""
+"今回は、特定のグループに所属するユーザーのみ共有フォルダにアクセスできるよう"
+"にファイルサーバーを構築します。"
 msgstr "本次搭建的文件服务器只允许属于特定组的用户访问共享文件夹。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-samba/index.md:189
-msgid "`share`という名前のグループを作成し、共有フォルダへのアクセスを許可したいユーザーをこのグループに追加します。"
+msgid ""
+"`share`という名前のグループを作成し、共有フォルダへのアクセスを許可したいユー"
+"ザーをこのグループに追加します。"
 msgstr "创建名为 `share` 的组，并将允许访问共享文件夹的用户添加到该组。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-samba/index.md:195
 msgid ""
-"グループ追加後は、先ほど作成した共有フォルダの所有グループと、パーミッションを変更します。これにより、特定のグループに所属するユーザーだけを共有フォルダへアクセスさせることができます。"
-msgstr "添加组后，修改刚才创建的共享文件夹的所属组和权限。这样就可以只允许属于特定组的用户访问共享文件夹。"
+"グループ追加後は、先ほど作成した共有フォルダの所有グループと、パーミッション"
+"を変更します。これにより、特定のグループに所属するユーザーだけを共有フォルダ"
+"へアクセスさせることができます。"
+msgstr ""
+"添加组后，修改刚才创建的共享文件夹的所属组和权限。这样就可以只允许属于特定组"
+"的用户访问共享文件夹。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-samba/index.md:202
@@ -252,7 +299,9 @@ msgstr "按如下方式编辑 Samba 的配置文件 `/etc/samba/smb.conf`。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-samba/index.md:224
-msgid "保存して`sudo systemctl restart smbd`とコマンドを打ってリスタートさせましょう。"
+msgid ""
+"保存して`sudo systemctl restart smbd`とコマンドを打ってリスタートさせましょ"
+"う。"
 msgstr "保存后，输入 `sudo systemctl restart smbd` 命令重启服务。"
 
 #. heading (level 2)
@@ -262,14 +311,21 @@ msgstr "添加访问共享文件夹的用户"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-samba/index.md:228
-msgid "ファイルサーバーへ接続させるユーザーを作成します。ユーザー作成後は先ほど作成した`share`グループに所属させます。"
-msgstr "创建用于连接文件服务器的用户。创建用户后，将其加入刚才创建的 `share` 组。"
+msgid ""
+"ファイルサーバーへ接続させるユーザーを作成します。ユーザー作成後は先ほど作成"
+"した`share`グループに所属させます。"
+msgstr ""
+"创建用于连接文件服务器的用户。创建用户后，将其加入刚才创建的 `share` 组。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-samba/index.md:235
 msgid ""
-"`user`という名前のユーザーを作成しました。ユーザー作成後は`pdbedit`コマンドを使用してユーザーをデータベースに追加しましょう。ファイルサーバーへログインするためのパスワードの入力が求められます。"
-msgstr "已创建名为 `user` 的用户。创建用户后，使用 `pdbedit` 命令将用户添加到数据库。此时会要求输入用于登录文件服务器的密码。"
+"`user`という名前のユーザーを作成しました。ユーザー作成後は`pdbedit`コマンドを"
+"使用してユーザーをデータベースに追加しましょう。ファイルサーバーへログインす"
+"るためのパスワードの入力が求められます。"
+msgstr ""
+"已创建名为 `user` 的用户。创建用户后，使用 `pdbedit` 命令将用户添加到数据库。"
+"此时会要求输入用于登录文件服务器的密码。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-samba/index.md:266
@@ -278,7 +334,9 @@ msgstr "用户添加完成。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-samba/index.md:268
-msgid "これで必要な設定は以上です。最後にクライアントPCから共有フォルダにアクセスしてみましょう。"
+msgid ""
+"これで必要な設定は以上です。最後にクライアントPCから共有フォルダにアクセスし"
+"てみましょう。"
 msgstr "必要的设置到此全部完成。最后，从客户端 PC 访问共享文件夹试试。"
 
 #. heading (level 2)
@@ -288,7 +346,9 @@ msgstr "访问共享文件夹"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-samba/index.md:272
-msgid "Windowsのエクスプローラーから、Sambaで作成した共有フォルダにアクセスしてみましょう。"
+msgid ""
+"Windowsのエクスプローラーから、Sambaで作成した共有フォルダにアクセスしてみま"
+"しょう。"
 msgstr "从 Windows 的文件资源管理器访问使用 Samba 创建的共享文件夹。"
 
 #. paragraph
@@ -319,8 +379,11 @@ msgstr "输入在 Samba 中创建的用户的用户名和密码，然后点击�
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-samba/index.md:288
 msgid ""
-"クライアントPCでログインしているユーザーと、Sambaで作成したユーザーの名前、パスワードが一致している場合、資格情報の入力はスキップされます。"
-msgstr "如果客户端 PC 上登录的用户与在 Samba 中创建的用户的用户名和密码一致，则会跳过凭据的输入。"
+"クライアントPCでログインしているユーザーと、Sambaで作成したユーザーの名前、パ"
+"スワードが一致している場合、資格情報の入力はスキップされます。"
+msgstr ""
+"如果客户端 PC 上登录的用户与在 Samba 中创建的用户的用户名和密码一致，则会跳过"
+"凭据的输入。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-samba/index.md:290
@@ -329,5 +392,7 @@ msgstr "![Windows 的文件资源管理器](images/connect-file-server-3.webp)"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-samba/index.md:292
-msgid "共有フォルダにアクセスできました。以上で、Sambaでのファイルサーバーの構築は完了です。"
+msgid ""
+"共有フォルダにアクセスできました。以上で、Sambaでのファイルサーバーの構築は完"
+"了です。"
 msgstr "成功访问了共享文件夹。使用 Samba 搭建文件服务器到此完成。"

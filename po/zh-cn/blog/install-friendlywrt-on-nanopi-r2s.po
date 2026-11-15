@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-15 23:56+0000\n"
+"POT-Creation-Date: 2026-11-15 23:59+0000\n"
 "PO-Revision-Date: 2026-11-15 23:56+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,12 +19,15 @@ msgstr "在 NanoPi R2S 上安装 FriendlyWrt"
 
 #. paragraph
 #: content/ja/blog/install-friendlywrt-on-nanopi-r2s/index.md:12
-msgid "NanoPi R2SにFriendlyWrtをインストールすると、誰でも簡単にルーターを構築することができます。"
+msgid ""
+"NanoPi R2SにFriendlyWrtをインストールすると、誰でも簡単にルーターを構築するこ"
+"とができます。"
 msgstr "在 NanoPi R2S 上安装 FriendlyWrt 后，任何人都可以轻松搭建路由器。"
 
 #. paragraph
 #: content/ja/blog/install-friendlywrt-on-nanopi-r2s/index.md:14
-msgid "ここでは、NanoPi R2SにFriendlyWrtをインストールする方法について解説します。"
+msgid ""
+"ここでは、NanoPi R2SにFriendlyWrtをインストールする方法について解説します。"
 msgstr "本文将介绍如何在 NanoPi R2S 上安装 FriendlyWrt。"
 
 #. heading (level 2)
@@ -35,17 +38,21 @@ msgstr "前言"
 #. paragraph
 #: content/ja/blog/install-friendlywrt-on-nanopi-r2s/index.md:18
 msgid ""
-"NanoPi "
-"R2Sとは、FriendlyElecが製造するシングルボードコンピューターです。イーサネットが2ポート搭載されており、ルーターのハードウェアとして活用することができます。"
-msgstr "NanoPi R2S 是 FriendlyElec 生产的单板计算机。它配备了 2 个以太网端口，可以用作路由器硬件。"
+"NanoPi R2Sとは、FriendlyElecが製造するシングルボードコンピューターです。イー"
+"サネットが2ポート搭載されており、ルーターのハードウェアとして活用することがで"
+"きます。"
+msgstr ""
+"NanoPi R2S 是 FriendlyElec 生产的单板计算机。它配备了 2 个以太网端口，可以用"
+"作路由器硬件。"
 
 #. paragraph
 #: content/ja/blog/install-friendlywrt-on-nanopi-r2s/index.md:20
 msgid ""
-"FriendlyWrtは、FriendlyElecが提供するOpenWrtベースのOSです。オープンソースであり、ルーター・NAS・IoT "
-"アプリケーションなどの開発に適しています。"
+"FriendlyWrtは、FriendlyElecが提供するOpenWrtベースのOSです。オープンソースで"
+"あり、ルーター・NAS・IoT アプリケーションなどの開発に適しています。"
 msgstr ""
-"FriendlyWrt 是 FriendlyElec 提供的基于 OpenWrt 的操作系统。它是开源的，适合用于开发路由器、NAS、IoT 应用等。"
+"FriendlyWrt 是 FriendlyElec 提供的基于 OpenWrt 的操作系统。它是开源的，适合用"
+"于开发路由器、NAS、IoT 应用等。"
 
 #. heading (level 2)
 #: content/ja/blog/install-friendlywrt-on-nanopi-r2s/index.md:22
@@ -55,11 +62,14 @@ msgstr "下载 FriendlyWrt"
 #. paragraph
 #: content/ja/blog/install-friendlywrt-on-nanopi-r2s/index.md:24
 msgid ""
-"[公式ダウンロードリンク](https://drive.google.com/drive/folders/1H56Yl3G5kBAE_JGaYT2O_D8xKsBP7kZv)にアクセスし、`01_Official"
-" images/01_SD card images`から、FriendlyWrtのイメージファイルをダウンロードします。"
+"[公式ダウンロードリンク](https://drive.google.com/drive/"
+"folders/1H56Yl3G5kBAE_JGaYT2O_D8xKsBP7kZv)にアクセスし、`01_Official "
+"images/01_SD card images`から、FriendlyWrtのイメージファイルをダウンロードし"
+"ます。"
 msgstr ""
-"访问[官方下载链接](https://drive.google.com/drive/folders/1H56Yl3G5kBAE_JGaYT2O_D8xKsBP7kZv)，从"
-" `01_Official images/01_SD card images` 下载 FriendlyWrt 的镜像文件。"
+"访问[官方下载链接](https://drive.google.com/drive/"
+"folders/1H56Yl3G5kBAE_JGaYT2O_D8xKsBP7kZv)，从 `01_Official images/01_SD "
+"card images` 下载 FriendlyWrt 的镜像文件。"
 
 #. paragraph
 #: content/ja/blog/install-friendlywrt-on-nanopi-r2s/index.md:26
@@ -69,19 +79,29 @@ msgstr "提供的 FriendlyWrt 镜像文件如下。"
 #. paragraph
 #: content/ja/blog/install-friendlywrt-on-nanopi-r2s/index.md:28
 msgid ""
-"|イメージファイル                                  |詳細                                         |\n"
+"|イメージファイル                                  |詳"
+"細                                         |\n"
 "|--------------------------------------------------|---------------------------------------------|\n"
-"|rk3328-sd-friendlywrt-21.02-YYYYMMDD.img.gz       |OpenWrt 21.02ベース                          |\n"
-"|rk3328-sd-friendlywrt-21.02-docker-YYYYMMDD.img.gz|OpenWrt 21.02ベース(Dockerコンテナをサポート)|\n"
-"|rk3328-sd-friendlywrt-23.05-YYYYMMDD.img.gz       |OpenWrt 22.03ベース                          |\n"
-"|rk3328-sd-friendlywrt-23.05-docker-YYYYMMDD.img.gz|OpenWrt 22.03ベース(Dockerコンテナをサポート)|"
+"|rk3328-sd-friendlywrt-21.02-YYYYMMDD.img.gz       |OpenWrt 21.02ベー"
+"ス                          |\n"
+"|rk3328-sd-friendlywrt-21.02-docker-YYYYMMDD.img.gz|OpenWrt 21.02ベース"
+"(Dockerコンテナをサポート)|\n"
+"|rk3328-sd-friendlywrt-23.05-YYYYMMDD.img.gz       |OpenWrt 22.03ベー"
+"ス                          |\n"
+"|rk3328-sd-friendlywrt-23.05-docker-YYYYMMDD.img.gz|OpenWrt 22.03ベース"
+"(Dockerコンテナをサポート)|"
 msgstr ""
-"|镜像文件                                          |详细                                         |\n"
+"|镜像文件                                          |详"
+"细                                         |\n"
 "|--------------------------------------------------|---------------------------------------------|\n"
-"|rk3328-sd-friendlywrt-21.02-YYYYMMDD.img.gz       |基于 OpenWrt 21.02                           |\n"
-"|rk3328-sd-friendlywrt-21.02-docker-YYYYMMDD.img.gz|基于 OpenWrt 21.02（支持 Docker 容器）       |\n"
-"|rk3328-sd-friendlywrt-23.05-YYYYMMDD.img.gz       |基于 OpenWrt 22.03                           |\n"
-"|rk3328-sd-friendlywrt-23.05-docker-YYYYMMDD.img.gz|基于 OpenWrt 22.03（支持 Docker 容器）       |"
+"|rk3328-sd-friendlywrt-21.02-YYYYMMDD.img.gz       |基于 OpenWrt "
+"21.02                           |\n"
+"|rk3328-sd-friendlywrt-21.02-docker-YYYYMMDD.img.gz|基于 OpenWrt 21.02（支持 "
+"Docker 容器）       |\n"
+"|rk3328-sd-friendlywrt-23.05-YYYYMMDD.img.gz       |基于 OpenWrt "
+"22.03                           |\n"
+"|rk3328-sd-friendlywrt-23.05-docker-YYYYMMDD.img.gz|基于 OpenWrt 22.03（支持 "
+"Docker 容器）       |"
 
 #. paragraph
 #: content/ja/blog/install-friendlywrt-on-nanopi-r2s/index.md:35
@@ -101,10 +121,11 @@ msgstr "将刚才下载的 FriendlyWrt 写入 microSD 卡。"
 #. paragraph
 #: content/ja/blog/install-friendlywrt-on-nanopi-r2s/index.md:41
 msgid ""
-"microSDをPCにセットし、Win32 Disk "
-"Imagerなどの書き込みツールを使用してOSを書き込みましょう。microSDの容量は8GB以上が推奨されています。"
+"microSDをPCにセットし、Win32 Disk Imagerなどの書き込みツールを使用してOSを書"
+"き込みましょう。microSDの容量は8GB以上が推奨されています。"
 msgstr ""
-"将 microSD 卡插入 PC，使用 Win32 Disk Imager 等写入工具写入操作系统。建议使用容量为 8GB 以上的 microSD 卡。"
+"将 microSD 卡插入 PC，使用 Win32 Disk Imager 等写入工具写入操作系统。建议使用"
+"容量为 8GB 以上的 microSD 卡。"
 
 #. heading (level 2)
 #: content/ja/blog/install-friendlywrt-on-nanopi-r2s/index.md:43
@@ -113,12 +134,15 @@ msgstr "启动 FriendlyWrt"
 
 #. paragraph
 #: content/ja/blog/install-friendlywrt-on-nanopi-r2s/index.md:45
-msgid "FriendlyWrtを書き込んだmicroSDをNanoPiにセットし、電源を入れて起動します。"
+msgid ""
+"FriendlyWrtを書き込んだmicroSDをNanoPiにセットし、電源を入れて起動します。"
 msgstr "将写入了 FriendlyWrt 的 microSD 卡插入 NanoPi，接通电源启动。"
 
 #. paragraph
 #: content/ja/blog/install-friendlywrt-on-nanopi-r2s/index.md:47
-msgid "電源を入れてしばらく待つと、HTTPおよびSSH経由で接続が可能になります。ホスト情報は以下の通りです。"
+msgid ""
+"電源を入れてしばらく待つと、HTTPおよびSSH経由で接続が可能になります。ホスト情"
+"報は以下の通りです。"
 msgstr "接通电源并稍等片刻后，即可通过 HTTP 和 SSH 进行连接。主机信息如下。"
 
 #. paragraph
@@ -144,7 +168,9 @@ msgstr "推荐的安全设置"
 
 #. paragraph
 #: content/ja/blog/install-friendlywrt-on-nanopi-r2s/index.md:57
-msgid "NanoPiを利用する前に、SSHで接続して以下のセキュリティ設定を行うことを推奨します。"
+msgid ""
+"NanoPiを利用する前に、SSHで接続して以下のセキュリティ設定を行うことを推奨しま"
+"す。"
 msgstr "在使用 NanoPi 之前，建议通过 SSH 连接并进行以下安全设置。"
 
 #. heading (level 3)
@@ -169,8 +195,11 @@ msgstr "修改 SSH 连接设置"
 
 #. paragraph
 #: content/ja/blog/install-friendlywrt-on-nanopi-r2s/index.md:75
-msgid "以下のコマンドで、LAN側からのみSSHで接続できるように制限し、ポート番号を任意の値に変更します。"
-msgstr "使用以下命令，将 SSH 连接限制为仅允许从 LAN 侧访问，并将端口号修改为任意值。"
+msgid ""
+"以下のコマンドで、LAN側からのみSSHで接続できるように制限し、ポート番号を任意"
+"の値に変更します。"
+msgstr ""
+"使用以下命令，将 SSH 连接限制为仅允许从 LAN 侧访问，并将端口号修改为任意值。"
 
 #. paragraph
 #: content/ja/blog/install-friendlywrt-on-nanopi-r2s/index.md:82
@@ -180,7 +209,9 @@ msgstr "如果设置没有问题，使用以下命令使设置生效。"
 
 #. paragraph
 #: content/ja/blog/install-friendlywrt-on-nanopi-r2s/index.md:89
-msgid "これにより設定が反映されます。以降は新しいポート番号を使用してSSH接続する必要があります。"
+msgid ""
+"これにより設定が反映されます。以降は新しいポート番号を使用してSSH接続する必要"
+"があります。"
 msgstr "这样设置就会生效。此后需要使用新的端口号进行 SSH 连接。"
 
 #. heading (level 3)
@@ -190,7 +221,9 @@ msgstr "限制 LuCI 的访问"
 
 #. paragraph
 #: content/ja/blog/install-friendlywrt-on-nanopi-r2s/index.md:93
-msgid "以下のコマンドで、ローカルデバイスのみがLuCIにアクセスできるように変更します。"
+msgid ""
+"以下のコマンドで、ローカルデバイスのみがLuCIにアクセスできるように変更しま"
+"す。"
 msgstr "使用以下命令，将 LuCI 修改为仅允许本地设备访问。"
 
 #. paragraph

@@ -1,8 +1,9 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-15 23:56+0000\n"
+"POT-Creation-Date: 2026-11-15 23:59+0000\n"
 "PO-Revision-Date: 2026-11-15 23:56+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,19 +15,19 @@ msgstr ""
 #. front matter: title
 #: content/ja/blog/pass-through-phisical-disk-to-vm-on-pve/index.md:2
 msgid "Proxmox VE上の仮想マシンに物理ディスクをパススルーする"
-msgstr ""
+msgstr "将物理磁盘直通给 Proxmox VE 上的虚拟机"
 
 #. paragraph
 #: content/ja/blog/pass-through-phisical-disk-to-vm-on-pve/index.md:11
 msgid ""
 "ここでは、Proxmox VE上の仮想マシンに物理ディスクをパススルーする方法について"
 "説明します。"
-msgstr ""
+msgstr "本文介绍如何将物理磁盘直通给 Proxmox VE 上的虚拟机。"
 
 #. heading (level 2)
 #: content/ja/blog/pass-through-phisical-disk-to-vm-on-pve/index.md:13
 msgid "はじめに"
-msgstr ""
+msgstr "前言"
 
 #. paragraph
 #: content/ja/blog/pass-through-phisical-disk-to-vm-on-pve/index.md:15
@@ -34,23 +35,25 @@ msgid ""
 "仮想マシンに物理ディスクをパススルーする前に、現在仮想マシンに接続されている"
 "ディスクを`lsblk`コマンドで確認してみます。"
 msgstr ""
+"在将物理磁盘直通给虚拟机之前，先用 `lsblk` 命令确认一下当前连接到虚拟机的磁"
+"盘。"
 
 #. paragraph
 #: content/ja/blog/pass-through-phisical-disk-to-vm-on-pve/index.md:27
 msgid "今回はここに1TBの物理ディスクをパススルーして接続します。"
-msgstr ""
+msgstr "这次要将一块 1TB 的物理磁盘直通并连接到这里。"
 
 #. heading (level 2)
 #: content/ja/blog/pass-through-phisical-disk-to-vm-on-pve/index.md:29
 msgid "ディスクの確認"
-msgstr ""
+msgstr "确认磁盘"
 
 #. paragraph
 #: content/ja/blog/pass-through-phisical-disk-to-vm-on-pve/index.md:31
 msgid ""
 "物理ディスクの型番を確認後、Proxmox VEがインストールされたサーバーにディスク"
 "を接続しましょう。"
-msgstr ""
+msgstr "确认物理磁盘的型号后，将磁盘连接到安装了 Proxmox VE 的服务器上。"
 
 #. paragraph
 #: content/ja/blog/pass-through-phisical-disk-to-vm-on-pve/index.md:33
@@ -58,13 +61,14 @@ msgid ""
 "接続後、Proxmox VEのシェルで`ls -l /dev/disk/by-id/`と打ってディスクを確認し"
 "ます。"
 msgstr ""
+"连接后，在 Proxmox VE 的 Shell 中输入 `ls -l /dev/disk/by-id/` 来确认磁盘。"
 
 #. paragraph
 #: content/ja/blog/pass-through-phisical-disk-to-vm-on-pve/index.md:46
 msgid ""
 "`/dev/disk/by-id/`は、Linuxにおいてストレージデバイスへのシンボリックリンクが"
 "集められたディレクトリです。"
-msgstr ""
+msgstr "`/dev/disk/by-id/` 是 Linux 中汇集了指向存储设备的符号链接的目录。"
 
 #. paragraph
 #: content/ja/blog/pass-through-phisical-disk-to-vm-on-pve/index.md:48
@@ -73,6 +77,9 @@ msgid ""
 "disk/by-id/`のリンクは、デバイス固有のIDを使ってアクセスできるパスを提供する"
 "ため、**常に同じディスクをマウントしたい**場合に非常に便利です。"
 msgstr ""
+"`/dev/sdX` 这样的名称可能会随启动顺序或连接顺序而改变，而 `/dev/disk/by-id/` "
+"中的链接提供了使用设备固有 ID 访问的路径，因此在**希望始终挂载同一块磁盘**时"
+"非常方便。"
 
 #. paragraph
 #: content/ja/blog/pass-through-phisical-disk-to-vm-on-pve/index.md:50
@@ -80,48 +87,50 @@ msgid ""
 "今回接続したディスクへのパスは`/dev/disk/by-id/ata-"
 "TOSHIBA_DT01ACA100_X7P8MYTFS`でした。これを控えておきましょう。"
 msgstr ""
+"这次连接的磁盘路径为 `/dev/disk/by-id/ata-TOSHIBA_DT01ACA100_X7P8MYTFS`。请将"
+"其记下来。"
 
 #. heading (level 2)
 #: content/ja/blog/pass-through-phisical-disk-to-vm-on-pve/index.md:52
 msgid "ディスクを仮想マシンにパススルー"
-msgstr ""
+msgstr "将磁盘直通给虚拟机"
 
 #. paragraph
 #: content/ja/blog/pass-through-phisical-disk-to-vm-on-pve/index.md:54
 msgid ""
 "仮想マシンに物理ディスクをパススルーするには、`qm set`コマンドを使用します。"
-msgstr ""
+msgstr "要将物理磁盘直通给虚拟机，需要使用 `qm set` 命令。"
 
 #. paragraph
 #: content/ja/blog/pass-through-phisical-disk-to-vm-on-pve/index.md:60
 msgid "今回は以下のように設定しました。"
-msgstr ""
+msgstr "这次按如下方式进行了设置。"
 
 #. paragraph
 #: content/ja/blog/pass-through-phisical-disk-to-vm-on-pve/index.md:67
 msgid ""
 "これにより、VM IDが100の仮想マシンに、SCSI1を介して、指定した物理ディスクが接"
 "続されます。"
-msgstr ""
+msgstr "这样，指定的物理磁盘就会通过 SCSI1 连接到 VM ID 为 100 的虚拟机上。"
 
 #. heading (level 2)
 #: content/ja/blog/pass-through-phisical-disk-to-vm-on-pve/index.md:69
 msgid "パススルーしたディスクの確認"
-msgstr ""
+msgstr "确认已直通的磁盘"
 
 #. paragraph
 #: content/ja/blog/pass-through-phisical-disk-to-vm-on-pve/index.md:71
 msgid ""
 "物理ディスクをパススルーした後、仮想マシンを再起動して仮想マシンのシェルにロ"
 "グインしましょう。"
-msgstr ""
+msgstr "直通物理磁盘后，重启虚拟机并登录到虚拟机的 Shell。"
 
 #. paragraph
 #: content/ja/blog/pass-through-phisical-disk-to-vm-on-pve/index.md:73
 msgid "`lsblk`コマンドでディスクを確認してみます。"
-msgstr ""
+msgstr "用 `lsblk` 命令确认一下磁盘。"
 
 #. paragraph
 #: content/ja/blog/pass-through-phisical-disk-to-vm-on-pve/index.md:87
 msgid "無事、物理ディスクがパススルー出来ていることを確認できました。"
-msgstr ""
+msgstr "确认物理磁盘已经成功直通。"

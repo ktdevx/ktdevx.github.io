@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-15 23:56+0000\n"
+"POT-Creation-Date: 2026-11-15 23:59+0000\n"
 "PO-Revision-Date: 2026-11-15 23:56+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,20 +20,25 @@ msgstr "如何设置 GitHub Copilot 的上下文文件"
 #. paragraph
 #: content/ja/blog/github-copilot-context-files/index.md:13
 msgid ""
-"GitHub "
-"Copilotは、開いているファイルや入力中のコードだけでなく、プロジェクトに保存した指示も参考にして回答や変更を生成できます。プロジェクトのルールをコンテキストファイルにまとめると、毎回同じ説明を入力する手間を減らせます。"
+"GitHub Copilotは、開いているファイルや入力中のコードだけでなく、プロジェクト"
+"に保存した指示も参考にして回答や変更を生成できます。プロジェクトのルールをコ"
+"ンテキストファイルにまとめると、毎回同じ説明を入力する手間を減らせます。"
 msgstr ""
-"GitHub Copilot "
-"不仅可以参考当前打开的文件和正在输入的代码，还可以参考保存在项目中的指令来生成回答和修改。将项目规则整理到上下文文件中，可以减少每次输入相同说明的麻烦。"
+"GitHub Copilot 不仅可以参考当前打开的文件和正在输入的代码，还可以参考保存在项"
+"目中的指令来生成回答和修改。将项目规则整理到上下文文件中，可以减少每次输入相"
+"同说明的麻烦。"
 
 #. paragraph
 #: content/ja/blog/github-copilot-context-files/index.md:15
 msgid ""
-"この記事では、Visual Studio Code（VS "
-"Code）で使える代表的なコンテキストファイルの種類と、リポジトリに設定する手順を解説します。Copilotのバージョンや利用するAgentによって、対応するファイルや表示名が異なる場合があります。実際に利用するときは、最新の公式ドキュメントも確認してください。"
+"この記事では、Visual Studio Code（VS Code）で使える代表的なコンテキストファイ"
+"ルの種類と、リポジトリに設定する手順を解説します。Copilotのバージョンや利用す"
+"るAgentによって、対応するファイルや表示名が異なる場合があります。実際に利用す"
+"るときは、最新の公式ドキュメントも確認してください。"
 msgstr ""
-"本文将介绍在 Visual Studio Code（VS Code）中可以使用的代表性上下文文件类型，以及在仓库中进行设置的步骤。根据 Copilot "
-"的版本和所使用的 Agent，支持的文件和显示名称可能有所不同。实际使用时，也请确认最新的官方文档。"
+"本文将介绍在 Visual Studio Code（VS Code）中可以使用的代表性上下文文件类型，"
+"以及在仓库中进行设置的步骤。根据 Copilot 的版本和所使用的 Agent，支持的文件和"
+"显示名称可能有所不同。实际使用时，也请确认最新的官方文档。"
 
 #. heading (level 2)
 #: content/ja/blog/github-copilot-context-files/index.md:17
@@ -63,11 +68,12 @@ msgstr "使用 Git 管理的项目"
 #. paragraph
 #: content/ja/blog/github-copilot-context-files/index.md:25
 msgid ""
-"この記事では、プロジェクトのルートディレクトリを`PROJECT_ROOT`と表記します。すでにプロジェクトをVS "
-"Codeで開いている場合は、`PROJECT_ROOT`を実際のプロジェクトの場所に読み替えてください。"
+"この記事では、プロジェクトのルートディレクトリを`PROJECT_ROOT`と表記します。"
+"すでにプロジェクトをVS Codeで開いている場合は、`PROJECT_ROOT`を実際のプロジェ"
+"クトの場所に読み替えてください。"
 msgstr ""
-"本文将项目的根目录记为 `PROJECT_ROOT`。如果已经在 VS Code 中打开了项目，请将 `PROJECT_ROOT` "
-"替换为实际的项目位置。"
+"本文将项目的根目录记为 `PROJECT_ROOT`。如果已经在 VS Code 中打开了项目，请将 "
+"`PROJECT_ROOT` 替换为实际的项目位置。"
 
 #. heading (level 2)
 #: content/ja/blog/github-copilot-context-files/index.md:27
@@ -76,7 +82,9 @@ msgstr "上下文文件的类型"
 
 #. paragraph
 #: content/ja/blog/github-copilot-context-files/index.md:29
-msgid "VS Codeでプロジェクトの指示を共有するときは、目的に応じて次のファイルを使い分けます。"
+msgid ""
+"VS Codeでプロジェクトの指示を共有するときは、目的に応じて次のファイルを使い分"
+"けます。"
 msgstr "在 VS Code 中共享项目指令时，请根据目的选用以下文件。"
 
 #. paragraph
@@ -85,38 +93,45 @@ msgid ""
 "| ファイル | 主な用途 |\n"
 "| --- | --- |\n"
 "| `.github/copilot-instructions.md` | リポジトリ全体に適用する指示 |\n"
-"| `.github/instructions/NAME.instructions.md` | 特定のファイルやディレクトリに適用する指示 |\n"
+"| `.github/instructions/NAME.instructions.md` | 特定のファイルやディレクトリ"
+"に適用する指示 |\n"
 "| `AGENTS.md` | Agentに対する指示。配置したディレクトリ以下の作業に適用 |"
 msgstr ""
 "| 文件 | 主要用途 |\n"
 "| --- | --- |\n"
 "| `.github/copilot-instructions.md` | 应用于整个仓库的指令 |\n"
-"| `.github/instructions/NAME.instructions.md` | 应用于特定文件或目录的指令 |\n"
+"| `.github/instructions/NAME.instructions.md` | 应用于特定文件或目录的指令 "
+"|\n"
 "| `AGENTS.md` | 面向 Agent 的指令，应用于所在目录及其下级目录中的工作 |"
 
 #. paragraph
 #: content/ja/blog/github-copilot-context-files/index.md:37
 msgid ""
-"`copilot-"
-"instructions.md`は、プロジェクトの目的や共通の開発ルールを書くファイルです。ファイル名と配置場所を変更すると、自動的に読み込まれないことがあります。"
-msgstr "`copilot-instructions.md` 是用于编写项目目的和通用开发规则的文件。如果更改文件名或存放位置，可能无法被自动读取。"
+"`copilot-instructions.md`は、プロジェクトの目的や共通の開発ルールを書くファイ"
+"ルです。ファイル名と配置場所を変更すると、自動的に読み込まれないことがありま"
+"す。"
+msgstr ""
+"`copilot-instructions.md` 是用于编写项目目的和通用开发规则的文件。如果更改文"
+"件名或存放位置，可能无法被自动读取。"
 
 #. paragraph
 #: content/ja/blog/github-copilot-context-files/index.md:39
 msgid ""
-"パス別の指示ファイルは、先頭のfront "
-"matterに`applyTo`を記述して適用対象を指定します。例えば、次の指定はすべてのTypeScriptファイルに適用されます。"
+"パス別の指示ファイルは、先頭のfront matterに`applyTo`を記述して適用対象を指定"
+"します。例えば、次の指定はすべてのTypeScriptファイルに適用されます。"
 msgstr ""
-"按路径区分的指令文件通过在开头的 front matter 中编写 `applyTo` 来指定适用对象。例如，以下指定将应用于所有 TypeScript"
-" 文件。"
+"按路径区分的指令文件通过在开头的 front matter 中编写 `applyTo` 来指定适用对"
+"象。例如，以下指定将应用于所有 TypeScript 文件。"
 
 #. paragraph
 #: content/ja/blog/github-copilot-context-files/index.md:47
 msgid ""
-"`AGENTS.md`は、モノレポなどでディレクトリごとに異なるルールを設定したい場合に便利です。利用するAgentや実行環境によって対応状況が異なるため、対象となるAgentのドキュメントも確認します。"
+"`AGENTS.md`は、モノレポなどでディレクトリごとに異なるルールを設定したい場合に"
+"便利です。利用するAgentや実行環境によって対応状況が異なるため、対象となる"
+"Agentのドキュメントも確認します。"
 msgstr ""
-"`AGENTS.md` 适用于在 monorepo 等场景中需要为每个目录设置不同规则的情况。由于支持情况因所使用的 Agent "
-"和运行环境而异，请同时确认目标 Agent 的文档。"
+"`AGENTS.md` 适用于在 monorepo 等场景中需要为每个目录设置不同规则的情况。由于"
+"支持情况因所使用的 Agent 和运行环境而异，请同时确认目标 Agent 的文档。"
 
 #. heading (level 2)
 #: content/ja/blog/github-copilot-context-files/index.md:49
@@ -125,8 +140,11 @@ msgstr "为整个仓库添加指令"
 
 #. paragraph
 #: content/ja/blog/github-copilot-context-files/index.md:51
-msgid "まず、すべての作業で共有したいルールを`.github/copilot-instructions.md`に記述します。"
-msgstr "首先，将希望在所有工作中共享的规则写入 `.github/copilot-instructions.md`。"
+msgid ""
+"まず、すべての作業で共有したいルールを`.github/copilot-instructions.md`に記述"
+"します。"
+msgstr ""
+"首先，将希望在所有工作中共享的规则写入 `.github/copilot-instructions.md`。"
 
 #. heading (level 3)
 #: content/ja/blog/github-copilot-context-files/index.md:53
@@ -140,16 +158,20 @@ msgstr "在项目根目录中创建以下目录和文件。"
 
 #. paragraph
 #: content/ja/blog/github-copilot-context-files/index.md:63
-msgid "ファイルには、Copilotが作業に必要とする情報を短く具体的に記述します。例えば、次のように書きます。"
+msgid ""
+"ファイルには、Copilotが作業に必要とする情報を短く具体的に記述します。例えば、"
+"次のように書きます。"
 msgstr "在文件中简短而具体地写下 Copilot 工作所需的信息。例如，可以这样写："
 
 #. paragraph
 #: content/ja/blog/github-copilot-context-files/index.md:75
 msgid ""
-"プロジェクトの目的、主要なディレクトリ、使用するコマンド、変更時に守るルールを含めると、Copilotが作業の前提を理解しやすくなります。長いドキュメントをそのまま貼り付けるのではなく、繰り返し必要になる情報に絞ります。"
+"プロジェクトの目的、主要なディレクトリ、使用するコマンド、変更時に守るルール"
+"を含めると、Copilotが作業の前提を理解しやすくなります。長いドキュメントをその"
+"まま貼り付けるのではなく、繰り返し必要になる情報に絞ります。"
 msgstr ""
-"写入项目目的、主要目录、使用的命令以及修改时需遵守的规则，可以让 Copilot "
-"更容易理解工作的前提。不要直接粘贴冗长的文档，而应只保留反复需要的信息。"
+"写入项目目的、主要目录、使用的命令以及修改时需遵守的规则，可以让 Copilot 更容"
+"易理解工作的前提。不要直接粘贴冗长的文档，而应只保留反复需要的信息。"
 
 #. heading (level 2)
 #: content/ja/blog/github-copilot-context-files/index.md:77
@@ -158,8 +180,11 @@ msgstr "添加按路径区分的指令"
 
 #. paragraph
 #: content/ja/blog/github-copilot-context-files/index.md:79
-msgid "言語やディレクトリごとにルールが異なる場合は、`.github/instructions/`に指示ファイルを作成します。"
-msgstr "如果规则因语言或目录而异，请在 `.github/instructions/` 中创建指令文件。"
+msgid ""
+"言語やディレクトリごとにルールが異なる場合は、`.github/instructions/`に指示"
+"ファイルを作成します。"
+msgstr ""
+"如果规则因语言或目录而异，请在 `.github/instructions/` 中创建指令文件。"
 
 #. paragraph
 #: content/ja/blog/github-copilot-context-files/index.md:81
@@ -169,17 +194,23 @@ msgstr "例如，按如下方式保存针对 Markdown 文件的规则。"
 #. paragraph
 #: content/ja/blog/github-copilot-context-files/index.md:100
 msgid ""
-"特定のディレクトリだけを対象にする場合は、例えば`content/ja/**/*.md`のようなglobを指定します。複数の拡張子を対象にするときは、`applyTo`の値をカンマで区切ります。"
+"特定のディレクトリだけを対象にする場合は、例えば`content/ja/**/*.md`のような"
+"globを指定します。複数の拡張子を対象にするときは、`applyTo`の値をカンマで区切"
+"ります。"
 msgstr ""
-"如果只针对特定目录，可以指定类似 `content/ja/**/*.md` 的 glob。如果要针对多个扩展名，请在 `applyTo` "
-"的值中用逗号分隔。"
+"如果只针对特定目录，可以指定类似 `content/ja/**/*.md` 的 glob。如果要针对多个"
+"扩展名，请在 `applyTo` 的值中用逗号分隔。"
 
 #. paragraph
 #: content/ja/blog/github-copilot-context-files/index.md:102
 msgid ""
-"リポジトリ全体向けの指示とパス別の指示が対象リクエストに一致する場合、両方の指示が使われることがあります。内容が矛盾すると回答や変更の品質に影響するため、共通ルールと個別ルールの役割を分けて記述します。"
+"リポジトリ全体向けの指示とパス別の指示が対象リクエストに一致する場合、両方の"
+"指示が使われることがあります。内容が矛盾すると回答や変更の品質に影響するた"
+"め、共通ルールと個別ルールの役割を分けて記述します。"
 msgstr ""
-"当面向整个仓库的指令与按路径区分的指令都与请求匹配时，可能会同时使用两者。如果内容相互矛盾，会影响回答和修改的质量，因此请区分通用规则和个别规则的职责来编写。"
+"当面向整个仓库的指令与按路径区分的指令都与请求匹配时，可能会同时使用两者。如"
+"果内容相互矛盾，会影响回答和修改的质量，因此请区分通用规则和个别规则的职责来"
+"编写。"
 
 #. heading (level 2)
 #: content/ja/blog/github-copilot-context-files/index.md:104
@@ -189,29 +220,38 @@ msgstr "使用 AGENTS.md"
 #. paragraph
 #: content/ja/blog/github-copilot-context-files/index.md:106
 msgid ""
-"Agentの作業に固有のルールを設定するときは、`AGENTS.md`を利用できます。リポジトリのルートに置くと、プロジェクト全体のAgent作業に対する指示になります。"
+"Agentの作業に固有のルールを設定するときは、`AGENTS.md`を利用できます。リポジ"
+"トリのルートに置くと、プロジェクト全体のAgent作業に対する指示になります。"
 msgstr ""
-"为 Agent 的工作设置特有规则时，可以使用 `AGENTS.md`。将其放在仓库根目录，即可作为针对整个项目中 Agent 工作的指令。"
+"为 Agent 的工作设置特有规则时，可以使用 `AGENTS.md`。将其放在仓库根目录，即可"
+"作为针对整个项目中 Agent 工作的指令。"
 
 #. paragraph
 #: content/ja/blog/github-copilot-context-files/index.md:113
-msgid "モノレポでサブプロジェクトごとにルールを分ける場合は、次のように配置できます。"
+msgid ""
+"モノレポでサブプロジェクトごとにルールを分ける場合は、次のように配置できま"
+"す。"
 msgstr "在 monorepo 中为每个子项目分别设置规则时，可以按如下方式放置。"
 
 #. paragraph
 #: content/ja/blog/github-copilot-context-files/index.md:123
 msgid ""
-"サブディレクトリの作業では、より近い場所にある`AGENTS.md`が優先されます。ルートの共通ルールとサブプロジェクト固有のルールが矛盾しないようにします。"
-msgstr "在子目录中工作时，位置更近的 `AGENTS.md` 优先。请确保根目录的通用规则与子项目特有的规则不相互矛盾。"
+"サブディレクトリの作業では、より近い場所にある`AGENTS.md`が優先されます。ルー"
+"トの共通ルールとサブプロジェクト固有のルールが矛盾しないようにします。"
+msgstr ""
+"在子目录中工作时，位置更近的 `AGENTS.md` 优先。请确保根目录的通用规则与子项目"
+"特有的规则不相互矛盾。"
 
 #. paragraph
 #: content/ja/blog/github-copilot-context-files/index.md:125
 msgid ""
-"`AGENTS.md`は、すべてのCopilot機能に同じように適用されるとは限りません。コード補完、Chat、Agent、GitHub.comのCloud"
-" AgentやCode Reviewでは、対応するカスタマイズの種類が異なる場合があります。"
+"`AGENTS.md`は、すべてのCopilot機能に同じように適用されるとは限りません。コー"
+"ド補完、Chat、Agent、GitHub.comのCloud AgentやCode Reviewでは、対応するカスタ"
+"マイズの種類が異なる場合があります。"
 msgstr ""
-"`AGENTS.md` 不一定会以相同方式应用于所有 Copilot 功能。在代码补全、Chat、Agent、GitHub.com 的 Cloud "
-"Agent 和 Code Review 中，支持的自定义类型可能有所不同。"
+"`AGENTS.md` 不一定会以相同方式应用于所有 Copilot 功能。在代码补全、Chat、"
+"Agent、GitHub.com 的 Cloud Agent 和 Code Review 中，支持的自定义类型可能有所"
+"不同。"
 
 #. heading (level 2)
 #: content/ja/blog/github-copilot-context-files/index.md:127
@@ -256,10 +296,12 @@ msgstr "修改后应确认的事项"
 #. paragraph
 #: content/ja/blog/github-copilot-context-files/index.md:138
 msgid ""
-"例えば、「きれいなコードにする」と書くより、「公開APIの名前を変更せず、既存のテストを実行する」と書くほうが確認可能です。指示を小さな箇条書きに分け、必要な条件や例外を明記します。"
+"例えば、「きれいなコードにする」と書くより、「公開APIの名前を変更せず、既存の"
+"テストを実行する」と書くほうが確認可能です。指示を小さな箇条書きに分け、必要"
+"な条件や例外を明記します。"
 msgstr ""
-"例如，与其写“让代码更整洁”，不如写“不更改公开 API "
-"的名称，并运行现有测试”，这样更便于确认。请将指令拆分为简短的列表项，并明确写出必要的条件和例外。"
+"例如，与其写“让代码更整洁”，不如写“不更改公开 API 的名称，并运行现有测试”，这"
+"样更便于确认。请将指令拆分为简短的列表项，并明确写出必要的条件和例外。"
 
 #. heading (level 2)
 #: content/ja/blog/github-copilot-context-files/index.md:140
@@ -268,7 +310,9 @@ msgstr "在 Copilot 中确认应用结果"
 
 #. paragraph
 #: content/ja/blog/github-copilot-context-files/index.md:142
-msgid "ファイルを保存したら、VS CodeでCopilot Chatを開いて、指示が使われているかを確認します。"
+msgid ""
+"ファイルを保存したら、VS CodeでCopilot Chatを開いて、指示が使われているかを確"
+"認します。"
 msgstr "保存文件后，在 VS Code 中打开 Copilot Chat，确认指令是否被使用。"
 
 #. list item > paragraph
@@ -293,24 +337,31 @@ msgstr "确认回答中是否反映了指令文件中写入的内容。"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-context-files/index.md:148
-msgid "Agentに作業を依頼する場合は、変更されたファイルと実行されたコマンドを確認します。"
+msgid ""
+"Agentに作業を依頼する場合は、変更されたファイルと実行されたコマンドを確認しま"
+"す。"
 msgstr "让 Agent 执行工作时，确认被修改的文件和执行的命令。"
 
 #. paragraph
 #: content/ja/blog/github-copilot-context-files/index.md:150
 msgid ""
-"パス別の指示を確認するときは、`applyTo`に一致するファイルを対象に質問します。例えば、Markdownファイルだけに適用する指示を設定した場合は、Markdown記事の見出しやリンクについて質問します。"
+"パス別の指示を確認するときは、`applyTo`に一致するファイルを対象に質問します。"
+"例えば、Markdownファイルだけに適用する指示を設定した場合は、Markdown記事の見"
+"出しやリンクについて質問します。"
 msgstr ""
-"确认按路径区分的指令时，针对与 `applyTo` 匹配的文件进行提问。例如，如果设置了仅应用于 Markdown 文件的指令，就询问有关 "
-"Markdown 文章的标题或链接的问题。"
+"确认按路径区分的指令时，针对与 `applyTo` 匹配的文件进行提问。例如，如果设置了"
+"仅应用于 Markdown 文件的指令，就询问有关 Markdown 文章的标题或链接的问题。"
 
 #. paragraph
 #: content/ja/blog/github-copilot-context-files/index.md:152
 msgid ""
-"指示ファイルの内容が回答に反映されない場合でも、ファイルを読み込んだことだけで正しさが保証されるわけではありません。回答の参照情報やAgentのデバッグログを確認し、必要な指示を質問文にも具体的に含めて結果を比較します。"
+"指示ファイルの内容が回答に反映されない場合でも、ファイルを読み込んだことだけ"
+"で正しさが保証されるわけではありません。回答の参照情報やAgentのデバッグログを"
+"確認し、必要な指示を質問文にも具体的に含めて結果を比較します。"
 msgstr ""
-"即使指令文件的内容没有反映在回答中，仅仅读取了文件也并不能保证回答的正确性。请确认回答的参考信息或 Agent "
-"的调试日志，并在提问中也具体写明必要的指令，以比较结果。"
+"即使指令文件的内容没有反映在回答中，仅仅读取了文件也并不能保证回答的正确性。"
+"请确认回答的参考信息或 Agent 的调试日志，并在提问中也具体写明必要的指令，以比"
+"较结果。"
 
 #. heading (level 2)
 #: content/ja/blog/github-copilot-context-files/index.md:154
@@ -319,18 +370,24 @@ msgstr "未被应用时的检查"
 
 #. paragraph
 #: content/ja/blog/github-copilot-context-files/index.md:156
-msgid "コンテキストファイルが使われていないように見える場合は、次の項目を確認します。"
+msgid ""
+"コンテキストファイルが使われていないように見える場合は、次の項目を確認しま"
+"す。"
 msgstr "如果上下文文件似乎没有被使用，请确认以下事项。"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-context-files/index.md:158
 msgid ""
-"ファイル名が`copilot-instructions.md`または`NAME.instructions.md`の形式になっているか確認します。"
-msgstr "确认文件名是否为 `copilot-instructions.md` 或 `NAME.instructions.md` 的格式。"
+"ファイル名が`copilot-instructions.md`または`NAME.instructions.md`の形式になっ"
+"ているか確認します。"
+msgstr ""
+"确认文件名是否为 `copilot-instructions.md` 或 `NAME.instructions.md` 的格式。"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-context-files/index.md:159
-msgid "`copilot-instructions.md`がリポジトリの`.github`ディレクトリにあるか確認します。"
+msgid ""
+"`copilot-instructions.md`がリポジトリの`.github`ディレクトリにあるか確認しま"
+"す。"
 msgstr "确认 `copilot-instructions.md` 是否位于仓库的 `.github` 目录中。"
 
 #. list item > paragraph
@@ -355,17 +412,21 @@ msgstr "将 VS Code 和 GitHub Copilot 更新到最新版本。"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-context-files/index.md:164
-msgid "Agentを利用している場合は、Agentのデバッグログで読み込まれたファイルを確認します。"
+msgid ""
+"Agentを利用している場合は、Agentのデバッグログで読み込まれたファイルを確認し"
+"ます。"
 msgstr "如果使用 Agent，请在 Agent 的调试日志中确认已读取的文件。"
 
 #. paragraph
 #: content/ja/blog/github-copilot-context-files/index.md:166
 msgid ""
-"モノレポでリポジトリのサブディレクトリだけを開いている場合は、親リポジトリのカスタマイズを検索する設定が関係することがあります。設定名や既定値はVS "
-"Codeのバージョンによって変わる可能性があるため、公式ドキュメントで確認してください。"
+"モノレポでリポジトリのサブディレクトリだけを開いている場合は、親リポジトリの"
+"カスタマイズを検索する設定が関係することがあります。設定名や既定値はVS Codeの"
+"バージョンによって変わる可能性があるため、公式ドキュメントで確認してくださ"
+"い。"
 msgstr ""
-"在 monorepo 中只打开了仓库的子目录时，可能与搜索父仓库自定义设置的配置项有关。配置项名称和默认值可能随 VS Code "
-"版本而变化，请在官方文档中确认。"
+"在 monorepo 中只打开了仓库的子目录时，可能与搜索父仓库自定义设置的配置项有"
+"关。配置项名称和默认值可能随 VS Code 版本而变化，请在官方文档中确认。"
 
 #. heading (level 2)
 #: content/ja/blog/github-copilot-context-files/index.md:168
@@ -380,8 +441,11 @@ msgstr "指令应简短而具体"
 #. paragraph
 #: content/ja/blog/github-copilot-context-files/index.md:172
 msgid ""
-"指示を増やしすぎると、重要な条件が埋もれたり、指示同士が矛盾したりします。プロジェクト全体のルールと、特定のファイルだけのルールを適切に分けます。"
-msgstr "指令过多会导致重要条件被埋没，或指令之间相互矛盾。请合理区分整个项目的规则和仅针对特定文件的规则。"
+"指示を増やしすぎると、重要な条件が埋もれたり、指示同士が矛盾したりします。プ"
+"ロジェクト全体のルールと、特定のファイルだけのルールを適切に分けます。"
+msgstr ""
+"指令过多会导致重要条件被埋没，或指令之间相互矛盾。请合理区分整个项目的规则和"
+"仅针对特定文件的规则。"
 
 #. heading (level 3)
 #: content/ja/blog/github-copilot-context-files/index.md:174
@@ -391,8 +455,12 @@ msgstr "验证生成结果"
 #. paragraph
 #: content/ja/blog/github-copilot-context-files/index.md:176
 msgid ""
-"コンテキストファイルを設定しても、Copilotが正しいコードを生成するとは限りません。差分、型、例外処理、境界値、セキュリティ上の問題を確認し、テストや静的解析を実行します。"
-msgstr "即使设置了上下文文件，Copilot 也不一定会生成正确的代码。请检查差异、类型、异常处理、边界值和安全问题，并运行测试和静态分析。"
+"コンテキストファイルを設定しても、Copilotが正しいコードを生成するとは限りませ"
+"ん。差分、型、例外処理、境界値、セキュリティ上の問題を確認し、テストや静的解"
+"析を実行します。"
+msgstr ""
+"即使设置了上下文文件，Copilot 也不一定会生成正确的代码。请检查差异、类型、异"
+"常处理、边界值和安全问题，并运行测试和静态分析。"
 
 #. heading (level 3)
 #: content/ja/blog/github-copilot-context-files/index.md:178
@@ -402,8 +470,12 @@ msgstr "不要包含机密信息"
 #. paragraph
 #: content/ja/blog/github-copilot-context-files/index.md:180
 msgid ""
-"APIキー、パスワード、個人情報、顧客情報、社内の機密情報をコンテキストファイルに書かないでください。リポジトリを共有したときに、意図せず他の人やサービスから参照される可能性があります。"
-msgstr "请不要在上下文文件中写入 API 密钥、密码、个人信息、客户信息或公司内部机密信息。共享仓库时，这些内容可能会在无意中被其他人或服务查看。"
+"APIキー、パスワード、個人情報、顧客情報、社内の機密情報をコンテキストファイル"
+"に書かないでください。リポジトリを共有したときに、意図せず他の人やサービスか"
+"ら参照される可能性があります。"
+msgstr ""
+"请不要在上下文文件中写入 API 密钥、密码、个人信息、客户信息或公司内部机密信"
+"息。共享仓库时，这些内容可能会在无意中被其他人或服务查看。"
 
 #. heading (level 3)
 #: content/ja/blog/github-copilot-context-files/index.md:182
@@ -413,11 +485,12 @@ msgstr "确认支持的功能"
 #. paragraph
 #: content/ja/blog/github-copilot-context-files/index.md:184
 msgid ""
-"コンテキストファイルの種類によって、適用されるCopilotの機能が異なります。VS Code、GitHub.com、Cloud Agent、Code "
-"Reviewで同じ動作になるとは限らないため、利用する環境の公式ドキュメントを確認します。"
+"コンテキストファイルの種類によって、適用されるCopilotの機能が異なります。VS "
+"Code、GitHub.com、Cloud Agent、Code Reviewで同じ動作になるとは限らないため、"
+"利用する環境の公式ドキュメントを確認します。"
 msgstr ""
-"根据上下文文件的类型，所应用的 Copilot 功能有所不同。VS Code、GitHub.com、Cloud Agent 和 Code Review "
-"中的行为不一定相同，请确认所用环境的官方文档。"
+"根据上下文文件的类型，所应用的 Copilot 功能有所不同。VS Code、GitHub.com、"
+"Cloud Agent 和 Code Review 中的行为不一定相同，请确认所用环境的官方文档。"
 
 #. heading (level 2)
 #: content/ja/blog/github-copilot-context-files/index.md:186
@@ -426,8 +499,12 @@ msgstr "总结"
 
 #. paragraph
 #: content/ja/blog/github-copilot-context-files/index.md:188
-msgid "GitHub Copilotのコンテキストファイルを使うと、プロジェクトの目的、開発ルール、検証方法を繰り返し伝える手間を減らせます。"
-msgstr "使用 GitHub Copilot 的上下文文件，可以减少反复传达项目目的、开发规则和验证方法的麻烦。"
+msgid ""
+"GitHub Copilotのコンテキストファイルを使うと、プロジェクトの目的、開発ルー"
+"ル、検証方法を繰り返し伝える手間を減らせます。"
+msgstr ""
+"使用 GitHub Copilot 的上下文文件，可以减少反复传达项目目的、开发规则和验证方"
+"法的麻烦。"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-context-files/index.md:190
@@ -436,7 +513,9 @@ msgstr "通用规则写在 `.github/copilot-instructions.md` 中"
 
 #. list item > paragraph
 #: content/ja/blog/github-copilot-context-files/index.md:191
-msgid "ファイルやディレクトリごとのルールは`.github/instructions/*.instructions.md`に記述する"
+msgid ""
+"ファイルやディレクトリごとのルールは`.github/instructions/*.instructions.md`"
+"に記述する"
 msgstr "针对文件或目录的规则写在 `.github/instructions/*.instructions.md` 中"
 
 #. list item > paragraph
@@ -452,13 +531,13 @@ msgstr "指令应简短而具体，并务必确认生成结果"
 #. paragraph
 #: content/ja/blog/github-copilot-context-files/index.md:195
 msgid ""
-"詳しい仕様は、[GitHub Copilotのリポジトリカスタム指示（GitHub "
-"Docs）](https://docs.github.com/en/copilot/customizing-copilot/adding-"
-"repository-custom-instructions-for-github-copilot)と[VS "
-"CodeのCopilotカスタマイズ](https://code.visualstudio.com/docs/copilot/copilot-"
-"customization)を参照してください。"
+"詳しい仕様は、[GitHub Copilotのリポジトリカスタム指示（GitHub Docs）]"
+"(https://docs.github.com/en/copilot/customizing-copilot/adding-repository-"
+"custom-instructions-for-github-copilot)と[VS CodeのCopilotカスタマイズ]"
+"(https://code.visualstudio.com/docs/copilot/copilot-customization)を参照して"
+"ください。"
 msgstr ""
-"详细规范请参阅 [GitHub Copilot 的仓库自定义指令（GitHub "
-"Docs）](https://docs.github.com/en/copilot/customizing-copilot/adding-"
-"repository-custom-instructions-for-github-copilot)和 [VS Code 的 Copilot "
-"自定义](https://code.visualstudio.com/docs/copilot/copilot-customization)。"
+"详细规范请参阅 [GitHub Copilot 的仓库自定义指令（GitHub Docs）](https://docs."
+"github.com/en/copilot/customizing-copilot/adding-repository-custom-"
+"instructions-for-github-copilot)和 [VS Code 的 Copilot 自定义](https://code."
+"visualstudio.com/docs/copilot/copilot-customization)。"
