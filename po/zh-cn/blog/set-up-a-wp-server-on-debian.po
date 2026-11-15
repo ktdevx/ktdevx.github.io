@@ -1,0 +1,630 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:56+0000\n"
+"PO-Revision-Date: 2026-11-15 23:56+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:2
+msgid "DebianにWordpressサーバーを構築する"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:9
+msgid "パッケージのインストール"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:11
+msgid ""
+"WordPress サーバーを構築するために必要なパッケージをインストールします。ま"
+"ず、パッケージリストを最新に更新してから、必要なパッケージをインストールしま"
+"す。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:18
+msgid "**インストールするパッケージの説明：**"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:19
+msgid ""
+"`wordpress`: WordPress のアプリケーションおよびファイル（PHP ファイル、テンプ"
+"レートなど）"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:20
+msgid ""
+"`curl`: ウェブからファイルをダウンロードしたり、API リクエストを送信するため"
+"のツール"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:21
+msgid ""
+"`apache2`: ウェブサーバーソフトウェア。WordPress の PHP ファイルを実行してブ"
+"ラウザに表示します"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:22
+msgid ""
+"`mariadb-server`: データベースサーバー。WordPress の記事、ユーザー情報などの"
+"データを保存します"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:24
+msgid ""
+"`-y` フラグは、インストール中の確認プロンプトに自動的に「yes」と答えます。イ"
+"ンストールにはインターネット接続と若干の時間がかかります。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:26
+msgid "MariaDB のセキュア設定"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:28
+msgid ""
+"MariaDB をインストール直後は、セキュリティ設定が緩い状態です。"
+"`mysql_secure_installation` スクリプトを実行して、セキュリティを強化します。"
+"このスクリプトは以下の項目をセキュアに設定します："
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:30
+msgid ""
+"**root ユーザーのパスワード設定**: 初期状態では root パスワードが空の場合があ"
+"ります"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:31
+msgid ""
+"**匿名ユーザーの削除**: 誰でもデータベースにアクセスできる匿名ユーザーを削除"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:32
+msgid ""
+"**リモートアクセスの制限**: root ユーザーがネットワーク経由でアクセスするのを"
+"禁止"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:33
+msgid ""
+"**テストデータベースの削除**: テスト用の「test」という名前のデータベースを削"
+"除"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:35
+msgid "以下のコマンドでセキュア設定を開始します："
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:41
+msgid ""
+"実行すると以下のようなプロンプトが表示されます。各段階での推奨される回答を説"
+"明します："
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:54
+msgid ""
+"**説明：** MariaDB インストール直後は root パスワードが設定されていません。"
+"`Enter` キーを押して進みます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:70
+msgid ""
+"**説明：** unix_socket 認証を有効にすることで、OS ユーザー認証を利用したセ"
+"キュアなアクセス制御が可能になります。`y` と入力して有効化します。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:83
+msgid ""
+"**説明：** `y` と入力して root ユーザーのパスワードを設定します。**安全で覚え"
+"やすいパスワードを設定してください** —このパスワードは後ほど MariaDB に接続す"
+"る際に必要になります。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:96
+msgid ""
+"**説明：** 匿名ユーザーはセキュリティリスクです。本番環境では削除する必要があ"
+"ります。`y` と入力して削除します。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:106
+msgid ""
+"**説明：** root ユーザーがネットワーク経由（リモート）でアクセスするのを禁止"
+"することで、セキュリティが向上します。`y` と入力して禁止します。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:120
+msgid ""
+"**説明：** テストデータベースは不要なので削除します。`y` と入力してください。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:137
+msgid "WordPress データベースとユーザーの作成"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:139
+msgid ""
+"WordPress が接続するためのデータベースとデータベースユーザーを作成します。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:145
+msgid ""
+"MariaDB root ユーザーのパスワードを入力してください。パスワード入力後、"
+"MariaDB のコマンドプロンプト（`MariaDB [(none)]>` ）が表示されます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:147
+msgid ""
+"以下のコマンドを実行して、WordPress 用のデータベースとユーザーを作成します："
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:157
+msgid "**コマンドの説明：**"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:158
+msgid ""
+"`CREATE DATABASE wordpress;`: WordPress 用のデータベース「wordpress」を作成"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:159
+msgid ""
+"`CREATE USER 'wordpress'@'localhost' IDENTIFIED BY 'password';`: WordPress 用"
+"のユーザー「wordpress」を作成（パスワードは `your_password_here` を実際のパス"
+"ワードに置き換えてください）"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:160
+msgid ""
+"`GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpress'@'localhost';`: wordpress "
+"ユーザーに wordpress データベースの全権限を付与"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:161
+msgid "`FLUSH PRIVILEGES;`: 設定を反映させる"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:162
+msgid "`EXIT;`: MariaDB を終了"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:164
+msgid ""
+"**注意：** このパスワードは後ほど WordPress 設定ファイルの `DB_PASSWORD` に設"
+"定するので、忘れずにメモしておいてください。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:166
+msgid "Apache VirtualHost 設定"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:168
+msgid "Apache 用の WordPress 用仮想ホスト設定ファイルを作成します。"
+msgstr ""
+
+#. heading (level 3)
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:195
+msgid "ファイルの保存"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:197
+msgid "ファイルを編集したら、vi エディタで `:wq` と入力して保存し終了します。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:199
+msgid "WordPress 設定ファイルの編集"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:201
+msgid "WordPress が接続するデータベース情報を設定ファイルに記述します。"
+msgstr ""
+
+#. heading (level 3)
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:207
+msgid "vi エディタの操作方法"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:209
+msgid ""
+"vi エディタでファイルが開いたら、以下の手順で編集します。初心者向けの詳細説明"
+"です："
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:211
+msgid ""
+"**ファイルを開く**: 上記コマンドでファイルが開きます。画面最下部に `:` が表示"
+"されていない状態です"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:212
+msgid ""
+"**編集モードに入る**: `i` キーを押すと、画面下部に `-- INSERT --` と表示され"
+"ます。これで文字入力が可能になります"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:213
+msgid "**内容を編集する**: 設定項目を編集します（下記参照）"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:214
+msgid ""
+"**編集モードを終了する**: `Esc` キーを押すと編集モードが終了します（`-- "
+"INSERT --` の表示が消えます）"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:215
+msgid ""
+"**ファイルを保存して終了する**: `:wq` と入力して `Enter` キーを押します。`:` "
+"は自動的に表示されます"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:216
+msgid ""
+"**もし編集を取り消す場合**: `:q!` と入力して `Enter` キーを押すと、編集を保存"
+"せずに終了します"
+msgstr ""
+
+#. heading (level 3)
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:218
+msgid "設定ファイルの編集内容"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:220
+msgid ""
+"ファイルを開いたら、以下の設定項目を確認・編集してください。初心者向けに主要"
+"な設定項目を説明します："
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:240
+msgid "**設定項目の説明：**"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:241
+msgid "`DB_NAME`: WordPress が使用するデータベース名（デフォルト：wordpress）"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:242
+msgid ""
+"`DB_USER`: WordPress がデータベースにアクセスするためのユーザー名（デフォル"
+"ト：wordpress）"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:243
+msgid ""
+"`DB_PASSWORD`: そのユーザーのパスワード（セキュア設定で決めたパスワードを入"
+"力）"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:244
+msgid ""
+"`DB_HOST`: MariaDB サーバーのホスト名（同じサーバー上ならば localhost で OK）"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:245
+msgid ""
+"`$table_prefix`: WordPress のテーブルの接頭辞（通常は `wp_` のままで問題あり"
+"ません）"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:247
+msgid "設定を編集後、`:wq` で保存します。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:249
+msgid "Apache 設定の有効化"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:251
+msgid "WordPress の仮想ホスト設定を有効化し、デフォルトサイトを無効化します。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:259
+msgid "コマンドの説明："
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:260
+msgid ""
+"`sudo a2dissite 000-default`: Apache のデフォルトサイト設定を無効化します"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:261
+msgid "`sudo a2ensite wp`: `wp.conf` という新しい仮想ホスト設定を有効化します"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:262
+msgid ""
+"`sudo systemctl reload apache2`: Apache サーバーを再起動して、新しい設定を反"
+"映させます"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:264
+msgid "ブラウザでの確認と WordPress インストール"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:266
+msgid ""
+"ここまでで、ブラウザから WordPress インストール画面にアクセスできるようになり"
+"ました。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:268
+msgid "**ローカルテスト環境の場合：**"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:270
+msgid ""
+"ホスト OS のブラウザを開いて、以下の URL にアクセスします（`myblog.example."
+"com` は VirtualHost 設定の ServerName に置き換えてください）："
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:276
+msgid "**DNS 設定がない場合：**"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:278
+msgid ""
+"テスト用には、ホスト OS のホストファイルを編集して、ドメイン名をサーバーの "
+"IP アドレスにマップしてください："
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:280
+msgid "**Windows**: `C:\\Windows\\System32\\drivers\\etc\\hosts`"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:281
+msgid "**Linux/Mac**: `/etc/hosts`"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:283
+msgid ""
+"以下の行を追加します（Debian サーバーの IP アドレスに置き換えてください）："
+msgstr ""
+
+#. heading (level 3)
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:289
+msgid "WordPress インストール画面での設定"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:291
+msgid ""
+"ブラウザでアクセスすると、WordPress のインストール画面が表示されます。以下の"
+"手順でセットアップしてください："
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:293
+msgid "**言語選択**: 日本語を選択します"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:294
+msgid ""
+"**データベース情報の確認**: WordPress が `/etc/wordpress/config-default.php` "
+"から DB 接続情報を自動的に読み込みます"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:295
+msgid "**WordPress タイトルと管理者情報の入力**:"
+msgstr ""
+
+#. list item > list item > paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:296
+msgid "ブログのタイトルを入力"
+msgstr ""
+
+#. list item > list item > paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:297
+msgid "管理者ユーザー名を入力（任意）"
+msgstr ""
+
+#. list item > list item > paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:298
+msgid "管理者パスワードを設定（強力なパスワードを推奨）"
+msgstr ""
+
+#. list item > list item > paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:299
+msgid "管理者メールアドレスを入力"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:300
+msgid "**インストール実行**: 「WordPress をインストール」ボタンをクリック"
+msgstr ""
+
+#. heading (level 3)
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:302
+msgid "インストール完了確認"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:304
+msgid ""
+"インストールが完了すると、WordPress の管理画面ログイン画面が表示されます。先"
+"ほど設定した管理者ユーザー名とパスワードでログインしてください。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:306
+msgid ""
+"以上で、Debian サーバー上に WordPress サーバーの基本的なセットアップが完了し"
+"ました。お疲れ様でした！"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:308
+msgid "トラブルシューティング"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:310
+msgid ""
+"もし WordPress のインストール画面に接続できない場合は、以下を確認してくださ"
+"い。"
+msgstr ""
+
+#. heading (level 3)
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:312
+msgid "Apache が起動していることを確認"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:318
+msgid ""
+"このコマンドで Apache のステータスを確認します。以下のような出力が表示されま"
+"す："
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:326
+msgid ""
+"`Active: active (running)` と表示されていれば、Apache は正常に起動していま"
+"す。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:328
+msgid "もし起動していない場合は、以下で起動してください："
+msgstr ""
+
+#. heading (level 3)
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:334
+msgid "Apache のエラーログを確認"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:340
+msgid ""
+"このコマンドで Apache のエラーログをリアルタイムで確認できます。ブラウザでア"
+"クセスしてエラーが発生した場合、ここに詳細が表示されます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:342
+msgid "終了するには `Ctrl + C` キーを押してください。"
+msgstr ""
+
+#. heading (level 3)
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:344
+msgid "MariaDB が起動していることを確認"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:350
+msgid ""
+"このコマンドで MariaDB のステータスを確認します。`Active: active (running)` "
+"と表示されていれば正常です。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:352
+msgid "もし起動していない場合は以下で起動してください："
+msgstr ""
+
+#. heading (level 3)
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:358
+msgid "WordPress の設定ファイルを確認"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:360
+msgid "WordPress 設定ファイルが正しく編集されているか確認します："
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:366
+msgid ""
+"このコマンドで設定ファイルの重要な部分を表示します。`DB_PASSWORD` が "
+"`your_password_here` のままになっていないか、実際のパスワードが設定されている"
+"か確認してください。"
+msgstr ""
+
+#. heading (level 3)
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:368
+msgid "ホストファイルの設定を確認（Windows の場合）"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:370
+msgid ""
+"ホストファイルが正しく設定されているか確認します。PowerShell で以下を実行："
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/set-up-a-wp-server-on-debian/index.md:376
+msgid ""
+"ドメイン名と IP アドレスが正しくマッピングされていることを確認してください。"
+msgstr ""

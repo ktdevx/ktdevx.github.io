@@ -1,0 +1,139 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:56+0000\n"
+"PO-Revision-Date: 2026-11-15 23:56+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:2
+msgid "Raspberry PiにUbuntuをインストールする"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:12
+msgid "Raspberry Piは、Raspberry Pi OSの他にUbuntuを起動することもできます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:14
+msgid ""
+"ここでは、Raspberry PiにUbuntuをインストールする方法について解説します。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:16
+msgid "Raspberry Pi Imagerをインストール"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:18
+msgid ""
+"microSDにUbuntuを書き込むため、Raspberry Pi Imagerというツールをインストール"
+"します。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:20
+msgid ""
+"[公式サイト](https://www.raspberrypi.com/software/)からツールをダウンロード"
+"し、PCにインストールしてください。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:22
+msgid "UbuntuをmicroSDに書き込む"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:24
+msgid ""
+"UbuntuをmicroSDに書き込みます。microSDをPCにセットし、Raspberry Pi Imagerを起"
+"動してください。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:26
+msgid "![Raspberry Pi Imager](images/raspberry-pi-imager-1.webp)"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:28
+msgid ""
+"「OSを選ぶ」、「Other general-purpose OS」、「Ubuntu」の順に選択すると、イン"
+"ストール可能なUbuntuの一覧が表示されます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:30
+msgid "![Raspberry Pi Imager](images/raspberry-pi-imager-2.webp)"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:32
+msgid "任意のOSを選択してください。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:34
+msgid ""
+"OS選択後は「ストレージを選ぶ」から、Ubuntuを書き込みたいmicroSDを選択します。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:36
+msgid "![Raspberry Pi Imager](images/raspberry-pi-imager-3.webp)"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:38
+msgid ""
+"OSとストレージの選択に問題がなければ、「書き込む」を選択して書き込みを開始し"
+"てください。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:40
+msgid "![Raspberry Pi Imager](images/raspberry-pi-imager-4.webp)"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:42
+msgid "しばらく待つと書き込みが完了します。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:44
+msgid "Ubuntuを起動"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:46
+msgid ""
+"Raspberry Piに、Ubuntuが書き込まれたmicroSDを差し込み、電源を入れて起動してく"
+"ださい。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:48
+msgid ""
+"ログインを要求されるため、ユーザー名とパスワードに`ubuntu`と入力します。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:57
+msgid ""
+"初回ログイン時は、パスワードを変更するように要求されます。任意のパスワードを"
+"入力して再設定してください。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:67
+msgid "これにより、Raspberry PiでUbuntuが使用可能になります。"
+msgstr ""

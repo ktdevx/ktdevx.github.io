@@ -4,8 +4,8 @@
 
 - このリポジトリは KTDEVX の多言語 Hugo サイトです。
 - Anubis2 テーマを Git サブモジュールとして使用しています。Hugo Extended が必要です。
-- サイト全体の設定と言語ごとの URL は [hugo.yml](hugo.yml) で管理しています。日本語がデフォルト言語で、URL には `/ja/` または `/en/` が含まれます。
-- 原本は日本語（`content/ja/`）だけです。ほかの言語のページは、[monde](https://github.com/ktdevx/monde-private) で翻訳ファイル `po/<lang>/` から生成します（`tools/l10n.sh`）。`content/en/` は生成物で、Git では管理しません。
+- サイト全体の設定と言語ごとの URL は [hugo.yml](hugo.yml) で管理しています。日本語がデフォルト言語で、URL には `/ja/`、`/en/`、`/zh-cn/` のいずれかが含まれます。
+- 原本は日本語（`content/ja/`）だけです。ほかの言語のページは、[monde](https://github.com/ktdevx/monde-private) で翻訳ファイル `po/<lang>/` から生成します（`tools/l10n.sh`）。`content/en/` と `content/zh-cn/` は生成物で、Git では管理しません。
 
 ## 検証
 
@@ -16,7 +16,7 @@
 
 ## コンテンツの規約
 
-- コンテンツは `content/ja/` 配下に日本語で書きます。`content/en/` を直接編集しないでください。
+- コンテンツは `content/ja/` 配下に日本語で書きます。`content/en/` と `content/zh-cn/` を直接編集しないでください。
 - ブログ記事は `content/<lang>/blog/<slug>/index.md` の page bundle として管理します。基本的な front matter は [archetypes/blog.md](archetypes/blog.md) を使用してください。
 - 既存の YAML front matter の形式を維持します。主な項目は `title`、タイムゾーン付きの `date`、`draft`、任意の `tags`、`params.toc` です。
 - 記事を追加・変更したら `tools/l10n.sh update` を実行し、`po/` の変更も同じ変更に含めます（PR の CI が検査します）。

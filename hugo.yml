@@ -64,6 +64,36 @@ languages:
         pageRef: /sitemap
         weight: 3
     weight: 2
+  zh-cn:
+    contentDir: content/zh-cn
+    languageCode: zh-CN
+    languageName: 简体中文
+    menus:
+      main:
+      - name: 首页
+        pageRef: /
+        weight: 1
+      - name: 关于我
+        pageRef: /about
+        weight: 2
+      - name: 博客
+        pageRef: /blog
+        weight: 3
+      - name: 联系方式
+        pageRef: /contact
+        weight: 4
+      footer:
+      - name: 使用条款
+        pageRef: /terms-of-use
+        weight: 1
+      - name: 隐私政策
+        pageRef: /privacy-policy
+        weight: 2
+      - name: 网站地图
+        pageRef: /sitemap
+        weight: 3
+    hasCJKlanguage: true
+    weight: 3
 
 services:
   googleAnalytics:

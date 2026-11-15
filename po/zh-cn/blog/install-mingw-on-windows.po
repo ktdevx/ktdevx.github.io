@@ -1,0 +1,205 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:56+0000\n"
+"PO-Revision-Date: 2026-11-15 23:56+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/install-mingw-on-windows/index.md:2
+msgid "WindowsにMinGWをインストールする"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-mingw-on-windows/index.md:13
+msgid ""
+"MinGWは、C/C++開発環境として無料で使用できるツールです。MinGW自体はほぼ開発終"
+"了していますが、後継のMinGW-w64は積極的に開発されています。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-mingw-on-windows/index.md:15
+msgid "ここでは、MinGW-w64をWindowsにインストールする手順について解説します。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/install-mingw-on-windows/index.md:17
+msgid "MinGWをダウンロード"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-mingw-on-windows/index.md:19
+msgid ""
+"[公式サイトのダウンロードページ](https://www.mingw-w64.org/downloads/)にアク"
+"セスし、MinGWをダウンロードします。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-mingw-on-windows/index.md:21
+msgid ""
+"ここからMinGW-W64-buildsをたどると、配布場所であるGitHubへのリンクがあるの"
+"で、リンク先に飛びます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-mingw-on-windows/index.md:23
+msgid ""
+"7z形式で圧縮されて配布されているので好きなものをダウンロードしてください。配"
+"布ファイルについて詳細を記載したので参考にしてください。"
+msgstr ""
+
+#. heading (level 3)
+#: content/ja/blog/install-mingw-on-windows/index.md:25
+msgid "i686 / x86_64"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-mingw-on-windows/index.md:27
+msgid "アーキテクチャを示しています。i686が32bit用、x86_64が64bit用です。"
+msgstr ""
+
+#. heading (level 3)
+#: content/ja/blog/install-mingw-on-windows/index.md:29
+msgid "posix / win32 / mcf"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-mingw-on-windows/index.md:31
+msgid "スレッドの実装方法を示しています。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-mingw-on-windows/index.md:33
+msgid ""
+"posixはposixスレッドを使用しています。こちらはwin32と比較して速度が遅いようで"
+"す。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-mingw-on-windows/index.md:35
+msgid ""
+"win32はWin32 APIが提供するスレッド機能を使用しています。しかし、win32はC++11"
+"のthreadに対応していないようです。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-mingw-on-windows/index.md:37
+msgid ""
+"mcfはposixとwin32のいいとこどりです。高速でC++11のthreadにも対応しています。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-mingw-on-windows/index.md:39
+msgid ""
+"既存プロジェクトをビルドする場合は、そのプロジェクトの指定に従ってください。"
+msgstr ""
+
+#. heading (level 3)
+#: content/ja/blog/install-mingw-on-windows/index.md:41
+msgid "msvcrt / ucrt"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-mingw-on-windows/index.md:43
+msgid "ランタイムライブラリを示しています。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-mingw-on-windows/index.md:45
+msgid ""
+"msvcrtは、古いバージョンのMicrosoft Visual C++のランタイムライブラリです。"
+"Windows XPやそれ以前とも互換性があります。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-mingw-on-windows/index.md:47
+msgid ""
+"ucrtは、ユニバーサルCランタイムで、Windows10以降のバージョンでは標準として使"
+"用されています。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-mingw-on-windows/index.md:49
+msgid ""
+"これから新しく設計を始める場合はucrtを、古いWindowsシステムとの互換性が必要な"
+"場合はmsvcrtを選択することを推奨します。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/install-mingw-on-windows/index.md:51
+msgid "MinGWをインストール"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-mingw-on-windows/index.md:53
+msgid ""
+"圧縮ファイルがダウンロードできたら任意の場所に展開してください。全てASCII文"
+"字、かつ空白を含まないパスに配置するのが無難です。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-mingw-on-windows/index.md:55
+msgid ""
+"展開してできたmingw64/binフォルダにgccやg++などのビルドツールが含まれていま"
+"す。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/install-mingw-on-windows/index.md:57
+msgid "binフォルダにパスを通す"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-mingw-on-windows/index.md:59
+msgid ""
+"このままではパスが通っていないので、コマンドプロンプトでgccと打っても反応しま"
+"せん。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-mingw-on-windows/index.md:61
+msgid ""
+"そのため、環境変数のPathに先ほどのbinフォルダまでのパスを通してあげます。これ"
+"により、コマンドプロンプトからgccと打つと動作するようになります。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-mingw-on-windows/index.md:63
+msgid "実行するとパスを通すスクリプトを作成してもよいかもしれません。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/install-mingw-on-windows/index.md:65
+msgid "C言語のソースコードをコンパイルする"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-mingw-on-windows/index.md:67
+msgid ""
+"動作確認用に、main.cというファイル名で適当なC言語のソースコードを作成してみま"
+"す。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-mingw-on-windows/index.md:69
+msgid "今回は実行すると\"Hello, World!\"と表示されるプログラムを作成しました。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-mingw-on-windows/index.md:81
+msgid ""
+"コマンドプロンプトで`gcc main.c`を実行すると、a.exeという名前で実行ファイルが"
+"作成されます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/install-mingw-on-windows/index.md:83
+msgid ""
+"これをコマンドプロンプトから実行し、\"Hello, World!\"と表示されればOKです。"
+msgstr ""

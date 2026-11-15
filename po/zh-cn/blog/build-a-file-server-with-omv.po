@@ -1,0 +1,421 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:56+0000\n"
+"PO-Revision-Date: 2026-11-15 23:56+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/build-a-file-server-with-omv/index.md:2
+msgid "OpenMediaVaultでファイルサーバーを構築する"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:11
+msgid ""
+"OpenMediaVault(OMV)は、DebianをベースにしたオープンソースのNASソフトウェア"
+"で、ユーザーが簡単にNASを構築できるように設計されています。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:13
+msgid ""
+"今回は、OpenMediaVaultを使用して、Windowsからアクセスできるファイルサーバーを"
+"構築します。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/build-a-file-server-with-omv/index.md:15
+msgid "はじめに"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:17
+msgid "サーバーのハードウェアには、GMKtecのNucBox M5 Plusを選択しました。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:19
+msgid "{{< ads/nucbox-m5-plus >}}"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:21
+msgid ""
+"ミニPCには仮想化プラットフォームのProxmox VEをインストールしているため、そこ"
+"に仮想マシンを作成してOpenMediaVaultをインストールします。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/build-a-file-server-with-omv/index.md:23
+msgid "OpenMediaVaultのインストール"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:25
+msgid ""
+"OpenMediaVaultのISOイメージをダウンロードし、サーバーにインストールします。以"
+"下の記事を参考にOpenMediaVaultをインストールしましょう。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:27
+msgid "[OpenMediaVaultをインストールする](/blog/install-openmediavault)"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:29
+msgid ""
+"管理画面の言語変更、管理者ユーザー(`admin`)のパスワード変更も忘れずに実施して"
+"おきましょう。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:31
+msgid ""
+"Proxmox VE上の仮想マシンにインストールする場合は、「[Proxmox VEで仮想マシン"
+"(VM)を作成する](/blog/create-vm-in-proxmox-ve)」の記事も参考にしてください。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/build-a-file-server-with-omv/index.md:33
+msgid "静的IPアドレスの割り当て"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:35
+msgid ""
+"デフォルトではDHCPが有効になっています。NASのIPアドレスが変化しないように、静"
+"的IPアドレスを割り当てます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:37
+msgid ""
+"メニューから「ネットワーク > インタフェース」を選択し、ネットワークの設定画面"
+"を開きましょう。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:39
+msgid "![OpenMediaVaultの管理画面](images/build-file-server-1.webp)"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:41
+msgid ""
+"設定を変更するデバイスを選択後、ペンのアイコンをクリックして編集画面を開きま"
+"す。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:43
+msgid "![OpenMediaVaultの管理画面](images/build-file-server-2.webp)"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:45
+msgid ""
+"IPv4にて、静的IPアドレスが割り当てられるよう設定を変更します。高度な設定に"
+"て、DNSサーバーのアドレスも入力し、保存しましょう。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:47
+msgid ""
+"IPアドレスを変更するとサーバーとの接続が切れるため、変更後のIPアドレスで再度"
+"管理画面に接続しましょう。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/build-a-file-server-with-omv/index.md:49
+msgid "ディスクの初期化"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:51
+msgid ""
+"OpenMediaVaultに接続したディスクの初期化を行います。既にファイルシステム作成"
+"済みのディスクをマウントする場合はスキップしましょう。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:53
+msgid ""
+"メニューから「ストレージ > ディスク」を選択し、ディスクの設定画面を開きましょ"
+"う。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:55
+msgid "![OpenMediaVaultの管理画面](images/build-file-server-3.webp)"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:57
+msgid ""
+"設定を変更するデバイスを選択後、消しゴムのアイコンをクリックしてディスクの消"
+"去画面を開きます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:59
+msgid "![OpenMediaVaultの管理画面](images/build-file-server-4.webp)"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:61
+msgid ""
+"クイックかセキュアか消去方法が選択できますが、特に指定がなければクイックで問"
+"題ありません。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:63
+msgid ""
+"クイックの場合はファイルシステムが消去され、セキュアの場合は全て消去されま"
+"す。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/build-a-file-server-with-omv/index.md:65
+msgid "ファイルシステムの作成"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:67
+msgid ""
+"OpenMediaVaultに接続したディスクにファイルシステムを作成します。既にファイル"
+"システム作成済みのディスクをマウントする場合はスキップしましょう。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:69
+msgid ""
+"メニューから「ストレージ > ファイルシステム」を選択し、ファイルシステムの設定"
+"画面を開きましょう。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:71
+msgid "![OpenMediaVaultの管理画面](images/build-file-server-5.webp)"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:73
+msgid ""
+"プラスアイコンをクリックし、作成したいファイルシステムを選択してファイルシス"
+"テムの作成画面を開きます。今回はExt4を選択しました。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:75
+msgid "![OpenMediaVaultの管理画面](images/build-file-server-6.webp)"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:77
+msgid ""
+"ファイルシステムを作成したいディスクを選択し、ファイルシステムを作成しましょ"
+"う。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/build-a-file-server-with-omv/index.md:79
+msgid "共有フォルダの作成"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:81
+msgid ""
+"共有フォルダを作成します。メニューから「ストレージ > 共有フォルダ」を選択し、"
+"共有フォルダの設定画面を開きましょう。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:83
+msgid "![OpenMediaVaultの管理画面](images/build-file-server-7.webp)"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:85
+msgid "プラスアイコンをクリックして共有フォルダの作成画面を開きます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:87
+msgid "![OpenMediaVaultの管理画面](images/build-file-server-8.webp)"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:89
+msgid ""
+"共有フォルダの名前を入力しましょう。クライアントPCは、ここで設定した名前の"
+"フォルダに対してアクセスすることになります。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:91
+msgid ""
+"先ほど作成したファイルシステムを選択し、共有フォルダの設定を保存しましょう。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/build-a-file-server-with-omv/index.md:93
+msgid "SMB/CIFSの設定"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:95
+msgid ""
+"SMB/CIFSの設定を行います。メニューから「SMB/CIFS > 設定」を選択し、SMB/CIFSの"
+"設定画面を開きましょう。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:97
+msgid "![OpenMediaVaultの管理画面](images/build-file-server-9.webp)"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:99
+msgid "有効にチェックを入れて保存します。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:101
+msgid ""
+"次に、メニューから「SMB/CIFS > 共有」を選択し、SMB/CIFSの共有設定画面を開きま"
+"しょう。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:103
+msgid "![OpenMediaVaultの管理画面](images/build-file-server-10.webp)"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:105
+msgid "プラスアイコンをクリックして作成画面を開きます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:107
+msgid "![OpenMediaVaultの管理画面](images/build-file-server-11.webp)"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:109
+msgid ""
+"共有フォルダで、先ほど作成した共有フォルダを選択し、設定を保存しましょう。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/build-a-file-server-with-omv/index.md:111
+msgid "ユーザーの作成"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:113
+msgid ""
+"共有フォルダにアクセスするユーザーを作成します。メニューから「ユーザー > ユー"
+"ザー」を選択し、ユーザーの設定画面を開きましょう。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:115
+msgid "![OpenMediaVaultの管理画面](images/build-file-server-12.webp)"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:117
+msgid "プラスアイコンをクリックしてユーザー作成画面を開きます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:119
+msgid "![OpenMediaVaultの管理画面](images/build-file-server-13.webp)"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:121
+msgid ""
+"名前とパスワードを入力して保存します。この時入力した情報が、共有フォルダにア"
+"クセスする時に必要になります。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:123
+msgid ""
+"OpenMediaVaultで必要な設定は以上です。最後にクライアントPCから共有フォルダに"
+"アクセスしてみましょう。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/build-a-file-server-with-omv/index.md:125
+msgid "共有フォルダにアクセス"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:127
+msgid ""
+"Windowsのエクスプローラーから、OpenMediaVaultで作成した共有フォルダにアクセス"
+"してみましょう。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:129
+msgid "![Windowsのエクスプローラー](images/connect-file-server-1.webp)"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:131
+msgid "ウィンドウ上部にある入力欄に共有フォルダへのパスを入力します。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:137
+msgid "入力すると、ネットワーク資格情報の入力が求められます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:139
+msgid "![Windowsのエクスプローラー](images/connect-file-server-2.webp)"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:141
+msgid ""
+"OpenMediaVaultで作成したユーザーの名前とパスワードを入力し、OKを押しましょ"
+"う。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:143
+msgid ""
+"クライアントPCでログインしているユーザーと、OpenMediaVaultで作成したユーザー"
+"の名前、パスワードが一致している場合、資格情報の入力はスキップされます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:145
+msgid "![Windowsのエクスプローラー](images/connect-file-server-3.webp)"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:147
+msgid ""
+"共有フォルダにアクセスできました。また、適当なファイルを作成して書き込みでき"
+"ることも確認できました。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-omv/index.md:149
+msgid "以上で、OpemMediaVaultでのNASの構築は完了です。"
+msgstr ""

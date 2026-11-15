@@ -1,0 +1,555 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:56+0000\n"
+"PO-Revision-Date: 2026-11-15 23:56+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/argx-subcommands/index.md:2
+msgid "【C言語】ArgXでサブコマンドを持つCLIを作る"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:13
+msgid ""
+"`git commit`や`docker run`のように、1つのコマンドの下に複数の機能を「サブコマ"
+"ンド」として持たせたCLIはよく見かけます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:15
+msgid ""
+"ここでは、C99向けのコマンドライン引数パーサー「[ArgX](https://github.com/"
+"vabelorg/argx)」で、サブコマンドを持つCLIを作る方法を解説します。ArgXの基本的"
+"な使い方（スキーマの定義、検証、解析、値の読み取り、破棄）は「[【C言語】ArgX"
+"でコマンドライン引数を解析する](/blog/argx-usage)」で解説しているため、先にそ"
+"ちらを読んでおくと理解しやすくなります。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/argx-subcommands/index.md:17
+msgid "前提条件"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:19
+msgid "前回の記事と同じく、次の環境を前提とします。"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/argx-subcommands/index.md:21
+msgid "CMake 3.21以上"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/argx-subcommands/index.md:22
+msgid "C99に対応したCコンパイラ（GCC、Clang、MSVCなど）"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/argx-subcommands/index.md:23
+msgid "Git"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:25
+msgid ""
+"記事の手順はUbuntu 24.04、CMake 3.28、GCC 13で動作を確認しています。ArgXの"
+"バージョンは`v0.1.0`です。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/argx-subcommands/index.md:27
+msgid "プロジェクトを準備する"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:29
+msgid "次の構成のプロジェクトを作ります。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:37
+msgid ""
+"`CMakeLists.txt`は前回の記事とほぼ同じで、実行ファイルの名前だけを`todo`に変"
+"えています。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/argx-subcommands/index.md:54
+msgid "作るプログラム"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:56
+msgid ""
+"この記事では、タスクを管理する架空のツール`todo`を作ります。実際にはデータを"
+"保存せず、受け取った内容を表示するだけのプログラムです。受け付けるコマンドラ"
+"インは次のとおりです。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:67
+msgid ""
+"| コマンド | 動作 | 引数 |\n"
+"| --- | --- | --- |\n"
+"| `todo` | ルート。サブコマンドが必須 | `-q`, `--quiet`：何も表示しない |\n"
+"| `todo add` | タスクを追加する | `-p`, `--priority`：優先度（整数、省略時は"
+"3）<br>`text`：タスクの内容（必須） |\n"
+"| `todo list` | タスクを一覧表示する | `-a`, `--all`：完了したタスクも含める "
+"|\n"
+"| `todo tag` | タグを管理する。サブコマンドを省略するとタグを一覧表示する | "
+"なし |\n"
+"| `todo tag add` | タグを追加する | `name`：タグの名前（必須） |\n"
+"| `todo tag remove` | タグを削除する | `name`：タグの名前（必須） |"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:76
+msgid ""
+"すべてのコマンドに`-h`, `--help`があります。`tag`の下にさらにサブコマンドがあ"
+"ること、`tag`だけはサブコマンドを省略できることがポイントです。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:78
+msgid ""
+"以降では`main.c`の内容を順に説明します。コード全体は「[コード全体](#コード全"
+"体)」に掲載しています。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/argx-subcommands/index.md:80
+msgid "サブコマンドを定義する"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:82
+msgid "サブコマンドは`argx_command_add_subcommand`で追加します。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:89
+msgid ""
+"第1引数に親のコマンド、第2引数にサブコマンドの名前を指定すると、第3引数にサブ"
+"コマンドのハンドル（`argx_command_t *`）が書き込まれます。**サブコマンドも"
+"ルートと同じコマンド**なので、`argx_command_add_flag`や"
+"`argx_command_add_positional`などで、オプションや位置引数を同じように追加でき"
+"ます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:91
+msgid ""
+"ただし、1つのコマンドに位置引数とサブコマンドの両方を持たせることはできませ"
+"ん。`todo`や`todo tag`のようにサブコマンドを持つコマンドには、位置引数を追加"
+"しないようにします。"
+msgstr ""
+
+#. heading (level 3)
+#: content/ja/blog/argx-subcommands/index.md:93
+msgid "-h, --helpをすべてのコマンドに追加する"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:95
+msgid ""
+"ArgXでは、**オプションはそれを定義したコマンドでしか認識されず、サブコマンド"
+"には引き継がれません**。ルートに`--help`を追加しただけでは、`todo add --help`"
+"は不明なオプションとしてエラーになります。そのため、`-h`, `--help`はコマンド"
+"ごとに追加する必要があります。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:97
+msgid ""
+"サンプルでは、`-h`, `--help`を追加する関数と、サブコマンドを追加して説明と`-"
+"h`, `--help`をまとめて設定する関数を用意しています。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:120
+msgid ""
+"`-h`, `--help`のハンドルは`add_help`の中でしか使いません。後で`--help`が指定"
+"されたかを調べるときは、コマンドから名前で検索します（後述）。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:122
+msgid ""
+"今回のサンプルでは、前回の記事と違って定義を関数に分けているため、`TRY`マクロ"
+"は失敗したときに`goto`ではなく`return error;`でエラーコードを返すようにしてい"
+"ます。"
+msgstr ""
+
+#. heading (level 3)
+#: content/ja/blog/argx-subcommands/index.md:136
+msgid "ハンドルを構造体にまとめる"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:138
+msgid ""
+"サブコマンドが増えるとハンドルも増えるため、構造体にまとめておきます。解析後"
+"にどのコマンドが選ばれたかを判定したり、値を読み取ったりするときにも使いま"
+"す。"
+msgstr ""
+
+#. heading (level 3)
+#: content/ja/blog/argx-subcommands/index.md:161
+msgid "ルートとサブコマンドを定義する"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:163
+msgid "ルートと、`add`、`list`の定義は次のとおりです。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:189
+msgid ""
+"オプションや位置引数を追加する先が、ルート（`schema->root`）ではなくサブコマ"
+"ンド（`schema->add`、`schema->list`）になっている点以外は、前回の記事と同じで"
+"す。`argx_command_set_description`で設定した説明は、親コマンドのヘルプのサブ"
+"コマンド一覧にも表示されます。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/argx-subcommands/index.md:191
+msgid "ネストしたサブコマンドと省略可能なサブコマンド"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:193
+msgid ""
+"`tag`の下に`add`と`remove`を追加します。サブコマンドの下にサブコマンドを追加"
+"するときも、親に`schema->tag`を指定するだけです。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:216
+msgid ""
+"`tag add`の`add`と、ルートの`add`は同じ名前ですが、親が異なるため問題ありませ"
+"ん。"
+msgstr ""
+
+#. heading (level 3)
+#: content/ja/blog/argx-subcommands/index.md:218
+msgid "サブコマンドを省略可能にする"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:220
+msgid ""
+"ArgXでは、**サブコマンドを持つコマンドは、既定でサブコマンドが必須**です。"
+"`todo`だけで実行すると、`ARGX_PARSE_ERROR_MISSING_SUBCOMMAND`という種類の解析"
+"エラーになります。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:222
+msgid ""
+"一方、`git remote`がサブコマンドなしでリモートの一覧を表示するように、サブコ"
+"マンドを省略したときに独自の動作をさせたいこともあります。その場合は"
+"`argx_command_set_subcommand_optional`で`true`を設定します。この設定はコマン"
+"ドごとで、ここでは`tag`だけを省略可能にし、ルートの`todo`はサブコマンドが必須"
+"のままにしています。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:224
+msgid "省略可能にすると、使い方の行の表記も変わります。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:231
+msgid ""
+"なお、サブコマンドを持たないコマンドに`true`を設定すると、"
+"`argx_command_validate`での検証がエラーになります。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/argx-subcommands/index.md:233
+msgid "オプションを書く位置"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:235
+msgid ""
+"前述のとおり、オプションは定義したコマンドでしか認識されません。そのため、**"
+"オプションは、それを定義したコマンド名の後ろ、かつ次のサブコマンド名の前**に"
+"書きます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:237
+msgid "ルートの`-q`は`todo`と`add`の間に書くと認識されます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:243
+msgid ""
+"`add`の後ろに書くと、`add`には`-q`が定義されていないため、エラーになります。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:252
+msgid ""
+"逆に、`add`の`-p`は`add`の後ろに書く必要があります。親と子で同じ名前のオプ"
+"ションを定義することもでき、その場合は別々のオプションとして扱われます。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/argx-subcommands/index.md:254
+msgid "解析結果からコマンドを判定する"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:256
+msgid ""
+"解析は前回と同じく`argx_parse`で行います。解析に成功したら、"
+"`argx_result_command`で**最後に選ばれたコマンド**を取得し、スキーマのハンドル"
+"と比較して処理を分けます。"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/argx-subcommands/index.md:300
+msgid ""
+"`todo tag add work`では`schema->tag_add`、`todo tag`では`schema->tag`が返され"
+"ます。ルートの`todo`はサブコマンドが必須のため、解析に成功した時点でルートが"
+"返されることはありません。"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/argx-subcommands/index.md:301
+msgid ""
+"親のコマンドのオプション（ここでは`-q`）も、同じ解析結果から親のハンドルを"
+"使って読み取れます。"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/argx-subcommands/index.md:302
+msgid ""
+"選ばれなかったコマンドのオプションや位置引数は、「指定されなかった」ものとし"
+"て読み取られます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:304
+msgid ""
+"`todo -q tag add work`の場合、選ばれたコマンドは`todo`、`tag`、`tag add`の3つ"
+"です。選ばれたコマンドはルートから順に`argx_result_command_count`と"
+"`argx_result_command_at`で取得でき、`argx_result_command`は最後の1つを返しま"
+"す。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/argx-subcommands/index.md:306
+msgid "ヘルプとエラーを出力する"
+msgstr ""
+
+#. heading (level 3)
+#: content/ja/blog/argx-subcommands/index.md:308
+msgid "--helpが指定されたかを調べる"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:310
+msgid ""
+"`-h`, `--help`はコマンドごとに定義しているため、選ばれたコマンドを順に調べ、"
+"どれかで指定されていればヘルプを表示します。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:331
+msgid ""
+"`argx_command_find_long`は、長い名前でコマンドのオプションを検索します。第3引"
+"数は名前の長さです。この方法なら、`-h`, `--help`のハンドルをすべて構造体に保"
+"存しておく必要はありません。"
+msgstr ""
+
+#. heading (level 3)
+#: content/ja/blog/argx-subcommands/index.md:333
+msgid "選ばれたコマンドのヘルプを表示する"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:335
+msgid ""
+"ヘルプは、最後に選ばれたコマンドについて表示します。これで、`todo --help`では"
+"ルートのヘルプが、`todo tag add --help`では`tag add`のヘルプが表示されます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:349
+msgid ""
+"解析エラーのときは、`argx_result_error_command`でエラーが見つかったコマンドを"
+"取得し、そのコマンドの使い方の行を表示します。`todo tag add`で名前を省略した"
+"場合は、`Usage: todo tag add [OPTIONS] <name>`のように、サブコマンドまで含ん"
+"だ使い方が表示されます。"
+msgstr ""
+
+#. heading (level 3)
+#: content/ja/blog/argx-subcommands/index.md:360
+msgid "サブコマンドがないときにヘルプを表示する"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:362
+msgid "`argx_parse`の戻り値で分岐する部分は次のとおりです。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:401
+msgid ""
+"前回の記事と同じく、解析エラーのときにも`--help`を確認しています。たとえば"
+"`todo add --help`は必須の`text`がないため解析エラーになりますが、`--help`は読"
+"み取られているため、ヘルプを表示できます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:403
+msgid ""
+"今回はそれに加えて、`argx_result_error_kind`で解析エラーの種類を調べていま"
+"す。サブコマンドがない（`ARGX_PARSE_ERROR_MISSING_SUBCOMMAND`）ときは、多くの"
+"CLIと同じように、そのコマンドのヘルプを表示します。何も処理していないため、終"
+"了コードは失敗（`status`の初期値の`EXIT_FAILURE`）のままにしています。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:405
+msgid ""
+"ヘルプではなく、ほかの解析エラーと同じようにエラーメッセージを表示したい場合"
+"は、この`else if`の分岐を削除します。その場合、`todo`だけで実行すると`todo: "
+"missing required command`と表示されます。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/argx-subcommands/index.md:407
+msgid "コード全体"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:409
+msgid "`main.c`の全体は次のとおりです。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:667
+msgid ""
+"スキーマの定義に失敗した場合も、途中まで作られたスキーマは"
+"`argx_command_destroy`で破棄できます。サブコマンドはルートと一緒に破棄される"
+"ため、個別に破棄する必要はありません。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/argx-subcommands/index.md:669
+msgid "ビルドして実行する"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:671
+msgid "`todo`ディレクトリで次のコマンドを実行し、ビルドします。"
+msgstr ""
+
+#. heading (level 3)
+#: content/ja/blog/argx-subcommands/index.md:678
+msgid "サブコマンドを実行する"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:697
+msgid ""
+"`todo tag`は、サブコマンドを省略可能にしているため、エラーにならずにタグの一"
+"覧を表示する処理が実行されています。"
+msgstr ""
+
+#. heading (level 3)
+#: content/ja/blog/argx-subcommands/index.md:699
+msgid "ヘルプを表示する"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:701
+msgid "ルートのヘルプには、`Commands:`としてサブコマンドの一覧が表示されます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:719
+msgid "サブコマンドの`--help`では、そのサブコマンドのヘルプが表示されます。"
+msgstr ""
+
+#. heading (level 3)
+#: content/ja/blog/argx-subcommands/index.md:747
+msgid "誤ったコマンドライン"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:749
+msgid ""
+"サブコマンドを指定せずに`todo`だけを実行すると、ルートのヘルプが表示され、終"
+"了コードは1になります。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:767
+msgid ""
+"そのほかの誤りでは、エラーメッセージと、エラーが見つかったコマンドの使い方の"
+"行が表示されます。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/argx-subcommands/index.md:786
+msgid "まとめ"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:788
+msgid "ArgXでサブコマンドを持つCLIを作るときのポイントは次のとおりです。"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/argx-subcommands/index.md:790
+msgid ""
+"サブコマンドは`argx_command_add_subcommand`で追加し、ルートと同じようにオプ"
+"ションや位置引数を追加できます。サブコマンドの下にさらにサブコマンドを追加す"
+"ることもできます。"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/argx-subcommands/index.md:791
+msgid ""
+"オプションはサブコマンドに引き継がれないため、`-h`, `--help`はコマンドごとに"
+"定義します。オプションは、定義したコマンド名の後ろに書きます。"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/argx-subcommands/index.md:792
+msgid ""
+"サブコマンドは既定で必須です。`argx_command_set_subcommand_optional`で、コマ"
+"ンドごとに省略可能にできます。"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/argx-subcommands/index.md:793
+msgid ""
+"解析後は`argx_result_command`で最後に選ばれたコマンドを取得し、ハンドルと比較"
+"して処理を分けます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:795
+msgid ""
+"より大きな例として、選択肢や独自の型も使ったサンプルがリポジトリの[examples/"
+"pack/pack.c](https://github.com/vabelorg/argx/blob/main/examples/pack/pack.c)"
+"にあります。サブコマンドに関するほかの使い方は、[How-to](https://github.com/"
+"vabelorg/argx/blob/main/docs/guides/how-to.md)と[FAQ](https://github.com/"
+"vabelorg/argx/blob/main/docs/guides/faq.md)を参照してください。"
+msgstr ""

@@ -1,0 +1,388 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:56+0000\n"
+"PO-Revision-Date: 2026-11-15 23:56+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/agent-skills-in-vs-code/index.md:2
+msgid "VS CodeでAgent Skillsを作成して使う方法"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:13
+msgid ""
+"Agent Skillsは、GitHub CopilotなどのAIエージェントに、特定の作業を進める手順"
+"や判断基準を追加する仕組みです。単なる質問への回答ではなく、調査、編集、テス"
+"トなどのまとまった作業方法を再利用できるようにします。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:15
+msgid ""
+"この記事では、VS Codeでプロジェクト用のAgent Skillを作成し、実際のチャットで"
+"呼び出すまでをハンズオン形式で説明します。作成するスキルは、リリースノートの"
+"下書きを作るための`release-notes`です。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/agent-skills-in-vs-code/index.md:17
+msgid "前提条件"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:19
+msgid "次のものを準備します。"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:21
+msgid "GitHub CopilotのChatやAgent機能を利用できるVS Code"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:22
+msgid "GitHub Copilotを利用できるGitHubアカウント"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:23
+msgid "スキルを追加できるGitリポジトリ"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:25
+msgid ""
+"画面の項目名や利用できるモデルは、バージョンや契約によって異なる場合がありま"
+"す。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/agent-skills-in-vs-code/index.md:27
+msgid "Agent Skillsとは"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:29
+msgid ""
+"Agent Skillsは、複数のAIエージェントで利用できるオープン標準です。Agent Skill"
+"はAIエージェントが必要なときに読み込む専門的な作業手順で、この記事ではGitHub "
+"CopilotのVS Code拡張機能から利用します。プロジェクトに保存する場合、代表的な"
+"配置は次のとおりです。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:35
+msgid "`SKILL.md`のYAML front matterには、少なくとも次の2項目を記述します。"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:37
+msgid ""
+"`name`: スキルの識別名。小文字、数字、ハイフンだけを使い、親ディレクトリ名と"
+"一致させる"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:38
+msgid "`description`: 何ができ、どのような依頼で使うかを説明する文章"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:40
+msgid ""
+"本文には、スキルを使うときの手順、守る条件、確認方法などを書きます。必要であ"
+"れば、同じディレクトリにスクリプト、サンプル、参考資料を追加できます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:42
+msgid ""
+"カスタム指示との違いは、主に使われる範囲です。カスタム指示はプロジェクトの"
+"コーディング規約などを継続的に伝えるのに向いています。一方、Agent Skillsはテ"
+"スト、デバッグ、デプロイなど特定の作業で必要な手順を必要なときに読み込ませる"
+"のに向いています。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/agent-skills-in-vs-code/index.md:44
+msgid "ハンズオンの準備"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:46
+msgid ""
+"練習用のGitリポジトリをVS Codeで開きます。既存のリポジトリを使う場合は、変更"
+"前の状態をコミットしておくと、生成された変更を確認しやすくなります。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:48
+msgid "プロジェクトのルートで、次のディレクトリを作成します。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:57
+msgid ""
+"VS Codeのエクスプローラーで作成しても、ターミナルで次のコマンドを実行しても構"
+"いません。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/agent-skills-in-vs-code/index.md:64
+msgid "スキルを書く"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:66
+msgid "`SKILL.md`を開き、次の内容を貼り付けます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:99
+msgid ""
+"`description`には機能だけでなく、どのような依頼で使うかも書くことが重要です。"
+"説明が曖昧だと、関連する依頼で自動的に選ばれにくくなります。本文には、作業の"
+"順序と出力形式を記述します。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:101
+msgid ""
+"また、スキルには「しないこと」も書けます。例では、ユーザーの明示的な依頼なし"
+"にファイルを編集しないよう指定しています。AIエージェントにコマンド実行や編集"
+"を任せるスキルでは、対象範囲、確認手順、秘密情報の扱いも具体的に書きます。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/agent-skills-in-vs-code/index.md:103
+msgid "スキルを認識させる"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:105
+msgid ""
+"`SKILL.md`を保存したら、Chatビューを開きます。入力欄で`/`を入力すると、利用で"
+"きるスキルの一覧に`release-notes`が表示されるはずです。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:107
+msgid "表示されない場合は、次を確認します。"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:109
+msgid "VS Codeでリポジトリのルートフォルダーを開いているか確認する。"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:110
+msgid "ファイル名が正確に`SKILL.md`になっているか確認する。"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:111
+msgid ""
+"`name: release-notes`とディレクトリ名`release-notes`が一致しているか確認す"
+"る。"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:112
+msgid ""
+"`name`に大文字、スラッシュ、コロン、ドットなどを使っていないか確認する。"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:113
+msgid "front matterの開始と終了に`---`があるか確認する。"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:114
+msgid "Chatビューを一度閉じて開き直し、スキル一覧を更新する。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:116
+msgid ""
+"Agent Skillsは、依頼との関連性に応じて自動的に読み込まれることがあります。確"
+"実に使いたい場合は、チャットで`/release-notes`を選択して明示的に呼び出しま"
+"す。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/agent-skills-in-vs-code/index.md:118
+msgid "スキルを実行する"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:120
+msgid "変更のあるリポジトリで、Chatに次のように入力します。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:126
+msgid ""
+"回答では、変更されたファイルやコミットを調べたうえで、指定した形式の下書きが"
+"返されます。内容を確認するときは、次の点を見ます。"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:128
+msgid "実際の差分に存在しない機能が追加されていないか"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:129
+msgid "Added、Changed、Fixed、Removedの分類が適切か"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:130
+msgid "破壊的変更や互換性について根拠のない記述がないか"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:131
+msgid "秘密情報や個人情報が出力に含まれていないか"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:132
+msgid "確認が必要な項目が明示されているか"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:134
+msgid ""
+"`/release-notes`を使わず、次のような依頼だけを送って自動選択されるか試すこと"
+"もできます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:140
+msgid ""
+"自動選択されなかった場合は、`description`をより具体的に書き直すか、スラッシュ"
+"コマンドで明示的に呼び出します。スキルの本文を更新したときは、チャットを新し"
+"く開始して再度確認します。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/agent-skills-in-vs-code/index.md:142
+msgid "追加ファイルを使う"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:144
+msgid ""
+"作業手順が長くなる場合は、`SKILL.md`にすべてを書き込まず、スキルのディレクト"
+"リに資料を分けます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:155
+msgid "追加ファイルは、`SKILL.md`から相対リンクで参照します。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:161
+msgid ""
+"参照先を本文に書いておくと、エージェントが必要になったときに資料を読み込めま"
+"す。スクリプトを含める場合は、内容をレビューし、入力値の検証、ネットワーク通"
+"信、ファイル削除などの動作を確認してから使ってください。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/agent-skills-in-vs-code/index.md:163
+msgid "Agent Skillsを設計するときの注意点"
+msgstr ""
+
+#. heading (level 3)
+#: content/ja/blog/agent-skills-in-vs-code/index.md:165
+msgid "目的を一つに絞る"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:167
+msgid ""
+"一つのスキルに、テスト、デプロイ、リリースノート作成をすべて詰め込むと、適用"
+"条件と手順が曖昧になります。作業の目的が異なる場合は、スキルを分けて必要なも"
+"のだけを組み合わせます。"
+msgstr ""
+
+#. heading (level 3)
+#: content/ja/blog/agent-skills-in-vs-code/index.md:169
+msgid "手順と完了条件を書く"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:171
+msgid ""
+"「適切に確認する」のような表現だけでは判断できません。実行するコマンド、見る"
+"べきファイル、出力の形式、失敗時の対応を具体的に記述します。"
+msgstr ""
+
+#. heading (level 3)
+#: content/ja/blog/agent-skills-in-vs-code/index.md:173
+msgid "権限を広げすぎない"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:175
+msgid ""
+"Agent Skillsは手順を伝える仕組みですが、エージェントがコマンドを実行したり、"
+"ファイルを変更したりする場合があります。削除、外部サービスへの送信、デプロイ"
+"などを含む場合は、対象と確認ポイントを明記し、実行前に差分やコマンドを確認し"
+"ます。"
+msgstr ""
+
+#. heading (level 3)
+#: content/ja/blog/agent-skills-in-vs-code/index.md:177
+msgid "秘密情報を含めない"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:179
+msgid ""
+"APIキー、パスワード、アクセストークン、顧客情報を`SKILL.md`やサンプルに書かな"
+"いでください。リポジトリにコミットするファイルなので、公開範囲とアクセス権も"
+"確認します。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/agent-skills-in-vs-code/index.md:181
+msgid "まとめ"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:183
+msgid ""
+"Agent Skillsを使うと、特定の作業に必要な手順、判断基準、出力形式をプロジェク"
+"トに保存し、必要なときにGitHub Copilotへ読み込ませられます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:185
+msgid ""
+"基本の作成手順は、`.github/skills/<skill-name>/SKILL.md`を作り、`name`と"
+"`description`を設定し、本文に具体的な手順を書くことです。まずは今回の"
+"`release-notes`のように、目的と完了条件が明確な小さなスキルから始め、実際の依"
+"頼で結果を確認しながら改善してください。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/agent-skills-in-vs-code/index.md:187
+msgid ""
+"詳しい仕様は、[VS CodeのAgent Skills](https://code.visualstudio.com/docs/"
+"copilot/customization/agent-skills)と[Agent Skills仕様](https://agentskills."
+"io/)を参照してください。"
+msgstr ""

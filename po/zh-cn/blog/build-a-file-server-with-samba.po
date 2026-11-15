@@ -1,0 +1,366 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:56+0000\n"
+"PO-Revision-Date: 2026-11-15 23:56+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/build-a-file-server-with-samba/index.md:2
+msgid "Sambaでファイルサーバーを構築する"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:11
+msgid ""
+"今回は、Sambaを使用して、Windowsからアクセスできるファイルサーバーを構築しま"
+"す。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/build-a-file-server-with-samba/index.md:13
+msgid "はじめに"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:15
+msgid "サーバーのハードウェアには、GMKtecのNucBox M5 Plusを選択しました。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:17
+msgid "{{< ads/nucbox-m5-plus >}}"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:19
+msgid ""
+"ミニPCにはDebianをインストールしているため、そこにSambaをインストールしてファ"
+"イルサーバーを構築していきます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:21
+msgid ""
+"新たにDebianをインストールする場合は、「[Debianをインストールする](/blog/"
+"install-debian)」の記事も参考にしてください。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/build-a-file-server-with-samba/index.md:23
+msgid "Sambaのインストール"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:25
+msgid "aptでSambaをインストールします。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:31
+msgid ""
+"Sambaのインストールはこれで完了です。依存パッケージは自動でインストールされま"
+"す。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/build-a-file-server-with-samba/index.md:33
+msgid "パーティションの作成"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:35
+msgid ""
+"共有フォルダを作成したいディスクにパーティションを作成します。まずは`lsblk`で"
+"ディスクの一覧を確認します。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:48
+msgid ""
+"`sdb`が今回共有フォルダを作成したいディスクです。`fdisk`コマンドを使用して"
+"`sdb`にパーティションを作成します。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:79
+msgid ""
+"実際にパーティションが作成されたか、もう一度`lsblk`でディスク一覧を表示して確"
+"認します。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:93
+msgid ""
+"パーティション`sdb1`が追加されていることを確認できました。次はこのパーティ"
+"ションにファイルシステムを作成します。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/build-a-file-server-with-samba/index.md:95
+msgid "ファイルシステムの作成"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:97
+msgid ""
+"`mkfs`コマンドを使用して、先ほど作成した`sdb1`パーティションにExt4でファイル"
+"システムを作成します。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:116
+msgid "ファイルシステムの作成が完了しました。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/build-a-file-server-with-samba/index.md:118
+msgid "ファイルシステムのマウント"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:120
+msgid ""
+"先ほど作成したファイルシステムをマウントします。まずは`ls -l /dev/disk/by-"
+"uuid/`と打ってディスクパーティションのUUIDを確認します。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:130
+msgid ""
+"これは、各ディスクパーティションをUUIDで示したシンボリックリンクを一覧表示す"
+"るコマンドです。マウントさせたいパーティションのUUIDが`2cc13138-06d1-4c28-"
+"ae9f-fc126067921a`であることが確認できました。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:132
+msgid ""
+"今確認したパーティションをマウントさせるディレクトリを作成しましょう。今回は"
+"`/srv/share`というディレクトリを作成します。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:138
+msgid ""
+"ディレクトリが作成されました。今作成したディレクトリに先ほど作成したファイル"
+"システムが自動でマウントされるように設定していきます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:140
+msgid ""
+"自動マウントの設定は`/etc/fstab`ファイルで設定できます。テキストエディタで"
+"ファイルを開いて設定を変更しましょう。以下は自動マウントの例です。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:147
+msgid "設定はスペースで6つのフィールドに区切られています。"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:149
+msgid ""
+"file system  \n"
+"マウントするファイルシステム。"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:151
+msgid ""
+"mount point  \n"
+"ファイルシステムがマウントされるディレクトリ。"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:153
+msgid ""
+"type  \n"
+"マウントするファイルシステムの種別。ext4やbtrfsなど。"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:155
+msgid ""
+"options  \n"
+"ファイルシステムのマウントオプション。ファイルシステム固有の設定もあります。"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:157
+msgid ""
+"dump  \n"
+"`dump`コマンドによるバックアップ対象にするかどうかを指定します。1ならバック"
+"アップ対象に、0ならdumpの対象外になります。"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:159
+msgid ""
+"pass  \n"
+"起動時に`fsck`がチェックする順番を指定します。1はチェックの優先度が一番高いで"
+"す。ルートファイルシステムは1である必要があります。その他のファイルシステムで"
+"は2を指定しましょう。0を指定するとチェックされません。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:162
+msgid "設定を変更したら以下のコマンドでマウントさせます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:169
+msgid ""
+"これにより、`/etc/fstab`の内容に沿ってマウントが実行されます。マウントできた"
+"か`df`コマンドで確認してみましょう。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:183
+msgid ""
+"マウントされていることを確認できました。これで自動マウントの設定は完了です。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/build-a-file-server-with-samba/index.md:185
+msgid "共有フォルダにアクセスするグループの作成"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:187
+msgid ""
+"今回は、特定のグループに所属するユーザーのみ共有フォルダにアクセスできるよう"
+"にファイルサーバーを構築します。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:189
+msgid ""
+"`share`という名前のグループを作成し、共有フォルダへのアクセスを許可したいユー"
+"ザーをこのグループに追加します。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:195
+msgid ""
+"グループ追加後は、先ほど作成した共有フォルダの所有グループと、パーミッション"
+"を変更します。これにより、特定のグループに所属するユーザーだけを共有フォルダ"
+"へアクセスさせることができます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:202
+msgid "所有グループとパーミッションの変更が完了しました。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/build-a-file-server-with-samba/index.md:204
+msgid "Sambaの設定ファイルを編集"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:206
+msgid "Sambaの設定ファイル`/etc/samba/smb.conf`を以下のように編集します。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:224
+msgid ""
+"保存して`sudo systemctl restart smbd`とコマンドを打ってリスタートさせましょ"
+"う。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/build-a-file-server-with-samba/index.md:226
+msgid "共有フォルダにアクセスするユーザーの追加"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:228
+msgid ""
+"ファイルサーバーへ接続させるユーザーを作成します。ユーザー作成後は先ほど作成"
+"した`share`グループに所属させます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:235
+msgid ""
+"`user`という名前のユーザーを作成しました。ユーザー作成後は`pdbedit`コマンドを"
+"使用してユーザーをデータベースに追加しましょう。ファイルサーバーへログインす"
+"るためのパスワードの入力が求められます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:266
+msgid "ユーザーの追加が完了しました。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:268
+msgid ""
+"これで必要な設定は以上です。最後にクライアントPCから共有フォルダにアクセスし"
+"てみましょう。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/build-a-file-server-with-samba/index.md:270
+msgid "共有フォルダにアクセス"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:272
+msgid ""
+"Windowsのエクスプローラーから、Sambaで作成した共有フォルダにアクセスしてみま"
+"しょう。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:274
+msgid "![Windowsのエクスプローラー](images/connect-file-server-1.webp)"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:276
+msgid "ウィンドウ上部にある入力欄に共有フォルダへのパスを入力します。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:282
+msgid "入力すると、ネットワーク資格情報の入力が求められます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:284
+msgid "![Windowsのエクスプローラー](images/connect-file-server-2.webp)"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:286
+msgid "Sambaで作成したユーザーの名前とパスワードを入力し、OKを押しましょう。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:288
+msgid ""
+"クライアントPCでログインしているユーザーと、Sambaで作成したユーザーの名前、パ"
+"スワードが一致している場合、資格情報の入力はスキップされます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:290
+msgid "![Windowsのエクスプローラー](images/connect-file-server-3.webp)"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/build-a-file-server-with-samba/index.md:292
+msgid ""
+"共有フォルダにアクセスできました。以上で、Sambaでのファイルサーバーの構築は完"
+"了です。"
+msgstr ""

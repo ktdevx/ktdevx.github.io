@@ -1,0 +1,115 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:56+0000\n"
+"PO-Revision-Date: 2026-11-15 23:56+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/terms-of-use/index.md:2
+msgid "利用規約"
+msgstr ""
+
+#. paragraph
+#: content/ja/terms-of-use/index.md:7
+msgid ""
+"ktdevx.comおよびそのサブドメインで公開されているサイト（以下「当サイト」とい"
+"います。）をご利用いただく方は、以下の利用規約に同意いただいたものとみなしま"
+"す。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/terms-of-use/index.md:9
+msgid "個人情報の取り扱いについて"
+msgstr ""
+
+#. paragraph
+#: content/ja/terms-of-use/index.md:11
+msgid ""
+"当サイトが収集した個人情報については、[プライバシーポリシー](/privacy-policy)"
+"に従って取り扱われます。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/terms-of-use/index.md:13
+msgid "著作権・肖像権について"
+msgstr ""
+
+#. paragraph
+#: content/ja/terms-of-use/index.md:15
+msgid ""
+"当サイトで掲載している文章や画像などについては、法的に認められている引用の範"
+"囲を超えて、無断で転載することを禁止します。引用する際は、引用元の明示をお守"
+"りください。"
+msgstr ""
+
+#. paragraph
+#: content/ja/terms-of-use/index.md:17
+msgid ""
+"当サイトは著作権や肖像権の侵害を目的としたものではありません。当サイトに掲載"
+"している文章や画像の著作権・肖像権等は当サイト運営者または各権利所有者に帰属"
+"致します。"
+msgstr ""
+
+#. paragraph
+#: content/ja/terms-of-use/index.md:19
+msgid ""
+"著作権や肖像権に関して問題がございましたら、[こちら](/contact)からご連絡くだ"
+"さい。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/terms-of-use/index.md:21
+msgid "免責事項"
+msgstr ""
+
+#. paragraph
+#: content/ja/terms-of-use/index.md:23
+msgid ""
+"当サイトのコンテンツ・情報について、可能な限り正確な情報を掲載するよう努めて"
+"おりますが、正確性や安全性を保証するものではありません。当サイトに掲載された"
+"内容によって生じた損害等の一切の責任を負いかねますのでご了承ください。"
+msgstr ""
+
+#. paragraph
+#: content/ja/terms-of-use/index.md:25
+msgid ""
+"当サイトからリンクやバナーなどによって他のサイトに移動した場合、移動先サイト"
+"で提供される情報、サービス等について一切の責任を負いません。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/terms-of-use/index.md:27
+msgid "リンクについて"
+msgstr ""
+
+#. paragraph
+#: content/ja/terms-of-use/index.md:29
+msgid ""
+"当サイトは基本的にリンクフリーです。リンクを行う場合の当サイトへの許可や連絡"
+"は不要です。記事の引用などを行う際は、引用元の明示と該当ページへのリンクをお"
+"願いします。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/terms-of-use/index.md:31
+msgid "利用規約の変更について"
+msgstr ""
+
+#. paragraph
+#: content/ja/terms-of-use/index.md:33
+msgid ""
+"当サイトは、利用規約を予告なく変更することがあります。利用規約の最新情報を入"
+"手するため、定期的に本ページを閲覧することを推奨します。"
+msgstr ""
+
+#. paragraph
+#: content/ja/terms-of-use/index.md:35
+msgid "利用規約の変更は、当サイトに掲載された時点で有効になるものとします。"
+msgstr ""

@@ -1,0 +1,53 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:56+0000\n"
+"PO-Revision-Date: 2026-11-15 23:56+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/about/index.md:2
+msgid "私について"
+msgstr ""
+
+#. paragraph
+#: content/ja/about/index.md:7
+msgid "こんにちは、竹村海斗です。"
+msgstr ""
+
+#. paragraph
+#: content/ja/about/index.md:9
+msgid ""
+"本業はシステムエンジニアで、主に組み込みシステムの分野で開発に携わっていま"
+"す。業界の技術は時代とともに進化し続けているため、日々の業務に活かせるよう、"
+"常に学習を心がけています。"
+msgstr ""
+
+#. paragraph
+#: content/ja/about/index.md:11
+msgid ""
+"システムエンジニアとして学んできたことが、皆様のお役に立てればと思い、このサ"
+"イトを立ち上げました。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/about/index.md:13
+msgid "保有資格"
+msgstr ""
+
+#. paragraph
+#: content/ja/about/index.md:15
+msgid ""
+"|取得日    |資格名                      |\n"
+"|----------|----------------------------|\n"
+"|2016年11月|IPA 基本情報技術者試験（FE）|\n"
+"|2017年6月 |IPA 応用情報技術者試験（AP）|\n"
+"|2020年11月|JDLA G検定                  |\n"
+"|2023年9月 |JDLA E資格                  |"
+msgstr ""

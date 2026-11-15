@@ -1,0 +1,302 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:56+0000\n"
+"PO-Revision-Date: 2026-11-15 23:56+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/using-vcpkg-in-windows/index.md:2
+msgid "vcpkgを使用してWindowsでC/C++ライブラリを簡単にインストールする"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/using-vcpkg-in-windows/index.md:13
+msgid ""
+"vcpkgとは、Microsoftが提供するC/C++ライブラリ向けのパッケージ管理システムで"
+"す。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/using-vcpkg-in-windows/index.md:15
+msgid ""
+"ここでは、vcpkgを使用してC/C++ライブラリを導入する方法について解説します。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/using-vcpkg-in-windows/index.md:17
+msgid "vcpkgを導入するメリット"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/using-vcpkg-in-windows/index.md:19
+msgid ""
+"通常、WindowsでOSSのライブラリを利用する場合、ビルドや依存関係の解決は自分で"
+"行わなければなりません。ライブラリの構成が複雑だと、導入するだけでもかなりの"
+"時間を要してしまいます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/using-vcpkg-in-windows/index.md:21
+msgid ""
+"vcpkgを利用すると、これらの厄介な作業はツールが自動で行ってくれるため、ライブ"
+"ラリを簡単にインストールすることができます。開発者はプログラミングに集中でき"
+"るため、開発効率の向上に繋がります。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/using-vcpkg-in-windows/index.md:23
+msgid "vcpkgのインストール"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/using-vcpkg-in-windows/index.md:25
+msgid ""
+"vcpkgをインストールするには、ソースコード一式をダウンロードして実行ファイルを"
+"生成する必要があります。難しそうに感じますが、インストールは2ステップで完了す"
+"るためとても簡単です。"
+msgstr ""
+
+#. heading (level 3)
+#: content/ja/blog/using-vcpkg-in-windows/index.md:27
+msgid "ソースコード一式をダウンロード"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/using-vcpkg-in-windows/index.md:29
+msgid ""
+"vcpkgのソースコードはGitHubで公開されています。Gitを使用し、GitHubからvcpkgの"
+"リポジトリをクローンします。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/using-vcpkg-in-windows/index.md:35
+msgid ""
+"ローカルリポジトリはクローンを実行したディレクトリに作成されます。事前にvcpkg"
+"をインストールしたいディレクトリへ移動しましょう。Cドライブ直下などの短いパス"
+"でクローンすることを推奨します。"
+msgstr ""
+
+#. heading (level 3)
+#: content/ja/blog/using-vcpkg-in-windows/index.md:37
+msgid "実行ファイルを生成"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/using-vcpkg-in-windows/index.md:39
+msgid ""
+"ローカルリポジトリの中に、`bootstrap-vcpkg.bat`という名前のバッチファイルが格"
+"納されています。実行ファイルの生成はバッチファイルが自動で行なってくれます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/using-vcpkg-in-windows/index.md:46
+msgid ""
+"`vcpkg.exe`という名前の実行ファイルがローカルリポジトリ内に生成されていれば、"
+"vcpkgのインストールは完了です。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/using-vcpkg-in-windows/index.md:48
+msgid ""
+"実行ファイルへのパスを環境変数に設定しておくと、任意のディレクトリから呼び出"
+"せるため便利です。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/using-vcpkg-in-windows/index.md:50
+msgid "vcpkgの基本操作"
+msgstr ""
+
+#. heading (level 3)
+#: content/ja/blog/using-vcpkg-in-windows/index.md:52
+msgid "利用可能なライブラリを検索"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/using-vcpkg-in-windows/index.md:54
+msgid "`vcpkg search`コマンドで利用可能なライブラリを検索します。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/using-vcpkg-in-windows/index.md:60
+msgid ""
+"パッケージ名を指定することで一致するライブラリのみを表示することができます。"
+"指定しない場合は利用可能なライブラリが全て表示されます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/using-vcpkg-in-windows/index.md:62
+msgid ""
+"利用可能なライブラリは、[パッケージ一覧](https://vcpkg.io/en/packages.html)か"
+"ら検索することも可能です。"
+msgstr ""
+
+#. heading (level 3)
+#: content/ja/blog/using-vcpkg-in-windows/index.md:64
+msgid "ライブラリのインストール"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/using-vcpkg-in-windows/index.md:66
+msgid "`vcpkg install`コマンドでライブラリをインストールします。"
+msgstr ""
+
+#. heading (level 3)
+#: content/ja/blog/using-vcpkg-in-windows/index.md:72
+msgid "インストールしたライブラリを表示"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/using-vcpkg-in-windows/index.md:74
+msgid "インストールしたライブラリは、`vcpkg list`コマンドで表示できます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/using-vcpkg-in-windows/index.md:80
+msgid ""
+"パッケージ名を指定することで一致するライブラリのみを表示することができます。"
+"指定しない場合はインストールしたライブラリが全て表示されます。"
+msgstr ""
+
+#. heading (level 3)
+#: content/ja/blog/using-vcpkg-in-windows/index.md:82
+msgid "ライブラリのアンインストール"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/using-vcpkg-in-windows/index.md:84
+msgid "`vcpkg remove`コマンドでライブラリのアンインストールが行えます。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/using-vcpkg-in-windows/index.md:90
+msgid "ターゲット環境の指定"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/using-vcpkg-in-windows/index.md:92
+msgid "vcpkgはクロスコンパイルの仕組みを提供しています。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/using-vcpkg-in-windows/index.md:94
+msgid ""
+"tripletオプションを利用することで、任意の環境で動作するライブラリのインストー"
+"ルや、アンインストールが行えます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/using-vcpkg-in-windows/index.md:96
+msgid ""
+"tripletとはターゲット環境を表す文字列です。CPUやOS、ライブラリのリンク方法な"
+"どを指定することができます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/using-vcpkg-in-windows/index.md:103
+msgid "対応しているターゲット環境は、`vcpkg help triplet`で確認できます。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/using-vcpkg-in-windows/index.md:105
+msgid "インストールしたライブラリの利用"
+msgstr ""
+
+#. heading (level 3)
+#: content/ja/blog/using-vcpkg-in-windows/index.md:107
+msgid "Visual Studioから利用"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/using-vcpkg-in-windows/index.md:109
+msgid ""
+"`vcpkg integrate`コマンドで、vcpkgでインストールしたライブラリをVisual Studio"
+"から利用できます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/using-vcpkg-in-windows/index.md:115
+msgid ""
+"これによって、インクルードディレクトリやライブラリディレクトリ、ライブラリが"
+"自動でVisual Studioに追加されます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/using-vcpkg-in-windows/index.md:117
+msgid ""
+"Visual Studioでプロジェクトを開き、プロパティからtripletの設定をすることで"
+"ターゲット環境を変更できます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/using-vcpkg-in-windows/index.md:119
+msgid "![Visual Studioプロパティページ](images/visual-studio-settings.webp)"
+msgstr ""
+
+#. heading (level 3)
+#: content/ja/blog/using-vcpkg-in-windows/index.md:121
+msgid "CMakeから利用"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/using-vcpkg-in-windows/index.md:123
+msgid ""
+"CMakeで`CMAKE_TOOLCHAIN_FILE`変数に`vcpkg.cmake`へのパスを設定することで、"
+"vcpkgでインストールしたライブラリをCMakeから利用できます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/using-vcpkg-in-windows/index.md:129
+msgid "これによって、CMakeからライブラリを検索できるようになります。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/using-vcpkg-in-windows/index.md:131
+msgid ""
+"ターゲット環境は`VCPKG_TARGET_TRIPLET`変数を設定することで変更できます。"
+msgstr ""
+
+#. heading (level 3)
+#: content/ja/blog/using-vcpkg-in-windows/index.md:137
+msgid "その他の開発環境から利用"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/using-vcpkg-in-windows/index.md:139
+msgid ""
+"インストールしたライブラリは`vcpkg/installed/<ターゲット環境>`ディレクトリに"
+"格納されています。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/using-vcpkg-in-windows/index.md:141
+msgid ""
+"利用する側でパスを適切に指定することでvcpkgでインストールしたライブラリを利用"
+"できます。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/using-vcpkg-in-windows/index.md:143
+msgid "外部リンク"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/using-vcpkg-in-windows/index.md:145
+msgid ""
+"[vcpkg - Open source C/C++ dependency manager from Microsoft](https://vcpkg."
+"io/en/)"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/using-vcpkg-in-windows/index.md:146
+msgid ""
+"[GitHub - microsoft/vcpkg: C++ Library Manager for Windows, Linux, and MacOS]"
+"(https://github.com/microsoft/vcpkg)"
+msgstr ""

@@ -1,0 +1,111 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:56+0000\n"
+"PO-Revision-Date: 2026-11-15 23:56+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:2
+msgid "【Ubuntu】公開鍵認証でSSH接続する方法"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:12
+msgid ""
+"UbuntuにSSH接続する際、パスワード認証ではなく公開鍵認証を利用すると、セキュリ"
+"ティを向上させることができます。本記事では、SSH公開鍵認証の設定方法を詳しく解"
+"説します。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:14
+msgid "公開鍵と秘密鍵の生成"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:16
+msgid ""
+"まずはクライアント側でSSH鍵を生成します。今回は鍵アルゴリズムED25519で作成し"
+"ました。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:22
+msgid ""
+"SSH鍵の生成方法は以下のページで詳しく解説しています。参考にしてください。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:24
+msgid "[SSH鍵の生成方法](/blog/generate-ssh-key)"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:26
+msgid ""
+"上記コマンドを実行すると、秘密鍵と公開鍵が`~/.ssh/`ディレクトリに生成されま"
+"す。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:28
+msgid "公開鍵をサーバーにコピー"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:30
+msgid "生成した公開鍵をSSHサーバーにコピーします。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:36
+msgid ""
+"または、手動で公開鍵の内容をサーバーの`~/.ssh/authorized_keys`に追加すること"
+"もできます。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:38
+msgid "SSH設定の変更"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:40
+msgid ""
+"セキュリティ向上のため、パスワードでのSSH接続を禁止し、公開鍵認証のみで接続で"
+"きるようにします。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:42
+msgid ""
+"SSHの設定を変更するには、サーバーの`/etc/ssh/sshd_config`をテキストエディタで"
+"編集します。以下の設定を確認・変更してください。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:49
+msgid "設定を反映させるため、SSHを再起動します。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:55
+msgid "SSH接続の確認"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:57
+msgid "クライアントからSSH接続を試します。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:63
+msgid "ログインできれば、公開鍵認証の設定は完了です。"
+msgstr ""

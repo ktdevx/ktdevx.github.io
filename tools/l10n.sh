@@ -13,7 +13,7 @@
 # 訳文が文書の構造を変えるおそれがあるという monde の警告が出たときは失敗する。
 set -euo pipefail
 
-L10N_LANGS=(en)
+L10N_LANGS=(en zh-cn)
 SOURCE_LANG=ja
 FRONT_MATTER_KEYS=title
 MONDE=${MONDE:-monde}

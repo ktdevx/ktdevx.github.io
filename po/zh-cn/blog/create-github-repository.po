@@ -1,0 +1,180 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:56+0000\n"
+"PO-Revision-Date: 2026-11-15 23:56+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/create-github-repository/index.md:2
+msgid "GitHubでリポジトリを作成する"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/create-github-repository/index.md:11
+msgid ""
+"GitHubでリポジトリを作成する手順は非常にシンプルです。以下に、具体的な手順を"
+"説明します。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/create-github-repository/index.md:13
+msgid "リポジトリ作成ページを開く"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/create-github-repository/index.md:15
+msgid "[GitHub](https://github.com/)にアクセスし、アカウントにログインします。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/create-github-repository/index.md:17
+msgid "![GitHubのメニュー](images/github-new-repository.webp)"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/create-github-repository/index.md:19
+msgid ""
+"トップページの右上にある「+」アイコンをクリックし、ドロップダウンメニューから"
+"「New repository」を選択します。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/create-github-repository/index.md:21
+msgid "リポジトリの基本情報を入力"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/create-github-repository/index.md:23
+msgid "リポジトリの所有者、名前、説明を入力します。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/create-github-repository/index.md:25
+msgid "![リポジトリの基本設定](images/github-repository-basic-settings.webp)"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/create-github-repository/index.md:27
+msgid ""
+"Owner  \n"
+"リポジトリを所有するアカウントや組織を選びます。  \n"
+"自分の個人アカウントか、組織アカウントのどちらかを選択します。"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/create-github-repository/index.md:30
+msgid ""
+"Repository name  \n"
+"リポジトリの名前を入力します。"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/create-github-repository/index.md:32
+msgid ""
+"Description  \n"
+"リポジトリの説明を入力します。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/create-github-repository/index.md:35
+msgid "可視性の設定"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/create-github-repository/index.md:37
+msgid "リポジトリの可視性を設定します。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/create-github-repository/index.md:39
+msgid ""
+"![リポジトリの可視性設定](images/github-repository-visibility-setting.webp)"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/create-github-repository/index.md:41
+msgid ""
+"Public  \n"
+"リポジトリを公開して、誰でも閲覧できるようにします。"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/create-github-repository/index.md:43
+msgid ""
+"Private  \n"
+"リポジトリを非公開にして、自分や招待されたメンバーのみがアクセスできるように"
+"します。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/create-github-repository/index.md:46
+msgid "README / .gitignore / LICENSEの追加"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/create-github-repository/index.md:48
+msgid ""
+"リポジトリにREADME、.gitignore、LICENSEなどの基本となるファイルの追加を行いま"
+"す。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/create-github-repository/index.md:50
+msgid ""
+"![リポジトリの初期ファイル設定](images/github-repository-initial-file-"
+"settings.webp)"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/create-github-repository/index.md:52
+msgid ""
+"Add a README file  \n"
+"このチェックボックスをオンにすると、リポジトリにREADME.mdファイルが自動で作成"
+"されます。  \n"
+"README.mdファイルは、リポジトリの概要や使用方法を記述する場所です。"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/create-github-repository/index.md:55
+msgid ""
+"Add .gitignore  \n"
+"プログラミング言語やフレームワークを選択し、不要なファイルやフォルダをGitに追"
+"跡させないための.gitignoreファイルを追加できます。  \n"
+"これにより、特定のファイルやディレクトリがリポジトリにコミットされないように"
+"設定できます。"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/create-github-repository/index.md:58
+msgid ""
+"Choose a license  \n"
+"どのライセンスで公開するかを選択できます。  \n"
+"リポジトリのライセンスは、他の人がどのようにコードを使用できるかを決めます。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/create-github-repository/index.md:62
+msgid "リポジトリを作成する"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/create-github-repository/index.md:64
+msgid ""
+"すべての設定が完了したら、ページ下部にある「Create repository」ボタンをクリッ"
+"クします。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/create-github-repository/index.md:66
+msgid ""
+"これによりリポジトリが作成され、リポジトリのメインページが表示されます。ここ"
+"から、ローカルにクローンしたり、ファイルを追加したり、リポジトリの管理が行え"
+"ます。"
+msgstr ""

@@ -1,0 +1,111 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:56+0000\n"
+"PO-Revision-Date: 2026-11-15 23:56+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/c-goto-memory-free/index.md:2
+msgid "【C言語】goto文でメモリ解放の管理を容易にする"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/c-goto-memory-free/index.md:11
+msgid ""
+"開発中、関数内で複数の動的メモリを確保する必要がある状況に直面することがあり"
+"ます。メモリ確保に失敗した場合、それまでに確保したメモリを解放する必要があ"
+"り、エラー処理が複雑化しがちです。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/c-goto-memory-free/index.md:13
+msgid ""
+"ここでは、`goto`文を利用してエラー処理をシンプルにし、メモリ解放の管理を容易"
+"にする方法を解説します。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/c-goto-memory-free/index.md:15
+msgid "goto文とは"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/c-goto-memory-free/index.md:17
+msgid ""
+"`goto`文は、関数内で指定されたラベルにジャンプするための構文です。以下のよう"
+"な形式で使います。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/c-goto-memory-free/index.md:23
+msgid ""
+"ラベル名は関数内の任意の位置に定義でき、`goto`文はそのラベルの位置までジャン"
+"プします。コードの流れを複雑にし、可読性や保守性を低下させる可能性があるた"
+"め、使用は避けられがちです。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/c-goto-memory-free/index.md:25
+msgid ""
+"しかし、正しく使用することで、プログラムのシンプルさ、可読性、保守性を向上さ"
+"せることができます。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/c-goto-memory-free/index.md:27
+msgid "メモリ解放を伴う複雑なエラー処理"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/c-goto-memory-free/index.md:29
+msgid "以下は、複数の動的メモリを管理するコードの一例です。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/c-goto-memory-free/index.md:67
+msgid ""
+"このコードは正しく動作しますが、各メモリの確保と解放が個別に行われており、エ"
+"ラーが発生するたびに解放コードを記述する必要があります。これにより、コードが"
+"冗長になり、メモリリークのリスクも増大します。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/c-goto-memory-free/index.md:69
+msgid "goto文でメモリ解放をシンプルにする"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/c-goto-memory-free/index.md:71
+msgid ""
+"`goto`文を利用すると、エラー発生時の処理を一箇所に集約でき、メモリ解放をシン"
+"プルに管理できます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/c-goto-memory-free/index.md:110
+msgid ""
+"この例では、`goto cleanup`を使ってエラーが発生した場合でも、最後にすべてのメ"
+"モリを解放できるようになっています。`free`関数は`NULL`を引数にしても問題ない"
+"ため、この方法でメモリ管理を安全かつ効率的に行えます。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/c-goto-memory-free/index.md:112
+msgid "まとめ"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/c-goto-memory-free/index.md:114
+msgid ""
+"`goto`文は誤用すると可読性や保守性を損なう可能性がありますが、適切に使うこと"
+"でコードをシンプルに保つことができます。今回はメモリ管理の例を通じてその利点"
+"を説明しましたが、他の状況でも有効な場合があります。**適切な場面で活用するこ"
+"とが重要です。**"
+msgstr ""

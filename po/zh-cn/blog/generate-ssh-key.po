@@ -1,0 +1,113 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:56+0000\n"
+"PO-Revision-Date: 2026-11-15 23:56+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/generate-ssh-key/index.md:2
+msgid "SSH鍵の生成方法"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/generate-ssh-key/index.md:11
+msgid ""
+"SSHは、ネットワーク経由で安全にリモートコンピューターにログインしたり、ファイ"
+"ルの転送やコマンドの実行を行うためのプロトコルです。通信内容を暗号化して送信"
+"するため、通信内容が盗聴されることを防ぎ、安全性を確保することができます。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/generate-ssh-key/index.md:13
+msgid "ここでは、SSHで使用する鍵を生成する手順について解説します。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/generate-ssh-key/index.md:15
+msgid "暗号アルゴリズムと鍵長の設定"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/generate-ssh-key/index.md:17
+msgid ""
+"鍵は`ssh-keygen`コマンドを用いて生成することができます。以下の例では、RSAとい"
+"う暗号アルゴリズムで、鍵長が4096の鍵を生成しています。"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/generate-ssh-key/index.md:23
+msgid ""
+"暗号アルゴリズムは`-t`オプションで指定できます。指定できる暗号アルゴリズムは"
+"以下の通りです。"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/generate-ssh-key/index.md:25
+msgid "RSA"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/generate-ssh-key/index.md:26
+msgid "DSA"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/generate-ssh-key/index.md:27
+msgid "ECDSA"
+msgstr ""
+
+#. list item > paragraph
+#: content/ja/blog/generate-ssh-key/index.md:28
+msgid "Ed25519"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/generate-ssh-key/index.md:30
+msgid "鍵長は`-b`オプションで指定できます。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/generate-ssh-key/index.md:32
+msgid "保存場所とファイル名の設定"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/generate-ssh-key/index.md:38
+msgid ""
+"鍵の保存場所とファイル名の入力が求められます。特に指定がなければデフォルトの"
+"ままEnterキーを押します。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/generate-ssh-key/index.md:40
+msgid "パスフレーズの設定"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/generate-ssh-key/index.md:47
+msgid ""
+"パスフレーズを設定するように求められます。パスフレーズを設定することで秘密鍵"
+"を保護することができます。パスフレーズが不要の場合はそのままEnterキーを押しま"
+"す。"
+msgstr ""
+
+#. heading (level 2)
+#: content/ja/blog/generate-ssh-key/index.md:49
+msgid "鍵の生成"
+msgstr ""
+
+#. paragraph
+#: content/ja/blog/generate-ssh-key/index.md:60
+msgid ""
+"このように表示されれば鍵の生成は完了です。デフォルト設定の場合、`.ssh`ディレ"
+"クトリに`id_rsa`という名前の秘密鍵と、`id_rsa.pub`という名前の公開鍵が生成さ"
+"れます。公開鍵をリモートホストに登録することで、SSH接続を安全に行うことができ"
+"ます。"
+msgstr ""
