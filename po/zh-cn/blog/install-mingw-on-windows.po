@@ -1,8 +1,9 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-15 23:56+0000\n"
+"POT-Creation-Date: 2026-11-15 23:59+0000\n"
 "PO-Revision-Date: 2026-11-15 23:56+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,7 +15,7 @@ msgstr ""
 #. front matter: title
 #: content/ja/blog/install-mingw-on-windows/index.md:2
 msgid "WindowsにMinGWをインストールする"
-msgstr ""
+msgstr "在 Windows 上安装 MinGW"
 
 #. paragraph
 #: content/ja/blog/install-mingw-on-windows/index.md:13
@@ -22,16 +23,18 @@ msgid ""
 "MinGWは、C/C++開発環境として無料で使用できるツールです。MinGW自体はほぼ開発終"
 "了していますが、後継のMinGW-w64は積極的に開発されています。"
 msgstr ""
+"MinGW 是一款可以免费使用的 C/C++ 开发环境工具。MinGW 本身已基本停止开发，但其"
+"后继者 MinGW-w64 仍在积极开发中。"
 
 #. paragraph
 #: content/ja/blog/install-mingw-on-windows/index.md:15
 msgid "ここでは、MinGW-w64をWindowsにインストールする手順について解説します。"
-msgstr ""
+msgstr "本文将介绍在 Windows 上安装 MinGW-w64 的步骤。"
 
 #. heading (level 2)
 #: content/ja/blog/install-mingw-on-windows/index.md:17
 msgid "MinGWをダウンロード"
-msgstr ""
+msgstr "下载 MinGW"
 
 #. paragraph
 #: content/ja/blog/install-mingw-on-windows/index.md:19
@@ -39,6 +42,7 @@ msgid ""
 "[公式サイトのダウンロードページ](https://www.mingw-w64.org/downloads/)にアク"
 "セスし、MinGWをダウンロードします。"
 msgstr ""
+"访问[官方网站的下载页面](https://www.mingw-w64.org/downloads/)，下载 MinGW。"
 
 #. paragraph
 #: content/ja/blog/install-mingw-on-windows/index.md:21
@@ -46,6 +50,8 @@ msgid ""
 "ここからMinGW-W64-buildsをたどると、配布場所であるGitHubへのリンクがあるの"
 "で、リンク先に飛びます。"
 msgstr ""
+"从这里找到 MinGW-W64-builds，会有一个指向发布地址 GitHub 的链接，点击跳转过"
+"去。"
 
 #. paragraph
 #: content/ja/blog/install-mingw-on-windows/index.md:23
@@ -53,33 +59,35 @@ msgid ""
 "7z形式で圧縮されて配布されているので好きなものをダウンロードしてください。配"
 "布ファイルについて詳細を記載したので参考にしてください。"
 msgstr ""
+"文件以 7z 格式压缩发布，请下载你喜欢的版本。下面对发布文件做了详细说明，可供"
+"参考。"
 
 #. heading (level 3)
 #: content/ja/blog/install-mingw-on-windows/index.md:25
 msgid "i686 / x86_64"
-msgstr ""
+msgstr "i686 / x86_64"
 
 #. paragraph
 #: content/ja/blog/install-mingw-on-windows/index.md:27
 msgid "アーキテクチャを示しています。i686が32bit用、x86_64が64bit用です。"
-msgstr ""
+msgstr "表示架构。i686 用于 32 位，x86_64 用于 64 位。"
 
 #. heading (level 3)
 #: content/ja/blog/install-mingw-on-windows/index.md:29
 msgid "posix / win32 / mcf"
-msgstr ""
+msgstr "posix / win32 / mcf"
 
 #. paragraph
 #: content/ja/blog/install-mingw-on-windows/index.md:31
 msgid "スレッドの実装方法を示しています。"
-msgstr ""
+msgstr "表示线程的实现方式。"
 
 #. paragraph
 #: content/ja/blog/install-mingw-on-windows/index.md:33
 msgid ""
 "posixはposixスレッドを使用しています。こちらはwin32と比較して速度が遅いようで"
 "す。"
-msgstr ""
+msgstr "posix 使用 POSIX 线程。与 win32 相比，它的速度似乎较慢。"
 
 #. paragraph
 #: content/ja/blog/install-mingw-on-windows/index.md:35
@@ -87,28 +95,29 @@ msgid ""
 "win32はWin32 APIが提供するスレッド機能を使用しています。しかし、win32はC++11"
 "のthreadに対応していないようです。"
 msgstr ""
+"win32 使用 Win32 API 提供的线程功能。但是，win32 似乎不支持 C++11 的 thread。"
 
 #. paragraph
 #: content/ja/blog/install-mingw-on-windows/index.md:37
 msgid ""
 "mcfはposixとwin32のいいとこどりです。高速でC++11のthreadにも対応しています。"
-msgstr ""
+msgstr "mcf 兼具 posix 和 win32 的优点，速度快，并且也支持 C++11 的 thread。"
 
 #. paragraph
 #: content/ja/blog/install-mingw-on-windows/index.md:39
 msgid ""
 "既存プロジェクトをビルドする場合は、そのプロジェクトの指定に従ってください。"
-msgstr ""
+msgstr "如果要构建现有项目，请按照该项目的指定进行选择。"
 
 #. heading (level 3)
 #: content/ja/blog/install-mingw-on-windows/index.md:41
 msgid "msvcrt / ucrt"
-msgstr ""
+msgstr "msvcrt / ucrt"
 
 #. paragraph
 #: content/ja/blog/install-mingw-on-windows/index.md:43
 msgid "ランタイムライブラリを示しています。"
-msgstr ""
+msgstr "表示运行时库。"
 
 #. paragraph
 #: content/ja/blog/install-mingw-on-windows/index.md:45
@@ -116,6 +125,8 @@ msgid ""
 "msvcrtは、古いバージョンのMicrosoft Visual C++のランタイムライブラリです。"
 "Windows XPやそれ以前とも互換性があります。"
 msgstr ""
+"msvcrt 是旧版本 Microsoft Visual C++ 的运行时库，与 Windows XP 及更早的版本兼"
+"容。"
 
 #. paragraph
 #: content/ja/blog/install-mingw-on-windows/index.md:47
@@ -123,6 +134,8 @@ msgid ""
 "ucrtは、ユニバーサルCランタイムで、Windows10以降のバージョンでは標準として使"
 "用されています。"
 msgstr ""
+"ucrt 是通用 C 运行时（Universal C Runtime），在 Windows 10 及以后的版本中作为"
+"标准使用。"
 
 #. paragraph
 #: content/ja/blog/install-mingw-on-windows/index.md:49
@@ -130,11 +143,13 @@ msgid ""
 "これから新しく設計を始める場合はucrtを、古いWindowsシステムとの互換性が必要な"
 "場合はmsvcrtを選択することを推奨します。"
 msgstr ""
+"如果是从头开始新的设计，推荐选择 ucrt；如果需要与旧的 Windows 系统兼容，推荐"
+"选择 msvcrt。"
 
 #. heading (level 2)
 #: content/ja/blog/install-mingw-on-windows/index.md:51
 msgid "MinGWをインストール"
-msgstr ""
+msgstr "安装 MinGW"
 
 #. paragraph
 #: content/ja/blog/install-mingw-on-windows/index.md:53
@@ -142,18 +157,20 @@ msgid ""
 "圧縮ファイルがダウンロードできたら任意の場所に展開してください。全てASCII文"
 "字、かつ空白を含まないパスに配置するのが無難です。"
 msgstr ""
+"压缩文件下载完成后，将其解压到任意位置。稳妥起见，最好放在全部由 ASCII 字符组"
+"成且不含空格的路径中。"
 
 #. paragraph
 #: content/ja/blog/install-mingw-on-windows/index.md:55
 msgid ""
 "展開してできたmingw64/binフォルダにgccやg++などのビルドツールが含まれていま"
 "す。"
-msgstr ""
+msgstr "解压后生成的 mingw64/bin 文件夹中包含 gcc、g++ 等构建工具。"
 
 #. heading (level 2)
 #: content/ja/blog/install-mingw-on-windows/index.md:57
 msgid "binフォルダにパスを通す"
-msgstr ""
+msgstr "将 bin 文件夹添加到 PATH"
 
 #. paragraph
 #: content/ja/blog/install-mingw-on-windows/index.md:59
@@ -161,6 +178,7 @@ msgid ""
 "このままではパスが通っていないので、コマンドプロンプトでgccと打っても反応しま"
 "せん。"
 msgstr ""
+"此时路径还没有添加到 PATH 中，所以即使在命令提示符中输入 gcc 也不会有反应。"
 
 #. paragraph
 #: content/ja/blog/install-mingw-on-windows/index.md:61
@@ -168,38 +186,40 @@ msgid ""
 "そのため、環境変数のPathに先ほどのbinフォルダまでのパスを通してあげます。これ"
 "により、コマンドプロンプトからgccと打つと動作するようになります。"
 msgstr ""
+"因此，需要将刚才的 bin 文件夹的路径添加到环境变量 Path 中。这样，在命令提示符"
+"中输入 gcc 就可以运行了。"
 
 #. paragraph
 #: content/ja/blog/install-mingw-on-windows/index.md:63
 msgid "実行するとパスを通すスクリプトを作成してもよいかもしれません。"
-msgstr ""
+msgstr "也可以考虑编写一个运行后自动添加路径的脚本。"
 
 #. heading (level 2)
 #: content/ja/blog/install-mingw-on-windows/index.md:65
 msgid "C言語のソースコードをコンパイルする"
-msgstr ""
+msgstr "编译 C 语言源代码"
 
 #. paragraph
 #: content/ja/blog/install-mingw-on-windows/index.md:67
 msgid ""
 "動作確認用に、main.cというファイル名で適当なC言語のソースコードを作成してみま"
 "す。"
-msgstr ""
+msgstr "为了确认运行情况，我们创建一个名为 main.c 的简单 C 语言源代码文件。"
 
 #. paragraph
 #: content/ja/blog/install-mingw-on-windows/index.md:69
 msgid "今回は実行すると\"Hello, World!\"と表示されるプログラムを作成しました。"
-msgstr ""
+msgstr "这次创建了一个运行后会显示“Hello, World!”的程序。"
 
 #. paragraph
 #: content/ja/blog/install-mingw-on-windows/index.md:81
 msgid ""
 "コマンドプロンプトで`gcc main.c`を実行すると、a.exeという名前で実行ファイルが"
 "作成されます。"
-msgstr ""
+msgstr "在命令提示符中执行 `gcc main.c`，就会生成名为 a.exe 的可执行文件。"
 
 #. paragraph
 #: content/ja/blog/install-mingw-on-windows/index.md:83
 msgid ""
 "これをコマンドプロンプトから実行し、\"Hello, World!\"と表示されればOKです。"
-msgstr ""
+msgstr "在命令提示符中运行它，如果显示“Hello, World!”就说明一切正常。"

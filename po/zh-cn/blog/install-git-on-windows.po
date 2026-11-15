@@ -1,8 +1,9 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-15 23:56+0000\n"
+"POT-Creation-Date: 2026-11-15 23:57+0000\n"
 "PO-Revision-Date: 2026-11-15 23:56+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,24 +15,24 @@ msgstr ""
 #. front matter: title
 #: content/ja/blog/install-git-on-windows/index.md:2
 msgid "【Windows】Gitのインストール手順"
-msgstr ""
+msgstr "【Windows】Git 安装步骤"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:11
 msgid ""
 "Gitは、バージョン管理システムの一種で、プログラムや文書などの変更履歴を管理す"
 "るためのツールです。"
-msgstr ""
+msgstr "Git 是一种版本控制系统，是用于管理程序、文档等文件变更历史的工具。"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:13
 msgid "ここでは、Windows向けにGitをインストールする手順について解説します。"
-msgstr ""
+msgstr "本文介绍在 Windows 上安装 Git 的步骤。"
 
 #. heading (level 2)
 #: content/ja/blog/install-git-on-windows/index.md:15
 msgid "インストーラーのダウンロードと実行"
-msgstr ""
+msgstr "下载并运行安装程序"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:17
@@ -39,48 +40,50 @@ msgid ""
 "[公式サイト](https://gitforwindows.org/)にアクセスし、ページ中央にある"
 "「Download」をクリックしてインストーラーをダウンロードします。"
 msgstr ""
+"访问[官方网站](https://gitforwindows.org/)，点击页面中央的“Download”下载安装"
+"程序。"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:19
 msgid ""
 "その後、ダウンロードしたインストーラーを実行します。実行には管理者権限が必要"
 "です。"
-msgstr ""
+msgstr "然后运行下载的安装程序。运行时需要管理员权限。"
 
 #. heading (level 2)
 #: content/ja/blog/install-git-on-windows/index.md:21
 msgid "ライセンスの確認"
-msgstr ""
+msgstr "确认许可协议"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:23
 msgid "ライセンスが表示されます。"
-msgstr ""
+msgstr "安装程序会显示许可协议。"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:25
 msgid "![Git for Windows](images/git-for-windows-1.webp)"
-msgstr ""
+msgstr "![Git for Windows](images/git-for-windows-1.webp)"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:27
 msgid "内容を確認したうえで問題がなければ「Next」をクリックし、次へ進みます。"
-msgstr ""
+msgstr "确认内容无误后，点击“Next”进入下一步。"
 
 #. heading (level 2)
 #: content/ja/blog/install-git-on-windows/index.md:29
 msgid "インストール先の選択"
-msgstr ""
+msgstr "选择安装位置"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:31
 msgid "Gitのインストール先フォルダを選択します。"
-msgstr ""
+msgstr "选择 Git 的安装文件夹。"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:33
 msgid "![Git fow Windows](images/git-for-windows-2.webp)"
-msgstr ""
+msgstr "![Git fow Windows](images/git-for-windows-2.webp)"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:35
@@ -94,27 +97,27 @@ msgstr ""
 #: content/ja/blog/install-git-on-windows/index.md:198
 #: content/ja/blog/install-git-on-windows/index.md:211
 msgid "特に指定がなければデフォルトのまま「Next」をクリックし、次へ進みます。"
-msgstr ""
+msgstr "如无特殊要求，保持默认设置并点击“Next”进入下一步。"
 
 #. heading (level 2)
 #: content/ja/blog/install-git-on-windows/index.md:37
 msgid "インストールするコンポーネントの選択"
-msgstr ""
+msgstr "选择要安装的组件"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:39
 msgid "インストールするコンポーネントを選択します。"
-msgstr ""
+msgstr "选择要安装的组件。"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:41
 msgid "![Git for Windows](images/git-for-windows-3.webp)"
-msgstr ""
+msgstr "![Git for Windows](images/git-for-windows-3.webp)"
 
 #. list item > paragraph
 #: content/ja/blog/install-git-on-windows/index.md:43
 msgid "Additional icons"
-msgstr ""
+msgstr "Additional icons"
 
 #. list item > list item > paragraph
 #: content/ja/blog/install-git-on-windows/index.md:44
@@ -122,11 +125,13 @@ msgid ""
 "On the Desktop  \n"
 "Git Bashのショートカットをデスクトップに追加する。"
 msgstr ""
+"On the Desktop  \n"
+"在桌面上添加 Git Bash 的快捷方式。"
 
 #. list item > paragraph
 #: content/ja/blog/install-git-on-windows/index.md:46
 msgid "Windows Explorer integration"
-msgstr ""
+msgstr "Windows Explorer integration"
 
 #. list item > list item > paragraph
 #: content/ja/blog/install-git-on-windows/index.md:47
@@ -134,6 +139,8 @@ msgid ""
 "Git Bash Here  \n"
 "右クリックで表示されるメニューにGit Bashを追加する。"
 msgstr ""
+"Git Bash Here  \n"
+"将 Git Bash 添加到右键菜单中。"
 
 #. list item > list item > paragraph
 #: content/ja/blog/install-git-on-windows/index.md:49
@@ -141,6 +148,8 @@ msgid ""
 "Git GUI Here  \n"
 "右クリックで表示されるメニューにGit GUIを追加する。"
 msgstr ""
+"Git GUI Here  \n"
+"将 Git GUI 添加到右键菜单中。"
 
 #. list item > paragraph
 #: content/ja/blog/install-git-on-windows/index.md:51
@@ -148,6 +157,8 @@ msgid ""
 "Git LFS (Large File Support)  \n"
 "Git LFSをインストールする。"
 msgstr ""
+"Git LFS (Large File Support)  \n"
+"安装 Git LFS。"
 
 #. list item > paragraph
 #: content/ja/blog/install-git-on-windows/index.md:53
@@ -155,6 +166,8 @@ msgid ""
 "Associate .git* configuration files with the default text editor  \n"
 "拡張子が.gitから始まるファイルをデフォルトのテキストエディターに関連付ける。"
 msgstr ""
+"Associate .git* configuration files with the default text editor  \n"
+"将扩展名以 .git 开头的文件关联到默认文本编辑器。"
 
 #. list item > paragraph
 #: content/ja/blog/install-git-on-windows/index.md:55
@@ -162,6 +175,8 @@ msgid ""
 "Associate .sh files to be run with Bash  \n"
 "拡張子が.shのファイルをGit Bashに関連付ける。"
 msgstr ""
+"Associate .sh files to be run with Bash  \n"
+"将扩展名为 .sh 的文件关联到 Git Bash。"
 
 #. list item > paragraph
 #: content/ja/blog/install-git-on-windows/index.md:57
@@ -169,6 +184,8 @@ msgid ""
 "Check daily for Git for Windows updates  \n"
 "Git for Windowsの更新を毎日確認する。"
 msgstr ""
+"Check daily for Git for Windows updates  \n"
+"每天检查 Git for Windows 的更新。"
 
 #. list item > paragraph
 #: content/ja/blog/install-git-on-windows/index.md:59
@@ -176,6 +193,8 @@ msgid ""
 "Add a Git Bash Profile to Windows Terminal  \n"
 "Windows TerminalにGit Bashを追加する。"
 msgstr ""
+"Add a Git Bash Profile to Windows Terminal  \n"
+"将 Git Bash 添加到 Windows Terminal。"
 
 #. list item > paragraph
 #: content/ja/blog/install-git-on-windows/index.md:61
@@ -183,21 +202,23 @@ msgid ""
 "Scalar (Git add-on to manage large-scale repositories)  \n"
 "Scalarをインストールする。"
 msgstr ""
+"Scalar (Git add-on to manage large-scale repositories)  \n"
+"安装 Scalar。"
 
 #. heading (level 2)
 #: content/ja/blog/install-git-on-windows/index.md:66
 msgid "スタートメニューに表示するフォルダ名の設定"
-msgstr ""
+msgstr "设置开始菜单中显示的文件夹名称"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:68
 msgid "Windowsのスタートメニューに表示するフォルダ名を設定します。"
-msgstr ""
+msgstr "设置在 Windows 开始菜单中显示的文件夹名称。"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:70
 msgid "![Git for Windows](images/git-for-windows-4.webp)"
-msgstr ""
+msgstr "![Git for Windows](images/git-for-windows-4.webp)"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:72
@@ -205,69 +226,70 @@ msgid ""
 "スタートメニューにフォルダを作成しない場合は「Don’t create a Start Menu "
 "folder」にチェックを入れましょう。"
 msgstr ""
+"如果不想在开始菜单中创建文件夹，请勾选“Don’t create a Start Menu folder”。"
 
 #. heading (level 2)
 #: content/ja/blog/install-git-on-windows/index.md:76
 msgid "Gitで使用するエディターの選択"
-msgstr ""
+msgstr "选择 Git 使用的编辑器"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:78
 msgid "Gitで使用するデフォルトのエディターを選択します。"
-msgstr ""
+msgstr "选择 Git 使用的默认编辑器。"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:80
 msgid "![Git for Windows](images/git-for-windows-5.webp)"
-msgstr ""
+msgstr "![Git for Windows](images/git-for-windows-5.webp)"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:82
 msgid ""
 "デフォルトはVimです。特に指定がなければデフォルトのまま「Next」をクリックし、"
 "次へ進みます。"
-msgstr ""
+msgstr "默认为 Vim。如无特殊要求，保持默认设置并点击“Next”进入下一步。"
 
 #. heading (level 2)
 #: content/ja/blog/install-git-on-windows/index.md:84
 msgid "最初に作成されるブランチ名の設定"
-msgstr ""
+msgstr "设置初始分支名称"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:86
 msgid "新しいリポジトリの最初のブランチ名を設定します。"
-msgstr ""
+msgstr "设置新仓库的初始分支名称。"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:88
 msgid "![Git for Windows](images/git-for-windows-6.webp)"
-msgstr ""
+msgstr "![Git for Windows](images/git-for-windows-6.webp)"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:90
 msgid ""
 "デフォルトは「master」です。GitHubではデフォルトで「main」を採用しています。"
-msgstr ""
+msgstr "默认为“master”。GitHub 默认使用“main”。"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:92
 msgid "設定後は「Next」をクリックし、次へ進みます。"
-msgstr ""
+msgstr "设置完成后，点击“Next”进入下一步。"
 
 #. heading (level 2)
 #: content/ja/blog/install-git-on-windows/index.md:94
 msgid "環境変数の設定"
-msgstr ""
+msgstr "设置环境变量"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:96
 msgid "環境変数を設定します。"
-msgstr ""
+msgstr "设置环境变量。"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:98
 msgid "![Git for Windows](images/git-for-windows-7.webp)"
-msgstr ""
+msgstr "![Git for Windows](images/git-for-windows-7.webp)"
 
 #. list item > paragraph
 #: content/ja/blog/install-git-on-windows/index.md:100
@@ -276,6 +298,9 @@ msgid ""
 "環境変数を変更しない。  \n"
 "GitやUnixツールはGit Bashからのみ使用できる。"
 msgstr ""
+"Use Git from Git Bash only  \n"
+"不修改环境变量。  \n"
+"Git 和 Unix 工具只能在 Git Bash 中使用。"
 
 #. list item > paragraph
 #: content/ja/blog/install-git-on-windows/index.md:103
@@ -285,6 +310,10 @@ msgid ""
 "コマンドプロンプトやPowerShellからGitを実行することができる。  \n"
 "UnixツールはGit Bashからのみ使用できる。"
 msgstr ""
+"Git from the command line and also from 3rd-party software  \n"
+"仅将 Git 添加到环境变量。  \n"
+"可以从命令提示符或 PowerShell 运行 Git。  \n"
+"Unix 工具只能在 Git Bash 中使用。"
 
 #. list item > paragraph
 #: content/ja/blog/install-git-on-windows/index.md:107
@@ -293,21 +322,24 @@ msgid ""
 "GitとUnixツールを環境変数に追加する。  \n"
 "コマンドプロンプトやPowerShellからGitとUnixツールを実行することができる。"
 msgstr ""
+"Use Git and optional Unix tools from the Command Prompt  \n"
+"将 Git 和 Unix 工具添加到环境变量。  \n"
+"可以从命令提示符或 PowerShell 运行 Git 和 Unix 工具。"
 
 #. heading (level 2)
 #: content/ja/blog/install-git-on-windows/index.md:113
 msgid "SSHの設定"
-msgstr ""
+msgstr "配置 SSH"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:115
 msgid "SSHの設定をします。"
-msgstr ""
+msgstr "进行 SSH 的相关设置。"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:117
 msgid "![Git for Windows](images/git-for-windows-8.webp)"
-msgstr ""
+msgstr "![Git for Windows](images/git-for-windows-8.webp)"
 
 #. list item > paragraph
 #: content/ja/blog/install-git-on-windows/index.md:119
@@ -315,6 +347,8 @@ msgid ""
 "Use bundled OpenSSH  \n"
 "Gitに付属しているssh.exeを使用する。"
 msgstr ""
+"Use bundled OpenSSH  \n"
+"使用 Git 附带的 ssh.exe。"
 
 #. list item > paragraph
 #: content/ja/blog/install-git-on-windows/index.md:121
@@ -322,21 +356,23 @@ msgid ""
 "Use external OpenSSH  \n"
 "外部のssh.exeを使用する。"
 msgstr ""
+"Use external OpenSSH  \n"
+"使用外部的 ssh.exe。"
 
 #. heading (level 2)
 #: content/ja/blog/install-git-on-windows/index.md:126
 msgid "SSL/TLSの設定"
-msgstr ""
+msgstr "配置 SSL/TLS"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:128
 msgid "SSL/TLSの設定をします。"
-msgstr ""
+msgstr "进行 SSL/TLS 的相关设置。"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:130
 msgid "![Git for Windows](images/git-for-windows-9.webp)"
-msgstr ""
+msgstr "![Git for Windows](images/git-for-windows-9.webp)"
 
 #. list item > paragraph
 #: content/ja/blog/install-git-on-windows/index.md:132
@@ -345,6 +381,9 @@ msgid ""
 "OpenSSLライブラリを使用する。  \n"
 "サーバー証明書は、ca-bundle.crtファイルを使って検証される。"
 msgstr ""
+"Use the OpenSSL library  \n"
+"使用 OpenSSL 库。  \n"
+"使用 ca-bundle.crt 文件验证服务器证书。"
 
 #. list item > paragraph
 #: content/ja/blog/install-git-on-windows/index.md:135
@@ -355,21 +394,25 @@ msgid ""
 "Active Directoryドメインサービスなどで配布される社内ルートCA証明書を使用する"
 "ことができる。"
 msgstr ""
+"Use the native Windows Secure Channel library  \n"
+"使用 Windows 的 Secure Channel 库。  \n"
+"使用 Windows 证书存储验证服务器证书。  \n"
+"可以使用通过 Active Directory 域服务等分发的企业内部根 CA 证书。"
 
 #. heading (level 2)
 #: content/ja/blog/install-git-on-windows/index.md:142
 msgid "改行コードの設定"
-msgstr ""
+msgstr "设置换行符"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:144
 msgid "改行コードの変換設定を選択します。"
-msgstr ""
+msgstr "选择换行符的转换设置。"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:146
 msgid "![Git for Windows](images/git-for-windows-10.webp)"
-msgstr ""
+msgstr "![Git for Windows](images/git-for-windows-10.webp)"
 
 #. list item > paragraph
 #: content/ja/blog/install-git-on-windows/index.md:148
@@ -377,6 +420,8 @@ msgid ""
 "Checkout Windows-style, commit Unix-style line endings  \n"
 "チェックアウト時にCR+LFに変換し、コミット時にLFに変換する。"
 msgstr ""
+"Checkout Windows-style, commit Unix-style line endings  \n"
+"检出时转换为 CR+LF，提交时转换为 LF。"
 
 #. list item > paragraph
 #: content/ja/blog/install-git-on-windows/index.md:150
@@ -384,6 +429,8 @@ msgid ""
 "Checkout as-is, commit Unix-style line endings  \n"
 "チェックアウト時は変換を行わず、コミット時にのみLFに変換する。"
 msgstr ""
+"Checkout as-is, commit Unix-style line endings  \n"
+"检出时不进行转换，仅在提交时转换为 LF。"
 
 #. list item > paragraph
 #: content/ja/blog/install-git-on-windows/index.md:152
@@ -391,6 +438,8 @@ msgid ""
 "Checkout as-is, commit as-is  \n"
 "チェックアウト時にもコミット時にも変換を行わない。"
 msgstr ""
+"Checkout as-is, commit as-is  \n"
+"检出和提交时均不进行转换。"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:155
@@ -399,26 +448,28 @@ msgid ""
 "なっています。意図せぬトラブルが発生する可能性があるため、慎重に選択しましょ"
 "う。"
 msgstr ""
+"默认设置为检出时转换为 CR+LF，提交时转换为 LF。由于可能引发意外问题，请谨慎选"
+"择。"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:157
 msgid "選択後は「Next」をクリックし、次へ進みます。"
-msgstr ""
+msgstr "选择完成后，点击“Next”进入下一步。"
 
 #. heading (level 2)
 #: content/ja/blog/install-git-on-windows/index.md:159
 msgid "ターミナルの選択"
-msgstr ""
+msgstr "选择终端"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:161
 msgid "Git Bashで使用するターミナルを選択します。"
-msgstr ""
+msgstr "选择 Git Bash 使用的终端。"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:163
 msgid "![Git for Windows](images/git-for-windows-11.webp)"
-msgstr ""
+msgstr "![Git for Windows](images/git-for-windows-11.webp)"
 
 #. list item > paragraph
 #: content/ja/blog/install-git-on-windows/index.md:165
@@ -426,6 +477,8 @@ msgid ""
 "Use MinTTY (the default terminal of MSYS2)  \n"
 "MinTTY(MSYS2の標準ターミナル)を使用する。"
 msgstr ""
+"Use MinTTY (the default terminal of MSYS2)  \n"
+"使用 MinTTY（MSYS2 的标准终端）。"
 
 #. list item > paragraph
 #: content/ja/blog/install-git-on-windows/index.md:167
@@ -433,21 +486,23 @@ msgid ""
 "Use Windows' default console window  \n"
 "Windowsの標準コンソールを使用する。"
 msgstr ""
+"Use Windows' default console window  \n"
+"使用 Windows 的标准控制台。"
 
 #. heading (level 2)
 #: content/ja/blog/install-git-on-windows/index.md:172
 msgid "git pullのデフォルトの動作を選択"
-msgstr ""
+msgstr "选择 git pull 的默认行为"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:174
 msgid "git pullのデフォルトの動作を選択します。"
-msgstr ""
+msgstr "选择 git pull 的默认行为。"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:176
 msgid "![Git for Windows](images/git-for-windows-12.webp)"
-msgstr ""
+msgstr "![Git for Windows](images/git-for-windows-12.webp)"
 
 #. list item > paragraph
 #: content/ja/blog/install-git-on-windows/index.md:178
@@ -455,6 +510,8 @@ msgid ""
 "Default (fast-forward or merge)  \n"
 "`git pull --ff`が実行される。"
 msgstr ""
+"Default (fast-forward or merge)  \n"
+"执行 `git pull --ff`。"
 
 #. list item > paragraph
 #: content/ja/blog/install-git-on-windows/index.md:180
@@ -462,6 +519,8 @@ msgid ""
 "Rebase  \n"
 "`git pull --rebase`が実行される。"
 msgstr ""
+"Rebase  \n"
+"执行 `git pull --rebase`。"
 
 #. list item > paragraph
 #: content/ja/blog/install-git-on-windows/index.md:182
@@ -469,21 +528,23 @@ msgid ""
 "Only ever fast-forward  \n"
 "`git pull --ff-only`が実行される。"
 msgstr ""
+"Only ever fast-forward  \n"
+"执行 `git pull --ff-only`。"
 
 #. heading (level 2)
 #: content/ja/blog/install-git-on-windows/index.md:187
 msgid "認証補助の設定"
-msgstr ""
+msgstr "配置凭据助手"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:189
 msgid "認証補助の設定をします。"
-msgstr ""
+msgstr "进行凭据助手的相关设置。"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:191
 msgid "![Git for Windows](images/git-for-windows-13.webp)"
-msgstr ""
+msgstr "![Git for Windows](images/git-for-windows-13.webp)"
 
 #. list item > paragraph
 #: content/ja/blog/install-git-on-windows/index.md:193
@@ -491,6 +552,8 @@ msgid ""
 "Git Credential Manager  \n"
 "Git Credential Managerを使用する。"
 msgstr ""
+"Git Credential Manager  \n"
+"使用 Git Credential Manager。"
 
 #. list item > paragraph
 #: content/ja/blog/install-git-on-windows/index.md:195
@@ -498,21 +561,23 @@ msgid ""
 "None  \n"
 "認証補助を使用しない。"
 msgstr ""
+"None  \n"
+"不使用凭据助手。"
 
 #. heading (level 2)
 #: content/ja/blog/install-git-on-windows/index.md:200
 msgid "追加オプションの設定"
-msgstr ""
+msgstr "设置附加选项"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:202
 msgid "追加オプションの設定をします。"
-msgstr ""
+msgstr "设置附加选项。"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:204
 msgid "![Git for Windows](images/git-for-windows-14.webp)"
-msgstr ""
+msgstr "![Git for Windows](images/git-for-windows-14.webp)"
 
 #. list item > paragraph
 #: content/ja/blog/install-git-on-windows/index.md:206
@@ -520,6 +585,8 @@ msgid ""
 "Enable file system caching  \n"
 "キャッシュを有効にする。これによりパフォーマンスが大幅に向上する。"
 msgstr ""
+"Enable file system caching  \n"
+"启用缓存。这会大幅提升性能。"
 
 #. list item > paragraph
 #: content/ja/blog/install-git-on-windows/index.md:208
@@ -527,21 +594,23 @@ msgid ""
 "Enable symbolic links  \n"
 "シンボリックリンクを有効にする。"
 msgstr ""
+"Enable symbolic links  \n"
+"启用符号链接。"
 
 #. heading (level 2)
 #: content/ja/blog/install-git-on-windows/index.md:213
 msgid "実験的なオプションの設定"
-msgstr ""
+msgstr "设置实验性选项"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:215
 msgid "実験的なオプションを設定します。"
-msgstr ""
+msgstr "设置实验性选项。"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:217
 msgid "![Git for Windows](images/git-for-windows-15.webp)"
-msgstr ""
+msgstr "![Git for Windows](images/git-for-windows-15.webp)"
 
 #. list item > paragraph
 #: content/ja/blog/install-git-on-windows/index.md:219
@@ -549,6 +618,8 @@ msgid ""
 "Enable experimental support for pseudo consoles.  \n"
 "Git BashでPythonやNodeを実行できるようになる。"
 msgstr ""
+"Enable experimental support for pseudo consoles.  \n"
+"可以在 Git Bash 中运行 Python 或 Node。"
 
 #. list item > paragraph
 #: content/ja/blog/install-git-on-windows/index.md:221
@@ -556,28 +627,30 @@ msgid ""
 "Enable experimental built-in file system monitor  \n"
 "多数のファイルがある場合にGitコマンドが高速化される。"
 msgstr ""
+"Enable experimental built-in file system monitor  \n"
+"在文件数量较多时可加快 Git 命令的速度。"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:224
 msgid ""
 "特に指定がなければデフォルトのまま「Install」をクリックし、インストールへ進み"
 "ます。"
-msgstr ""
+msgstr "如无特殊要求，保持默认设置并点击“Install”开始安装。"
 
 #. heading (level 2)
 #: content/ja/blog/install-git-on-windows/index.md:226
 msgid "Gitをインストール"
-msgstr ""
+msgstr "安装 Git"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:228
 msgid "Gitのインストール中です。インストールが完了するまで待ちます。"
-msgstr ""
+msgstr "正在安装 Git。请等待安装完成。"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:230
 msgid "![Git for Windows](images/git-for-windows-16.webp)"
-msgstr ""
+msgstr "![Git for Windows](images/git-for-windows-16.webp)"
 
 #. paragraph
 #: content/ja/blog/install-git-on-windows/index.md:232
@@ -585,18 +658,20 @@ msgid ""
 "「Completing The Git Setup Wizard」と表示されればインストール完了です。"
 "「Finish」を選択してインストーラーを閉じましょう。"
 msgstr ""
+"显示“Completing The Git Setup Wizard”即表示安装完成。选择“Finish”关闭安装程"
+"序。"
 
 #. heading (level 2)
 #: content/ja/blog/install-git-on-windows/index.md:234
 msgid "外部リンク"
-msgstr ""
+msgstr "外部链接"
 
 #. list item > paragraph
 #: content/ja/blog/install-git-on-windows/index.md:236
 msgid "[Git](https://git-scm.com/)"
-msgstr ""
+msgstr "[Git](https://git-scm.com/)"
 
 #. list item > paragraph
 #: content/ja/blog/install-git-on-windows/index.md:237
 msgid "[Git for Windows](https://gitforwindows.org/)"
-msgstr ""
+msgstr "[Git for Windows](https://gitforwindows.org/)"

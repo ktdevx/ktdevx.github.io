@@ -1,8 +1,9 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-15 23:56+0000\n"
+"POT-Creation-Date: 2026-11-15 23:57+0000\n"
 "PO-Revision-Date: 2026-11-15 23:56+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,7 +15,7 @@ msgstr ""
 #. front matter: title
 #: content/ja/blog/enable-ssh-on-raspberry-pi-os/index.md:2
 msgid "Raspberry Pi OSでSSH接続を有効化する"
-msgstr ""
+msgstr "在 Raspberry Pi OS 中启用 SSH 连接"
 
 #. paragraph
 #: content/ja/blog/enable-ssh-on-raspberry-pi-os/index.md:12
@@ -23,31 +24,33 @@ msgid ""
 "SSH接続を有効にすることで、リモートでRaspberry Piにアクセスすることができま"
 "す。"
 msgstr ""
+"Raspberry Pi OS 是由树莓派基金会（Raspberry Pi Foundation）提供的、用于 "
+"Raspberry Pi 的操作系统。启用 SSH 连接后，就可以远程访问 Raspberry Pi。"
 
 #. paragraph
 #: content/ja/blog/enable-ssh-on-raspberry-pi-os/index.md:14
 msgid "ここでは、Raspberry Pi OSでSSH接続を有効化する方法について説明します。"
-msgstr ""
+msgstr "本文介绍如何在 Raspberry Pi OS 中启用 SSH 连接。"
 
 #. heading (level 2)
 #: content/ja/blog/enable-ssh-on-raspberry-pi-os/index.md:16
 msgid "設定ツールの起動"
-msgstr ""
+msgstr "启动配置工具"
 
 #. paragraph
 #: content/ja/blog/enable-ssh-on-raspberry-pi-os/index.md:18
 msgid "以下のコマンドを実行し、Raspberry Piの設定ツールを起動します。"
-msgstr ""
+msgstr "执行以下命令，启动 Raspberry Pi 的配置工具。"
 
 #. heading (level 2)
 #: content/ja/blog/enable-ssh-on-raspberry-pi-os/index.md:24
 msgid "SSHサーバーの有効化"
-msgstr ""
+msgstr "启用 SSH 服务器"
 
 #. paragraph
 #: content/ja/blog/enable-ssh-on-raspberry-pi-os/index.md:26
 msgid "![raspi-config](images/raspi-config-1.webp)"
-msgstr ""
+msgstr "![raspi-config](images/raspi-config-1.webp)"
 
 #. paragraph
 #: content/ja/blog/enable-ssh-on-raspberry-pi-os/index.md:28
@@ -55,59 +58,61 @@ msgid ""
 "コマンドを実行すると、設定画面が表示されます。Interface Optionsにカーソルを合"
 "わせ、Enterキーを押します。"
 msgstr ""
+"执行命令后，将显示配置界面。将光标移到“Interface Options”上，然后按 Enter "
+"键。"
 
 #. paragraph
 #: content/ja/blog/enable-ssh-on-raspberry-pi-os/index.md:30
 msgid "![raspi-config](images/raspi-config-2.webp)"
-msgstr ""
+msgstr "![raspi-config](images/raspi-config-2.webp)"
 
 #. paragraph
 #: content/ja/blog/enable-ssh-on-raspberry-pi-os/index.md:32
 msgid ""
 "有効/無効の設定を行うインターフェースが表示されます。SSHにカーソルを合わせ、"
 "Enterキーを押します。"
-msgstr ""
+msgstr "将显示可以设置启用/禁用的接口。将光标移到“SSH”上，然后按 Enter 键。"
 
 #. paragraph
 #: content/ja/blog/enable-ssh-on-raspberry-pi-os/index.md:34
 msgid "![raspi-config](images/raspi-config-3.webp)"
-msgstr ""
+msgstr "![raspi-config](images/raspi-config-3.webp)"
 
 #. paragraph
 #: content/ja/blog/enable-ssh-on-raspberry-pi-os/index.md:36
 msgid "SSHサーバーを有効化するか聞かれるため、Yesを選択します。"
-msgstr ""
+msgstr "系统会询问是否启用 SSH 服务器，选择“Yes”。"
 
 #. paragraph
 #: content/ja/blog/enable-ssh-on-raspberry-pi-os/index.md:38
 msgid "![raspi-config](images/raspi-config-4.webp)"
-msgstr ""
+msgstr "![raspi-config](images/raspi-config-4.webp)"
 
 #. paragraph
 #: content/ja/blog/enable-ssh-on-raspberry-pi-os/index.md:40
 msgid ""
 "SSHサーバーが有効化されました。Enterキーを押し、設定画面のトップへ戻ります。"
-msgstr ""
+msgstr "SSH 服务器已启用。按 Enter 键返回配置界面的顶层。"
 
 #. paragraph
 #: content/ja/blog/enable-ssh-on-raspberry-pi-os/index.md:42
 msgid "![raspi-config](images/raspi-config-5.webp)"
-msgstr ""
+msgstr "![raspi-config](images/raspi-config-5.webp)"
 
 #. paragraph
 #: content/ja/blog/enable-ssh-on-raspberry-pi-os/index.md:44
 msgid "Finishを選択し、設定ツールを閉じます。"
-msgstr ""
+msgstr "选择“Finish”，关闭配置工具。"
 
 #. heading (level 2)
 #: content/ja/blog/enable-ssh-on-raspberry-pi-os/index.md:46
 msgid "SSHサーバーの再起動"
-msgstr ""
+msgstr "重启 SSH 服务器"
 
 #. paragraph
 #: content/ja/blog/enable-ssh-on-raspberry-pi-os/index.md:48
 msgid "以下のコマンドを実行し、SSHサーバーを再起動します。"
-msgstr ""
+msgstr "执行以下命令，重启 SSH 服务器。"
 
 #. paragraph
 #: content/ja/blog/enable-ssh-on-raspberry-pi-os/index.md:54
@@ -115,3 +120,5 @@ msgid ""
 "以上で、Raspberry Pi OSでSSH接続が有効になりました。これで、リモートコン"
 "ピューターからSSHを使用してRaspberry Piにアクセスすることができます。"
 msgstr ""
+"以上，就在 Raspberry Pi OS 中启用了 SSH 连接。现在可以从远程计算机使用 SSH 访"
+"问 Raspberry Pi 了。"

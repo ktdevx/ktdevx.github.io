@@ -1,8 +1,9 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-15 23:56+0000\n"
+"POT-Creation-Date: 2026-11-15 23:59+0000\n"
 "PO-Revision-Date: 2026-11-15 23:56+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,7 +15,7 @@ msgstr ""
 #. front matter: title
 #: content/ja/blog/deploy-hugo-github-pages/index.md:2
 msgid "HugoとGitHub Pagesで静的なWebサイトを公開する"
-msgstr ""
+msgstr "使用 Hugo 和 GitHub Pages 发布静态网站"
 
 #. paragraph
 #: content/ja/blog/deploy-hugo-github-pages/index.md:12
@@ -22,11 +23,12 @@ msgid ""
 "HugoとGitHub Pagesを利用することで、非常に簡単に静的なWebサイトを公開すること"
 "ができます。ここでは、その手順について解説します。"
 msgstr ""
+"利用 Hugo 和 GitHub Pages，可以非常轻松地发布静态网站。本文将介绍具体步骤。"
 
 #. heading (level 2)
 #: content/ja/blog/deploy-hugo-github-pages/index.md:14
 msgid "GitHubにWebサイト用のリポジトリを作成する"
-msgstr ""
+msgstr "在 GitHub 上创建网站用的仓库"
 
 #. paragraph
 #: content/ja/blog/deploy-hugo-github-pages/index.md:16
@@ -34,6 +36,8 @@ msgid ""
 "GitHubで任意の名前のリポジトリを作成します。詳細は[こちら](/blog/create-"
 "github-repository)を参照してください。"
 msgstr ""
+"在 GitHub 上创建一个任意名称的仓库。详情请参阅[这篇文章](/blog/create-github-"
+"repository)。"
 
 #. paragraph
 #: content/ja/blog/deploy-hugo-github-pages/index.md:18
@@ -42,6 +46,8 @@ msgid ""
 "github.io/`にWebサイトが公開されます。アカウント名に大文字が含まれている場合"
 "は、小文字にする必要があります。"
 msgstr ""
+"如果将仓库命名为 `<账户名>.github.io`，网站将发布在 `https://<账户名>.github."
+"io/` 上。如果账户名中包含大写字母，则需要改为小写。"
 
 #. paragraph
 #: content/ja/blog/deploy-hugo-github-pages/index.md:20
@@ -49,23 +55,24 @@ msgid ""
 "別の名前のリポジトリを作成する場合、公開URLは`https://<アカウント名>.github."
 "io/<リポジトリ名>`になります。"
 msgstr ""
+"如果创建其他名称的仓库，发布 URL 将为 `https://<账户名>.github.io/<仓库名>`。"
 
 #. paragraph
 #: content/ja/blog/deploy-hugo-github-pages/index.md:22
 msgid ""
 "GitHub Freeを使用している場合、リポジトリをパブリックに設定する必要がありま"
 "す。"
-msgstr ""
+msgstr "如果使用的是 GitHub Free，需要将仓库设置为公开。"
 
 #. paragraph
 #: content/ja/blog/deploy-hugo-github-pages/index.md:24
 msgid "リポジトリ作成後は、ローカルにクローンしてください。"
-msgstr ""
+msgstr "创建仓库后，请将其克隆到本地。"
 
 #. heading (level 2)
 #: content/ja/blog/deploy-hugo-github-pages/index.md:26
 msgid "Hugoのセットアップ"
-msgstr ""
+msgstr "设置 Hugo"
 
 #. paragraph
 #: content/ja/blog/deploy-hugo-github-pages/index.md:28
@@ -74,22 +81,24 @@ msgid ""
 "より、ディレクトリ内にHugoのディレクトリ構造が作成されます。すでに空でない"
 "ディレクトリで実行するため、`--force`オプションを使用します。"
 msgstr ""
+"进入克隆下来的仓库，执行 `hugo new site . --force`。这样会在目录中创建 Hugo "
+"的目录结构。由于是在非空目录中执行，因此需要使用 `--force` 选项。"
 
 #. heading (level 2)
 #: content/ja/blog/deploy-hugo-github-pages/index.md:30
 msgid "Hugo設定ファイルの編集"
-msgstr ""
+msgstr "编辑 Hugo 配置文件"
 
 #. paragraph
 #: content/ja/blog/deploy-hugo-github-pages/index.md:32
 msgid ""
 "Hugoのセットアップが完了すると、`hugo.toml`という設定ファイルが生成されます。"
-msgstr ""
+msgstr "Hugo 设置完成后，会生成名为 `hugo.toml` 的配置文件。"
 
 #. paragraph
 #: content/ja/blog/deploy-hugo-github-pages/index.md:40
 msgid "基本設定について変更します。"
-msgstr ""
+msgstr "修改基本设置。"
 
 #. list item > paragraph
 #: content/ja/blog/deploy-hugo-github-pages/index.md:42
@@ -98,6 +107,8 @@ msgid ""
 "公開するWebサイトのURLを指定します。この設定はリポジトリ名によって決まりま"
 "す。"
 msgstr ""
+"baseURL\n"
+"指定要发布的网站的 URL。此设置取决于仓库名称。"
 
 #. list item > paragraph
 #: content/ja/blog/deploy-hugo-github-pages/index.md:44
@@ -105,6 +116,8 @@ msgid ""
 "languageCode  \n"
 "Webサイトの言語を指定します。"
 msgstr ""
+"languageCode\n"
+"指定网站的语言。"
 
 #. list item > paragraph
 #: content/ja/blog/deploy-hugo-github-pages/index.md:46
@@ -112,11 +125,13 @@ msgid ""
 "title  \n"
 "Webサイトのタイトルを指定します。"
 msgstr ""
+"title\n"
+"指定网站的标题。"
 
 #. paragraph
 #: content/ja/blog/deploy-hugo-github-pages/index.md:49
 msgid "今回は以下のように設定を変更しました。"
-msgstr ""
+msgstr "这次将设置修改如下。"
 
 #. paragraph
 #: content/ja/blog/deploy-hugo-github-pages/index.md:57
@@ -124,11 +139,13 @@ msgid ""
 "設定の詳細は[公式サイト](https://gohugo.io/getting-started/configuration/)を"
 "参照してください。"
 msgstr ""
+"设置的详细信息请参阅[官方网站](https://gohugo.io/getting-started/"
+"configuration/)。"
 
 #. heading (level 2)
 #: content/ja/blog/deploy-hugo-github-pages/index.md:59
 msgid "テーマをプロジェクトに追加"
-msgstr ""
+msgstr "向项目添加主题"
 
 #. paragraph
 #: content/ja/blog/deploy-hugo-github-pages/index.md:61
@@ -136,6 +153,7 @@ msgid ""
 "Hugoのテーマをプロジェクトに追加します。テーマは[公式サイト](https://themes."
 "gohugo.io/)から選べます。"
 msgstr ""
+"向项目添加 Hugo 主题。可以从[官方网站](https://themes.gohugo.io/)选择主题。"
 
 #. paragraph
 #: content/ja/blog/deploy-hugo-github-pages/index.md:63
@@ -144,50 +162,52 @@ msgid ""
 "ます。以下のコマンドでGit Submodulesを使ってAnankeをプロジェクトに追加しま"
 "す。"
 msgstr ""
+"这次使用 [Ananke](https://github.com/theNewDynamic/gohugo-theme-ananke)。使用"
+"以下命令，通过 Git Submodules 将 Ananke 添加到项目中。"
 
 #. paragraph
 #: content/ja/blog/deploy-hugo-github-pages/index.md:69
 msgid "テーマを適用するために、`hugo.toml`に`theme = 'ananke'`を追加します。"
-msgstr ""
+msgstr "为了应用主题，在 `hugo.toml` 中添加 `theme = 'ananke'`。"
 
 #. heading (level 2)
 #: content/ja/blog/deploy-hugo-github-pages/index.md:71
 msgid "ページを追加する"
-msgstr ""
+msgstr "添加页面"
 
 #. paragraph
 #: content/ja/blog/deploy-hugo-github-pages/index.md:73
 msgid ""
 "次に、実際のコンテンツを作成します。以下のコマンドで新しい記事を作成します。"
-msgstr ""
+msgstr "接下来创建实际的内容。使用以下命令创建一篇新文章。"
 
 #. paragraph
 #: content/ja/blog/deploy-hugo-github-pages/index.md:79
 msgid "生成された`hello-world.md`を編集し、記事を書きます。"
-msgstr ""
+msgstr "编辑生成的 `hello-world.md`，撰写文章。"
 
 #. paragraph
 #: content/ja/blog/deploy-hugo-github-pages/index.md:91
 msgid ""
 "ここで注意する点は`draft = true`という設定です。これは記事が下書き状態である"
 "ことを示します。"
-msgstr ""
+msgstr "这里需要注意的是 `draft = true` 这项设置。它表示文章处于草稿状态。"
 
 #. paragraph
 #: content/ja/blog/deploy-hugo-github-pages/index.md:93
 msgid ""
 "記事を公開するには、`draft = false`とするか、`draft`の設定を削除します。"
-msgstr ""
+msgstr "要发布文章，请设置为 `draft = false`，或者删除 `draft` 设置。"
 
 #. heading (level 2)
 #: content/ja/blog/deploy-hugo-github-pages/index.md:95
 msgid "ローカルでサイトをプレビュー"
-msgstr ""
+msgstr "在本地预览网站"
 
 #. paragraph
 #: content/ja/blog/deploy-hugo-github-pages/index.md:97
 msgid "以下のコマンドでローカルサーバーを起動して、サイトを確認します。"
-msgstr ""
+msgstr "使用以下命令启动本地服务器，查看网站。"
 
 #. paragraph
 #: content/ja/blog/deploy-hugo-github-pages/index.md:103
@@ -195,18 +215,20 @@ msgid ""
 "`-D`オプションは、下書きの記事を表示するためのものです。ブラウザを開き、"
 "`http://localhost:1313/`にアクセスすると、サイトをプレビューできます。"
 msgstr ""
+"`-D` 选项用于显示草稿文章。打开浏览器并访问 `http://localhost:1313/`，即可预"
+"览网站。"
 
 #. paragraph
 #: content/ja/blog/deploy-hugo-github-pages/index.md:105
 msgid ""
 "プレビューが問題なければ、先ほど作成した記事の下書き設定を無効化し、リモート"
 "リポジトリにプッシュしましょう。"
-msgstr ""
+msgstr "如果预览没有问题，就将刚才创建的文章的草稿设置取消，并推送到远程仓库。"
 
 #. heading (level 2)
 #: content/ja/blog/deploy-hugo-github-pages/index.md:107
 msgid "GitHub Pagesのデプロイ設定"
-msgstr ""
+msgstr "配置 GitHub Pages 的部署"
 
 #. paragraph
 #: content/ja/blog/deploy-hugo-github-pages/index.md:109
@@ -215,11 +237,13 @@ msgid ""
 "します。今回はGitHub Actionsでデプロイを行います。「Source」を「GitHub "
 "Actions」に設定します。"
 msgstr ""
+"在 GitHub 仓库的“Settings”中点击“Pages”，启用 GitHub Pages。这次使用 GitHub "
+"Actions 进行部署。将“Source”设置为“GitHub Actions”。"
 
 #. heading (level 2)
 #: content/ja/blog/deploy-hugo-github-pages/index.md:111
 msgid "ビルドとデプロイを行うワークフローを作成"
-msgstr ""
+msgstr "创建用于构建和部署的工作流"
 
 #. paragraph
 #: content/ja/blog/deploy-hugo-github-pages/index.md:113
@@ -228,18 +252,20 @@ msgid ""
 "github/workflows/`ディレクトリに`gh-pages.yml`を作成し、以下のように記述しま"
 "す。"
 msgstr ""
+"向项目添加用于构建和部署网站的工作流。在 `.github/workflows/` 目录中创建 `gh-"
+"pages.yml`，并写入以下内容。"
 
 #. paragraph
 #: content/ja/blog/deploy-hugo-github-pages/index.md:161
 msgid ""
 "これにより、mainブランチにプッシュされるたびにWebサイトが自動的にビルド・デプ"
 "ロイされます。"
-msgstr ""
+msgstr "这样，每次推送到 main 分支时，网站都会自动构建和部署。"
 
 #. heading (level 2)
 #: content/ja/blog/deploy-hugo-github-pages/index.md:163
 msgid "公開されたWebサイトを確認"
-msgstr ""
+msgstr "确认已发布的网站"
 
 #. paragraph
 #: content/ja/blog/deploy-hugo-github-pages/index.md:165
@@ -248,3 +274,5 @@ msgid ""
 "github.io/<リポジトリ名>`にアクセスし、Webサイトが公開されていることを確認し"
 "ます。"
 msgstr ""
+"在浏览器中访问 `https://<账户名>.github.io/` 或 `https://<账户名>.github.io/<"
+"仓库名>`，确认网站已经发布。"

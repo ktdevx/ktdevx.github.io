@@ -1,8 +1,9 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-15 23:56+0000\n"
+"POT-Creation-Date: 2026-11-15 23:57+0000\n"
 "PO-Revision-Date: 2026-11-15 23:56+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,12 +16,12 @@ msgstr ""
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:2
 msgid ""
 "OpenWrtでOpenVPNサーバーを構築し、外部から自宅ネットワークにアクセスする"
-msgstr ""
+msgstr "在 OpenWrt 上搭建 OpenVPN 服务器，从外部访问家庭网络"
 
 #. heading (level 2)
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:13
 msgid "はじめに"
-msgstr ""
+msgstr "前言"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:15
@@ -30,6 +31,9 @@ msgid ""
 "OpenVPNサーバーを構築し、複数のクライアントから接続する手順を詳しく解説しま"
 "す。"
 msgstr ""
+"OpenVPN 是一种开源的 VPN 技术，它提供加密的 VPN 隧道，让你在外出时也能安全地"
+"访问家庭网络。本文将详细介绍如何在 OpenWrt 路由器上搭建 OpenVPN 服务器，并从"
+"多个客户端进行连接。"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:17
@@ -38,11 +42,14 @@ msgid ""
 "**前提条件：** [OpenWrtのインストール](/blog/install-friendlywrt-on-nanopi-"
 "r2s)、管理者権限での操作、ターミナル/SSH接続の基本知識"
 msgstr ""
+"**适用对象：** 已安装 OpenWrt 并可通过 SSH 连接的用户\n"
+"**前提条件：** [安装 OpenWrt](/blog/install-friendlywrt-on-nanopi-r2s)、拥有"
+"管理员权限、具备终端/SSH 连接的基础知识"
 
 #. heading (level 2)
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:20
 msgid "環境情報"
-msgstr ""
+msgstr "环境信息"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:22
@@ -57,23 +64,32 @@ msgid ""
 "| 認証局有効期限 | 3650 日（10 年） |\n"
 "| 証明書有効期限 | 825 日 |"
 msgstr ""
+"| 项目 | 值 |\n"
+"|------|-----|\n"
+"| OS | OpenWrt 24.10.0 及以上 |\n"
+"| VPN 协议 | OpenVPN UDP 1194 |\n"
+"| VPN 网络 | 10.8.0.0/24 |\n"
+"| 加密方式 | AES-128-CBC |\n"
+"| 认证方式 | SHA256 |\n"
+"| 证书颁发机构有效期 | 3650 天（10 年） |\n"
+"| 证书有效期 | 825 天 |"
 
 #. heading (level 2)
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:33
 msgid "パッケージのインストール"
-msgstr ""
+msgstr "安装软件包"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:35
 msgid ""
 "まず、OpenWrtのパッケージリストを更新し、OpenVPN関連パッケージをインストール"
 "します。"
-msgstr ""
+msgstr "首先，更新 OpenWrt 的软件包列表，并安装 OpenVPN 相关软件包。"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:42
 msgid "**インストール内容：**"
-msgstr ""
+msgstr "**安装内容：**"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:44
@@ -86,16 +102,22 @@ msgid ""
 "フェース |\n"
 "| **luci-i18n-openvpn-ja**（オプション） | LuCIのOpenVPN日本語ローカライズ |"
 msgstr ""
+"| 软件包 | 说明 |\n"
+"|-----------|------|\n"
+"| **openvpn-openssl** | OpenVPN 主软件包（支持 SSL/TLS） |\n"
+"| **openvpn-easy-rsa** | 用于生成和管理 CA（证书颁发机构）及证书的工具 |\n"
+"| **luci-app-openvpn**（可选） | 在 LuCI Web UI 中管理 OpenVPN 的界面 |\n"
+"| **luci-i18n-openvpn-ja**（可选） | LuCI 中 OpenVPN 的日语本地化 |"
 
 #. heading (level 2)
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:52
 msgid "環境変数の設定"
-msgstr ""
+msgstr "设置环境变量"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:54
 msgid "テキストエディタで`/etc/profile.d/50-openvpn-easy-rsa.sh`を編集します。"
-msgstr ""
+msgstr "使用文本编辑器编辑 `/etc/profile.d/50-openvpn-easy-rsa.sh`。"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:64
@@ -105,16 +127,19 @@ msgid ""
 "せましょう。これにより、easy-rsaのベースディレクトリやpkiフォルダのパスが環境"
 "変数に設定されます。"
 msgstr ""
+"编辑完成后保存。profile.d 中的内容会在登录时生效，因此请重新登录，或者输入 "
+"`. /etc/profile.d/50-openvpn-easy-rsa.sh` 使设置生效。这样，Easy-RSA 的基础目"
+"录和 PKI 文件夹的路径就会被设置到环境变量中。"
 
 #. heading (level 2)
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:66
 msgid "証明書認証局(CA)の構築"
-msgstr ""
+msgstr "构建证书颁发机构（CA）"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:68
 msgid "Easy-RSAの`build-ca`コマンドで証明書認証局(CA)を構築します。"
-msgstr ""
+msgstr "使用 Easy-RSA 的 `build-ca` 命令构建证书颁发机构（CA）。"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:102
@@ -123,21 +148,24 @@ msgid ""
 "rsa/pki/private/`ディレクトリにCA秘密鍵`ca.key`が生成されます。CA証明書を`/"
 "etc/openvpn`ディレクトリにコピーしましょう。"
 msgstr ""
+"这样会在 `/etc/easy-rsa/pki` 目录中生成 CA 证书 `ca.crt`，并在 `/etc/easy-"
+"rsa/pki/private/` 目录中生成 CA 私钥 `ca.key`。将 CA 证书复制到 `/etc/"
+"openvpn` 目录。"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:108
 msgid "CAの構築は以上で完了です。"
-msgstr ""
+msgstr "CA 的构建到此完成。"
 
 #. heading (level 2)
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:110
 msgid "サーバー証明書と秘密鍵の作成"
-msgstr ""
+msgstr "创建服务器证书和私钥"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:112
 msgid "Easy-RSAの`build-server-full`コマンドでサーバー証明書と鍵を生成します。"
-msgstr ""
+msgstr "使用 Easy-RSA 的 `build-server-full` 命令生成服务器证书和密钥。"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:114
@@ -146,6 +174,8 @@ msgid ""
 "`server`としました。パスフレーズは設定しないため`nopass`オプションを設定しま"
 "す。"
 msgstr ""
+"指定任意服务器名称来生成证书和密钥。这里将服务器名称设为 `server`。由于不设置"
+"密码短语，因此指定 `nopass` 选项。"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:170
@@ -155,23 +185,26 @@ msgid ""
 "が生成されます。サーバー証明書と秘密鍵を`/etc/openvpn`ディレクトリに移動しま"
 "しょう。"
 msgstr ""
+"这样会在 `/etc/easy-rsa/pki/issued` 目录中生成服务器证书 `server.crt`，并在 "
+"`/etc/easy-rsa/pki/private/` 目录中生成服务器私钥 `server.key`。将服务器证书"
+"和私钥移动到 `/etc/openvpn` 目录。"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:176
 msgid "以上でサーバー証明書と秘密鍵の作成は完了です。"
-msgstr ""
+msgstr "服务器证书和私钥的创建到此完成。"
 
 #. heading (level 2)
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:178
 msgid "DHパラメータの生成"
-msgstr ""
+msgstr "生成 DH 参数"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:180
 msgid ""
 "Easy-Rsaの`gen-dh`コマンドを使って、暗号化に必要な乱数パラメータを生成しま"
 "す。"
-msgstr ""
+msgstr "使用 Easy-RSA 的 `gen-dh` 命令生成加密所需的随机参数。"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:201
@@ -179,21 +212,23 @@ msgid ""
 "しばらく待つと、`/etc/easy-rsa/pki`ディレクトリにDHパラメータ`dh.pem`が生成さ"
 "れます。DHパラメータを`/etc/openvpn`ディレクトリに移動しましょう。"
 msgstr ""
+"稍等片刻，就会在 `/etc/easy-rsa/pki` 目录中生成 DH 参数 `dh.pem`。将 DH 参数"
+"移动到 `/etc/openvpn` 目录。"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:207
 msgid "以上でDHパラメータの生成は完了です。"
-msgstr ""
+msgstr "DH 参数的生成到此完成。"
 
 #. heading (level 2)
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:209
 msgid "TLS-Authキーの生成"
-msgstr ""
+msgstr "生成 TLS-Auth 密钥"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:211
 msgid "TLS-Auth機能を使用するためTLS-Authキーを生成します。"
-msgstr ""
+msgstr "为使用 TLS-Auth 功能，需要生成 TLS-Auth 密钥。"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:213
@@ -201,36 +236,38 @@ msgid ""
 "TLS-Auth機能を有効化すると、VPNセッション開始時のパケットをHMACで認証し、認可"
 "されないパケットを破棄することができます。"
 msgstr ""
+"启用 TLS-Auth 功能后，VPN 会话开始时的数据包会通过 HMAC 进行认证，未经授权的"
+"数据包将被丢弃。"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:219
 msgid ""
 "これにより、`/etc/openvpn`ディレクトリにTLS-Authキー`ta.key`が生成されます。"
-msgstr ""
+msgstr "这样会在 `/etc/openvpn` 目录中生成 TLS-Auth 密钥 `ta.key`。"
 
 #. heading (level 2)
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:221
 msgid "サーバー設定ファイルの作成"
-msgstr ""
+msgstr "创建服务器配置文件"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:223
 msgid ""
 "OpenVPNのサーバー設定ファイルを作成し、クライアント接続時のルート設定を行いま"
 "す。"
-msgstr ""
+msgstr "创建 OpenVPN 的服务器配置文件，并配置客户端连接时的路由。"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:225
 msgid ""
 "テキストエディタで`/etc/openvpn/server.conf`を新規作成し、以下の内容を記載し"
 "ます："
-msgstr ""
+msgstr "使用文本编辑器新建 `/etc/openvpn/server.conf`，并写入以下内容："
 
 #. heading (level 3)
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:264
 msgid "設定パラメータの説明"
-msgstr ""
+msgstr "配置参数说明"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:266
@@ -257,11 +294,29 @@ msgid ""
 "| `status` | `/var/log/openvpn-status.log` | 接続中のクライアント一覧ログ |\n"
 "| `verb` | 3 | ログ詳細度（3=詳細、4以上=さらに詳細） |"
 msgstr ""
+"| 参数 | 值 | 说明 |\n"
+"|-----------|-----|------|\n"
+"| `port` | 1194 | OpenVPN 监听的 UDP 端口 |\n"
+"| `proto` | udp | 协议（UDP 或 TCP） |\n"
+"| `dev` | tun | VPN 使用的隧道设备 |\n"
+"| `server` | 10.8.0.0/24 | 分配给 VPN 客户端的 IP 地址范围 |\n"
+"| `push \"route ...\"` | 192.168.1.0/24 | 向客户端通告通往家庭 LAN 的路由 |\n"
+"| `push \"dhcp-option DNS\"` | 8.8.8.8 | 客户端使用的 DNS 服务器 |\n"
+"| `cipher` | AES-128-CBC | 通信的加密方式 |\n"
+"| `auth` | SHA256 | HMAC 认证算法 |\n"
+"| `tls-version-min` | 1.2 | TLS 最低版本（提高安全性） |\n"
+"| `keepalive` | 10 120 | 每 10 秒发送一次保活包，超过 120 秒未收到响应则判定"
+"为断开 |\n"
+"| `user nobody` | - | 以非特权用户身份运行 OpenVPN 进程（提高安全性） |\n"
+"| `persist-key` | - | 进程重启时保留密钥文件 |\n"
+"| `persist-tun` | - | 进程重启时保留虚拟接口 |\n"
+"| `status` | `/var/log/openvpn-status.log` | 已连接客户端列表的日志 |\n"
+"| `verb` | 3 | 日志详细程度（3 = 详细，4 及以上 = 更详细） |"
 
 #. heading (level 3)
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:284
 msgid "自宅LANアドレスの確認"
-msgstr ""
+msgstr "确认家庭 LAN 地址"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:286
@@ -269,6 +324,8 @@ msgid ""
 "`push \"route 192.168.1.0 255.255.255.0\"`の部分は、ご自身の自宅ネットワーク"
 "のアドレス範囲に変更してください。自宅LANアドレスを確認するには："
 msgstr ""
+"请将 `push \"route 192.168.1.0 255.255.255.0\"` 部分改为你自己家庭网络的地址"
+"范围。确认家庭 LAN 地址的方法如下："
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:298
@@ -276,77 +333,79 @@ msgid ""
 "このように表示される場合、自宅LANは`192.168.1.0/24`です。異なる場合はそのアド"
 "レスに置き換えてください。"
 msgstr ""
+"如果显示如上内容，则家庭 LAN 为 `192.168.1.0/24`。如果不同，请替换为相应的地"
+"址。"
 
 #. heading (level 2)
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:300
 msgid "OpenVPNサーバーの起動と確認"
-msgstr ""
+msgstr "启动并确认 OpenVPN 服务器"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:302
 msgid "サーバー設定ファイルを保存後、OpenVPNサーバーを起動します。"
-msgstr ""
+msgstr "保存服务器配置文件后，启动 OpenVPN 服务器。"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:308
 msgid "OpenVPNサーバーが起動したことを確認します："
-msgstr ""
+msgstr "确认 OpenVPN 服务器已经启动："
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:315
 msgid "次回のルーター起動時にOpenVPNが自動起動されるよう設定します："
-msgstr ""
+msgstr "设置 OpenVPN 在下次路由器启动时自动启动："
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:321
 msgid "ポート1194が正しくリッスンしているか確認します："
-msgstr ""
+msgstr "确认端口 1194 是否在正常监听："
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:330
 msgid ""
 "`openvpn`プロセスがポート1194でリッスン中であることが確認できれば成功です。"
-msgstr ""
+msgstr "如果能确认 `openvpn` 进程正在端口 1194 上监听，就说明成功了。"
 
 #. heading (level 2)
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:332
 msgid "ネットワークインターフェースの追加"
-msgstr ""
+msgstr "添加网络接口"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:334
 msgid "`ip`コマンドで先ほど追加されたtunデバイスの確認をします。"
-msgstr ""
+msgstr "使用 `ip` 命令确认刚才新增的 tun 设备。"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:348
 msgid ""
 "`tun0`という名前のデバイスが追加されていることが確認できました。これを`vpn`と"
 "いう名前でネットワークインターフェースに追加します。"
-msgstr ""
+msgstr "可以确认已添加名为 `tun0` 的设备。将其以 `vpn` 为名称添加为网络接口。"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:350
 msgid ""
 "テキストエディタで`/etc/config/network`を開き、以下の内容を追記しましょう。"
-msgstr ""
+msgstr "使用文本编辑器打开 `/etc/config/network`，并追加以下内容。"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:358
 msgid "保存してネットワークを再起動しましょう。"
-msgstr ""
+msgstr "保存后重启网络。"
 
 #. heading (level 2)
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:364
 msgid "ファイアウォールの設定"
-msgstr ""
+msgstr "配置防火墙"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:366
 msgid ""
 "テキストエディタで`/etc/config/firewall`を開き、ファイアウォールの設定を変更"
 "します。"
-msgstr ""
+msgstr "使用文本编辑器打开 `/etc/config/firewall`，修改防火墙设置。"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:368
@@ -355,26 +414,28 @@ msgid ""
 "配置します。以下は設定例です。`lan`ゾーンに`list network 'vpn'`の行を追加しま"
 "した。"
 msgstr ""
+"首先，将刚才添加的网络接口 `vpn` 放入与 `lan` 相同的区域。以下是配置示例，在 "
+"`lan` 区域中添加了 `list network 'vpn'` 这一行。"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:380
 msgid "次に、`wan`側からOpenVPNの接続を許可するようルールを追加します。"
-msgstr ""
+msgstr "接下来，添加一条规则，允许来自 `wan` 侧的 OpenVPN 连接。"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:391
 msgid "保存してファイアウォールを再起動しましょう。"
-msgstr ""
+msgstr "保存后重启防火墙。"
 
 #. heading (level 2)
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:397
 msgid "クライアント証明書と秘密鍵の作成"
-msgstr ""
+msgstr "创建客户端证书和私钥"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:399
 msgid "Easy-RSAの`build-client-full`コマンドでサーバー証明書と鍵を生成します。"
-msgstr ""
+msgstr "使用 Easy-RSA 的 `build-client-full` 命令生成客户端证书和密钥。"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:401
@@ -383,6 +444,8 @@ msgid ""
 "ト名は`client`としました。パスフレーズは設定しないため`nopass`オプションを設"
 "定します。"
 msgstr ""
+"指定任意客户端名称来生成证书和私钥。这里将客户端名称设为 `client`。由于不设置"
+"密码短语，因此指定 `nopass` 选项。"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:457
@@ -391,57 +454,59 @@ msgid ""
 "`client.crt`と、`/etc/easy-rsa/pki/private/`ディレクトリにクライアント秘密鍵"
 "`client.key`が生成されます。"
 msgstr ""
+"这样会在 `/etc/easy-rsa/pki/issued` 目录中生成客户端证书 `client.crt`，并在 "
+"`/etc/easy-rsa/pki/private/` 目录中生成客户端私钥 `client.key`。"
 
 #. heading (level 2)
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:459
 msgid "クライアント設定ファイルの生成と配置"
-msgstr ""
+msgstr "生成并放置客户端配置文件"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:461
 msgid ""
 "Easy-RSAで生成したクライアント証明書・鍵を使用して、クライアント設定ファイル"
 "（.ovpn）を作成します。"
-msgstr ""
+msgstr "使用 Easy-RSA 生成的客户端证书和密钥，创建客户端配置文件（.ovpn）。"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:463
 msgid "サーバー側で生成したクライアント用ファイルを`/tmp`にコピーします："
-msgstr ""
+msgstr "将服务器端生成的客户端文件复制到 `/tmp`："
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:472
 msgid ""
 "クライアント設定ファイル`client.ovpn`を作成します。以下のテンプレートをテキス"
 "トエディタで新規作成してください："
-msgstr ""
+msgstr "创建客户端配置文件 `client.ovpn`。请在文本编辑器中按以下模板新建文件："
 
 #. heading (level 3)
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:521
 msgid "証明書・鍵の内容をコピーする手順"
-msgstr ""
+msgstr "复制证书和密钥内容的步骤"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:523
 msgid "サーバー上で、各ファイルをテキストエディタで開いて内容をコピーします："
-msgstr ""
+msgstr "在服务器上，用文本编辑器打开各个文件并复制其内容："
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:539
 msgid ""
 "各出力内容を、.ovpnファイルの対応するセクション（`<ca>...</ca>`など）に貼り付"
 "けてください。"
-msgstr ""
+msgstr "请将各项输出内容粘贴到 .ovpn 文件中对应的部分（如 `<ca>...</ca>`）。"
 
 #. heading (level 3)
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:541
 msgid "クライアント接続情報の設定"
-msgstr ""
+msgstr "设置客户端连接信息"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:543
 msgid "`client.ovpn`の`remote`パラメータを以下のように設定してください："
-msgstr ""
+msgstr "请按如下方式设置 `client.ovpn` 中的 `remote` 参数："
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:545
@@ -453,53 +518,58 @@ msgid ""
 "| **動的IP（DDNS使用）** | `remote example.ddns.jp 1194`（DDNSホスト名に置"
 "換） |"
 msgstr ""
+"| 情况 | 设置值 |\n"
+"|------|-------|\n"
+"| **公网 IP 地址固定** | `remote 203.0.113.1 1194`（替换为实际 IP） |\n"
+"| **动态 IP（使用 DDNS）** | `remote example.ddns.jp 1194`（替换为 DDNS 主机"
+"名） |"
 
 #. heading (level 2)
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:550
 msgid "クライアント側での接続テスト"
-msgstr ""
+msgstr "在客户端进行连接测试"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:552
 msgid ""
 "作成した`client.ovpn`ファイルをクライアント側に転送して、接続テストを行いま"
 "す。"
-msgstr ""
+msgstr "将创建好的 `client.ovpn` 文件传输到客户端，进行连接测试。"
 
 #. heading (level 3)
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:554
 msgid "Linux/Macでの接続"
-msgstr ""
+msgstr "在 Linux/Mac 上连接"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:556
 msgid "OpenVPNクライアントをインストール（未インストールの場合）："
-msgstr ""
+msgstr "安装 OpenVPN 客户端（如果尚未安装）："
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:566
 msgid "接続テスト実行："
-msgstr ""
+msgstr "执行连接测试："
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:578
 msgid "接続確認："
-msgstr ""
+msgstr "确认连接："
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:589
 msgid "接続を終了："
-msgstr ""
+msgstr "断开连接："
 
 #. heading (level 3)
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:595
 msgid "Windowsでの接続"
-msgstr ""
+msgstr "在 Windows 上连接"
 
 #. list item > paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:597
 msgid "**OpenVPN GUIをインストール**"
-msgstr ""
+msgstr "**安装 OpenVPN GUI**"
 
 #. list item > list item > paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:598
@@ -507,117 +577,119 @@ msgid ""
 "[OpenVPN公式ダウンロードページ](https://openvpn.net/download-open-vpn/)から"
 "OpenVPN GUIをダウンロード"
 msgstr ""
+"从 [OpenVPN 官方下载页面](https://openvpn.net/download-open-vpn/)下载 "
+"OpenVPN GUI"
 
 #. list item > list item > paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:599
 msgid "インストーラーを実行し、デフォルト設定でインストール"
-msgstr ""
+msgstr "运行安装程序，使用默认设置进行安装"
 
 #. list item > paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:601
 msgid "**クライアント設定ファイルの配置**"
-msgstr ""
+msgstr "**放置客户端配置文件**"
 
 #. list item > list item > paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:602
 msgid ""
 "`client.ovpn`ファイルを`C:\\Users\\<ユーザー名>\\OpenVPN\\config\\`にコピー"
-msgstr ""
+msgstr "将 `client.ovpn` 文件复制到 `C:\\Users\\<用户名>\\OpenVPN\\config\\`"
 
 #. list item > paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:604
 msgid "**OpenVPN GUIの起動と接続**"
-msgstr ""
+msgstr "**启动 OpenVPN GUI 并连接**"
 
 #. list item > list item > paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:605
 msgid "スタートメニューから「OpenVPN GUI」を起動"
-msgstr ""
+msgstr "从开始菜单启动“OpenVPN GUI”"
 
 #. list item > list item > paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:606
 msgid "タスクバーのOpenVPNアイコンを右クリック"
-msgstr ""
+msgstr "右键单击任务栏中的 OpenVPN 图标"
 
 #. list item > list item > paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:607
 msgid "`client.ovpn`を選択して「接続」をクリック"
-msgstr ""
+msgstr "选择 `client.ovpn` 并点击“Connect”"
 
 #. list item > paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:609
 msgid "**接続確認**"
-msgstr ""
+msgstr "**确认连接**"
 
 #. list item > list item > paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:610
 msgid "Windows PowerShellで実行："
-msgstr ""
+msgstr "在 Windows PowerShell 中执行："
 
 #. heading (level 3)
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:618
 msgid "iOS/Androidでの接続（OpenVPN Connectアプリ）"
-msgstr ""
+msgstr "在 iOS/Android 上连接（OpenVPN Connect 应用）"
 
 #. list item > paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:620
 msgid "**アプリインストール**"
-msgstr ""
+msgstr "**安装应用**"
 
 #. list item > list item > paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:621
 msgid "App Store/Google Playで「OpenVPN Connect」をインストール"
-msgstr ""
+msgstr "在 App Store/Google Play 中安装“OpenVPN Connect”"
 
 #. list item > paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:623
 msgid "**クライアント設定ファイルの転送**"
-msgstr ""
+msgstr "**传输客户端配置文件**"
 
 #. list item > list item > paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:624
 msgid "`client.ovpn`をメール添付またはクラウドストレージ経由でデバイスに転送"
-msgstr ""
+msgstr "通过邮件附件或云存储将 `client.ovpn` 传输到设备"
 
 #. list item > paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:626
 msgid "**アプリで設定ファイルをインポート**"
-msgstr ""
+msgstr "**在应用中导入配置文件**"
 
 #. list item > list item > paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:627
 msgid "OpenVPN Connectを起動"
-msgstr ""
+msgstr "启动 OpenVPN Connect"
 
 #. list item > list item > paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:628
 msgid "ファイルブラウザから`client.ovpn`を選択"
-msgstr ""
+msgstr "从文件浏览器中选择 `client.ovpn`"
 
 #. list item > list item > paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:629
 msgid "「インポート」をタップ"
-msgstr ""
+msgstr "点击“Import”"
 
 #. list item > paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:631
 msgid "**接続**"
-msgstr ""
+msgstr "**连接**"
 
 #. list item > list item > paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:632
 msgid "インポートされた接続プロフィールをタップして接続"
-msgstr ""
+msgstr "点击已导入的连接配置文件进行连接"
 
 #. heading (level 2)
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:634
 msgid "トラブルシューティング"
-msgstr ""
+msgstr "故障排除"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:636
 msgid "接続がうまくいかない場合の対処方法："
-msgstr ""
+msgstr "连接不顺利时的处理方法："
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:638
@@ -638,26 +710,38 @@ msgid ""
 "`client.ovpn`に`redirect-gateway def1`を追加（全トラフィックをVPN経由に統"
 "一） |"
 msgstr ""
+"| 问题 | 原因 | 处理方法 |\n"
+"|------|------|--------|\n"
+"| **连接时超时** | 防火墙或路由器设置不完整 | 检查[防火墙设置](#配置防火墙)，"
+"检查端口转发设置 |\n"
+"| **认证错误（TLS Handshake failed）** | 证书与密钥不匹配 | 重新检查客户端配"
+"置文件中 `<ca>`、`<cert>`、`<key>` 部分的内容 |\n"
+"| **无法访问家庭网络** | `push \"route ...\"` 设置有误 | 确认服务器端 "
+"`server.conf` 中的 `push \"route\"` 参数与家庭 LAN 地址一致 |\n"
+"| **DNS 不起作用** | 未推送 DNS 设置 | 检查 `push \"dhcp-option DNS\"` 的设"
+"置，或在客户端手动配置 DNS |\n"
+"| **连接 VPN 后无法访问互联网** | 默认路由冲突 | 在 `client.ovpn` 中添加 "
+"`redirect-gateway def1`（让所有流量都经过 VPN） |"
 
 #. heading (level 3)
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:646
 msgid "ログでのデバッグ"
-msgstr ""
+msgstr "通过日志进行调试"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:648
 msgid "サーバー側でのログ確認："
-msgstr ""
+msgstr "在服务器端查看日志："
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:657
 msgid "接続失敗時のクライアント側ログ確認（詳細度を上げる）："
-msgstr ""
+msgstr "连接失败时查看客户端日志（提高详细程度）："
 
 #. heading (level 2)
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:667
 msgid "動的IP対応（DDNS設定）"
-msgstr ""
+msgstr "动态 IP 支持（DDNS 设置）"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:669
@@ -665,6 +749,8 @@ msgid ""
 "OpenWrtの外部IPが変動する場合、DDNS（ダイナミックDNS）機能を利用して、クライ"
 "アント側でホスト名での接続を可能にします。"
 msgstr ""
+"如果 OpenWrt 的外部 IP 会变动，可以利用 DDNS（动态 DNS）功能，让客户端通过主"
+"机名进行连接。"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:671
@@ -673,55 +759,58 @@ msgid ""
 "automatically-update-dns-records-for-onamae-com-from-openwrt-with-ddns-using-"
 "ddns-scripts-onamae)"
 msgstr ""
+"[相关文章：在 OpenWrt 上配置 DDNS 并定期更新 DNS 记录](/blog/automatically-"
+"update-dns-records-for-onamae-com-from-openwrt-with-ddns-using-ddns-scripts-"
+"onamae)"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:673
 msgid ""
 "DDNS設定後、クライアント設定ファイルの`remote`パラメータをDDNSホスト名に変更"
 "します："
-msgstr ""
+msgstr "配置 DDNS 后，将客户端配置文件中的 `remote` 参数改为 DDNS 主机名："
 
 #. heading (level 2)
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:683
 msgid "セキュリティ推奨事項"
-msgstr ""
+msgstr "安全建议"
 
 #. heading (level 3)
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:685
 msgid "定期的な証明書更新"
-msgstr ""
+msgstr "定期更新证书"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:687
 msgid ""
 "生成した証明書は825日間有効です。定期的に新しい証明書を生成・配置してくださ"
 "い。"
-msgstr ""
+msgstr "生成的证书有效期为 825 天。请定期生成并部署新证书。"
 
 #. heading (level 3)
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:694
 msgid "ファイアウォール設定の確認"
-msgstr ""
+msgstr "检查防火墙设置"
 
 #. heading (level 3)
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:704
 msgid "PAM認証の追加（オプション）"
-msgstr ""
+msgstr "添加 PAM 认证（可选）"
 
 #. paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:706
 msgid "パスワード認証を追加する場合、`server.conf`に以下を追加："
-msgstr ""
+msgstr "如需添加密码认证，请在 `server.conf` 中添加以下内容："
 
 #. heading (level 2)
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:714
 msgid "関連記事・外部リンク"
-msgstr ""
+msgstr "相关文章与外部链接"
 
 #. heading (level 3)
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:716
 msgid "OpenWrt関連"
-msgstr ""
+msgstr "OpenWrt 相关"
 
 #. list item > paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:718
@@ -729,6 +818,8 @@ msgid ""
 "[OpenWrtへのOpenVPN インストール（公式ドキュメント）](https://openwrt.org/"
 "docs/guide_user/services/vpn/openvpn/server)"
 msgstr ""
+"[在 OpenWrt 上安装 OpenVPN（官方文档）](https://openwrt.org/docs/guide_user/"
+"services/vpn/openvpn/server)"
 
 #. list item > paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:719
@@ -736,17 +827,19 @@ msgid ""
 "[OpenWrt Wiki - OpenVPN](https://openwrt.org/docs/guide_user/services/vpn/"
 "openvpn/start)"
 msgstr ""
+"[OpenWrt Wiki - OpenVPN](https://openwrt.org/docs/guide_user/services/vpn/"
+"openvpn/start)"
 
 #. list item > paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:720
 msgid ""
 "[本サイト：OpenWrtのインストール](/blog/install-friendlywrt-on-nanopi-r2s)"
-msgstr ""
+msgstr "[本站：安装 OpenWrt](/blog/install-friendlywrt-on-nanopi-r2s)"
 
 #. heading (level 3)
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:722
 msgid "VPN代替技術"
-msgstr ""
+msgstr "VPN 替代技术"
 
 #. list item > paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:724
@@ -754,11 +847,13 @@ msgid ""
 "[WireGuardでVPNサーバーを構築する（本サイト）](/blog/set-up-a-vpn-server-on-"
 "openwrt-using-wireguard-to-access-the-home-network-from-outside)"
 msgstr ""
+"[使用 WireGuard 搭建 VPN 服务器（本站）](/blog/set-up-a-vpn-server-on-"
+"openwrt-using-wireguard-to-access-the-home-network-from-outside)"
 
 #. heading (level 3)
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:726
 msgid "動的IP対応"
-msgstr ""
+msgstr "动态 IP 支持"
 
 #. list item > paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:728
@@ -766,21 +861,23 @@ msgid ""
 "[OpenWrtでDDNSを設定する（本サイト）](/blog/automatically-update-dns-records-"
 "for-onamae-com-from-openwrt-with-ddns-using-ddns-scripts-onamae)"
 msgstr ""
+"[在 OpenWrt 上配置 DDNS（本站）](/blog/automatically-update-dns-records-for-"
+"onamae-com-from-openwrt-with-ddns-using-ddns-scripts-onamae)"
 
 #. heading (level 3)
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:730
 msgid "SSH・セキュリティ関連"
-msgstr ""
+msgstr "SSH 与安全相关"
 
 #. list item > paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:732
 msgid "[SSH鍵の生成方法（本サイト）](/blog/generate-ssh-key)"
-msgstr ""
+msgstr "[SSH 密钥的生成方法（本站）](/blog/generate-ssh-key)"
 
 #. list item > paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:733
 msgid "[OpenSSL公式ドキュメント](https://www.openssl.org/docs/)"
-msgstr ""
+msgstr "[OpenSSL 官方文档](https://www.openssl.org/docs/)"
 
 #. list item > paragraph
 #: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:734
@@ -788,3 +885,5 @@ msgid ""
 "[NIST暗号化推奨設定](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/"
 "NIST.SP.800-38A.pdf)"
 msgstr ""
+"[NIST 加密推荐设置](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/"
+"NIST.SP.800-38A.pdf)"

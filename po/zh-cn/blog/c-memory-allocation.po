@@ -1,8 +1,9 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-15 23:56+0000\n"
+"POT-Creation-Date: 2026-11-15 23:57+0000\n"
 "PO-Revision-Date: 2026-11-15 23:56+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,7 +15,7 @@ msgstr ""
 #. front matter: title
 #: content/ja/blog/c-memory-allocation/index.md:2
 msgid "【C言語】動的メモリ確保の方法と注意点"
-msgstr ""
+msgstr "【C语言】动态内存分配的方法与注意事项"
 
 #. paragraph
 #: content/ja/blog/c-memory-allocation/index.md:11
@@ -22,38 +23,40 @@ msgid ""
 "C言語では、メモリの動的確保を行うことができます。動的確保は、必要なメモリ領域"
 "が実行時に変化する場合や、大量のメモリ領域が必要な場合に便利です。"
 msgstr ""
+"在 C 语言中，可以动态分配内存。当所需的内存区域在运行时发生变化，或者需要大量"
+"内存区域时，动态分配非常方便。"
 
 #. paragraph
 #: content/ja/blog/c-memory-allocation/index.md:13
 msgid "ここでは、メモリを動的に確保する方法と、その注意点について解説します。"
-msgstr ""
+msgstr "本文介绍动态分配内存的方法及其注意事项。"
 
 #. heading (level 2)
 #: content/ja/blog/c-memory-allocation/index.md:15
 msgid "動的メモリ確保と解放を行う関数"
-msgstr ""
+msgstr "进行动态内存分配与释放的函数"
 
 #. paragraph
 #: content/ja/blog/c-memory-allocation/index.md:17
 msgid ""
 "C言語では、動的なメモリの確保と解放を行うための関数が、標準ライブラリで提供さ"
 "れています。"
-msgstr ""
+msgstr "在 C 语言中，标准库提供了用于动态分配和释放内存的函数。"
 
 #. paragraph
 #: content/ja/blog/c-memory-allocation/index.md:28
 msgid "使用するには、`stdlib.h`をインクルードします。"
-msgstr ""
+msgstr "使用这些函数时，需要包含 `stdlib.h`。"
 
 #. heading (level 2)
 #: content/ja/blog/c-memory-allocation/index.md:30
 msgid "メモリの動的確保"
-msgstr ""
+msgstr "动态分配内存"
 
 #. paragraph
 #: content/ja/blog/c-memory-allocation/index.md:32
 msgid "メモリを動的に確保するには`malloc`関数を使用します。"
-msgstr ""
+msgstr "要动态分配内存，请使用 `malloc` 函数。"
 
 #. paragraph
 #: content/ja/blog/c-memory-allocation/index.md:38
@@ -62,13 +65,15 @@ msgid ""
 "リ割り当てに成功した場合、割り当てられたメモリ領域の先頭アドレスが戻り値で返"
 "されます。失敗した場合は`NULL`が返されます。"
 msgstr ""
+"`malloc` 函数的参数以字节为单位指定所需内存区域的大小。内存分配成功时，返回值"
+"为所分配内存区域的起始地址；失败时返回 `NULL`。"
 
 #. paragraph
 #: content/ja/blog/c-memory-allocation/index.md:40
 msgid ""
 "例えば、10個の要素を持つ`int`型の配列を割り当てる場合は、以下のように書きま"
 "す。"
-msgstr ""
+msgstr "例如，要分配一个包含 10 个元素的 `int` 类型数组，可以这样写。"
 
 #. paragraph
 #: content/ja/blog/c-memory-allocation/index.md:47
@@ -77,18 +82,21 @@ msgid ""
 "に渡しています。これにより、`int`型のサイズ×10のメモリ領域が割り当てられ、そ"
 "の先頭アドレスがポインタ変数`ptr`に代入されます。"
 msgstr ""
+"本例中，使用 `sizeof` 运算符获取 `int` 类型的大小，将其乘以 10 后传给 "
+"`malloc` 函数。这样就会分配大小为 `int` 类型大小×10 的内存区域，并将其起始地"
+"址赋给指针变量 `ptr`。"
 
 #. paragraph
 #: content/ja/blog/c-memory-allocation/index.md:49
 msgid ""
 "割り当てられたメモリ領域は、ポインタ変数を介して通常の配列と同じように操作す"
 "ることができます。"
-msgstr ""
+msgstr "分配到的内存区域可以通过指针变量，像普通数组一样进行操作。"
 
 #. heading (level 2)
 #: content/ja/blog/c-memory-allocation/index.md:51
 msgid "確保したメモリの解放"
-msgstr ""
+msgstr "释放已分配的内存"
 
 #. paragraph
 #: content/ja/blog/c-memory-allocation/index.md:53
@@ -97,33 +105,35 @@ msgid ""
 "メモリリークが発生し、システム全体のメモリを使い尽くしてしまう可能性がありま"
 "す。解放するためには`free`関数を使用します。"
 msgstr ""
+"动态分配的内存区域在使用后必须释放。如果不释放，就会发生内存泄漏，可能耗尽整"
+"个系统的内存。释放内存时使用 `free` 函数。"
 
 #. paragraph
 #: content/ja/blog/c-memory-allocation/index.md:59
 msgid "`free`関数は、引数に解放するメモリ領域の先頭アドレスを指定します。"
-msgstr ""
+msgstr "`free` 函数的参数指定要释放的内存区域的起始地址。"
 
 #. paragraph
 #: content/ja/blog/c-memory-allocation/index.md:65
 msgid "これにより、動的に確保されたメモリ領域が解放されます。"
-msgstr ""
+msgstr "这样，动态分配的内存区域就被释放了。"
 
 #. heading (level 2)
 #: content/ja/blog/c-memory-allocation/index.md:67
 msgid "初期化されたメモリの確保"
-msgstr ""
+msgstr "分配已初始化的内存"
 
 #. paragraph
 #: content/ja/blog/c-memory-allocation/index.md:69
 msgid ""
 "`calloc`関数を使用することで、値が0で初期化されたメモリを確保することができま"
 "す。"
-msgstr ""
+msgstr "使用 `calloc` 函数，可以分配值被初始化为 0 的内存。"
 
 #. paragraph
 #: content/ja/blog/c-memory-allocation/index.md:75
 msgid "`malloc`と引数は異なりますが、基本的な考え方は同じです。"
-msgstr ""
+msgstr "它的参数与 `malloc` 不同，但基本思路相同。"
 
 #. paragraph
 #: content/ja/blog/c-memory-allocation/index.md:77
@@ -132,6 +142,8 @@ msgid ""
 "メモリ割り当てに成功した場合、割り当てられたメモリ領域の先頭アドレスが戻り値"
 "で返されます。失敗した場合は`NULL`が返されます。"
 msgstr ""
+"通过参数 `size` 指定元素的大小，`nmemb` 指定元素的个数来分配内存。内存分配成"
+"功时，返回值为所分配内存区域的起始地址；失败时返回 `NULL`。"
 
 #. paragraph
 #: content/ja/blog/c-memory-allocation/index.md:84
@@ -140,17 +152,19 @@ msgid ""
 "これにより、`int`型のサイズ×10のメモリ領域がポインタ変数`ptr`に割り当てられま"
 "す。"
 msgstr ""
+"本例中，将元素大小指定为 `int` 类型的大小，元素个数为 10。这样就会把大小为 "
+"`int` 类型大小×10 的内存区域分配给指针变量 `ptr`。"
 
 #. paragraph
 #: content/ja/blog/c-memory-allocation/index.md:86
 msgid ""
 "また、`calloc`関数で割り当てられたメモリの値は、全て0で初期化されています。"
-msgstr ""
+msgstr "此外，通过 `calloc` 函数分配的内存，其值全部被初始化为 0。"
 
 #. heading (level 2)
 #: content/ja/blog/c-memory-allocation/index.md:88
 msgid "メモリの再確保"
-msgstr ""
+msgstr "重新分配内存"
 
 #. paragraph
 #: content/ja/blog/c-memory-allocation/index.md:90
@@ -158,6 +172,8 @@ msgid ""
 "`realloc`関数を使用することで、`malloc`関数や`calloc`関数で確保したメモリのサ"
 "イズを変更することができます。"
 msgstr ""
+"使用 `realloc` 函数，可以更改通过 `malloc` 函数或 `calloc` 函数分配的内存的大"
+"小。"
 
 #. paragraph
 #: content/ja/blog/c-memory-allocation/index.md:96
@@ -166,6 +182,8 @@ msgid ""
 "ズに変更します。メモリ割り当てに成功した場合、割り当てられたメモリ領域の先頭"
 "アドレスが戻り値で返されます。失敗した場合は`NULL`が返されます。"
 msgstr ""
+"`realloc` 函数会将参数 `ptr` 所指向的内存的大小更改为参数 `size` 指定的大小。"
+"内存分配成功时，返回值为所分配内存区域的起始地址；失败时返回 `NULL`。"
 
 #. paragraph
 #: content/ja/blog/c-memory-allocation/index.md:103
@@ -174,28 +192,31 @@ msgid ""
 "変更後のサイズとして`int`型のサイズ×20を指定しています。これにより、サイズ変"
 "更されたメモリ領域がnew_ptrに割り当てられます。"
 msgstr ""
+"本例中，传入通过 `malloc` 函数或 `calloc` 函数分配的内存的起始地址，并将更改"
+"后的大小指定为 `int` 类型大小×20。这样，大小更改后的内存区域就会被赋给 "
+"new_ptr。"
 
 #. heading (level 2)
 #: content/ja/blog/c-memory-allocation/index.md:105
 msgid "動的メモリ確保の注意点"
-msgstr ""
+msgstr "动态内存分配的注意事项"
 
 #. paragraph
 #: content/ja/blog/c-memory-allocation/index.md:107
 msgid "動的メモリ確保には、以下のような注意点があります。"
-msgstr ""
+msgstr "动态内存分配有以下注意事项。"
 
 #. heading (level 3)
 #: content/ja/blog/c-memory-allocation/index.md:109
 msgid "メモリ確保の結果を確認する"
-msgstr ""
+msgstr "确认内存分配的结果"
 
 #. paragraph
 #: content/ja/blog/c-memory-allocation/index.md:111
 msgid ""
 "動的メモリ確保は失敗する可能性があります。そのため、戻り値を必ずチェックする"
 "ようにしましょう。"
-msgstr ""
+msgstr "动态内存分配有可能失败，因此务必检查返回值。"
 
 #. paragraph
 #: content/ja/blog/c-memory-allocation/index.md:113
@@ -204,6 +225,8 @@ msgid ""
 "の参照は未定義の動作を引き起こすため、必ず関数の戻り値を確認する必要がありま"
 "す。"
 msgstr ""
+"内存分配失败时，函数会返回 `NULL`。引用 `NULL` 指针会导致未定义行为，因此必须"
+"确认函数的返回值。"
 
 #. paragraph
 #: content/ja/blog/c-memory-allocation/index.md:124
@@ -211,18 +234,20 @@ msgid ""
 "この例では、`malloc`関数を例として説明していますが、`calloc`関数や`realloc`関"
 "数でも同様に戻り値の確認が必要です。"
 msgstr ""
+"本例以 `malloc` 函数为例进行说明，但 `calloc` 函数和 `realloc` 函数同样需要确"
+"认返回值。"
 
 #. heading (level 3)
 #: content/ja/blog/c-memory-allocation/index.md:126
 msgid "realloc関数の戻り値は引数とは異なるポインタ変数で受け取る"
-msgstr ""
+msgstr "用与参数不同的指针变量接收 realloc 函数的返回值"
 
 #. paragraph
 #: content/ja/blog/c-memory-allocation/index.md:128
 msgid ""
 "メモリを確保する関数ではメモリが確保できなかった場合、`NULL`を返すようになっ"
 "ています。"
-msgstr ""
+msgstr "分配内存的函数在无法分配内存时会返回 `NULL`。"
 
 #. paragraph
 #: content/ja/blog/c-memory-allocation/index.md:130
@@ -231,13 +256,15 @@ msgid ""
 "かった場合、元となったポインタ変数が`NULL`で上書きされることになってしまいま"
 "す。"
 msgstr ""
+"如果用与参数相同的指针变量接收 `realloc` 函数的返回值，那么在无法分配内存时，"
+"原来的指针变量就会被 `NULL` 覆盖。"
 
 #. paragraph
 #: content/ja/blog/c-memory-allocation/index.md:132
 msgid ""
 "以下のように一時的なポインタ変数を準備し、戻り値が`NULL`ではない場合に上書き"
 "する必要があります。"
-msgstr ""
+msgstr "需要像下面这样准备一个临时指针变量，在返回值不为 `NULL` 时再进行覆盖。"
 
 #. paragraph
 #: content/ja/blog/c-memory-allocation/index.md:147
@@ -245,11 +272,12 @@ msgid ""
 "こうすることで、メモリの再確保に失敗した場合でも、元となるポインタ変数`ptr`が"
 "`NULL`で上書きされることはありません。"
 msgstr ""
+"这样一来，即使内存重新分配失败，原来的指针变量 `ptr` 也不会被 `NULL` 覆盖。"
 
 #. heading (level 3)
 #: content/ja/blog/c-memory-allocation/index.md:149
 msgid "不要となったメモリは解放する"
-msgstr ""
+msgstr "释放不再需要的内存"
 
 #. paragraph
 #: content/ja/blog/c-memory-allocation/index.md:151
@@ -258,6 +286,8 @@ msgid ""
 "す。解放しないと、メモリリークが発生し、システム全体のメモリを使い尽くしてし"
 "まう可能性があります。"
 msgstr ""
+"通过 `malloc` 函数分配的内存区域，必须使用 `free` 函数释放。如果不释放，就会"
+"发生内存泄漏，可能耗尽整个系统的内存。"
 
 #. paragraph
 #: content/ja/blog/c-memory-allocation/index.md:153
@@ -265,18 +295,20 @@ msgid ""
 "メモリ確保と解放が関数内で1対1となるようにプログラムすることで、目視での確認"
 "が容易となり、メモリリークの発生を抑えることができます。"
 msgstr ""
+"编写程序时让内存的分配与释放在函数内一一对应，可以便于目视检查，从而减少内存"
+"泄漏的发生。"
 
 #. heading (level 3)
 #: content/ja/blog/c-memory-allocation/index.md:155
 msgid "メモリの二重解放をしない"
-msgstr ""
+msgstr "不要重复释放内存"
 
 #. paragraph
 #: content/ja/blog/c-memory-allocation/index.md:157
 msgid ""
 "動的に確保したメモリを1度解放した後、再度同じ領域を解放すると未定義の動作とな"
 "ります。"
-msgstr ""
+msgstr "动态分配的内存释放一次后，如果再次释放同一区域，将导致未定义行为。"
 
 #. paragraph
 #: content/ja/blog/c-memory-allocation/index.md:159
@@ -284,6 +316,8 @@ msgid ""
 "解放されたメモリを再利用している他の処理の動作が不安定になったり、プログラム"
 "がクラッシュする可能性があるため、メモリの二重解放に注意する必要があります。"
 msgstr ""
+"重复释放可能会使正在重新利用已释放内存的其他处理变得不稳定，或导致程序崩溃，"
+"因此需要注意避免重复释放内存。"
 
 #. paragraph
 #: content/ja/blog/c-memory-allocation/index.md:161
@@ -292,3 +326,5 @@ msgid ""
 "として定義されています。そのため、メモリを解放した後のポインタ変数には`NULL`"
 "を代入することを推奨します。"
 msgstr ""
+"规范中规定，当 `free` 函数的参数为 `NULL` 时，不会执行内存释放。因此，建议在"
+"释放内存后将 `NULL` 赋给该指针变量。"

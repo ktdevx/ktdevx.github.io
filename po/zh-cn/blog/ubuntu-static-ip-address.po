@@ -1,8 +1,9 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-15 23:56+0000\n"
+"POT-Creation-Date: 2026-11-15 23:57+0000\n"
 "PO-Revision-Date: 2026-11-15 23:56+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,41 +15,41 @@ msgstr ""
 #. front matter: title
 #: content/ja/blog/ubuntu-static-ip-address/index.md:2
 msgid "【Ubuntu】固定IPアドレスを割り当てる"
-msgstr ""
+msgstr "【Ubuntu】分配固定 IP 地址"
 
 #. paragraph
 #: content/ja/blog/ubuntu-static-ip-address/index.md:11
 msgid ""
 "サーバーのOSとしてUbuntuを利用する場合、IPアドレスが変化しないように設定する"
 "必要があります。"
-msgstr ""
+msgstr "将 Ubuntu 用作服务器操作系统时，需要进行设置，使 IP 地址不会发生变化。"
 
 #. paragraph
 #: content/ja/blog/ubuntu-static-ip-address/index.md:13
 msgid "ここでは、UbuntuでIPアドレスを固定化する方法について解説します。"
-msgstr ""
+msgstr "本文介绍如何在 Ubuntu 中固定 IP 地址。"
 
 #. heading (level 2)
 #: content/ja/blog/ubuntu-static-ip-address/index.md:15
 msgid "ネットワークインターフェース情報の確認"
-msgstr ""
+msgstr "确认网络接口信息"
 
 #. paragraph
 #: content/ja/blog/ubuntu-static-ip-address/index.md:17
 msgid "`ip address`と入力し、ネットワークインターフェースの情報を確認します。"
-msgstr ""
+msgstr "输入 `ip address`，确认网络接口的信息。"
 
 #. paragraph
 #: content/ja/blog/ubuntu-static-ip-address/index.md:37
 msgid ""
 "今回は、`eth0`という名前のネットワークインターフェースのIPアドレスを固定化し"
 "ます。"
-msgstr ""
+msgstr "本例中，将为名为 `eth0` 的网络接口固定 IP 地址。"
 
 #. heading (level 2)
 #: content/ja/blog/ubuntu-static-ip-address/index.md:39
 msgid "Netplan設定ファイルの作成"
-msgstr ""
+msgstr "创建 Netplan 配置文件"
 
 #. paragraph
 #: content/ja/blog/ubuntu-static-ip-address/index.md:41
@@ -56,6 +57,7 @@ msgid ""
 "IPアドレスを固定化するため、`/etc/netplan`ディレクトリ配下にNetplanの設定ファ"
 "イルを追加します。"
 msgstr ""
+"为了固定 IP 地址，需要在 `/etc/netplan` 目录下添加 Netplan 的配置文件。"
 
 #. paragraph
 #: content/ja/blog/ubuntu-static-ip-address/index.md:43
@@ -64,13 +66,15 @@ msgid ""
 "があるため、必ず新しくファイルを作成しましょう。この時、設定ファイルは名前の"
 "昇順で参照されることに注意してください。"
 msgstr ""
+"默认存在的 `50-cloud-init.yaml` 可能会被系统覆盖，因此请务必新建一个文件。此"
+"时请注意，配置文件会按文件名的升序读取。"
 
 #. paragraph
 #: content/ja/blog/ubuntu-static-ip-address/index.md:45
 msgid ""
 "ここでは、ファイル名を`99-config.yaml`として、内容を以下のように編集しまし"
 "た。"
-msgstr ""
+msgstr "这里将文件名设为 `99-config.yaml`，并按如下内容进行编辑。"
 
 #. paragraph
 #: content/ja/blog/ubuntu-static-ip-address/index.md:64
@@ -78,32 +82,34 @@ msgid ""
 "この例では、`eth0`のIPアドレスが`192.168.10.2`、デフォルトゲートウェイとDNS"
 "サーバーのIPアドレスが`192.168.10.1`となるように設定しています。"
 msgstr ""
+"本例中，将 `eth0` 的 IP 地址设为 `192.168.10.2`，将默认网关和 DNS 服务器的 "
+"IP 地址设为 `192.168.10.1`。"
 
 #. paragraph
 #: content/ja/blog/ubuntu-static-ip-address/index.md:66
 msgid ""
 "内容に問題がなければ、`/etc/netplan`ディレクトリ配下にファイルを保存してくだ"
 "さい。"
-msgstr ""
+msgstr "如果内容没有问题，请将文件保存到 `/etc/netplan` 目录下。"
 
 #. heading (level 2)
 #: content/ja/blog/ubuntu-static-ip-address/index.md:68
 msgid "ネットワーク設定の反映"
-msgstr ""
+msgstr "应用网络设置"
 
 #. paragraph
 #: content/ja/blog/ubuntu-static-ip-address/index.md:70
 msgid "以下のコマンドで設定を反映します。"
-msgstr ""
+msgstr "使用以下命令应用设置。"
 
 #. paragraph
 #: content/ja/blog/ubuntu-static-ip-address/index.md:76
 msgid ""
 "これによりネットワーク設定が反映されます。`ip address`と入力して設定が反映さ"
 "れたか確認しましょう。"
-msgstr ""
+msgstr "这样网络设置就生效了。输入 `ip address`，确认设置是否已生效。"
 
 #. paragraph
 #: content/ja/blog/ubuntu-static-ip-address/index.md:96
 msgid "`eth0`の設定が反映されていることが確認できました。"
-msgstr ""
+msgstr "可以确认 `eth0` 的设置已经生效。"

@@ -1,8 +1,9 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-15 23:56+0000\n"
+"POT-Creation-Date: 2026-11-15 23:58+0000\n"
 "PO-Revision-Date: 2026-11-15 23:56+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,22 +15,22 @@ msgstr ""
 #. front matter: title
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:2
 msgid "Aterm WG2600HP3にOpenWrtをインストールする"
-msgstr ""
+msgstr "在 Aterm WG2600HP3 上安装 OpenWrt"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:11
 msgid "NECのAterm WG2600HP3にOpenWrtをインストールする方法について説明します。"
-msgstr ""
+msgstr "本文介绍如何在 NEC 的 Aterm WG2600HP3 上安装 OpenWrt。"
 
 #. heading (level 2)
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:13
 msgid "ハードウェア情報"
-msgstr ""
+msgstr "硬件信息"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:15
 msgid "![Aterm WG2600HP3](images/aterm-wg2600hp3.webp)"
-msgstr ""
+msgstr "![Aterm WG2600HP3](images/aterm-wg2600hp3.webp)"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:17
@@ -43,11 +44,19 @@ msgid ""
 "| イーサネットポート | 1Gbps×5                      |\n"
 "| 無線LAN            | 2.4GHz: b/g/n, 5GHz: a/n/ac   |"
 msgstr ""
+"| 制造商             | NEC                           |\n"
+"| ------------------ | ----------------------------- |\n"
+"| 型号               | Aterm WG2600HP3               |\n"
+"| CPU                | Qualcomm Atheros IPQ8062 1GHz |\n"
+"| 闪存               | 32MB                          |\n"
+"| 内存               | 512MB                         |\n"
+"| 以太网端口         | 1Gbps×5                      |\n"
+"| 无线局域网         | 2.4GHz: b/g/n, 5GHz: a/n/ac   |"
 
 #. heading (level 2)
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:26
 msgid "イメージのダウンロード"
-msgstr ""
+msgstr "下载镜像"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:28
@@ -56,6 +65,9 @@ msgid ""
 "(https://downloads.openwrt.org/releases/24.10.0/targets/ipq806x/generic/)か"
 "ら、initramfsイメージとsysupgradeイメージをダウンロードしましょう。"
 msgstr ""
+"本次安装的是 OpenWrt 24.10.0。请从 [OpenWrt 官方下载页面](https://downloads."
+"openwrt.org/releases/24.10.0/targets/ipq806x/generic/)下载 initramfs 镜像和 "
+"sysupgrade 镜像。"
 
 #. list item > paragraph
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:30
@@ -63,6 +75,8 @@ msgid ""
 "nec_wg2600hp3-initramfs-uImage  \n"
 "initramfsイメージ。"
 msgstr ""
+"nec_wg2600hp3-initramfs-uImage  \n"
+"initramfs 镜像。"
 
 #. list item > paragraph
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:32
@@ -70,18 +84,20 @@ msgid ""
 "nec_wg2600hp3-squashfs-sysupgrade.bin  \n"
 "sysupgradeイメージ。"
 msgstr ""
+"nec_wg2600hp3-squashfs-sysupgrade.bin  \n"
+"sysupgrade 镜像。"
 
 #. heading (level 2)
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:35
 msgid "TFTPサーバーのセットアップ"
-msgstr ""
+msgstr "搭建 TFTP 服务器"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:37
 msgid ""
 "initramfsイメージの書き込みはTFTP経由で行われるため、TFTPサーバーをセットアッ"
 "プする必要があります。"
-msgstr ""
+msgstr "initramfs 镜像通过 TFTP 写入，因此需要搭建 TFTP 服务器。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:39
@@ -89,19 +105,21 @@ msgid ""
 "今回はWindowsがインストールされたPCと、Windows向けのTFTPサーバーソフトウェア"
 "であるTftpd64を使用して、TFTPサーバーを構築します。"
 msgstr ""
+"本次使用一台安装了 Windows 的 PC 和面向 Windows 的 TFTP 服务器软件 Tftpd64 来"
+"搭建 TFTP 服务器。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:41
 msgid ""
 "まずは、TFTPサーバーとなるPCのIPアドレスを`192.168.1.2/24`に設定しましょう。"
-msgstr ""
+msgstr "首先，将作为 TFTP 服务器的 PC 的 IP 地址设置为 `192.168.1.2/24`。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:43
 msgid ""
 "そして、TFTPで公開する適当なディレクトリを作成し、そこにinitramfsイメージを配"
 "置します。"
-msgstr ""
+msgstr "然后，创建一个用于通过 TFTP 公开的目录，并将 initramfs 镜像放入其中。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:45
@@ -109,6 +127,8 @@ msgid ""
 "最後にTftpd64でTFTPサーバーを立ち上げてinitramfsイメージを公開します。Tftpd64"
 "の詳細なセットアップ方法は以下を参考にしてください。"
 msgstr ""
+"最后，使用 Tftpd64 启动 TFTP 服务器并公开 initramfs 镜像。Tftpd64 的详细设置"
+"方法请参考以下文章。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:47
@@ -116,26 +136,28 @@ msgid ""
 "[WindowsでTftpd64を使用してTFTPサーバーを立てる](/blog/setup-tftp-server-on-"
 "windows-using-tftpd64)"
 msgstr ""
+"[在 Windows 上使用 Tftpd64 搭建 TFTP 服务器](/blog/setup-tftp-server-on-"
+"windows-using-tftpd64)"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:49
 msgid "これでTFTPサーバーのセットアップは完了です。"
-msgstr ""
+msgstr "至此，TFTP 服务器搭建完成。"
 
 #. heading (level 2)
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:51
 msgid "シリアルコンソールに接続する"
-msgstr ""
+msgstr "连接串口控制台"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:53
 msgid "Aterm WG2600HP3からUARTを引き出してシリアルコンソールに接続します。"
-msgstr ""
+msgstr "从 Aterm WG2600HP3 引出 UART，连接到串口控制台。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:55
 msgid "![Aterm WG2600HP3 UARTの端子](images/aterm-wg2600hp3-uart.webp)"
-msgstr ""
+msgstr "![Aterm WG2600HP3 的 UART 引脚](images/aterm-wg2600hp3-uart.webp)"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:57
@@ -143,6 +165,8 @@ msgid ""
 "J3がUARTの端子です。左端からVCC(3.3V)、2番目がGND、4番目がTX、5番目がRXです。"
 "USB-TTLシリアル変換ケーブル等を用いてPCと接続しましょう。"
 msgstr ""
+"J3 是 UART 引脚。从最左边起依次为 VCC（3.3V），第 2 个是 GND，第 4 个是 TX，"
+"第 5 个是 RX。请使用 USB-TTL 串口转换线等将其与 PC 连接。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:59
@@ -155,6 +179,13 @@ msgid ""
 "| ストップビット | 1bit      |\n"
 "| フロー制御     | none      |"
 msgstr ""
+"| 项目           | 设置      |\n"
+"| -------------- | --------- |\n"
+"| 波特率         | 115200bps |\n"
+"| 数据位         | 8bit      |\n"
+"| 校验位         | none      |\n"
+"| 停止位         | 1bit      |\n"
+"| 流控制         | none      |"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:67
@@ -163,16 +194,18 @@ msgid ""
 "コンソールのログイン画面が表示されます。パスワードに`chiron`と入力してログイ"
 "ンしましょう。"
 msgstr ""
+"打开 Aterm WG2600HP3 的电源，在出现 u-boot 输出时按下 Esc 键，即会显示控制台"
+"的登录界面。输入密码 `chiron` 进行登录。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:69
 msgid "これで、シリアルコンソールの接続は完了です。"
-msgstr ""
+msgstr "至此，串口控制台连接完成。"
 
 #. heading (level 2)
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:71
 msgid "initramfsイメージのインストール"
-msgstr ""
+msgstr "安装 initramfs 镜像"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:73
@@ -180,13 +213,15 @@ msgid ""
 "TFTPサーバーとAterm WG2600HP3をLANケーブルで接続しましょう。Aterm WG2600HP3の"
 "LANポートはLAN1からLAN4のどれでも構いません。"
 msgstr ""
+"使用 LAN 线连接 TFTP 服务器和 Aterm WG2600HP3。Aterm WG2600HP3 的 LAN 端口使"
+"用 LAN1 到 LAN4 中的任意一个均可。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:75
 msgid ""
 "接続後、シリアルで以下のコマンドを実行して、initramfsイメージをインストールし"
 "ます。"
-msgstr ""
+msgstr "连接后，通过串口执行以下命令，安装 initramfs 镜像。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:104
@@ -194,59 +229,61 @@ msgid ""
 "これによりTFTPサーバーからinitramfsイメージがインストールされ、OpenWrtが起動"
 "します。しばらく待った後Enterキーを押下しましょう。"
 msgstr ""
+"这样就会从 TFTP 服务器安装 initramfs 镜像，并启动 OpenWrt。稍等片刻后按下 "
+"Enter 键。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:125
 msgid "このような表示が出たらinitramfsイメージのインストールは完了です。"
-msgstr ""
+msgstr "出现如下显示后，initramfs 镜像的安装即完成。"
 
 #. heading (level 2)
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:127
 msgid "メーカーファームのバックアップ"
-msgstr ""
+msgstr "备份原厂固件"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:129
 msgid ""
 "将来的にメーカーファームに戻す可能性がある場合は、sysupgradeイメージを書き込"
 "む前にバックアップを取りましょう。"
-msgstr ""
+msgstr "如果将来可能需要恢复原厂固件，请在写入 sysupgrade 镜像之前进行备份。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:131
 msgid "まずは、OpenWrtでフラッシュの中身を確認をします。"
-msgstr ""
+msgstr "首先，在 OpenWrt 中确认闪存的内容。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:156
 msgid ""
 "firmwareパーティションにメーカーファームが配置されています。デバイスを確認し"
 "てddコマンドでバックアップを取りましょう。"
-msgstr ""
+msgstr "原厂固件位于 firmware 分区中。确认设备后，使用 dd 命令进行备份。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:162
 msgid ""
 "バックアップを取った後は、PCでscpコマンドを使ってメーカーファームを取得しま"
 "す。"
-msgstr ""
+msgstr "备份完成后，在 PC 上使用 scp 命令获取原厂固件。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:168
 msgid "これでメーカーファームのバックアップは完了です。大切に保管しましょう。"
-msgstr ""
+msgstr "至此，原厂固件的备份完成。请妥善保管。"
 
 #. heading (level 2)
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:170
 msgid "sysupgradeイメージのインストール"
-msgstr ""
+msgstr "安装 sysupgrade 镜像"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:172
 msgid ""
 "scpコマンドを使用して、PCからAterm WG2600HP3にsysupgradeイメージを転送しま"
 "す。"
-msgstr ""
+msgstr "使用 scp 命令将 sysupgrade 镜像从 PC 传输到 Aterm WG2600HP3。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:178
@@ -254,23 +291,24 @@ msgid ""
 "転送後、Aterm WG2600HP3でsysupgradeコマンドを使用して、sysupgradeイメージを書"
 "き込みましょう。"
 msgstr ""
+"传输完成后，在 Aterm WG2600HP3 上使用 sysupgrade 命令写入 sysupgrade 镜像。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:184
 msgid ""
 "これによりsysupgradeイメージのインストールが開始されます。インストールが完了"
 "し、再起動されるまでしばらく待ちましょう。"
-msgstr ""
+msgstr "这样就会开始安装 sysupgrade 镜像。请等待安装完成并重启。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:186
 msgid "再起動後、OpenWrtが起動します。これでOpenWrtのインストールは完了です。"
-msgstr ""
+msgstr "重启后，OpenWrt 将启动。至此，OpenWrt 的安装完成。"
 
 #. heading (level 2)
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:188
 msgid "メーカーファームに戻す"
-msgstr ""
+msgstr "恢复原厂固件"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:190
@@ -278,13 +316,14 @@ msgid ""
 "事前にメーカーファームのバックアップを取っていた場合、OpenWrtからメーカー"
 "ファームに戻すことができます。ここでは、その方法について説明します。"
 msgstr ""
+"如果事先备份了原厂固件，就可以从 OpenWrt 恢复到原厂固件。本节介绍具体方法。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:192
 msgid ""
 "まずは、scpコマンドを使用して、バックアップしておいたメーカーファームをPCから"
 "Aterm WG2600HP3に転送します。"
-msgstr ""
+msgstr "首先，使用 scp 命令将备份的原厂固件从 PC 传输到 Aterm WG2600HP3。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:198
@@ -292,10 +331,12 @@ msgid ""
 "転送が完了したらOpenWrtでmtdコマンドを使用して、フラッシュにメーカーファーム"
 "を書き込みましょう。ファームウェアはfirmwareパーティションに書き込みます。"
 msgstr ""
+"传输完成后，在 OpenWrt 中使用 mtd 命令将原厂固件写入闪存。固件需写入 "
+"firmware 分区。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-aterm-wg2600hp3/index.md:204
 msgid ""
 "書き込み完了後はAterm WG2600HP3を再起動しましょう。再起動後、メーカーファーム"
 "で起動されます。"
-msgstr ""
+msgstr "写入完成后，重启 Aterm WG2600HP3。重启后，设备将以原厂固件启动。"

@@ -1,8 +1,9 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-15 23:56+0000\n"
+"POT-Creation-Date: 2026-11-15 23:58+0000\n"
 "PO-Revision-Date: 2026-11-15 23:56+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,22 +15,22 @@ msgstr ""
 #. front matter: title
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:2
 msgid "WSR-2533DHPにOpenWrtをインストールする"
-msgstr ""
+msgstr "在 WSR-2533DHP 上安装 OpenWrt"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:11
 msgid "BUFFALOのWSR-2533DHPにOpenWrtをインストールする方法について説明します。"
-msgstr ""
+msgstr "本文介绍如何在 BUFFALO 的 WSR-2533DHP 上安装 OpenWrt。"
 
 #. heading (level 2)
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:13
 msgid "ハードウェア情報"
-msgstr ""
+msgstr "硬件信息"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:15
 msgid "![WSR-2533DHP](images/wsr-2533dhp.webp)"
-msgstr ""
+msgstr "![WSR-2533DHP](images/wsr-2533dhp.webp)"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:17
@@ -43,11 +44,19 @@ msgid ""
 "| イーサネットポート | 1Gbps×5                    |\n"
 "| 無線LAN            | 2.4GHz: b/g/n, 5GHz: a/n/ac |"
 msgstr ""
+"| 制造商     | BUFFALO                     |\n"
+"| ------------------ | --------------------------- |\n"
+"| 型号       | WSR-2533DHP                 |\n"
+"| CPU        | Media Tek MT7621AT 880MHz   |\n"
+"| 闪存       | 16MB                        |\n"
+"| 内存       | 128MB                       |\n"
+"| 以太网端口 | 1Gbps×5                    |\n"
+"| 无线局域网 | 2.4GHz: b/g/n, 5GHz: a/n/ac |"
 
 #. heading (level 2)
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:26
 msgid "イメージのダウンロード"
-msgstr ""
+msgstr "下载镜像"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:28
@@ -56,6 +65,9 @@ msgid ""
 "(https://downloads.openwrt.org/releases/24.10.0/targets/ramips/mt7621/)から、"
 "initramfsイメージとsysupgradeイメージをダウンロードしましょう。"
 msgstr ""
+"本次安装 OpenWrt 24.10.0。请从 [OpenWrt 官方下载页面](https://downloads."
+"openwrt.org/releases/24.10.0/targets/ramips/mt7621/)下载 initramfs 镜像和 "
+"sysupgrade 镜像。"
 
 #. list item > paragraph
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:30
@@ -63,6 +75,8 @@ msgid ""
 "buffalo_wsr-2533dhpl-initramfs-kernel.bin  \n"
 "initramfsイメージ。"
 msgstr ""
+"buffalo_wsr-2533dhpl-initramfs-kernel.bin  \n"
+"initramfs 镜像。"
 
 #. list item > paragraph
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:32
@@ -70,24 +84,26 @@ msgid ""
 "buffalo_wsr-2533dhpl-squashfs-sysupgrade.bin  \n"
 "sysupgradeイメージ。"
 msgstr ""
+"buffalo_wsr-2533dhpl-squashfs-sysupgrade.bin  \n"
+"sysupgrade 镜像。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:35
 msgid ""
 "wsr-2533dhplと書いてありますが、WSR-2533DHPでも問題なくインストールできます。"
-msgstr ""
+msgstr "虽然文件名中写的是 wsr-2533dhpl，但同样可以正常安装到 WSR-2533DHP 上。"
 
 #. heading (level 2)
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:37
 msgid "TFTPサーバーのセットアップ"
-msgstr ""
+msgstr "搭建 TFTP 服务器"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:39
 msgid ""
 "initramfsイメージの書き込みはTFTP経由で行われるため、TFTPサーバーをセットアッ"
 "プする必要があります。"
-msgstr ""
+msgstr "initramfs 镜像通过 TFTP 写入，因此需要搭建 TFTP 服务器。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:41
@@ -95,12 +111,14 @@ msgid ""
 "今回はWindowsがインストールされたPCと、Windows向けのTFTPサーバーソフトウェア"
 "であるTftpd64を使用して、TFTPサーバーを構築します。"
 msgstr ""
+"本次使用一台安装了 Windows 的 PC，以及面向 Windows 的 TFTP 服务器软件 "
+"Tftpd64 来搭建 TFTP 服务器。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:43
 msgid ""
 "まずは、TFTPサーバーとなるPCのIPアドレスを`192.168.11.2/24`に設定しましょう。"
-msgstr ""
+msgstr "首先，将作为 TFTP 服务器的 PC 的 IP 地址设置为 `192.168.11.2/24`。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:45
@@ -108,6 +126,8 @@ msgid ""
 "そして、TFTPで公開する適当なディレクトリを作成し、そこにinitramfsイメージを"
 "`linux.trx-recovery`というファイル名にリネームして配置します。"
 msgstr ""
+"然后，创建一个用于通过 TFTP 公开的目录，将 initramfs 镜像重命名为 `linux.trx-"
+"recovery` 并放入该目录。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:47
@@ -115,6 +135,8 @@ msgid ""
 "最後にTftpd64でTFTPサーバーを立ち上げてinitramfsイメージを公開します。Tftpd64"
 "の詳細なセットアップ方法は以下を参考にしてください。"
 msgstr ""
+"最后，在 Tftpd64 中启动 TFTP 服务器并公开 initramfs 镜像。Tftpd64 的详细设置"
+"方法请参考以下文章。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:49
@@ -122,16 +144,18 @@ msgid ""
 "[WindowsでTftpd64を使用してTFTPサーバーを立てる](/blog/setup-tftp-server-on-"
 "windows-using-tftpd64)"
 msgstr ""
+"[在 Windows 上使用 Tftpd64 搭建 TFTP 服务器](/blog/setup-tftp-server-on-"
+"windows-using-tftpd64)"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:51
 msgid "これでTFTPサーバーのセットアップは完了です。"
-msgstr ""
+msgstr "至此，TFTP 服务器搭建完成。"
 
 #. heading (level 2)
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:53
 msgid "initramfsイメージのインストール"
-msgstr ""
+msgstr "安装 initramfs 镜像"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:55
@@ -139,6 +163,8 @@ msgid ""
 "TFTPサーバーとWSR-2533DHPをLANケーブルで接続しましょう。WSR-2533DHPのLANポー"
 "トはLAN1からLAN4のどれでも構いません。"
 msgstr ""
+"使用网线连接 TFTP 服务器和 WSR-2533DHP。WSR-2533DHP 的 LAN 端口使用 LAN1 至 "
+"LAN4 中的任意一个均可。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:57
@@ -147,18 +173,20 @@ msgid ""
 "ンを押し続けて数秒待つと、WSR-2533DHPがTFTPサーバーからinitramfsイメージを取"
 "得しに行きます。"
 msgstr ""
+"在此状态下，按住 WSR-2533DHP 的 AOSS 按钮的同时接通电源。持续按住 AOSS 按钮并"
+"等待几秒钟，WSR-2533DHP 就会从 TFTP 服务器获取 initramfs 镜像。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:59
 msgid "![Tftpd64](images/tftpd64.webp)"
-msgstr ""
+msgstr "![Tftpd64](images/tftpd64.webp)"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:61
 msgid ""
 "転送が完了したことを確認できたら、TFTPサーバーは閉じてPCのIPアドレスを自動取"
 "得に戻しましょう。"
-msgstr ""
+msgstr "确认传输完成后，关闭 TFTP 服务器，并将 PC 的 IP 地址恢复为自动获取。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:63
@@ -166,63 +194,65 @@ msgid ""
 "ここまで出来たら、IPアドレス`192.168.1.1`にSSHで接続します。ユーザー名は"
 "`root`、パスワードは設定されていません。"
 msgstr ""
+"完成以上操作后，通过 SSH 连接 IP 地址 `192.168.1.1`。用户名为 `root`，未设置"
+"密码。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:65
 msgid "![OpenWrtのコンソール画面](images/openwrt-ssh.webp)"
-msgstr ""
+msgstr "![OpenWrt 的控制台界面](images/openwrt-ssh.webp)"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:67
 msgid "このような表示が出たらinitramfsイメージのインストールは完了です。"
-msgstr ""
+msgstr "出现这样的显示后，initramfs 镜像的安装即告完成。"
 
 #. heading (level 2)
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:69
 msgid "メーカーファームのバックアップ"
-msgstr ""
+msgstr "备份原厂固件"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:71
 msgid ""
 "将来的にメーカーファームに戻す可能性がある場合は、sysupgradeイメージを書き込"
 "む前にバックアップを取りましょう。"
-msgstr ""
+msgstr "如果将来可能需要恢复到原厂固件，请在写入 sysupgrade 镜像之前进行备份。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:73
 msgid "まずは、OpenWrtでフラッシュの中身を確認をします。"
-msgstr ""
+msgstr "首先，在 OpenWrt 中确认闪存的内容。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:90
 msgid ""
 "firmwareパーティションにメーカーファームが配置されています。デバイスを確認し"
 "てddコマンドでバックアップを取りましょう。"
-msgstr ""
+msgstr "原厂固件位于 firmware 分区中。确认设备后，使用 dd 命令进行备份。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:96
 msgid ""
 "バックアップを取った後は、PCでscpコマンドを使ってメーカーファームを取得しま"
 "す。"
-msgstr ""
+msgstr "备份完成后，在 PC 上使用 scp 命令获取原厂固件。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:102
 msgid "これでメーカーファームのバックアップは完了です。大切に保管しましょう。"
-msgstr ""
+msgstr "至此，原厂固件的备份完成。请妥善保管。"
 
 #. heading (level 2)
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:104
 msgid "sysupgradeイメージのインストール"
-msgstr ""
+msgstr "安装 sysupgrade 镜像"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:106
 msgid ""
 "scpコマンドを使用して、PCからWSR-2533DHPにsysupgradeイメージを転送します。"
-msgstr ""
+msgstr "使用 scp 命令将 sysupgrade 镜像从 PC 传输到 WSR-2533DHP。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:112
@@ -230,13 +260,14 @@ msgid ""
 "転送後、WSR-2533DHPでsysupgradeコマンドを使用して、sysupgradeイメージを書き込"
 "みましょう。"
 msgstr ""
+"传输完成后，在 WSR-2533DHP 上使用 sysupgrade 命令写入 sysupgrade 镜像。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:118
 msgid ""
 "これによりsysupgradeイメージのインストールが開始されます。インストールが完了"
 "し、再起動されるまでしばらく待ちましょう。"
-msgstr ""
+msgstr "这样就会开始安装 sysupgrade 镜像。请稍等片刻，直到安装完成并重新启动。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:120
@@ -245,21 +276,23 @@ msgid ""
 "面が表示されたら、ssh接続と同様にユーザー名は`root`、パスワードは空でログイン"
 "できます。"
 msgstr ""
+"重新启动后，为了确认，在浏览器中访问 `192.168.1.1`。显示登录界面后，与 SSH 连"
+"接时一样，使用用户名 `root` 和空密码即可登录。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:122
 msgid "![OpenWrtのホーム画面](images/openwrt-home.webp)"
-msgstr ""
+msgstr "![OpenWrt 的主界面](images/openwrt-home.webp)"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:124
 msgid "問題なくログインできました。これでOpenWrtのインストールは完了です。"
-msgstr ""
+msgstr "成功登录。至此，OpenWrt 安装完成。"
 
 #. heading (level 2)
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:126
 msgid "メーカーファームに戻す"
-msgstr ""
+msgstr "恢复到原厂固件"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:128
@@ -267,13 +300,14 @@ msgid ""
 "事前にメーカーファームのバックアップを取っていた場合、OpenWrtからメーカー"
 "ファームに戻すことができます。ここでは、その方法について説明します。"
 msgstr ""
+"如果事先备份了原厂固件，就可以从 OpenWrt 恢复到原厂固件。下面介绍具体方法。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:130
 msgid ""
 "まずは、scpコマンドを使用して、バックアップしておいたメーカーファームをPCから"
 "WSR-2533DHPに転送します。"
-msgstr ""
+msgstr "首先，使用 scp 命令将之前备份的原厂固件从 PC 传输到 WSR-2533DHP。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:136
@@ -281,6 +315,8 @@ msgid ""
 "転送が完了したらOpenWrtでmtdコマンドを使用して、フラッシュにメーカーファーム"
 "を書き込みましょう。ファームウェアはfirmwareパーティションに書き込みます。"
 msgstr ""
+"传输完成后，在 OpenWrt 中使用 mtd 命令将原厂固件写入闪存。固件写入 firmware "
+"分区。"
 
 #. paragraph
 #: content/ja/blog/install-openwrt-on-wsr-2533dhp/index.md:142
@@ -288,3 +324,4 @@ msgid ""
 "書き込み完了後はrebootコマンドを実行して再起動しましょう。再起動後、メーカー"
 "ファームで起動されます。"
 msgstr ""
+"写入完成后，执行 reboot 命令重新启动。重新启动后，设备将使用原厂固件启动。"

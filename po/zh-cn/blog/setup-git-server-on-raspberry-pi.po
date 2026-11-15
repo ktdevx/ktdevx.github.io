@@ -1,8 +1,9 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-15 23:56+0000\n"
+"POT-Creation-Date: 2026-11-15 23:58+0000\n"
 "PO-Revision-Date: 2026-11-15 23:56+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,7 +15,7 @@ msgstr ""
 #. front matter: title
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:2
 msgid "Raspberry Piで自宅にGitサーバーを構築する"
-msgstr ""
+msgstr "用 Raspberry Pi 在家中搭建 Git 服务器"
 
 #. paragraph
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:12
@@ -22,6 +23,8 @@ msgid ""
 "自宅にGitサーバーを構築することは、自分のソースコードを公開したくない場合や、"
 "サーバーを自分でカスタマイズしたい場合に非常に有用です。"
 msgstr ""
+"如果你不想公开自己的源代码，或者想自行定制服务器，那么在家中搭建 Git 服务器会"
+"非常有用。"
 
 #. paragraph
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:14
@@ -29,21 +32,22 @@ msgid ""
 "安価に入手でき、インターネット上でも情報が豊富なRaspberry Piを使って、Gitサー"
 "バーを構築してみましょう。"
 msgstr ""
+"下面就使用价格便宜、网上资料也很丰富的 Raspberry Pi 来搭建一台 Git 服务器吧。"
 
 #. heading (level 2)
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:16
 msgid "ネットワーク構成"
-msgstr ""
+msgstr "网络结构"
 
 #. paragraph
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:18
 msgid "ネットワーク構成は以下の通りです。"
-msgstr ""
+msgstr "网络结构如下所示。"
 
 #. paragraph
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:20
 msgid "![ネットワーク構成](images/git-server-network.webp)"
-msgstr ""
+msgstr "![网络结构](images/git-server-network.webp)"
 
 #. paragraph
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:22
@@ -51,16 +55,17 @@ msgid ""
 "Raspberry PiでGitサーバーを構築し、同じネットワーク内に存在するPCからGitサー"
 "バーにアクセスできるようにします。"
 msgstr ""
+"在 Raspberry Pi 上搭建 Git 服务器，使同一网络中的 PC 能够访问该 Git 服务器。"
 
 #. heading (level 2)
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:24
 msgid "Raspberry Piの事前準備"
-msgstr ""
+msgstr "Raspberry Pi 的准备工作"
 
 #. heading (level 3)
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:26
 msgid "OSのインストール"
-msgstr ""
+msgstr "安装操作系统"
 
 #. paragraph
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:28
@@ -68,6 +73,8 @@ msgid ""
 "最初に、Raspberry PiにOSをインストールする必要があります。サーバー用途の場合"
 "はGUIは不要なため、今回はRaspberry Pi OS Liteをインストールします。"
 msgstr ""
+"首先，需要在 Raspberry Pi 上安装操作系统。用作服务器时不需要 GUI，因此这次安"
+"装 Raspberry Pi OS Lite。"
 
 #. paragraph
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:30
@@ -76,11 +83,14 @@ msgid ""
 "とができます。OSをインストールする方法については、Raspberry Piの[公式サイト]"
 "(https://www.raspberrypi.com/)に詳しい手順が記載されています。"
 msgstr ""
+"Raspberry Pi OS Lite 是面向 Raspberry Pi 的操作系统，可以从官方网站下载。关于"
+"安装操作系统的方法，Raspberry Pi 的[官方网站](https://www.raspberrypi.com/)上"
+"有详细的步骤说明。"
 
 #. heading (level 3)
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:32
 msgid "固定IPアドレスの設定"
-msgstr ""
+msgstr "设置固定 IP 地址"
 
 #. paragraph
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:34
@@ -88,16 +98,17 @@ msgid ""
 "Raspberry Piに常に同じIPアドレスでアクセスできるようにするために、固定IPアド"
 "レスを割り当てます。"
 msgstr ""
+"为了始终能用同一个 IP 地址访问 Raspberry Pi，需要为其分配固定 IP 地址。"
 
 #. paragraph
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:36
 msgid "IPアドレスを変更するには、以下のコマンドを実行します。"
-msgstr ""
+msgstr "要更改 IP 地址，请执行以下命令。"
 
 #. paragraph
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:42
 msgid "テキストエディターが起動するため、以下の内容をファイルに追記します。"
-msgstr ""
+msgstr "文本编辑器启动后，在文件中追加以下内容。"
 
 #. paragraph
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:51
@@ -105,21 +116,23 @@ msgid ""
 "この例では、IPアドレスが`192.168.0.2`、サブネットマスクが`255.255.255.0`、デ"
 "フォルトゲートウェイとDNSサーバーが`192.168.0.1`であることを指定しています。"
 msgstr ""
+"本例中指定了 IP 地址为 `192.168.0.2`，子网掩码为 `255.255.255.0`，默认网关和 "
+"DNS 服务器为 `192.168.0.1`。"
 
 #. paragraph
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:53
 msgid "ファイルを保存し、以下のコマンドでRaspberry Piを再起動します。"
-msgstr ""
+msgstr "保存文件，然后使用以下命令重启 Raspberry Pi。"
 
 #. paragraph
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:59
 msgid "これにより、IPアドレスが固定化されます。"
-msgstr ""
+msgstr "这样，IP 地址就固定下来了。"
 
 #. heading (level 3)
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:61
 msgid "SSHサーバーの有効化"
-msgstr ""
+msgstr "启用 SSH 服务器"
 
 #. paragraph
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:63
@@ -127,32 +140,35 @@ msgid ""
 "Raspberry PiにSSHで接続できるようにするため、SSH接続を有効化します。手順につ"
 "いては、以下の記事で詳しく説明しています。"
 msgstr ""
+"为了能够通过 SSH 连接 Raspberry Pi，需要启用 SSH 连接。具体步骤在以下文章中有"
+"详细说明。"
 
 #. paragraph
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:65
 msgid ""
 "[Raspberry Pi OSでSSH接続を有効化する](/blog/enable-ssh-on-raspberry-pi-os)"
 msgstr ""
+"[在 Raspberry Pi OS 上启用 SSH 连接](/blog/enable-ssh-on-raspberry-pi-os)"
 
 #. heading (level 2)
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:67
 msgid "Gitのインストール"
-msgstr ""
+msgstr "安装 Git"
 
 #. paragraph
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:69
 msgid "サーバーにGitをインストールするために、以下のコマンドを実行します。"
-msgstr ""
+msgstr "执行以下命令，在服务器上安装 Git。"
 
 #. paragraph
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:76
 msgid "これにより、サーバーにGitがインストールされます。"
-msgstr ""
+msgstr "这样，Git 就安装到服务器上了。"
 
 #. heading (level 2)
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:78
 msgid "Gitユーザーの追加とディレクトリの作成"
-msgstr ""
+msgstr "添加 Git 用户并创建目录"
 
 #. paragraph
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:80
@@ -160,6 +176,7 @@ msgid ""
 "Git操作用に、`git`という名前のユーザーをサーバー上に作成します。ユーザーの作"
 "成には以下のコマンドを実行します。"
 msgstr ""
+"在服务器上创建一个名为 `git` 的用户，用于 Git 操作。执行以下命令创建用户。"
 
 #. paragraph
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:86
@@ -168,13 +185,15 @@ msgid ""
 "パスワードを入力するよう求められるため、同じパスワードを入力してEnterキーを押"
 "します。これにより、gitユーザーが作成されます。"
 msgstr ""
+"系统会要求输入密码，输入任意密码后按 Enter 键。系统会再次要求输入密码，输入相"
+"同的密码后按 Enter 键。这样就创建了 git 用户。"
 
 #. paragraph
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:88
 msgid ""
 "次に、Gitリポジトリを格納するディレクトリを作成します。作成には以下のコマンド"
 "を実行します。"
-msgstr ""
+msgstr "接下来，创建用于存放 Git 仓库的目录。执行以下命令进行创建。"
 
 #. paragraph
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:95
@@ -183,18 +202,20 @@ msgid ""
 "し、その所有者を`git`ユーザーに変更するものです。こうすることで、`git`ユー"
 "ザーが`/opt/git`配下に作成されるGitリポジトリを読み書きできるようになります。"
 msgstr ""
+"该命令会在 `/opt` 目录下创建名为 `git` 的目录，并将其所有者更改为 `git` 用"
+"户。这样，`git` 用户就可以读写在 `/opt/git` 下创建的 Git 仓库。"
 
 #. paragraph
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:97
 msgid ""
 "以降、サーバー上での操作は`git`ユーザーで行います。以下のコマンドを実行し、"
 "ユーザを切り替えます。"
-msgstr ""
+msgstr "此后，服务器上的操作都以 `git` 用户进行。执行以下命令切换用户。"
 
 #. heading (level 2)
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:103
 msgid "SSH公開鍵の登録"
-msgstr ""
+msgstr "注册 SSH 公钥"
 
 #. paragraph
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:105
@@ -202,11 +223,13 @@ msgid ""
 "SSH鍵を生成することで、Gitサーバーとの通信をセキュアに行うことができます。Git"
 "サーバーにSSHでアクセスするために、公開鍵の登録を行います。"
 msgstr ""
+"通过生成 SSH 密钥，可以与 Git 服务器进行安全的通信。为了通过 SSH 访问 Git 服"
+"务器，需要注册公钥。"
 
 #. paragraph
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:107
 msgid "PCで以下のコマンドを実行し、SSH鍵を生成します。"
-msgstr ""
+msgstr "在 PC 上执行以下命令，生成 SSH 密钥。"
 
 #. paragraph
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:113
@@ -215,6 +238,8 @@ msgid ""
 "`.ssh`ディレクトリに`id_rsa`という名前の秘密鍵と、`id_rsa.pub`という名前の公"
 "開鍵が生成されます。"
 msgstr ""
+"按 Enter 键后，会以默认设置生成密钥。使用默认设置时，会在 `.ssh` 目录中生成名"
+"为 `id_rsa` 的私钥和名为 `id_rsa.pub` 的公钥。"
 
 #. paragraph
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:115
@@ -222,6 +247,8 @@ msgid ""
 "SSHでアクセスするためには、サーバーに公開鍵を登録する必要があります。生成した"
 "公開鍵は、FTPやSFTPを利用してサーバーに転送しましょう。"
 msgstr ""
+"要通过 SSH 进行访问，需要在服务器上注册公钥。请使用 FTP 或 SFTP 将生成的公钥"
+"传输到服务器。"
 
 #. paragraph
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:117
@@ -230,33 +257,35 @@ msgid ""
 "ルを作成し、そこに公開鍵を登録します。サーバー上で以下のコマンドを実行し、"
 "`authorized_keys`を作成します。"
 msgstr ""
+"传输公钥后，在 `.ssh` 目录下创建名为 `authorized_keys` 的文件，并在其中注册公"
+"钥。在服务器上执行以下命令，创建 `authorized_keys`。"
 
 #. paragraph
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:125
 msgid ""
 "空の`authorized_keys`が作成されるため、先ほど作成した公開鍵をこのファイルに追"
 "加します。"
-msgstr ""
+msgstr "这样会创建一个空的 `authorized_keys`，将刚才生成的公钥添加到该文件中。"
 
 #. paragraph
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:131
 msgid "これにより、`authorized_keys`に公開鍵が追加されます。"
-msgstr ""
+msgstr "这样，公钥就添加到 `authorized_keys` 中了。"
 
 #. heading (level 2)
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:133
 msgid "Gitリポジトリの作成"
-msgstr ""
+msgstr "创建 Git 仓库"
 
 #. paragraph
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:135
 msgid "Gitサーバーにリポジトリを作成するため、以下のコマンドを実行します。"
-msgstr ""
+msgstr "执行以下命令，在 Git 服务器上创建仓库。"
 
 #. paragraph
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:143
 msgid "この例では、`project.git`という名前でGitリポジトリを作成しています。"
-msgstr ""
+msgstr "本例中创建了一个名为 `project.git` 的 Git 仓库。"
 
 #. paragraph
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:145
@@ -265,26 +294,28 @@ msgid ""
 "トリを持たない空のリポジトリが作成されます。これを、ベアリポジトリといいま"
 "す。"
 msgstr ""
+"为 `git init` 命令指定 `--bare` 选项来执行，就会创建一个没有工作目录的空仓"
+"库。这被称为裸仓库。"
 
 #. paragraph
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:147
 msgid ""
 "ベアリポジトリのディレクトリ名の末尾には、`.git`を付けるという慣例がありま"
 "す。"
-msgstr ""
+msgstr "按照惯例，裸仓库的目录名末尾要加上 `.git`。"
 
 #. heading (level 2)
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:149
 msgid "Gitリポジトリのクローン"
-msgstr ""
+msgstr "克隆 Git 仓库"
 
 #. paragraph
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:151
 msgid "リポジトリをクローンするためには、以下のコマンドを実行します。"
-msgstr ""
+msgstr "执行以下命令克隆仓库。"
 
 #. paragraph
 #: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:157
 msgid ""
 "以上で、Raspberry Piを使用して自宅にGitサーバーを構築することができます。"
-msgstr ""
+msgstr "以上，就完成了使用 Raspberry Pi 在家中搭建 Git 服务器。"

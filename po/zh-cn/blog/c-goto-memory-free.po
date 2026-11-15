@@ -1,8 +1,9 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-15 23:56+0000\n"
+"POT-Creation-Date: 2026-11-15 23:58+0000\n"
 "PO-Revision-Date: 2026-11-15 23:56+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,7 +15,7 @@ msgstr ""
 #. front matter: title
 #: content/ja/blog/c-goto-memory-free/index.md:2
 msgid "【C言語】goto文でメモリ解放の管理を容易にする"
-msgstr ""
+msgstr "【C语言】使用 goto 语句简化内存释放管理"
 
 #. paragraph
 #: content/ja/blog/c-goto-memory-free/index.md:11
@@ -23,25 +24,27 @@ msgid ""
 "ます。メモリ確保に失敗した場合、それまでに確保したメモリを解放する必要があ"
 "り、エラー処理が複雑化しがちです。"
 msgstr ""
+"在开发过程中，有时会遇到需要在函数内分配多块动态内存的情况。如果内存分配失"
+"败，就必须释放此前已分配的内存，错误处理往往会变得复杂。"
 
 #. paragraph
 #: content/ja/blog/c-goto-memory-free/index.md:13
 msgid ""
 "ここでは、`goto`文を利用してエラー処理をシンプルにし、メモリ解放の管理を容易"
 "にする方法を解説します。"
-msgstr ""
+msgstr "本文介绍如何利用 `goto` 语句简化错误处理，使内存释放的管理更加容易。"
 
 #. heading (level 2)
 #: content/ja/blog/c-goto-memory-free/index.md:15
 msgid "goto文とは"
-msgstr ""
+msgstr "什么是 goto 语句"
 
 #. paragraph
 #: content/ja/blog/c-goto-memory-free/index.md:17
 msgid ""
 "`goto`文は、関数内で指定されたラベルにジャンプするための構文です。以下のよう"
 "な形式で使います。"
-msgstr ""
+msgstr "`goto` 语句是用于跳转到函数内指定标签的语法，使用格式如下。"
 
 #. paragraph
 #: content/ja/blog/c-goto-memory-free/index.md:23
@@ -50,23 +53,25 @@ msgid ""
 "プします。コードの流れを複雑にし、可読性や保守性を低下させる可能性があるた"
 "め、使用は避けられがちです。"
 msgstr ""
+"标签可以定义在函数内的任意位置，`goto` 语句会跳转到该标签所在的位置。由于它可"
+"能使代码流程变得复杂，降低可读性和可维护性，因此往往被避免使用。"
 
 #. paragraph
 #: content/ja/blog/c-goto-memory-free/index.md:25
 msgid ""
 "しかし、正しく使用することで、プログラムのシンプルさ、可読性、保守性を向上さ"
 "せることができます。"
-msgstr ""
+msgstr "但是，如果使用得当，它可以提高程序的简洁性、可读性和可维护性。"
 
 #. heading (level 2)
 #: content/ja/blog/c-goto-memory-free/index.md:27
 msgid "メモリ解放を伴う複雑なエラー処理"
-msgstr ""
+msgstr "伴随内存释放的复杂错误处理"
 
 #. paragraph
 #: content/ja/blog/c-goto-memory-free/index.md:29
 msgid "以下は、複数の動的メモリを管理するコードの一例です。"
-msgstr ""
+msgstr "以下是管理多块动态内存的代码示例。"
 
 #. paragraph
 #: content/ja/blog/c-goto-memory-free/index.md:67
@@ -75,11 +80,13 @@ msgid ""
 "ラーが発生するたびに解放コードを記述する必要があります。これにより、コードが"
 "冗長になり、メモリリークのリスクも増大します。"
 msgstr ""
+"这段代码可以正常运行，但每块内存的分配和释放都是单独进行的，每次发生错误时都"
+"需要编写释放代码。这会使代码变得冗长，也会增加内存泄漏的风险。"
 
 #. heading (level 2)
 #: content/ja/blog/c-goto-memory-free/index.md:69
 msgid "goto文でメモリ解放をシンプルにする"
-msgstr ""
+msgstr "使用 goto 语句简化内存释放"
 
 #. paragraph
 #: content/ja/blog/c-goto-memory-free/index.md:71
@@ -87,6 +94,7 @@ msgid ""
 "`goto`文を利用すると、エラー発生時の処理を一箇所に集約でき、メモリ解放をシン"
 "プルに管理できます。"
 msgstr ""
+"利用 `goto` 语句，可以将发生错误时的处理集中到一处，从而简单地管理内存释放。"
 
 #. paragraph
 #: content/ja/blog/c-goto-memory-free/index.md:110
@@ -95,11 +103,14 @@ msgid ""
 "モリを解放できるようになっています。`free`関数は`NULL`を引数にしても問題ない"
 "ため、この方法でメモリ管理を安全かつ効率的に行えます。"
 msgstr ""
+"在这个示例中，即使发生错误，也可以通过 `goto cleanup` 在最后释放所有内存。由"
+"于 `free` 函数以 `NULL` 作为参数也没有问题，因此用这种方法可以安全且高效地进"
+"行内存管理。"
 
 #. heading (level 2)
 #: content/ja/blog/c-goto-memory-free/index.md:112
 msgid "まとめ"
-msgstr ""
+msgstr "总结"
 
 #. paragraph
 #: content/ja/blog/c-goto-memory-free/index.md:114
@@ -109,3 +120,6 @@ msgid ""
 "を説明しましたが、他の状況でも有効な場合があります。**適切な場面で活用するこ"
 "とが重要です。**"
 msgstr ""
+"`goto` 语句如果被误用，可能会损害可读性和可维护性，但只要使用得当，就能保持代"
+"码简洁。本文通过内存管理的示例说明了它的优点，不过在其他场景中它也可能同样有"
+"效。**关键在于在合适的场景中加以运用。**"

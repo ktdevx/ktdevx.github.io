@@ -1,8 +1,9 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-15 23:56+0000\n"
+"POT-Creation-Date: 2026-11-15 23:58+0000\n"
 "PO-Revision-Date: 2026-11-15 23:56+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,7 +15,7 @@ msgstr ""
 #. front matter: title
 #: content/ja/blog/install-proxmox-ve/index.md:2
 msgid "Proxmox VEをインストールする"
-msgstr ""
+msgstr "安装 Proxmox VE"
 
 #. paragraph
 #: content/ja/blog/install-proxmox-ve/index.md:11
@@ -23,16 +24,18 @@ msgid ""
 "化プラットフォームで、Web UIから簡単に仮想マシンとコンテナの作成、管理が行え"
 "ます。"
 msgstr ""
+"Proxmox VE（Virtual Environment）是基于 KVM 和 LXC 的开源虚拟化平台，可以通"
+"过 Web UI 轻松创建和管理虚拟机与容器。"
 
 #. paragraph
 #: content/ja/blog/install-proxmox-ve/index.md:13
 msgid "ここでは、Proxmox VEをインストールする方法について説明します。"
-msgstr ""
+msgstr "本文介绍如何安装 Proxmox VE。"
 
 #. heading (level 2)
 #: content/ja/blog/install-proxmox-ve/index.md:15
 msgid "はじめに"
-msgstr ""
+msgstr "前言"
 
 #. paragraph
 #: content/ja/blog/install-proxmox-ve/index.md:17
@@ -41,16 +44,18 @@ msgid ""
 "products/amd-ryzen-7-5825u-mini-pc-nucbox-m5-plus)に、Proxmox VEをインストー"
 "ルします。"
 msgstr ""
+"本次将在 GMKtec 销售的迷你 PC [NucBox M5 Plus](https://www.gmktec.com/"
+"products/amd-ryzen-7-5825u-mini-pc-nucbox-m5-plus) 上安装 Proxmox VE。"
 
 #. paragraph
 #: content/ja/blog/install-proxmox-ve/index.md:19
 msgid "{{< ads/nucbox-m5-plus >}}"
-msgstr ""
+msgstr "{{< ads/nucbox-m5-plus >}}"
 
 #. paragraph
 #: content/ja/blog/install-proxmox-ve/index.md:21
 msgid "NucBox M5 Plusのスペックは以下の通りです。"
-msgstr ""
+msgstr "NucBox M5 Plus 的规格如下。"
 
 #. paragraph
 #: content/ja/blog/install-proxmox-ve/index.md:23
@@ -67,11 +72,22 @@ msgid ""
 "HDMI×1、DisplayPort×1、オーディオ端子 (3.5mm 4極) |\n"
 "| 拡張スロット     | M.2スロット×3 (ストレージ用×2、Wi-Fi用×1)    |"
 msgstr ""
+"| 制造商           | GMKtec                                          |\n"
+"| ---------------- | ----------------------------------------------- |\n"
+"| 型号             | NucBox M5 Plus                                  |\n"
+"| CPU              | AMD Ryzen 7 5825U（8 核 16 线程，最高 4.50GHz） |\n"
+"| 内存             | 16GB（8GB×2）                                   |\n"
+"| 存储             | SSD 512GB                                       |\n"
+"| 显卡             | AMD Radeon Graphics（CPU 内置）                 |\n"
+"| 网络             | LAN（2.5Gb）×2、Wi-Fi 6E、Bluetooth 5.2         |\n"
+"| 接口             | USB Type-C（支持视频输出）×1、USB3.2 Gen1×2、USB2.0×2、"
+"HDMI×1、DisplayPort×1、音频接口（3.5mm 四极） |\n"
+"| 扩展插槽         | M.2 插槽×3（存储用×2、Wi-Fi 用×1）              |"
 
 #. heading (level 2)
 #: content/ja/blog/install-proxmox-ve/index.md:34
 msgid "Proxmox VEのダウンロード"
-msgstr ""
+msgstr "下载 Proxmox VE"
 
 #. paragraph
 #: content/ja/blog/install-proxmox-ve/index.md:36
@@ -80,11 +96,13 @@ msgid ""
 "proxmox-virtual-environment/iso)から、ISOイメージをダウンロードします。今回は"
 "Proxmox VE 8.3をダウンロードしました。"
 msgstr ""
+"从 [Proxmox VE 下载页面](https://www.proxmox.com/en/downloads/proxmox-"
+"virtual-environment/iso)下载 ISO 镜像。本次下载的是 Proxmox VE 8.3。"
 
 #. heading (level 2)
 #: content/ja/blog/install-proxmox-ve/index.md:38
 msgid "インストール用USBメモリの作成"
-msgstr ""
+msgstr "制作安装用 U 盘"
 
 #. paragraph
 #: content/ja/blog/install-proxmox-ve/index.md:40
@@ -92,11 +110,13 @@ msgid ""
 "先ほどダウンロードしたISOイメージを、USBメモリに書き込みます。Win32 Disk "
 "Imagerなどのイメージ書き込みソフトを使用してUSBメモリへ書き込みましょう。"
 msgstr ""
+"将刚才下载的 ISO 镜像写入 U 盘。请使用 Win32 Disk Imager 等镜像写入软件将其写"
+"入 U 盘。"
 
 #. paragraph
 #: content/ja/blog/install-proxmox-ve/index.md:42
 msgid "![Win32 Disk Imager](images/win32-disk-imager-proxmox-ve.webp)"
-msgstr ""
+msgstr "![Win32 Disk Imager](images/win32-disk-imager-proxmox-ve.webp)"
 
 #. paragraph
 #: content/ja/blog/install-proxmox-ve/index.md:44
@@ -105,11 +125,13 @@ msgid ""
 "トールと使い方](/blog/install-win32-disk-imager)で詳しく説明しています。そち"
 "らを参考にしてください。"
 msgstr ""
+"关于使用 Win32 Disk Imager 写入的方法，[Win32 Disk Imager 的安装与使用方法](/"
+"blog/install-win32-disk-imager)中有详细说明，请参考该文章。"
 
 #. heading (level 2)
 #: content/ja/blog/install-proxmox-ve/index.md:46
 msgid "Proxmox VEのインストール"
-msgstr ""
+msgstr "安装 Proxmox VE"
 
 #. paragraph
 #: content/ja/blog/install-proxmox-ve/index.md:48
@@ -117,16 +139,18 @@ msgid ""
 "Proxmox VEをインストールしたいPCにUSBメモリを接続し、PCを起動してUSBメモリか"
 "らブートさせましょう。起動するとProxmox VEのインストール画面が表示されます。"
 msgstr ""
+"将 U 盘连接到要安装 Proxmox VE 的 PC，启动 PC 并从 U 盘引导。启动后会显示 "
+"Proxmox VE 的安装界面。"
 
 #. heading (level 3)
 #: content/ja/blog/install-proxmox-ve/index.md:50
 msgid "インストールタイプの選択"
-msgstr ""
+msgstr "选择安装类型"
 
 #. paragraph
 #: content/ja/blog/install-proxmox-ve/index.md:52
 msgid "![Proxmox VEインストーラー](images/proxmox-ve-installer1.webp)"
-msgstr ""
+msgstr "![Proxmox VE 安装程序](images/proxmox-ve-installer1.webp)"
 
 #. paragraph
 #: content/ja/blog/install-proxmox-ve/index.md:54
@@ -134,16 +158,18 @@ msgid ""
 "インストールタイプが表示されます。「Install Proxmox VE (Graphical)」を選択し"
 "てGUIでインストールを進めます。"
 msgstr ""
+"界面上会显示安装类型。选择“Install Proxmox VE (Graphical)”，通过 GUI 进行安"
+"装。"
 
 #. heading (level 3)
 #: content/ja/blog/install-proxmox-ve/index.md:56
 msgid "利用許諾の確認"
-msgstr ""
+msgstr "确认许可协议"
 
 #. paragraph
 #: content/ja/blog/install-proxmox-ve/index.md:58
 msgid "![Proxmox VEインストーラー](images/proxmox-ve-installer2.webp)"
-msgstr ""
+msgstr "![Proxmox VE 安装程序](images/proxmox-ve-installer2.webp)"
 
 #. paragraph
 #: content/ja/blog/install-proxmox-ve/index.md:60
@@ -151,16 +177,17 @@ msgid ""
 "Proxmox VEの利用許諾が表示されます。特に問題がなければ「I agree」を押して次へ"
 "進めましょう。"
 msgstr ""
+"界面上会显示 Proxmox VE 的许可协议。如果没有问题，点击“I agree”进入下一步。"
 
 #. heading (level 3)
 #: content/ja/blog/install-proxmox-ve/index.md:62
 msgid "インストール先の設定"
-msgstr ""
+msgstr "设置安装位置"
 
 #. paragraph
 #: content/ja/blog/install-proxmox-ve/index.md:64
 msgid "![Proxmox VEインストーラー](images/proxmox-ve-installer3.webp)"
-msgstr ""
+msgstr "![Proxmox VE 安装程序](images/proxmox-ve-installer3.webp)"
 
 #. paragraph
 #: content/ja/blog/install-proxmox-ve/index.md:66
@@ -168,45 +195,46 @@ msgid ""
 "Proxmox VEのインストール先を選択しましょう。「Options」からはファイルシステム"
 "などの詳細な設定ができます。"
 msgstr ""
+"选择 Proxmox VE 的安装位置。通过“Options”可以对文件系统等进行详细设置。"
 
 #. paragraph
 #: content/ja/blog/install-proxmox-ve/index.md:68
 msgid ""
 "Proxmox VEのインストール先が選択できたら「Next」を押して次へ進めましょう。"
-msgstr ""
+msgstr "选择好 Proxmox VE 的安装位置后，点击“Next”进入下一步。"
 
 #. heading (level 3)
 #: content/ja/blog/install-proxmox-ve/index.md:70
 msgid "国・タイムゾーン・キーボード配列の設定"
-msgstr ""
+msgstr "设置国家、时区和键盘布局"
 
 #. paragraph
 #: content/ja/blog/install-proxmox-ve/index.md:72
 msgid "![Proxmox VEインストーラー](images/proxmox-ve-installer4.webp)"
-msgstr ""
+msgstr "![Proxmox VE 安装程序](images/proxmox-ve-installer4.webp)"
 
 #. paragraph
 #: content/ja/blog/install-proxmox-ve/index.md:74
 msgid ""
 "国、タイムゾーン、キーボード配列を設定します。この時点でインターネットに接続"
 "していれば各項目は自動で入力されます。"
-msgstr ""
+msgstr "设置国家、时区和键盘布局。如果此时已连接互联网，各项会自动填写。"
 
 #. paragraph
 #: content/ja/blog/install-proxmox-ve/index.md:76
 #: content/ja/blog/install-proxmox-ve/index.md:92
 msgid "設定できたら「Next」を押して次へ進めましょう。"
-msgstr ""
+msgstr "设置完成后点击“Next”进入下一步。"
 
 #. heading (level 3)
 #: content/ja/blog/install-proxmox-ve/index.md:78
 msgid "管理者のパスワード・メールアドレスの設定"
-msgstr ""
+msgstr "设置管理员密码和电子邮件地址"
 
 #. paragraph
 #: content/ja/blog/install-proxmox-ve/index.md:80
 msgid "![Proxmox VEインストーラー](images/proxmox-ve-installer5.webp)"
-msgstr ""
+msgstr "![Proxmox VE 安装程序](images/proxmox-ve-installer5.webp)"
 
 #. paragraph
 #: content/ja/blog/install-proxmox-ve/index.md:82
@@ -214,38 +242,39 @@ msgid ""
 "管理者ユーザー(`root`)のパスワードと、メールアドレスを設定します。確認のため"
 "パスワードは2回入力します。"
 msgstr ""
+"设置管理员用户（`root`）的密码和电子邮件地址。为了确认，密码需要输入两次。"
 
 #. paragraph
 #: content/ja/blog/install-proxmox-ve/index.md:84
 msgid "設定できたら「Next」を押して次へ進みましょう。"
-msgstr ""
+msgstr "设置完成后点击“Next”进入下一步。"
 
 #. heading (level 3)
 #: content/ja/blog/install-proxmox-ve/index.md:86
 msgid "ネットワークの設定"
-msgstr ""
+msgstr "网络设置"
 
 #. paragraph
 #: content/ja/blog/install-proxmox-ve/index.md:88
 msgid "![Proxmox VEインストーラー](images/proxmox-ve-installer6.webp)"
-msgstr ""
+msgstr "![Proxmox VE 安装程序](images/proxmox-ve-installer6.webp)"
 
 #. paragraph
 #: content/ja/blog/install-proxmox-ve/index.md:90
 msgid ""
 "使用するネットワークインターフェース、ホスト名、IPアドレス等の設定を行いま"
 "す。"
-msgstr ""
+msgstr "设置要使用的网络接口、主机名、IP 地址等。"
 
 #. heading (level 3)
 #: content/ja/blog/install-proxmox-ve/index.md:94
 msgid "設定項目の確認"
-msgstr ""
+msgstr "确认设置项"
 
 #. paragraph
 #: content/ja/blog/install-proxmox-ve/index.md:96
 msgid "![Proxmox VEインストーラー](images/proxmox-ve-installer7.webp)"
-msgstr ""
+msgstr "![Proxmox VE 安装程序](images/proxmox-ve-installer7.webp)"
 
 #. paragraph
 #: content/ja/blog/install-proxmox-ve/index.md:98
@@ -253,16 +282,17 @@ msgid ""
 "いままで設定した項目が表示されます。確認して問題がなければ「Install」を押して"
 "インストールを開始しましょう。"
 msgstr ""
+"界面上会显示到目前为止设置的各项内容。确认没有问题后，点击“Install”开始安装。"
 
 #. heading (level 3)
 #: content/ja/blog/install-proxmox-ve/index.md:100
 msgid "インストール"
-msgstr ""
+msgstr "安装"
 
 #. paragraph
 #: content/ja/blog/install-proxmox-ve/index.md:102
 msgid "![Proxmox VEインストーラー](images/proxmox-ve-installer8.webp)"
-msgstr ""
+msgstr "![Proxmox VE 安装程序](images/proxmox-ve-installer8.webp)"
 
 #. paragraph
 #: content/ja/blog/install-proxmox-ve/index.md:104
@@ -271,11 +301,13 @@ msgid ""
 "リを抜いてPCを再起動しましょう。特に問題がなければ、シェルのログイン画面が表"
 "示されます。"
 msgstr ""
+"等待安装完成。安装完成后，拔下 U 盘并重启 PC。如果没有问题，将显示 Shell 的登"
+"录界面。"
 
 #. heading (level 3)
 #: content/ja/blog/install-proxmox-ve/index.md:106
 msgid "Proxmox VEの管理画面にアクセス"
-msgstr ""
+msgstr "访问 Proxmox VE 的管理界面"
 
 #. paragraph
 #: content/ja/blog/install-proxmox-ve/index.md:108
@@ -283,11 +315,13 @@ msgid ""
 "最後に、Proxmox VEの管理画面にアクセスしてみましょう。Webブラウザから"
 "`https://<設定したIPアドレス>:8006`にアクセスします。"
 msgstr ""
+"最后，尝试访问 Proxmox VE 的管理界面。在 Web 浏览器中访问 `https://<设置的IP"
+"地址>:8006`。"
 
 #. paragraph
 #: content/ja/blog/install-proxmox-ve/index.md:110
 msgid "![Proxmox VEログイン画面](images/proxmox-ve-web1.webp)"
-msgstr ""
+msgstr "![Proxmox VE 登录界面](images/proxmox-ve-web1.webp)"
 
 #. paragraph
 #: content/ja/blog/install-proxmox-ve/index.md:112
@@ -295,15 +329,16 @@ msgid ""
 "アクセスするとログイン画面が表示されます。ユーザー名は`root`で、パスワードは"
 "インストール時に設定したパスワードを入力してログインしましょう。"
 msgstr ""
+"访问后会显示登录界面。用户名输入 `root`，密码输入安装时设置的密码，然后登录。"
 
 #. paragraph
 #: content/ja/blog/install-proxmox-ve/index.md:114
 msgid "![Proxmox VE管理画面](images/proxmox-ve-web2.webp)"
-msgstr ""
+msgstr "![Proxmox VE 管理界面](images/proxmox-ve-web2.webp)"
 
 #. paragraph
 #: content/ja/blog/install-proxmox-ve/index.md:116
 msgid ""
 "Proxmox VEの管理画面にログインできました。これでProxmox VEのインストールは完"
 "了です。"
-msgstr ""
+msgstr "已成功登录 Proxmox VE 的管理界面。至此，Proxmox VE 的安装完成。"

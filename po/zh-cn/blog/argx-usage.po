@@ -1,8 +1,9 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-15 23:56+0000\n"
+"POT-Creation-Date: 2026-11-15 23:58+0000\n"
 "PO-Revision-Date: 2026-11-15 23:56+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,7 +15,7 @@ msgstr ""
 #. front matter: title
 #: content/ja/blog/argx-usage/index.md:2
 msgid "【C言語】ArgXでコマンドライン引数を解析する"
-msgstr ""
+msgstr "【C语言】使用 ArgX 解析命令行参数"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:13
@@ -23,6 +24,9 @@ msgid ""
 "`getopt`を使ってもロングオプションは環境に依存し、値の型変換や必須チェック、"
 "`--help`で表示するヘルプ文は自分で書く必要があります。"
 msgstr ""
+"用 C 语言编写命令行工具时，解析 `argv` 往往比想象中更费事。即使使用 "
+"`getopt`，长选项也依赖于平台，而且值的类型转换、必需参数检查以及 `--help` 显"
+"示的帮助文本都需要自己编写。"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:15
@@ -30,11 +34,13 @@ msgid ""
 "ここでは、C99向けのコマンドライン引数パーサー「[ArgX](https://github.com/"
 "vabelorg/argx)」の使い方を、小さなサンプルプログラムを作りながら解説します。"
 msgstr ""
+"本文将通过编写一个小型示例程序，介绍面向 C99 的命令行参数解析器“[ArgX]"
+"(https://github.com/vabelorg/argx)”的用法。"
 
 #. heading (level 2)
 #: content/ja/blog/argx-usage/index.md:17
 msgid "ArgXとは"
-msgstr ""
+msgstr "什么是 ArgX"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:19
@@ -43,11 +49,13 @@ msgid ""
 "解析、検証、値の型変換、ヘルプの生成までを行うライブラリです。主な特徴は次の"
 "とおりです。"
 msgstr ""
+"ArgX 是一个库，只需将命令行规格作为**模式**（schema）定义一次，即可完成 "
+"`argv` 的解析、校验、值的类型转换乃至帮助的生成。其主要特点如下。"
 
 #. list item > paragraph
 #: content/ja/blog/argx-usage/index.md:21
 msgid "標準Cライブラリ以外に依存しない、C99のみで書かれたライブラリです。"
-msgstr ""
+msgstr "仅使用 C99 编写，除 C 标准库外没有其他依赖。"
 
 #. list item > paragraph
 #: content/ja/blog/argx-usage/index.md:22
@@ -55,6 +63,8 @@ msgid ""
 "Linux（GCC、Clang）、macOS（Clang）、Windows（MSVC）でビルドでき、静的ライブ"
 "ラリと共有ライブラリのどちらにもできます。"
 msgstr ""
+"可在 Linux（GCC、Clang）、macOS（Clang）和 Windows（MSVC）上构建，既可以构建"
+"为静态库，也可以构建为共享库。"
 
 #. list item > paragraph
 #: content/ja/blog/argx-usage/index.md:23
@@ -62,17 +72,19 @@ msgid ""
 "フラグ、回数を数えるオプション（`-vv`など）、`--no-`で否定できるフラグ、値を"
 "取るオプション、位置引数、ネストしたサブコマンドを扱えます。"
 msgstr ""
+"支持标志、计数选项（如 `-vv`）、可用 `--no-` 取反的标志、带值的选项、位置参数"
+"以及嵌套的子命令。"
 
 #. list item > paragraph
 #: content/ja/blog/argx-usage/index.md:24
 msgid ""
 "値は文字列、整数、浮動小数点数、選択肢、独自に定義した型に変換できます。"
-msgstr ""
+msgstr "值可以转换为字符串、整数、浮点数、选项值或自定义类型。"
 
 #. list item > paragraph
 #: content/ja/blog/argx-usage/index.md:25
 msgid "ヘルプと使い方の行（Usage）はスキーマから自動で生成されます。"
-msgstr ""
+msgstr "帮助和用法行（Usage）由模式自动生成。"
 
 #. list item > paragraph
 #: content/ja/blog/argx-usage/index.md:26
@@ -80,6 +92,8 @@ msgid ""
 "ライブラリ自身は何も出力せず、プロセスを終了させず、環境変数も読みません。エ"
 "ラーはエラーコードと1行のメッセージで返されます。"
 msgstr ""
+"库本身不输出任何内容，不会终止进程，也不读取环境变量。错误以错误码和一行消息"
+"的形式返回。"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:28
@@ -87,31 +101,33 @@ msgid ""
 "最後の点が特徴的で、ヘルプやエラーをどこにどう出力するか、どの終了コードで終"
 "わるかは、すべて呼び出し側で決められます。"
 msgstr ""
+"最后一点颇具特色：帮助和错误输出到哪里、如何输出，以及以哪个退出码结束，全部"
+"由调用方决定。"
 
 #. heading (level 2)
 #: content/ja/blog/argx-usage/index.md:30
 msgid "前提条件"
-msgstr ""
+msgstr "前提条件"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:32
 msgid "この記事では次の環境を前提とします。"
-msgstr ""
+msgstr "本文以下列环境为前提。"
 
 #. list item > paragraph
 #: content/ja/blog/argx-usage/index.md:34
 msgid "CMake 3.21以上"
-msgstr ""
+msgstr "CMake 3.21 或更高版本"
 
 #. list item > paragraph
 #: content/ja/blog/argx-usage/index.md:35
 msgid "C99に対応したCコンパイラ（GCC、Clang、MSVCなど）"
-msgstr ""
+msgstr "支持 C99 的 C 编译器（GCC、Clang、MSVC 等）"
 
 #. list item > paragraph
 #: content/ja/blog/argx-usage/index.md:36
 msgid "Git（CMakeがArgXのソースを取得するために使います）"
-msgstr ""
+msgstr "Git（CMake 用它来获取 ArgX 的源代码）"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:38
@@ -119,21 +135,23 @@ msgid ""
 "記事の手順はUbuntu 24.04、CMake 3.28、GCC 13で動作を確認しています。ArgXの"
 "バージョンは`v0.1.0`です。"
 msgstr ""
+"文中的步骤已在 Ubuntu 24.04、CMake 3.28 和 GCC 13 上验证通过。ArgX 的版本为 "
+"`v0.1.0`。"
 
 #. heading (level 2)
 #: content/ja/blog/argx-usage/index.md:40
 msgid "プロジェクトを準備する"
-msgstr ""
+msgstr "准备项目"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:42
 msgid "次の構成のプロジェクトを作ります。"
-msgstr ""
+msgstr "创建如下结构的项目。"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:50
 msgid "`CMakeLists.txt`には次の内容を記述します。"
-msgstr ""
+msgstr "在 `CMakeLists.txt` 中写入以下内容。"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:67
@@ -144,6 +162,10 @@ msgid ""
 "`GIT_TAG`は、[リリース一覧](https://github.com/vabelorg/argx/releases)で最新"
 "のバージョンを確認して指定してください。"
 msgstr ""
+"`FetchContent` 是在 CMake 配置时获取外部源代码并将其纳入项目的功能。用 "
+"`GIT_TAG` 固定要使用的版本，再用 `target_link_libraries` 链接 `ArgX::argx`，"
+"ArgX 头文件的包含路径也会自动设置。请在[发布列表](https://github.com/"
+"vabelorg/argx/releases)中确认最新版本后指定 `GIT_TAG`。"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:69
@@ -153,22 +175,26 @@ msgid ""
 "メントの[Installation](https://github.com/vabelorg/argx/blob/main/docs/"
 "getting-started/installation.md)を参照してください。"
 msgstr ""
+"除 FetchContent 外，还可以使用 `add_subdirectory`、通过 `find_package` 使用已"
+"安装的 ArgX，或者使用 pkg-config。详情请参阅官方文档中的 [Installation]"
+"(https://github.com/vabelorg/argx/blob/main/docs/getting-started/"
+"installation.md)。"
 
 #. heading (level 2)
 #: content/ja/blog/argx-usage/index.md:71
 msgid "ArgXを使う流れ"
-msgstr ""
+msgstr "使用 ArgX 的流程"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:73
 msgid "ArgXを使うプログラムは、次の順序で処理を行います。"
-msgstr ""
+msgstr "使用 ArgX 的程序按以下顺序进行处理。"
 
 #. list item > paragraph
 #: content/ja/blog/argx-usage/index.md:75
 msgid ""
 "**スキーマを定義する**：コマンドを作り、オプションと位置引数を追加します。"
-msgstr ""
+msgstr "**定义模式**：创建命令，并添加选项和位置参数。"
 
 #. list item > paragraph
 #: content/ja/blog/argx-usage/index.md:76
@@ -176,21 +202,23 @@ msgid ""
 "**スキーマを検証する**：定義に矛盾がないかを確認します。解析とヘルプ生成は、"
 "検証済みのスキーマでしか行えません。"
 msgstr ""
+"**校验模式**：检查定义中是否存在矛盾。只有经过校验的模式才能用于解析和生成帮"
+"助。"
 
 #. list item > paragraph
 #: content/ja/blog/argx-usage/index.md:77
 msgid "**`argv`を解析する**：解析結果（result）が作られます。"
-msgstr ""
+msgstr "**解析 `argv`**：生成解析结果（result）。"
 
 #. list item > paragraph
 #: content/ja/blog/argx-usage/index.md:78
 msgid "**値を読み取る**：解析結果から、型変換済みの値を取り出します。"
-msgstr ""
+msgstr "**读取值**：从解析结果中取出已完成类型转换的值。"
 
 #. list item > paragraph
 #: content/ja/blog/argx-usage/index.md:79
 msgid "**破棄する**：解析結果、スキーマの順に破棄します。"
-msgstr ""
+msgstr "**销毁**：按解析结果、模式的顺序销毁。"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:81
@@ -198,6 +226,8 @@ msgid ""
 "この記事では、名前を受け取ってあいさつを表示する`greet`というプログラムを作り"
 "ます。受け付けるコマンドラインは次のとおりです。"
 msgstr ""
+"本文将编写一个名为 `greet` 的程序，它接收一个名字并显示问候语。它接受的命令行"
+"如下。"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:87
@@ -210,35 +240,41 @@ msgid ""
 "|\n"
 "| `name` | 位置引数（必須） | あいさつする相手の名前 |"
 msgstr ""
+"| 参数 | 种类 | 含义 |\n"
+"| --- | --- | --- |\n"
+"| `-h`, `--help` | 标志 | 显示帮助 |\n"
+"| `-l`, `--loud` | 标志 | 在问候语末尾加上 `!` |\n"
+"| `-n`, `--count` | 带值的选项（整数） | 问候的次数。省略时为 1 |\n"
+"| `name` | 位置参数（必需） | 要问候的对象的名字 |"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:94
 msgid ""
 "以降では`main.c`の内容を順に説明します。コード全体は「[コード全体](#コード全"
 "体)」に掲載しています。"
-msgstr ""
+msgstr "下面依次讲解 `main.c` 的内容。完整代码见“[完整代码](#完整代码)”。"
 
 #. heading (level 2)
 #: content/ja/blog/argx-usage/index.md:96
 msgid "スキーマを定義する"
-msgstr ""
+msgstr "定义模式"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:98
 msgid "まず、ルートとなるコマンドを作り、オプションと位置引数を追加します。"
-msgstr ""
+msgstr "首先，创建作为根的命令，并添加选项和位置参数。"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:115
 msgid "それぞれの関数の役割は次のとおりです。"
-msgstr ""
+msgstr "各个函数的作用如下。"
 
 #. list item > paragraph
 #: content/ja/blog/argx-usage/index.md:117
 msgid ""
 "`argx_command_create`：コマンドを作ります。ここで指定した名前がヘルプに表示さ"
 "れます。"
-msgstr ""
+msgstr "`argx_command_create`：创建命令。这里指定的名称会显示在帮助中。"
 
 #. list item > paragraph
 #: content/ja/blog/argx-usage/index.md:118
@@ -247,6 +283,9 @@ msgid ""
 "長い名前（`\"help\"`）を指定し、最後の引数に**ハンドル**（`argx_option_t *`）"
 "が書き込まれます。ハンドルは、属性の設定や値の読み取りに使います。"
 msgstr ""
+"`argx_command_add_flag`：添加不带值的标志。指定短名称（`'h'`）和长名称"
+"（`\"help\"`），最后一个参数会被写入**句柄**（`argx_option_t *`）。句柄用于设"
+"置属性和读取值。"
 
 #. list item > paragraph
 #: content/ja/blog/argx-usage/index.md:119
@@ -254,12 +293,14 @@ msgid ""
 "`argx_command_add_value`：値を取るオプションを追加します。値の型には"
 "`argx_type_int()`（整数）を指定しています。"
 msgstr ""
+"`argx_command_add_value`：添加带值的选项。值的类型指定为 `argx_type_int()`"
+"（整数）。"
 
 #. list item > paragraph
 #: content/ja/blog/argx-usage/index.md:120
 msgid ""
 "`argx_option_set_value_name`：ヘルプで値を表す名前（`<COUNT>`）を設定します。"
-msgstr ""
+msgstr "`argx_option_set_value_name`：设置在帮助中表示值的名称（`<COUNT>`）。"
 
 #. list item > paragraph
 #: content/ja/blog/argx-usage/index.md:121
@@ -267,6 +308,8 @@ msgid ""
 "`argx_option_set_default`：省略時の値を文字列で設定します。この値がオプション"
 "の型に変換できるかどうかは、後述の検証で確認されます。"
 msgstr ""
+"`argx_option_set_default`：以字符串形式设置省略时的值。该值能否转换为选项的类"
+"型，会在后述的校验中检查。"
 
 #. list item > paragraph
 #: content/ja/blog/argx-usage/index.md:122
@@ -276,21 +319,25 @@ msgid ""
 "`ARGX_ARITY_ZERO_OR_MORE`（0個以上）、`ARGX_ARITY_ONE_OR_MORE`（1個以上）を指"
 "定できます。"
 msgstr ""
+"`argx_command_add_positional`：添加位置参数。`ARGX_ARITY_REQUIRED` 表示“恰好"
+"需要 1 个”。此外还可以指定 `ARGX_ARITY_OPTIONAL`（0 个或 1 个）、"
+"`ARGX_ARITY_ZERO_OR_MORE`（0 个或以上）和 `ARGX_ARITY_ONE_OR_MORE`（1 个或以"
+"上）。"
 
 #. list item > paragraph
 #: content/ja/blog/argx-usage/index.md:123
 msgid "`*_set_description`：ヘルプに表示される説明文を設定します。"
-msgstr ""
+msgstr "`*_set_description`：设置显示在帮助中的说明文字。"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:125
 msgid "ArgXでは`--help`も特別扱いされず、普通のフラグとして定義します。"
-msgstr ""
+msgstr "在 ArgX 中，`--help` 也不会被特殊对待，而是作为普通标志来定义。"
 
 #. heading (level 3)
 #: content/ja/blog/argx-usage/index.md:127
 msgid "エラー処理をまとめるTRYマクロ"
-msgstr ""
+msgstr "汇总错误处理的 TRY 宏"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:129
@@ -299,6 +346,9 @@ msgid ""
 "ります。呼び出しのたびに`if`文を書くと長くなるため、サンプルでは次の`TRY`マク"
 "ロで、失敗したら`define_failed`ラベルに移動するようにしています。"
 msgstr ""
+"可能失败的函数会返回 `argx_error_t`，成功时为 `ARGX_ERROR_NONE`。每次调用都"
+"写 `if` 语句会让代码变长，因此示例中使用下面的 `TRY` 宏，在失败时跳转到 "
+"`define_failed` 标签。"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:143
@@ -306,16 +356,18 @@ msgid ""
 "`goto`を使ったエラー処理の考え方は、「[【C言語】goto文でメモリ解放の管理を容"
 "易にする](/blog/c-goto-memory-free)」で詳しく解説しています。"
 msgstr ""
+"使用 `goto` 进行错误处理的思路，在“[【C语言】使用 goto 语句简化内存释放的管"
+"理](/blog/c-goto-memory-free)”中有详细讲解。"
 
 #. heading (level 2)
 #: content/ja/blog/argx-usage/index.md:145
 msgid "スキーマを検証する"
-msgstr ""
+msgstr "校验模式"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:147
 msgid "定義が終わったら、`argx_command_validate`でスキーマを検証します。"
-msgstr ""
+msgstr "定义完成后，使用 `argx_command_validate` 校验模式。"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:153
@@ -326,11 +378,15 @@ msgid ""
 "なります。後ろの3つの引数にポインターを渡すと、問題のあるコマンド、オプショ"
 "ン、位置引数を受け取れます。ここでは使わないため`NULL`を渡しています。"
 msgstr ""
+"校验会检查跨越多个定义的矛盾，例如与类型不符的默认值，或者在必需的位置参数之"
+"前存在可省略的位置参数等。另外，像名称重复这样凭单个定义就能判断的错误，会在 "
+"`argx_command_add_flag` 等添加时就报错。如果向后三个参数传入指针，就能获得有"
+"问题的命令、选项和位置参数。这里用不到，所以传入 `NULL`。"
 
 #. heading (level 2)
 #: content/ja/blog/argx-usage/index.md:155
 msgid "argvを解析する"
-msgstr ""
+msgstr "解析 argv"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:157
@@ -338,6 +394,7 @@ msgid ""
 "`argx_parse`に`argc`と`argv`を渡して解析します。戻り値は次の3種類のいずれかで"
 "す。"
 msgstr ""
+"将 `argc` 和 `argv` 传给 `argx_parse` 进行解析。返回值是以下 3 种之一。"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:159
@@ -349,6 +406,11 @@ msgid ""
 "|\n"
 "| `ARGX_ERROR_OUT_OF_MEMORY` | メモリ確保に失敗した | 作られない |"
 msgstr ""
+"| 返回值 | 含义 | 解析结果 |\n"
+"| --- | --- | --- |\n"
+"| `ARGX_ERROR_NONE` | 解析成功 | 会生成 |\n"
+"| `ARGX_ERROR_INVALID_COMMAND_LINE` | 命令行有误 | 会生成 |\n"
+"| `ARGX_ERROR_OUT_OF_MEMORY` | 内存分配失败 | 不会生成 |"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:197
@@ -358,16 +420,19 @@ msgid ""
 "ラーまでに読み取った内容が入っています。そのため、`--help`が指定されていれば"
 "ヘルプを表示できます。"
 msgstr ""
+"关键在于**即使解析出错也会检查 `--help`**。`greet --help` 因为缺少必需的位置"
+"参数 `name` 而导致解析错误，但解析结果中包含了出错之前读取到的内容。因此，只"
+"要指定了 `--help`，就能显示帮助。"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:199
 msgid "`argx_result_flag`は、フラグが指定されたかどうかを`bool`で返します。"
-msgstr ""
+msgstr "`argx_result_flag` 以 `bool` 返回标志是否被指定。"
 
 #. heading (level 2)
 #: content/ja/blog/argx-usage/index.md:201
 msgid "ヘルプとエラーを出力する"
-msgstr ""
+msgstr "输出帮助和错误"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:203
@@ -376,6 +441,8 @@ msgid ""
 "ヘルプを分割して渡します。ここでは`fwrite`でストリームに書き込む関数を用意し"
 "ています。"
 msgstr ""
+"ArgX 本身不输出任何内容。它会接收一个写入文本的函数，并将帮助分段传给该函数。"
+"这里准备了一个用 `fwrite` 写入流的函数。"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:221
@@ -384,13 +451,16 @@ msgid ""
 "して渡されます。第2引数には表示幅などを指定するヘルプオプションを渡せますが、"
 "`NULL`にすると既定の設定が使われます。"
 msgstr ""
+"`argx_help_write` 的第 4 个参数（`stdout`）会原样作为写入函数的 `user_data` "
+"传入。第 2 个参数可以传入指定显示宽度等的帮助选项，若设为 `NULL` 则使用默认设"
+"置。"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:223
 msgid ""
 "解析エラーのときは、エラーメッセージと使い方の行を標準エラー出力に書き込みま"
 "す。"
-msgstr ""
+msgstr "解析出错时，将错误消息和用法行写入标准错误输出。"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:234
@@ -399,16 +469,19 @@ msgid ""
 "メッセージを返します。`argx_help_write_usage`は`Usage: greet [OPTIONS] "
 "<name>`の行だけを書き込みます。"
 msgstr ""
+"`argx_result_error_message` 返回类似 `missing required argument 'name'` 的一"
+"行消息。`argx_help_write_usage` 只写入 `Usage: greet [OPTIONS] <name>` 这一"
+"行。"
 
 #. heading (level 2)
 #: content/ja/blog/argx-usage/index.md:236
 msgid "値を読み取る"
-msgstr ""
+msgstr "读取值"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:238
 msgid "解析に成功したら、ハンドルを使って解析結果から値を取り出します。"
-msgstr ""
+msgstr "解析成功后，使用句柄从解析结果中取出值。"
 
 #. list item > paragraph
 #: content/ja/blog/argx-usage/index.md:257
@@ -416,6 +489,8 @@ msgid ""
 "`argx_result_positional_string`：位置引数の値を文字列で取り出します。第3引数"
 "は値の番号で、複数の値を取る位置引数のときに使います。"
 msgstr ""
+"`argx_result_positional_string`：以字符串形式取出位置参数的值。第 3 个参数是"
+"值的序号，用于接收多个值的位置参数。"
 
 #. list item > paragraph
 #: content/ja/blog/argx-usage/index.md:258
@@ -423,6 +498,8 @@ msgid ""
 "`argx_result_option_int`：オプションの値を`int64_t`で取り出します。`-n`が省略"
 "された場合は、デフォルト値の`1`が入ります。"
 msgstr ""
+"`argx_result_option_int`：以 `int64_t` 取出选项的值。省略 `-n` 时，得到的是默"
+"认值 `1`。"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:260
@@ -430,16 +507,18 @@ msgid ""
 "どちらも、値があれば`true`を返します。整数への変換は解析時に済んでいるため、"
 "ここで`strtol`などを呼ぶ必要はありません。"
 msgstr ""
+"两者在有值时都返回 `true`。整数转换在解析时已经完成，因此这里无需调用 "
+"`strtol` 等函数。"
 
 #. heading (level 2)
 #: content/ja/blog/argx-usage/index.md:262
 msgid "破棄する"
-msgstr ""
+msgstr "销毁"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:264
 msgid "最後に、解析結果、スキーマの順に破棄します。"
-msgstr ""
+msgstr "最后，按解析结果、模式的顺序销毁。"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:272
@@ -448,21 +527,23 @@ msgid ""
 "ませられます。スキーマに追加したオプションや位置引数はコマンドと一緒に破棄さ"
 "れるため、ハンドルを個別に破棄する必要はありません。"
 msgstr ""
+"传入 `NULL` 时不执行任何操作，因此包括中途失败的情况在内，只需在一处进行清理"
+"即可。添加到模式中的选项和位置参数会随命令一起销毁，因此无需单独销毁句柄。"
 
 #. heading (level 2)
 #: content/ja/blog/argx-usage/index.md:274
 msgid "コード全体"
-msgstr ""
+msgstr "完整代码"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:276
 msgid "`main.c`の全体は次のとおりです。"
-msgstr ""
+msgstr "`main.c` 的完整内容如下。"
 
 #. heading (level 2)
 #: content/ja/blog/argx-usage/index.md:407
 msgid "ビルドして実行する"
-msgstr ""
+msgstr "构建并运行"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:409
@@ -470,6 +551,8 @@ msgid ""
 "`greet`ディレクトリで次のコマンドを実行し、ビルドします。初回の構成時に、"
 "CMakeがGitHubからArgXのソースを取得します。"
 msgstr ""
+"在 `greet` 目录中执行以下命令进行构建。首次配置时，CMake 会从 GitHub 获取 "
+"ArgX 的源代码。"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:416
@@ -477,11 +560,13 @@ msgid ""
 "ビルドが終わると、`build/greet`が作られます。MSVCなどのマルチ構成のジェネレー"
 "ターでは、`build/Debug/greet.exe`のように構成名のディレクトリに作られます。"
 msgstr ""
+"构建完成后，会生成 `build/greet`。对于 MSVC 等多配置生成器，会生成在以配置名"
+"命名的目录中，例如 `build/Debug/greet.exe`。"
 
 #. heading (level 3)
 #: content/ja/blog/argx-usage/index.md:418
 msgid "正しいコマンドライン"
-msgstr ""
+msgstr "正确的命令行"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:427
@@ -489,11 +574,13 @@ msgid ""
 "短いオプションはまとめて書くこともでき、`./build/greet -ln 2 world`も同じ結果"
 "になります。`--count=2`のように`=`で値を渡すこともできます。"
 msgstr ""
+"短选项也可以合并书写，`./build/greet -ln 2 world` 的结果相同。也可以像 `--"
+"count=2` 这样用 `=` 传递值。"
 
 #. heading (level 3)
 #: content/ja/blog/argx-usage/index.md:429
 msgid "ヘルプの表示"
-msgstr ""
+msgstr "显示帮助"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:446
@@ -501,11 +588,13 @@ msgid ""
 "スキーマに設定した説明文、値の名前、デフォルト値から、ヘルプが自動で生成され"
 "ています。`name`を指定していなくても、ヘルプが表示されることも確認できます。"
 msgstr ""
+"帮助是根据模式中设置的说明文字、值的名称和默认值自动生成的。还可以确认，即使"
+"没有指定 `name`，帮助也会显示出来。"
 
 #. heading (level 3)
 #: content/ja/blog/argx-usage/index.md:448
 msgid "誤ったコマンドライン"
-msgstr ""
+msgstr "错误的命令行"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:450
@@ -513,23 +602,25 @@ msgid ""
 "必須の位置引数がない場合や、整数に変換できない値を渡した場合は、エラーメッ"
 "セージと使い方の行が表示され、終了コードは1になります。"
 msgstr ""
+"缺少必需的位置参数，或者传入了无法转换为整数的值时，会显示错误消息和用法行，"
+"退出码为 1。"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:469
 msgid ""
 "型の検証やエラーメッセージを自分で書かなくても、これだけのチェックが行われま"
 "す。"
-msgstr ""
+msgstr "即使不自己编写类型校验和错误消息，也能完成这么多检查。"
 
 #. heading (level 2)
 #: content/ja/blog/argx-usage/index.md:471
 msgid "さらに使いこなす"
-msgstr ""
+msgstr "进阶用法"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:473
 msgid "ArgXには、この記事で扱わなかった機能もあります。"
-msgstr ""
+msgstr "ArgX 还有一些本文未涉及的功能。"
 
 #. list item > paragraph
 #: content/ja/blog/argx-usage/index.md:475
@@ -538,6 +629,8 @@ msgid ""
 "マンドを定義できます。サブコマンドの中にさらにサブコマンドを入れることもでき"
 "ます。"
 msgstr ""
+"**子命令**：使用 `argx_command_add_subcommand` 可以定义类似 `git commit` 的子"
+"命令。子命令中还可以再嵌套子命令。"
 
 #. list item > paragraph
 #: content/ja/blog/argx-usage/index.md:476
@@ -546,6 +639,9 @@ msgid ""
 "を数えるオプションを、`argx_command_add_negatable`で`--color`と`--no-color`の"
 "組を定義できます。"
 msgstr ""
+"**计数和可取反的标志**：使用 `argx_command_add_count` 可以定义像 `-vvv` 这样"
+"统计指定次数的选项，使用 `argx_command_add_negatable` 可以定义 `--color` 和 "
+"`--no-color` 这样的组合。"
 
 #. list item > paragraph
 #: content/ja/blog/argx-usage/index.md:477
@@ -553,13 +649,15 @@ msgid ""
 "**選択肢と独自の型**：`argx_type_create_choice`で`tar`、`zip`のような選択肢"
 "を、`argx_type_create`で独自の変換を行う型を作れます。"
 msgstr ""
+"**选项值和自定义类型**：使用 `argx_type_create_choice` 可以创建 `tar`、`zip` "
+"这样的可选值类型，使用 `argx_type_create` 可以创建进行自定义转换的类型。"
 
 #. list item > paragraph
 #: content/ja/blog/argx-usage/index.md:478
 msgid ""
 "**ヘルプのカスタマイズ**：表示幅をターミナルに合わせたり、ヘルプを文字列とし"
 "て受け取ったりできます。"
-msgstr ""
+msgstr "**自定义帮助**：可以让显示宽度适应终端，或者以字符串形式获取帮助。"
 
 #. list item > paragraph
 #: content/ja/blog/argx-usage/index.md:479
@@ -567,6 +665,7 @@ msgid ""
 "**Windowsのワイド文字**：`argx_parse_wide`で`wmain`の引数をそのまま解析できま"
 "す。"
 msgstr ""
+"**Windows 的宽字符**：使用 `argx_parse_wide` 可以直接解析 `wmain` 的参数。"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:481
@@ -578,11 +677,17 @@ msgid ""
 "com/vabelorg/argx/blob/main/docs/guides/how-to.md)と[FAQ](https://github.com/"
 "vabelorg/argx/blob/main/docs/guides/faq.md)を参照してください。"
 msgstr ""
+"使用子命令和自定义类型的示例位于仓库的 [examples/pack/pack.c](https://github."
+"com/vabelorg/argx/blob/main/examples/pack/pack.c)，并在 [Tutorial](https://"
+"github.com/vabelorg/argx/blob/main/docs/getting-started/tutorial.md) 中逐步讲"
+"解。具体用法请参阅 [How-to](https://github.com/vabelorg/argx/blob/main/docs/"
+"guides/how-to.md) 和 [FAQ](https://github.com/vabelorg/argx/blob/main/docs/"
+"guides/faq.md)。"
 
 #. heading (level 2)
 #: content/ja/blog/argx-usage/index.md:483
 msgid "まとめ"
-msgstr ""
+msgstr "总结"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:485
@@ -592,10 +697,13 @@ msgid ""
 "出力せず、プロセスも終了させないため、出力先や終了コードを自由に決められるの"
 "も利点です。"
 msgstr ""
+"使用 ArgX，只需将命令行规格作为模式定义一次，就能统一处理解析、类型转换、错误"
+"消息乃至帮助。由于库本身不输出任何内容，也不会终止进程，因此可以自由决定输出"
+"目标和退出码，这也是它的优点。"
 
 #. paragraph
 #: content/ja/blog/argx-usage/index.md:487
 msgid ""
 "C言語でコマンドラインツールを作るときは、`getopt`の代わりに使ってみてはいかが"
 "でしょうか。"
-msgstr ""
+msgstr "用 C 语言编写命令行工具时，不妨用它来代替 `getopt` 试试看。"

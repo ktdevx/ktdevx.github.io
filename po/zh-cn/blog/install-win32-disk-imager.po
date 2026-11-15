@@ -1,8 +1,9 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-15 23:56+0000\n"
+"POT-Creation-Date: 2026-11-15 23:58+0000\n"
 "PO-Revision-Date: 2026-11-15 23:56+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,23 +15,23 @@ msgstr ""
 #. front matter: title
 #: content/ja/blog/install-win32-disk-imager/index.md:2
 msgid "Win32 Disk Imagerのインストールと使い方"
-msgstr ""
+msgstr "Win32 Disk Imager 的安装与使用方法"
 
 #. paragraph
 #: content/ja/blog/install-win32-disk-imager/index.md:11
 msgid ""
 "Win32 Disk Imagerは、Windows上で動作するディスクイメージ書き込みソフトです。"
-msgstr ""
+msgstr "Win32 Disk Imager 是一款在 Windows 上运行的磁盘镜像写入软件。"
 
 #. paragraph
 #: content/ja/blog/install-win32-disk-imager/index.md:13
 msgid "ここでは、Win32 Disk Imagerのインストールと使い方について、解説します。"
-msgstr ""
+msgstr "本文介绍 Win32 Disk Imager 的安装与使用方法。"
 
 #. heading (level 2)
 #: content/ja/blog/install-win32-disk-imager/index.md:15
 msgid "Win32 Disk Imagerとは"
-msgstr ""
+msgstr "什么是 Win32 Disk Imager"
 
 #. paragraph
 #: content/ja/blog/install-win32-disk-imager/index.md:17
@@ -38,11 +39,13 @@ msgid ""
 "Win32 Disk Imagerは、SDカードやUSBメモリにディスクイメージを書き込むための"
 "Windowsツールです。IMG形式のディスクイメージに対応しています。"
 msgstr ""
+"Win32 Disk Imager 是一款用于将磁盘镜像写入 SD 卡或 U 盘的 Windows 工具，支持 "
+"IMG 格式的磁盘镜像。"
 
 #. paragraph
 #: content/ja/blog/install-win32-disk-imager/index.md:19
 msgid "![Win32 Disk Imager](images/win32-disk-imager.webp)"
-msgstr ""
+msgstr "![Win32 Disk Imager](images/win32-disk-imager.webp)"
 
 #. paragraph
 #: content/ja/blog/install-win32-disk-imager/index.md:21
@@ -51,18 +54,20 @@ msgid ""
 "り、リムーバブルディスクの内容をイメージファイルとして保存することができま"
 "す。"
 msgstr ""
+"使用该工具，可以将磁盘镜像写入可移动磁盘，也可以将可移动磁盘的内容保存为镜像"
+"文件。"
 
 #. paragraph
 #: content/ja/blog/install-win32-disk-imager/index.md:23
 msgid ""
 "このツールは、オープンソースで開発されており、無料でダウンロードして使用する"
 "ことができます。"
-msgstr ""
+msgstr "该工具以开源方式开发，可以免费下载和使用。"
 
 #. heading (level 2)
 #: content/ja/blog/install-win32-disk-imager/index.md:25
 msgid "Win32 Disk Imagerのインストール"
-msgstr ""
+msgstr "安装 Win32 Disk Imager"
 
 #. paragraph
 #: content/ja/blog/install-win32-disk-imager/index.md:27
@@ -71,6 +76,8 @@ msgid ""
 "Disk Imagerのインストーラーをダウンロードし、ダウンロードが完了したらインス"
 "トーラーを起動してツールをインストールします。"
 msgstr ""
+"从[官方网站](https://sourceforge.net/projects/win32diskimager/)下载 Win32 "
+"Disk Imager 的安装程序，下载完成后运行安装程序来安装该工具。"
 
 #. paragraph
 #: content/ja/blog/install-win32-disk-imager/index.md:29
@@ -78,21 +85,23 @@ msgid ""
 "インストール時に、保存先やショートカットの作成可否について問われますが、特に"
 "指定がなければデフォルトの設定で進めて問題ありません。"
 msgstr ""
+"安装时会询问安装位置以及是否创建快捷方式，如果没有特别要求，使用默认设置继续"
+"即可。"
 
 #. heading (level 2)
 #: content/ja/blog/install-win32-disk-imager/index.md:31
 msgid "ディスクイメージの書き込み"
-msgstr ""
+msgstr "写入磁盘镜像"
 
 #. paragraph
 #: content/ja/blog/install-win32-disk-imager/index.md:33
 msgid "SDカード・USBメモリにディスクイメージを書き込みます。"
-msgstr ""
+msgstr "将磁盘镜像写入 SD 卡或 U 盘。"
 
 #. paragraph
 #: content/ja/blog/install-win32-disk-imager/index.md:35
 msgid "![Win32 Disk Imager](images/win32-disk-imager-write.webp)"
-msgstr ""
+msgstr "![Win32 Disk Imager](images/win32-disk-imager-write.webp)"
 
 #. paragraph
 #: content/ja/blog/install-win32-disk-imager/index.md:37
@@ -100,21 +109,23 @@ msgid ""
 "Image Fileで書き込みたいイメージファイルを指定し、Deviceから書き込み先のドラ"
 "イブを選択します。Writeをクリックすると書き込みが開始されます。"
 msgstr ""
+"在“Image File”中指定要写入的镜像文件，并从“Device”中选择写入目标驱动器。点"
+"击“Write”即开始写入。"
 
 #. heading (level 2)
 #: content/ja/blog/install-win32-disk-imager/index.md:39
 msgid "ディスクイメージの読み出し"
-msgstr ""
+msgstr "读取磁盘镜像"
 
 #. paragraph
 #: content/ja/blog/install-win32-disk-imager/index.md:41
 msgid "SDカード・USBメモリからディスクイメージを読み出します。"
-msgstr ""
+msgstr "从 SD 卡或 U 盘读取磁盘镜像。"
 
 #. paragraph
 #: content/ja/blog/install-win32-disk-imager/index.md:43
 msgid "![Win32 Disk Imager](images/win32-disk-imager-read.webp)"
-msgstr ""
+msgstr "![Win32 Disk Imager](images/win32-disk-imager-read.webp)"
 
 #. paragraph
 #: content/ja/blog/install-win32-disk-imager/index.md:45
@@ -122,11 +133,13 @@ msgid ""
 "Image Fileにイメージファイルの保存先を指定し、Deviceから読み出したいドライブ"
 "を選択します。Readをクリックすると読み出しが開始されます。"
 msgstr ""
+"在“Image File”中指定镜像文件的保存位置，并从“Device”中选择要读取的驱动器。点"
+"击“Read”即开始读取。"
 
 #. heading (level 2)
 #: content/ja/blog/install-win32-disk-imager/index.md:47
 msgid "ハッシュ値の計算"
-msgstr ""
+msgstr "计算哈希值"
 
 #. paragraph
 #: content/ja/blog/install-win32-disk-imager/index.md:49
@@ -134,11 +147,13 @@ msgid ""
 "イメージファイルのハッシュ値を計算します。これにより、イメージファイルの提供"
 "元で公開されているハッシュ値と比較し、破損や改ざんを検出することができます。"
 msgstr ""
+"计算镜像文件的哈希值。通过与镜像文件提供方公布的哈希值进行比较，可以检测文件"
+"是否损坏或被篡改。"
 
 #. paragraph
 #: content/ja/blog/install-win32-disk-imager/index.md:51
 msgid "![Win32 Disk Imager](images/win32-disk-imager-hash.webp)"
-msgstr ""
+msgstr "![Win32 Disk Imager](images/win32-disk-imager-hash.webp)"
 
 #. paragraph
 #: content/ja/blog/install-win32-disk-imager/index.md:53
@@ -146,8 +161,10 @@ msgid ""
 "Image Fileにハッシュ値を計算したいイメージファイルを指定し、Hashからアルゴリ"
 "ズムを選択します。Generateをクリックするとハッシュ値が表示されます。"
 msgstr ""
+"在“Image File”中指定要计算哈希值的镜像文件，并从“Hash”中选择算法。点"
+"击“Generate”即可显示哈希值。"
 
 #. paragraph
 #: content/ja/blog/install-win32-disk-imager/index.md:55
 msgid "ハッシュ値計算のアルゴリズムは、MD5・SHA1・SHA256から選択できます。"
-msgstr ""
+msgstr "哈希值的计算算法可以从 MD5、SHA1、SHA256 中选择。"

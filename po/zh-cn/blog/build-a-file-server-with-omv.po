@@ -1,8 +1,9 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-15 23:56+0000\n"
+"POT-Creation-Date: 2026-11-15 23:58+0000\n"
 "PO-Revision-Date: 2026-11-15 23:56+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,7 +15,7 @@ msgstr ""
 #. front matter: title
 #: content/ja/blog/build-a-file-server-with-omv/index.md:2
 msgid "OpenMediaVaultでファイルサーバーを構築する"
-msgstr ""
+msgstr "使用 OpenMediaVault 搭建文件服务器"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:11
@@ -22,28 +23,30 @@ msgid ""
 "OpenMediaVault(OMV)は、DebianをベースにしたオープンソースのNASソフトウェア"
 "で、ユーザーが簡単にNASを構築できるように設計されています。"
 msgstr ""
+"OpenMediaVault（OMV）是一款基于 Debian 的开源 NAS 软件，其设计目的是让用户能"
+"够轻松搭建 NAS。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:13
 msgid ""
 "今回は、OpenMediaVaultを使用して、Windowsからアクセスできるファイルサーバーを"
 "構築します。"
-msgstr ""
+msgstr "本文将使用 OpenMediaVault 搭建一台可以从 Windows 访问的文件服务器。"
 
 #. heading (level 2)
 #: content/ja/blog/build-a-file-server-with-omv/index.md:15
 msgid "はじめに"
-msgstr ""
+msgstr "前言"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:17
 msgid "サーバーのハードウェアには、GMKtecのNucBox M5 Plusを選択しました。"
-msgstr ""
+msgstr "服务器硬件选择了 GMKtec 的 NucBox M5 Plus。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:19
 msgid "{{< ads/nucbox-m5-plus >}}"
-msgstr ""
+msgstr "{{< ads/nucbox-m5-plus >}}"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:21
@@ -51,11 +54,13 @@ msgid ""
 "ミニPCには仮想化プラットフォームのProxmox VEをインストールしているため、そこ"
 "に仮想マシンを作成してOpenMediaVaultをインストールします。"
 msgstr ""
+"由于这台迷你主机上已安装了虚拟化平台 Proxmox VE，因此将在其中创建虚拟机并安"
+"装 OpenMediaVault。"
 
 #. heading (level 2)
 #: content/ja/blog/build-a-file-server-with-omv/index.md:23
 msgid "OpenMediaVaultのインストール"
-msgstr ""
+msgstr "安装 OpenMediaVault"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:25
@@ -63,18 +68,20 @@ msgid ""
 "OpenMediaVaultのISOイメージをダウンロードし、サーバーにインストールします。以"
 "下の記事を参考にOpenMediaVaultをインストールしましょう。"
 msgstr ""
+"下载 OpenMediaVault 的 ISO 镜像并安装到服务器上。请参考以下文章安装 "
+"OpenMediaVault。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:27
 msgid "[OpenMediaVaultをインストールする](/blog/install-openmediavault)"
-msgstr ""
+msgstr "[安装 OpenMediaVault](/blog/install-openmediavault)"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:29
 msgid ""
 "管理画面の言語変更、管理者ユーザー(`admin`)のパスワード変更も忘れずに実施して"
 "おきましょう。"
-msgstr ""
+msgstr "别忘了同时更改管理界面的语言，以及管理员用户（`admin`）的密码。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:31
@@ -82,11 +89,13 @@ msgid ""
 "Proxmox VE上の仮想マシンにインストールする場合は、「[Proxmox VEで仮想マシン"
 "(VM)を作成する](/blog/create-vm-in-proxmox-ve)」の記事も参考にしてください。"
 msgstr ""
+"如果要安装到 Proxmox VE 上的虚拟机中，也请参考“[在 Proxmox VE 中创建虚拟机"
+"（VM）](/blog/create-vm-in-proxmox-ve)”一文。"
 
 #. heading (level 2)
 #: content/ja/blog/build-a-file-server-with-omv/index.md:33
 msgid "静的IPアドレスの割り当て"
-msgstr ""
+msgstr "分配静态 IP 地址"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:35
@@ -94,30 +103,32 @@ msgid ""
 "デフォルトではDHCPが有効になっています。NASのIPアドレスが変化しないように、静"
 "的IPアドレスを割り当てます。"
 msgstr ""
+"默认情况下启用了 DHCP。为了使 NAS 的 IP 地址不发生变化，需要为其分配静态 IP "
+"地址。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:37
 msgid ""
 "メニューから「ネットワーク > インタフェース」を選択し、ネットワークの設定画面"
 "を開きましょう。"
-msgstr ""
+msgstr "从菜单中选择“Network > Interfaces”，打开网络设置界面。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:39
 msgid "![OpenMediaVaultの管理画面](images/build-file-server-1.webp)"
-msgstr ""
+msgstr "![OpenMediaVault 的管理界面](images/build-file-server-1.webp)"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:41
 msgid ""
 "設定を変更するデバイスを選択後、ペンのアイコンをクリックして編集画面を開きま"
 "す。"
-msgstr ""
+msgstr "选择要更改设置的设备，然后点击铅笔图标打开编辑界面。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:43
 msgid "![OpenMediaVaultの管理画面](images/build-file-server-2.webp)"
-msgstr ""
+msgstr "![OpenMediaVault 的管理界面](images/build-file-server-2.webp)"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:45
@@ -125,6 +136,8 @@ msgid ""
 "IPv4にて、静的IPアドレスが割り当てられるよう設定を変更します。高度な設定に"
 "て、DNSサーバーのアドレスも入力し、保存しましょう。"
 msgstr ""
+"在“IPv4”中更改设置，使其分配静态 IP 地址。然后在“Advanced settings”中输入 "
+"DNS 服务器的地址并保存。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:47
@@ -132,11 +145,12 @@ msgid ""
 "IPアドレスを変更するとサーバーとの接続が切れるため、変更後のIPアドレスで再度"
 "管理画面に接続しましょう。"
 msgstr ""
+"更改 IP 地址后会断开与服务器的连接，请使用更改后的 IP 地址重新连接管理界面。"
 
 #. heading (level 2)
 #: content/ja/blog/build-a-file-server-with-omv/index.md:49
 msgid "ディスクの初期化"
-msgstr ""
+msgstr "初始化磁盘"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:51
@@ -144,49 +158,51 @@ msgid ""
 "OpenMediaVaultに接続したディスクの初期化を行います。既にファイルシステム作成"
 "済みのディスクをマウントする場合はスキップしましょう。"
 msgstr ""
+"对连接到 OpenMediaVault 的磁盘进行初始化。如果要挂载已经创建了文件系统的磁"
+"盘，请跳过此步骤。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:53
 msgid ""
 "メニューから「ストレージ > ディスク」を選択し、ディスクの設定画面を開きましょ"
 "う。"
-msgstr ""
+msgstr "从菜单中选择“Storage > Disks”，打开磁盘设置界面。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:55
 msgid "![OpenMediaVaultの管理画面](images/build-file-server-3.webp)"
-msgstr ""
+msgstr "![OpenMediaVault 的管理界面](images/build-file-server-3.webp)"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:57
 msgid ""
 "設定を変更するデバイスを選択後、消しゴムのアイコンをクリックしてディスクの消"
 "去画面を開きます。"
-msgstr ""
+msgstr "选择要更改设置的设备，然后点击橡皮擦图标打开磁盘擦除界面。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:59
 msgid "![OpenMediaVaultの管理画面](images/build-file-server-4.webp)"
-msgstr ""
+msgstr "![OpenMediaVault 的管理界面](images/build-file-server-4.webp)"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:61
 msgid ""
 "クイックかセキュアか消去方法が選択できますが、特に指定がなければクイックで問"
 "題ありません。"
-msgstr ""
+msgstr "擦除方式可以选择“Quick”或“Secure”，如无特殊要求，选择“Quick”即可。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:63
 msgid ""
 "クイックの場合はファイルシステムが消去され、セキュアの場合は全て消去されま"
 "す。"
-msgstr ""
+msgstr "“Quick”会擦除文件系统，“Secure”则会擦除全部数据。"
 
 #. heading (level 2)
 #: content/ja/blog/build-a-file-server-with-omv/index.md:65
 msgid "ファイルシステムの作成"
-msgstr ""
+msgstr "创建文件系统"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:67
@@ -194,18 +210,20 @@ msgid ""
 "OpenMediaVaultに接続したディスクにファイルシステムを作成します。既にファイル"
 "システム作成済みのディスクをマウントする場合はスキップしましょう。"
 msgstr ""
+"在连接到 OpenMediaVault 的磁盘上创建文件系统。如果要挂载已经创建了文件系统的"
+"磁盘，请跳过此步骤。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:69
 msgid ""
 "メニューから「ストレージ > ファイルシステム」を選択し、ファイルシステムの設定"
 "画面を開きましょう。"
-msgstr ""
+msgstr "从菜单中选择“Storage > File Systems”，打开文件系统设置界面。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:71
 msgid "![OpenMediaVaultの管理画面](images/build-file-server-5.webp)"
-msgstr ""
+msgstr "![OpenMediaVault 的管理界面](images/build-file-server-5.webp)"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:73
@@ -213,23 +231,24 @@ msgid ""
 "プラスアイコンをクリックし、作成したいファイルシステムを選択してファイルシス"
 "テムの作成画面を開きます。今回はExt4を選択しました。"
 msgstr ""
+"点击加号图标，选择要创建的文件系统，打开文件系统创建界面。本例选择了 Ext4。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:75
 msgid "![OpenMediaVaultの管理画面](images/build-file-server-6.webp)"
-msgstr ""
+msgstr "![OpenMediaVault 的管理界面](images/build-file-server-6.webp)"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:77
 msgid ""
 "ファイルシステムを作成したいディスクを選択し、ファイルシステムを作成しましょ"
 "う。"
-msgstr ""
+msgstr "选择要创建文件系统的磁盘，然后创建文件系统。"
 
 #. heading (level 2)
 #: content/ja/blog/build-a-file-server-with-omv/index.md:79
 msgid "共有フォルダの作成"
-msgstr ""
+msgstr "创建共享文件夹"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:81
@@ -237,39 +256,41 @@ msgid ""
 "共有フォルダを作成します。メニューから「ストレージ > 共有フォルダ」を選択し、"
 "共有フォルダの設定画面を開きましょう。"
 msgstr ""
+"创建共享文件夹。从菜单中选择“Storage > Shared Folders”，打开共享文件夹设置界"
+"面。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:83
 msgid "![OpenMediaVaultの管理画面](images/build-file-server-7.webp)"
-msgstr ""
+msgstr "![OpenMediaVault 的管理界面](images/build-file-server-7.webp)"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:85
 msgid "プラスアイコンをクリックして共有フォルダの作成画面を開きます。"
-msgstr ""
+msgstr "点击加号图标，打开共享文件夹创建界面。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:87
 msgid "![OpenMediaVaultの管理画面](images/build-file-server-8.webp)"
-msgstr ""
+msgstr "![OpenMediaVault 的管理界面](images/build-file-server-8.webp)"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:89
 msgid ""
 "共有フォルダの名前を入力しましょう。クライアントPCは、ここで設定した名前の"
 "フォルダに対してアクセスすることになります。"
-msgstr ""
+msgstr "输入共享文件夹的名称。客户端 PC 将访问以此处设置的名称命名的文件夹。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:91
 msgid ""
 "先ほど作成したファイルシステムを選択し、共有フォルダの設定を保存しましょう。"
-msgstr ""
+msgstr "选择刚才创建的文件系统，然后保存共享文件夹的设置。"
 
 #. heading (level 2)
 #: content/ja/blog/build-a-file-server-with-omv/index.md:93
 msgid "SMB/CIFSの設定"
-msgstr ""
+msgstr "配置 SMB/CIFS"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:95
@@ -277,49 +298,50 @@ msgid ""
 "SMB/CIFSの設定を行います。メニューから「SMB/CIFS > 設定」を選択し、SMB/CIFSの"
 "設定画面を開きましょう。"
 msgstr ""
+"配置 SMB/CIFS。从菜单中选择“SMB/CIFS > Settings”，打开 SMB/CIFS 设置界面。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:97
 msgid "![OpenMediaVaultの管理画面](images/build-file-server-9.webp)"
-msgstr ""
+msgstr "![OpenMediaVault 的管理界面](images/build-file-server-9.webp)"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:99
 msgid "有効にチェックを入れて保存します。"
-msgstr ""
+msgstr "勾选“Enabled”并保存。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:101
 msgid ""
 "次に、メニューから「SMB/CIFS > 共有」を選択し、SMB/CIFSの共有設定画面を開きま"
 "しょう。"
-msgstr ""
+msgstr "接下来，从菜单中选择“SMB/CIFS > Shares”，打开 SMB/CIFS 共享设置界面。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:103
 msgid "![OpenMediaVaultの管理画面](images/build-file-server-10.webp)"
-msgstr ""
+msgstr "![OpenMediaVault 的管理界面](images/build-file-server-10.webp)"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:105
 msgid "プラスアイコンをクリックして作成画面を開きます。"
-msgstr ""
+msgstr "点击加号图标，打开创建界面。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:107
 msgid "![OpenMediaVaultの管理画面](images/build-file-server-11.webp)"
-msgstr ""
+msgstr "![OpenMediaVault 的管理界面](images/build-file-server-11.webp)"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:109
 msgid ""
 "共有フォルダで、先ほど作成した共有フォルダを選択し、設定を保存しましょう。"
-msgstr ""
+msgstr "在“Shared folder”中选择刚才创建的共享文件夹，然后保存设置。"
 
 #. heading (level 2)
 #: content/ja/blog/build-a-file-server-with-omv/index.md:111
 msgid "ユーザーの作成"
-msgstr ""
+msgstr "创建用户"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:113
@@ -327,28 +349,29 @@ msgid ""
 "共有フォルダにアクセスするユーザーを作成します。メニューから「ユーザー > ユー"
 "ザー」を選択し、ユーザーの設定画面を開きましょう。"
 msgstr ""
+"创建用于访问共享文件夹的用户。从菜单中选择“Users > Users”，打开用户设置界面。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:115
 msgid "![OpenMediaVaultの管理画面](images/build-file-server-12.webp)"
-msgstr ""
+msgstr "![OpenMediaVault 的管理界面](images/build-file-server-12.webp)"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:117
 msgid "プラスアイコンをクリックしてユーザー作成画面を開きます。"
-msgstr ""
+msgstr "点击加号图标，打开用户创建界面。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:119
 msgid "![OpenMediaVaultの管理画面](images/build-file-server-13.webp)"
-msgstr ""
+msgstr "![OpenMediaVault 的管理界面](images/build-file-server-13.webp)"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:121
 msgid ""
 "名前とパスワードを入力して保存します。この時入力した情報が、共有フォルダにア"
 "クセスする時に必要になります。"
-msgstr ""
+msgstr "输入名称和密码并保存。访问共享文件夹时需要用到此时输入的信息。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:123
@@ -356,45 +379,46 @@ msgid ""
 "OpenMediaVaultで必要な設定は以上です。最後にクライアントPCから共有フォルダに"
 "アクセスしてみましょう。"
 msgstr ""
+"OpenMediaVault 中所需的设置到此结束。最后，从客户端 PC 访问共享文件夹试试看。"
 
 #. heading (level 2)
 #: content/ja/blog/build-a-file-server-with-omv/index.md:125
 msgid "共有フォルダにアクセス"
-msgstr ""
+msgstr "访问共享文件夹"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:127
 msgid ""
 "Windowsのエクスプローラーから、OpenMediaVaultで作成した共有フォルダにアクセス"
 "してみましょう。"
-msgstr ""
+msgstr "从 Windows 的文件资源管理器访问在 OpenMediaVault 中创建的共享文件夹。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:129
 msgid "![Windowsのエクスプローラー](images/connect-file-server-1.webp)"
-msgstr ""
+msgstr "![Windows 的文件资源管理器](images/connect-file-server-1.webp)"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:131
 msgid "ウィンドウ上部にある入力欄に共有フォルダへのパスを入力します。"
-msgstr ""
+msgstr "在窗口顶部的输入框中输入共享文件夹的路径。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:137
 msgid "入力すると、ネットワーク資格情報の入力が求められます。"
-msgstr ""
+msgstr "输入后，系统会要求输入网络凭据。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:139
 msgid "![Windowsのエクスプローラー](images/connect-file-server-2.webp)"
-msgstr ""
+msgstr "![Windows 的文件资源管理器](images/connect-file-server-2.webp)"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:141
 msgid ""
 "OpenMediaVaultで作成したユーザーの名前とパスワードを入力し、OKを押しましょ"
 "う。"
-msgstr ""
+msgstr "输入在 OpenMediaVault 中创建的用户的名称和密码，然后点击“OK”。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:143
@@ -402,20 +426,22 @@ msgid ""
 "クライアントPCでログインしているユーザーと、OpenMediaVaultで作成したユーザー"
 "の名前、パスワードが一致している場合、資格情報の入力はスキップされます。"
 msgstr ""
+"如果客户端 PC 上登录的用户与在 OpenMediaVault 中创建的用户的名称和密码一致，"
+"则会跳过凭据的输入。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:145
 msgid "![Windowsのエクスプローラー](images/connect-file-server-3.webp)"
-msgstr ""
+msgstr "![Windows 的文件资源管理器](images/connect-file-server-3.webp)"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:147
 msgid ""
 "共有フォルダにアクセスできました。また、適当なファイルを作成して書き込みでき"
 "ることも確認できました。"
-msgstr ""
+msgstr "成功访问了共享文件夹。此外，还确认了可以创建文件并写入。"
 
 #. paragraph
 #: content/ja/blog/build-a-file-server-with-omv/index.md:149
 msgid "以上で、OpemMediaVaultでのNASの構築は完了です。"
-msgstr ""
+msgstr "以上，使用 OpenMediaVault 搭建 NAS 的工作就完成了。"

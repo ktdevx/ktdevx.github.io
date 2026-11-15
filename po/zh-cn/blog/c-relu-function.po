@@ -1,8 +1,9 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-15 23:56+0000\n"
+"POT-Creation-Date: 2026-11-15 23:59+0000\n"
 "PO-Revision-Date: 2026-11-15 23:56+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,24 +15,24 @@ msgstr ""
 #. front matter: title
 #: content/ja/blog/c-relu-function/index.md:2
 msgid "【C言語】ReLU関数の実装"
-msgstr ""
+msgstr "【C语言】实现 ReLU 函数"
 
 #. paragraph
 #: content/ja/blog/c-relu-function/index.md:12
 msgid ""
 "ReLU関数は、機械学習やニューラルネットワークなどの分野でよく使用される関数で"
 "す。ランプ関数とも言います。"
-msgstr ""
+msgstr "ReLU 函数是机器学习和神经网络等领域中常用的函数，也称为斜坡函数。"
 
 #. paragraph
 #: content/ja/blog/c-relu-function/index.md:14
 msgid "ここでは、C言語でReLU関数を実装する方法について、解説します。"
-msgstr ""
+msgstr "本文介绍如何使用 C 语言实现 ReLU 函数。"
 
 #. heading (level 2)
 #: content/ja/blog/c-relu-function/index.md:16
 msgid "ReLU関数とは"
-msgstr ""
+msgstr "什么是 ReLU 函数"
 
 #. paragraph
 #: content/ja/blog/c-relu-function/index.md:18
@@ -40,28 +41,30 @@ msgid ""
 "つです。この関数は、入力が \\\\( 0 \\\\) 以下の場合は出力が \\\\( 0 \\\\) "
 "で、\\\\( 0 \\\\) より大きい場合は入力をそのまま出力します。"
 msgstr ""
+"ReLU 函数是神经网络中最常用的激活函数之一。当输入小于等于 \\\\( 0 \\\\) 时，"
+"该函数输出 \\\\( 0 \\\\)；当输入大于 \\\\( 0 \\\\) 时，则直接输出输入值。"
 
 #. paragraph
 #: content/ja/blog/c-relu-function/index.md:20
 msgid "具体的には、ReLU関数は以下の式で表されます。"
-msgstr ""
+msgstr "具体来说，ReLU 函数可以用以下公式表示。"
 
 #. paragraph
 #: content/ja/blog/c-relu-function/index.md:22
 msgid "\\\\[ f(x) = max(0, x) \\\\]"
-msgstr ""
+msgstr "\\\\[ f(x) = max(0, x) \\\\]"
 
 #. paragraph
 #: content/ja/blog/c-relu-function/index.md:24
 msgid ""
 "ここで、 \\\\( x \\\\) は入力値であり、 \\\\( f(x) \\\\) はReLU関数の出力値で"
 "す。"
-msgstr ""
+msgstr "其中，\\\\( x \\\\) 是输入值，\\\\( f(x) \\\\) 是 ReLU 函数的输出值。"
 
 #. paragraph
 #: content/ja/blog/c-relu-function/index.md:26
 msgid "![ReLU関数](images/relu-function.webp)"
-msgstr ""
+msgstr "![ReLU 函数](images/relu-function.webp)"
 
 #. paragraph
 #: content/ja/blog/c-relu-function/index.md:28
@@ -70,16 +73,18 @@ msgid ""
 "クにおいて非線形な特徴マップを生成することができるため、深層学習において広く"
 "使用されています。"
 msgstr ""
+"ReLU 函数的特点是简单且计算效率高。由于它能够在神经网络中生成非线性的特征图，"
+"因此被广泛应用于深度学习。"
 
 #. heading (level 2)
 #: content/ja/blog/c-relu-function/index.md:30
 msgid "ReLU関数の実装"
-msgstr ""
+msgstr "ReLU 函数的实现"
 
 #. paragraph
 #: content/ja/blog/c-relu-function/index.md:32
 msgid "以下に、ReLU関数の実装例を示します。"
-msgstr ""
+msgstr "下面给出 ReLU 函数的实现示例。"
 
 #. paragraph
 #: content/ja/blog/c-relu-function/index.md:41
@@ -87,3 +92,5 @@ msgid ""
 "`relu`関数は、引数として \\\\( x \\\\) を受け取り、ReLU関数の計算結果を戻り値"
 "として返します。"
 msgstr ""
+"`relu` 函数接收 \\\\( x \\\\) 作为参数，并将 ReLU 函数的计算结果作为返回值返"
+"回。"

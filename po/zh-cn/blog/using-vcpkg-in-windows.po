@@ -1,8 +1,9 @@
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-15 23:56+0000\n"
+"POT-Creation-Date: 2026-11-15 23:58+0000\n"
 "PO-Revision-Date: 2026-11-15 23:56+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,25 +15,25 @@ msgstr ""
 #. front matter: title
 #: content/ja/blog/using-vcpkg-in-windows/index.md:2
 msgid "vcpkgを使用してWindowsでC/C++ライブラリを簡単にインストールする"
-msgstr ""
+msgstr "使用 vcpkg 在 Windows 上轻松安装 C/C++ 库"
 
 #. paragraph
 #: content/ja/blog/using-vcpkg-in-windows/index.md:13
 msgid ""
 "vcpkgとは、Microsoftが提供するC/C++ライブラリ向けのパッケージ管理システムで"
 "す。"
-msgstr ""
+msgstr "vcpkg 是 Microsoft 提供的面向 C/C++ 库的包管理系统。"
 
 #. paragraph
 #: content/ja/blog/using-vcpkg-in-windows/index.md:15
 msgid ""
 "ここでは、vcpkgを使用してC/C++ライブラリを導入する方法について解説します。"
-msgstr ""
+msgstr "本文介绍如何使用 vcpkg 引入 C/C++ 库。"
 
 #. heading (level 2)
 #: content/ja/blog/using-vcpkg-in-windows/index.md:17
 msgid "vcpkgを導入するメリット"
-msgstr ""
+msgstr "引入 vcpkg 的好处"
 
 #. paragraph
 #: content/ja/blog/using-vcpkg-in-windows/index.md:19
@@ -41,6 +42,8 @@ msgid ""
 "行わなければなりません。ライブラリの構成が複雑だと、導入するだけでもかなりの"
 "時間を要してしまいます。"
 msgstr ""
+"通常，在 Windows 上使用开源库时，必须自己完成构建和依赖关系的解决。如果库的结"
+"构比较复杂，仅仅是引入就需要花费相当长的时间。"
 
 #. paragraph
 #: content/ja/blog/using-vcpkg-in-windows/index.md:21
@@ -49,11 +52,13 @@ msgid ""
 "ラリを簡単にインストールすることができます。開発者はプログラミングに集中でき"
 "るため、開発効率の向上に繋がります。"
 msgstr ""
+"使用 vcpkg 后，这些繁琐的工作都由工具自动完成，因此可以轻松地安装库。开发者能"
+"够专注于编程，从而提高开发效率。"
 
 #. heading (level 2)
 #: content/ja/blog/using-vcpkg-in-windows/index.md:23
 msgid "vcpkgのインストール"
-msgstr ""
+msgstr "安装 vcpkg"
 
 #. paragraph
 #: content/ja/blog/using-vcpkg-in-windows/index.md:25
@@ -62,18 +67,20 @@ msgid ""
 "生成する必要があります。難しそうに感じますが、インストールは2ステップで完了す"
 "るためとても簡単です。"
 msgstr ""
+"要安装 vcpkg，需要下载全部源代码并生成可执行文件。听起来可能有些困难，但安装"
+"只需 2 个步骤即可完成，非常简单。"
 
 #. heading (level 3)
 #: content/ja/blog/using-vcpkg-in-windows/index.md:27
 msgid "ソースコード一式をダウンロード"
-msgstr ""
+msgstr "下载全部源代码"
 
 #. paragraph
 #: content/ja/blog/using-vcpkg-in-windows/index.md:29
 msgid ""
 "vcpkgのソースコードはGitHubで公開されています。Gitを使用し、GitHubからvcpkgの"
 "リポジトリをクローンします。"
-msgstr ""
+msgstr "vcpkg 的源代码在 GitHub 上公开。使用 Git 从 GitHub 克隆 vcpkg 的仓库。"
 
 #. paragraph
 #: content/ja/blog/using-vcpkg-in-windows/index.md:35
@@ -82,11 +89,13 @@ msgid ""
 "をインストールしたいディレクトリへ移動しましょう。Cドライブ直下などの短いパス"
 "でクローンすることを推奨します。"
 msgstr ""
+"本地仓库会创建在执行克隆的目录中。请事先切换到要安装 vcpkg 的目录。建议克隆"
+"到 C 盘根目录等较短的路径下。"
 
 #. heading (level 3)
 #: content/ja/blog/using-vcpkg-in-windows/index.md:37
 msgid "実行ファイルを生成"
-msgstr ""
+msgstr "生成可执行文件"
 
 #. paragraph
 #: content/ja/blog/using-vcpkg-in-windows/index.md:39
@@ -94,103 +103,105 @@ msgid ""
 "ローカルリポジトリの中に、`bootstrap-vcpkg.bat`という名前のバッチファイルが格"
 "納されています。実行ファイルの生成はバッチファイルが自動で行なってくれます。"
 msgstr ""
+"本地仓库中包含一个名为 `bootstrap-vcpkg.bat` 的批处理文件。该批处理文件会自动"
+"生成可执行文件。"
 
 #. paragraph
 #: content/ja/blog/using-vcpkg-in-windows/index.md:46
 msgid ""
 "`vcpkg.exe`という名前の実行ファイルがローカルリポジトリ内に生成されていれば、"
 "vcpkgのインストールは完了です。"
-msgstr ""
+msgstr "如果本地仓库中生成了名为 `vcpkg.exe` 的可执行文件，则 vcpkg 安装完成。"
 
 #. paragraph
 #: content/ja/blog/using-vcpkg-in-windows/index.md:48
 msgid ""
 "実行ファイルへのパスを環境変数に設定しておくと、任意のディレクトリから呼び出"
 "せるため便利です。"
-msgstr ""
+msgstr "将可执行文件的路径添加到环境变量中，就可以在任意目录中调用，十分方便。"
 
 #. heading (level 2)
 #: content/ja/blog/using-vcpkg-in-windows/index.md:50
 msgid "vcpkgの基本操作"
-msgstr ""
+msgstr "vcpkg 的基本操作"
 
 #. heading (level 3)
 #: content/ja/blog/using-vcpkg-in-windows/index.md:52
 msgid "利用可能なライブラリを検索"
-msgstr ""
+msgstr "搜索可用的库"
 
 #. paragraph
 #: content/ja/blog/using-vcpkg-in-windows/index.md:54
 msgid "`vcpkg search`コマンドで利用可能なライブラリを検索します。"
-msgstr ""
+msgstr "使用 `vcpkg search` 命令搜索可用的库。"
 
 #. paragraph
 #: content/ja/blog/using-vcpkg-in-windows/index.md:60
 msgid ""
 "パッケージ名を指定することで一致するライブラリのみを表示することができます。"
 "指定しない場合は利用可能なライブラリが全て表示されます。"
-msgstr ""
+msgstr "指定包名后，只会显示匹配的库。不指定时会显示所有可用的库。"
 
 #. paragraph
 #: content/ja/blog/using-vcpkg-in-windows/index.md:62
 msgid ""
 "利用可能なライブラリは、[パッケージ一覧](https://vcpkg.io/en/packages.html)か"
 "ら検索することも可能です。"
-msgstr ""
+msgstr "也可以在[包列表](https://vcpkg.io/en/packages.html)中搜索可用的库。"
 
 #. heading (level 3)
 #: content/ja/blog/using-vcpkg-in-windows/index.md:64
 msgid "ライブラリのインストール"
-msgstr ""
+msgstr "安装库"
 
 #. paragraph
 #: content/ja/blog/using-vcpkg-in-windows/index.md:66
 msgid "`vcpkg install`コマンドでライブラリをインストールします。"
-msgstr ""
+msgstr "使用 `vcpkg install` 命令安装库。"
 
 #. heading (level 3)
 #: content/ja/blog/using-vcpkg-in-windows/index.md:72
 msgid "インストールしたライブラリを表示"
-msgstr ""
+msgstr "显示已安装的库"
 
 #. paragraph
 #: content/ja/blog/using-vcpkg-in-windows/index.md:74
 msgid "インストールしたライブラリは、`vcpkg list`コマンドで表示できます。"
-msgstr ""
+msgstr "可以使用 `vcpkg list` 命令显示已安装的库。"
 
 #. paragraph
 #: content/ja/blog/using-vcpkg-in-windows/index.md:80
 msgid ""
 "パッケージ名を指定することで一致するライブラリのみを表示することができます。"
 "指定しない場合はインストールしたライブラリが全て表示されます。"
-msgstr ""
+msgstr "指定包名后，只会显示匹配的库。不指定时会显示所有已安装的库。"
 
 #. heading (level 3)
 #: content/ja/blog/using-vcpkg-in-windows/index.md:82
 msgid "ライブラリのアンインストール"
-msgstr ""
+msgstr "卸载库"
 
 #. paragraph
 #: content/ja/blog/using-vcpkg-in-windows/index.md:84
 msgid "`vcpkg remove`コマンドでライブラリのアンインストールが行えます。"
-msgstr ""
+msgstr "可以使用 `vcpkg remove` 命令卸载库。"
 
 #. heading (level 2)
 #: content/ja/blog/using-vcpkg-in-windows/index.md:90
 msgid "ターゲット環境の指定"
-msgstr ""
+msgstr "指定目标环境"
 
 #. paragraph
 #: content/ja/blog/using-vcpkg-in-windows/index.md:92
 msgid "vcpkgはクロスコンパイルの仕組みを提供しています。"
-msgstr ""
+msgstr "vcpkg 提供了交叉编译的机制。"
 
 #. paragraph
 #: content/ja/blog/using-vcpkg-in-windows/index.md:94
 msgid ""
 "tripletオプションを利用することで、任意の環境で動作するライブラリのインストー"
 "ルや、アンインストールが行えます。"
-msgstr ""
+msgstr "使用 triplet 选项，可以安装或卸载在指定环境中运行的库。"
 
 #. paragraph
 #: content/ja/blog/using-vcpkg-in-windows/index.md:96
@@ -198,21 +209,22 @@ msgid ""
 "tripletとはターゲット環境を表す文字列です。CPUやOS、ライブラリのリンク方法な"
 "どを指定することができます。"
 msgstr ""
+"triplet 是表示目标环境的字符串，可以指定 CPU、操作系统以及库的链接方式等。"
 
 #. paragraph
 #: content/ja/blog/using-vcpkg-in-windows/index.md:103
 msgid "対応しているターゲット環境は、`vcpkg help triplet`で確認できます。"
-msgstr ""
+msgstr "可以使用 `vcpkg help triplet` 确认支持的目标环境。"
 
 #. heading (level 2)
 #: content/ja/blog/using-vcpkg-in-windows/index.md:105
 msgid "インストールしたライブラリの利用"
-msgstr ""
+msgstr "使用已安装的库"
 
 #. heading (level 3)
 #: content/ja/blog/using-vcpkg-in-windows/index.md:107
 msgid "Visual Studioから利用"
-msgstr ""
+msgstr "在 Visual Studio 中使用"
 
 #. paragraph
 #: content/ja/blog/using-vcpkg-in-windows/index.md:109
@@ -220,30 +232,31 @@ msgid ""
 "`vcpkg integrate`コマンドで、vcpkgでインストールしたライブラリをVisual Studio"
 "から利用できます。"
 msgstr ""
+"通过 `vcpkg integrate` 命令，可以在 Visual Studio 中使用通过 vcpkg 安装的库。"
 
 #. paragraph
 #: content/ja/blog/using-vcpkg-in-windows/index.md:115
 msgid ""
 "これによって、インクルードディレクトリやライブラリディレクトリ、ライブラリが"
 "自動でVisual Studioに追加されます。"
-msgstr ""
+msgstr "这样，包含目录、库目录和库会自动添加到 Visual Studio 中。"
 
 #. paragraph
 #: content/ja/blog/using-vcpkg-in-windows/index.md:117
 msgid ""
 "Visual Studioでプロジェクトを開き、プロパティからtripletの設定をすることで"
 "ターゲット環境を変更できます。"
-msgstr ""
+msgstr "在 Visual Studio 中打开项目，在属性中设置 triplet 即可更改目标环境。"
 
 #. paragraph
 #: content/ja/blog/using-vcpkg-in-windows/index.md:119
 msgid "![Visual Studioプロパティページ](images/visual-studio-settings.webp)"
-msgstr ""
+msgstr "![Visual Studio 属性页](images/visual-studio-settings.webp)"
 
 #. heading (level 3)
 #: content/ja/blog/using-vcpkg-in-windows/index.md:121
 msgid "CMakeから利用"
-msgstr ""
+msgstr "在 CMake 中使用"
 
 #. paragraph
 #: content/ja/blog/using-vcpkg-in-windows/index.md:123
@@ -251,41 +264,43 @@ msgid ""
 "CMakeで`CMAKE_TOOLCHAIN_FILE`変数に`vcpkg.cmake`へのパスを設定することで、"
 "vcpkgでインストールしたライブラリをCMakeから利用できます。"
 msgstr ""
+"在 CMake 中将 `CMAKE_TOOLCHAIN_FILE` 变量设置为 `vcpkg.cmake` 的路径，即可在 "
+"CMake 中使用通过 vcpkg 安装的库。"
 
 #. paragraph
 #: content/ja/blog/using-vcpkg-in-windows/index.md:129
 msgid "これによって、CMakeからライブラリを検索できるようになります。"
-msgstr ""
+msgstr "这样，CMake 就能够查找到这些库。"
 
 #. paragraph
 #: content/ja/blog/using-vcpkg-in-windows/index.md:131
 msgid ""
 "ターゲット環境は`VCPKG_TARGET_TRIPLET`変数を設定することで変更できます。"
-msgstr ""
+msgstr "可以通过设置 `VCPKG_TARGET_TRIPLET` 变量来更改目标环境。"
 
 #. heading (level 3)
 #: content/ja/blog/using-vcpkg-in-windows/index.md:137
 msgid "その他の開発環境から利用"
-msgstr ""
+msgstr "在其他开发环境中使用"
 
 #. paragraph
 #: content/ja/blog/using-vcpkg-in-windows/index.md:139
 msgid ""
 "インストールしたライブラリは`vcpkg/installed/<ターゲット環境>`ディレクトリに"
 "格納されています。"
-msgstr ""
+msgstr "已安装的库存放在 `vcpkg/installed/<目标环境>` 目录中。"
 
 #. paragraph
 #: content/ja/blog/using-vcpkg-in-windows/index.md:141
 msgid ""
 "利用する側でパスを適切に指定することでvcpkgでインストールしたライブラリを利用"
 "できます。"
-msgstr ""
+msgstr "在使用方正确指定路径，即可使用通过 vcpkg 安装的库。"
 
 #. heading (level 2)
 #: content/ja/blog/using-vcpkg-in-windows/index.md:143
 msgid "外部リンク"
-msgstr ""
+msgstr "外部链接"
 
 #. list item > paragraph
 #: content/ja/blog/using-vcpkg-in-windows/index.md:145
@@ -293,6 +308,8 @@ msgid ""
 "[vcpkg - Open source C/C++ dependency manager from Microsoft](https://vcpkg."
 "io/en/)"
 msgstr ""
+"[vcpkg - Open source C/C++ dependency manager from Microsoft](https://vcpkg."
+"io/en/)"
 
 #. list item > paragraph
 #: content/ja/blog/using-vcpkg-in-windows/index.md:146
@@ -300,3 +317,5 @@ msgid ""
 "[GitHub - microsoft/vcpkg: C++ Library Manager for Windows, Linux, and MacOS]"
 "(https://github.com/microsoft/vcpkg)"
 msgstr ""
+"[GitHub - microsoft/vcpkg: C++ Library Manager for Windows, Linux, and MacOS]"
+"(https://github.com/microsoft/vcpkg)"
