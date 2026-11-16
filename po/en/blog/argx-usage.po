@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-15 23:42+0000\n"
+"POT-Creation-Date: 2026-11-16 23:14+0000\n"
 "PO-Revision-Date: 2026-11-15 23:40+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgid "【C言語】ArgXでコマンドライン引数を解析する"
 msgstr "Parse Command-Line Arguments in C with ArgX"
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:13
+#: content/ja/blog/argx-usage/index.md:14
 msgid ""
 "C言語でコマンドラインツールを作るとき、`argv`の解析は意外と手間がかかります。"
 "`getopt`を使ってもロングオプションは環境に依存し、値の型変換や必須チェック、"
@@ -30,7 +30,7 @@ msgstr ""
 "checks, and the help text that `--help` prints."
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:15
+#: content/ja/blog/argx-usage/index.md:16
 msgid ""
 "ここでは、C99向けのコマンドライン引数パーサー「[ArgX](https://github.com/"
 "vabelorg/argx)」の使い方を、小さなサンプルプログラムを作りながら解説します。"
@@ -39,12 +39,12 @@ msgstr ""
 "command-line argument parser for C99, by building a small sample program."
 
 #. heading (level 2)
-#: content/ja/blog/argx-usage/index.md:17
+#: content/ja/blog/argx-usage/index.md:18
 msgid "ArgXとは"
 msgstr "What is ArgX?"
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:19
+#: content/ja/blog/argx-usage/index.md:20
 msgid ""
 "ArgXは、コマンドラインの仕様を**スキーマ**として一度定義するだけで、`argv`の"
 "解析、検証、値の型変換、ヘルプの生成までを行うライブラリです。主な特徴は次の"
@@ -55,30 +55,34 @@ msgstr ""
 "and generates the help. Its main features are:"
 
 #. list item > paragraph
-#: content/ja/blog/argx-usage/index.md:21
+#: content/ja/blog/argx-usage/index.md:22
 msgid "標準Cライブラリ以外に依存しない、C99のみで書かれたライブラリです。"
 msgstr "Plain C99, with no dependencies beyond the C standard library."
 
 #. list item > paragraph
-#: content/ja/blog/argx-usage/index.md:22
-msgid ""
-"Linux（GCC、Clang）、macOS（Clang）、Windows（MSVC）でビルドでき、静的ライブ"
-"ラリと共有ライブラリのどちらにもできます。"
-msgstr ""
-"Builds on Linux (GCC, Clang), macOS (Clang) and Windows (MSVC), as a static "
-"or a shared library."
-
-#. list item > paragraph
 #: content/ja/blog/argx-usage/index.md:23
 msgid ""
-"フラグ、回数を数えるオプション（`-vv`など）、`--no-`で否定できるフラグ、値を"
-"取るオプション、位置引数、ネストしたサブコマンドを扱えます。"
+"Linux（GCC、Clang）、macOS（Clang）、Windows（MSVC、MinGW）でビルドでき、静的"
+"ライブラリと共有ライブラリのどちらにもできます。"
 msgstr ""
-"Flags, counts (such as `-vv`), flags negatable with `--no-`, options with a "
-"value, positionals, and nested subcommands."
+"Builds on Linux (GCC, Clang), macOS (Clang) and Windows (MSVC, MinGW), as a "
+"static or a shared library."
 
 #. list item > paragraph
 #: content/ja/blog/argx-usage/index.md:24
+msgid ""
+"フラグ、回数を数えるオプション（`-vv`など）、`--no-`で否定できるフラグ、値を"
+"取るオプション、指定されたすべての値を集めるリストオプション、位置引数、ネス"
+"トしたサブコマンドを扱えます。すべてのサブコマンドで使えるグローバルオプショ"
+"ンも定義できます。"
+msgstr ""
+"Flags, counts (such as `-vv`), flags negatable with `--no-`, options with a "
+"value, list options that collect every value given, positionals, and nested "
+"subcommands. You can also define global options that work in every "
+"subcommand."
+
+#. list item > paragraph
+#: content/ja/blog/argx-usage/index.md:25
 msgid ""
 "値は文字列、整数、浮動小数点数、選択肢、独自に定義した型に変換できます。"
 msgstr ""
@@ -86,12 +90,12 @@ msgstr ""
 "types you define."
 
 #. list item > paragraph
-#: content/ja/blog/argx-usage/index.md:25
+#: content/ja/blog/argx-usage/index.md:26
 msgid "ヘルプと使い方の行（Usage）はスキーマから自動で生成されます。"
 msgstr "Help and usage text generated from the schema."
 
 #. list item > paragraph
-#: content/ja/blog/argx-usage/index.md:26
+#: content/ja/blog/argx-usage/index.md:27
 msgid ""
 "ライブラリ自身は何も出力せず、プロセスを終了させず、環境変数も読みません。エ"
 "ラーはエラーコードと1行のメッセージで返されます。"
@@ -101,7 +105,7 @@ msgstr ""
 "message."
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:28
+#: content/ja/blog/argx-usage/index.md:29
 msgid ""
 "最後の点が特徴的で、ヘルプやエラーをどこにどう出力するか、どの終了コードで終"
 "わるかは、すべて呼び出し側で決められます。"
@@ -110,56 +114,69 @@ msgstr ""
 "and which exit status the program returns."
 
 #. heading (level 2)
-#: content/ja/blog/argx-usage/index.md:30
+#: content/ja/blog/argx-usage/index.md:31
 msgid "前提条件"
 msgstr "Prerequisites"
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:32
+#: content/ja/blog/argx-usage/index.md:33
 msgid "この記事では次の環境を前提とします。"
 msgstr "This article assumes the following:"
 
 #. list item > paragraph
-#: content/ja/blog/argx-usage/index.md:34
+#: content/ja/blog/argx-usage/index.md:35
 msgid "CMake 3.21以上"
 msgstr "CMake 3.21 or later"
 
 #. list item > paragraph
-#: content/ja/blog/argx-usage/index.md:35
+#: content/ja/blog/argx-usage/index.md:36
 msgid "C99に対応したCコンパイラ（GCC、Clang、MSVCなど）"
 msgstr "A C99 compiler (GCC, Clang, MSVC, etc.)"
 
 #. list item > paragraph
-#: content/ja/blog/argx-usage/index.md:36
+#: content/ja/blog/argx-usage/index.md:37
 msgid "Git（CMakeがArgXのソースを取得するために使います）"
 msgstr "Git (CMake uses it to fetch the ArgX sources)"
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:38
+#: content/ja/blog/argx-usage/index.md:39
 msgid ""
 "記事の手順はUbuntu 24.04、CMake 3.28、GCC 13で動作を確認しています。ArgXの"
-"バージョンは`v0.1.0`です。"
+"バージョンは`v0.2.0`です。"
 msgstr ""
 "The steps were tested on Ubuntu 24.04 with CMake 3.28 and GCC 13, using ArgX "
-"`v0.1.0`."
+"`v0.2.0`."
+
+#. paragraph
+#: content/ja/blog/argx-usage/index.md:41
+msgid ""
+"`v0.2.0`で`--help`の書き方が変わったため、記事の内容を更新しました。`v0.1.x`"
+"では、解析エラーのときにも`--help`が指定されたかを確認する必要がありました"
+"が、`v0.2.0`では`--help`を**終端フラグ**にすることで不要になりました（「[argv"
+"を解析する](#argvを解析する)」を参照）。"
+msgstr ""
+"This article has been updated because `v0.2.0` changed how `--help` is "
+"written. In `v0.1.x`, you had to check whether `--help` was given even after "
+"a parse error; in `v0.2.0`, making `--help` a **terminal flag** removes that "
+"need (see [Parsing argv](#parsing-argv))."
 
 #. heading (level 2)
-#: content/ja/blog/argx-usage/index.md:40
+#: content/ja/blog/argx-usage/index.md:43
 msgid "プロジェクトを準備する"
 msgstr "Setting Up the Project"
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:42
+#: content/ja/blog/argx-usage/index.md:45
 msgid "次の構成のプロジェクトを作ります。"
 msgstr "Create a project with this layout:"
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:50
+#: content/ja/blog/argx-usage/index.md:53
 msgid "`CMakeLists.txt`には次の内容を記述します。"
 msgstr "Write the following in `CMakeLists.txt`:"
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:67
+#: content/ja/blog/argx-usage/index.md:70
 msgid ""
 "`FetchContent`は、CMakeの構成時に外部のソースを取得してプロジェクトに組み込む"
 "機能です。`GIT_TAG`で使うバージョンを固定し、`target_link_libraries`で`ArgX::"
@@ -174,7 +191,7 @@ msgstr ""
 "releases) for the latest version to put in `GIT_TAG`."
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:69
+#: content/ja/blog/argx-usage/index.md:72
 msgid ""
 "FetchContent以外に、`add_subdirectory`、インストール済みのArgXを"
 "`find_package`で使う方法、pkg-configを使う方法もあります。詳しくは公式ドキュ"
@@ -187,17 +204,17 @@ msgstr ""
 "official documentation for details."
 
 #. heading (level 2)
-#: content/ja/blog/argx-usage/index.md:71
+#: content/ja/blog/argx-usage/index.md:74
 msgid "ArgXを使う流れ"
 msgstr "How a Program Uses ArgX"
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:73
+#: content/ja/blog/argx-usage/index.md:76
 msgid "ArgXを使うプログラムは、次の順序で処理を行います。"
 msgstr "A program using ArgX goes through these steps:"
 
 #. list item > paragraph
-#: content/ja/blog/argx-usage/index.md:75
+#: content/ja/blog/argx-usage/index.md:78
 msgid ""
 "**スキーマを定義する**：コマンドを作り、オプションと位置引数を追加します。"
 msgstr ""
@@ -205,7 +222,7 @@ msgstr ""
 "it."
 
 #. list item > paragraph
-#: content/ja/blog/argx-usage/index.md:76
+#: content/ja/blog/argx-usage/index.md:79
 msgid ""
 "**スキーマを検証する**：定義に矛盾がないかを確認します。解析とヘルプ生成は、"
 "検証済みのスキーマでしか行えません。"
@@ -214,22 +231,22 @@ msgstr ""
 "help generation only accept a validated schema."
 
 #. list item > paragraph
-#: content/ja/blog/argx-usage/index.md:77
+#: content/ja/blog/argx-usage/index.md:80
 msgid "**`argv`を解析する**：解析結果（result）が作られます。"
 msgstr "**Parse `argv`**: this creates a result."
 
 #. list item > paragraph
-#: content/ja/blog/argx-usage/index.md:78
+#: content/ja/blog/argx-usage/index.md:81
 msgid "**値を読み取る**：解析結果から、型変換済みの値を取り出します。"
 msgstr "**Read the values**: take the converted values out of the result."
 
 #. list item > paragraph
-#: content/ja/blog/argx-usage/index.md:79
+#: content/ja/blog/argx-usage/index.md:82
 msgid "**破棄する**：解析結果、スキーマの順に破棄します。"
 msgstr "**Destroy**: destroy the result, then the schema."
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:81
+#: content/ja/blog/argx-usage/index.md:84
 msgid ""
 "この記事では、名前を受け取ってあいさつを表示する`greet`というプログラムを作り"
 "ます。受け付けるコマンドラインは次のとおりです。"
@@ -238,7 +255,7 @@ msgstr ""
 "greeting. It accepts this command line:"
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:87
+#: content/ja/blog/argx-usage/index.md:90
 msgid ""
 "| 引数 | 種類 | 意味 |\n"
 "| --- | --- | --- |\n"
@@ -257,7 +274,7 @@ msgstr ""
 "| `name` | Positional (required) | Whom to greet |"
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:94
+#: content/ja/blog/argx-usage/index.md:97
 msgid ""
 "以降では`main.c`の内容を順に説明します。コード全体は「[コード全体](#コード全"
 "体)」に掲載しています。"
@@ -266,22 +283,22 @@ msgstr ""
 "is in [The Complete Code](#the-complete-code)."
 
 #. heading (level 2)
-#: content/ja/blog/argx-usage/index.md:96
+#: content/ja/blog/argx-usage/index.md:99
 msgid "スキーマを定義する"
 msgstr "Defining the Schema"
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:98
+#: content/ja/blog/argx-usage/index.md:101
 msgid "まず、ルートとなるコマンドを作り、オプションと位置引数を追加します。"
 msgstr "First, create the root command and add the options and the positional."
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:115
+#: content/ja/blog/argx-usage/index.md:119
 msgid "それぞれの関数の役割は次のとおりです。"
 msgstr "Here is what each function does:"
 
 #. list item > paragraph
-#: content/ja/blog/argx-usage/index.md:117
+#: content/ja/blog/argx-usage/index.md:121
 msgid ""
 "`argx_command_create`：コマンドを作ります。ここで指定した名前がヘルプに表示さ"
 "れます。"
@@ -289,7 +306,7 @@ msgstr ""
 "`argx_command_create`: creates a command. The name appears in the help."
 
 #. list item > paragraph
-#: content/ja/blog/argx-usage/index.md:118
+#: content/ja/blog/argx-usage/index.md:122
 msgid ""
 "`argx_command_add_flag`：値を取らないフラグを追加します。短い名前（`'h'`）と"
 "長い名前（`\"help\"`）を指定し、最後の引数に**ハンドル**（`argx_option_t *`）"
@@ -301,7 +318,16 @@ msgstr ""
 "read the value later."
 
 #. list item > paragraph
-#: content/ja/blog/argx-usage/index.md:119
+#: content/ja/blog/argx-usage/index.md:123
+msgid ""
+"`argx_option_set_terminal`：フラグを**終端フラグ**にします。終端フラグが指定"
+"されると、解析はそこで終わり、成功します（後述）。"
+msgstr ""
+"`argx_option_set_terminal`: makes the flag a **terminal flag**. When a "
+"terminal flag is given, parsing stops there and succeeds (see below)."
+
+#. list item > paragraph
+#: content/ja/blog/argx-usage/index.md:124
 msgid ""
 "`argx_command_add_value`：値を取るオプションを追加します。値の型には"
 "`argx_type_int()`（整数）を指定しています。"
@@ -310,7 +336,7 @@ msgstr ""
 "type is `argx_type_int()`, an integer."
 
 #. list item > paragraph
-#: content/ja/blog/argx-usage/index.md:120
+#: content/ja/blog/argx-usage/index.md:125
 msgid ""
 "`argx_option_set_value_name`：ヘルプで値を表す名前（`<COUNT>`）を設定します。"
 msgstr ""
@@ -318,7 +344,7 @@ msgstr ""
 "help (`<COUNT>`)."
 
 #. list item > paragraph
-#: content/ja/blog/argx-usage/index.md:121
+#: content/ja/blog/argx-usage/index.md:126
 msgid ""
 "`argx_option_set_default`：省略時の値を文字列で設定します。この値がオプション"
 "の型に変換できるかどうかは、後述の検証で確認されます。"
@@ -328,7 +354,7 @@ msgstr ""
 "type accepts it."
 
 #. list item > paragraph
-#: content/ja/blog/argx-usage/index.md:122
+#: content/ja/blog/argx-usage/index.md:127
 msgid ""
 "`argx_command_add_positional`：位置引数を追加します。`ARGX_ARITY_REQUIRED`は"
 "「ちょうど1つ必要」という意味です。ほかに`ARGX_ARITY_OPTIONAL`（0個か1個）、"
@@ -340,23 +366,29 @@ msgstr ""
 "one), `ARGX_ARITY_ZERO_OR_MORE`, and `ARGX_ARITY_ONE_OR_MORE`."
 
 #. list item > paragraph
-#: content/ja/blog/argx-usage/index.md:123
+#: content/ja/blog/argx-usage/index.md:128
 msgid "`*_set_description`：ヘルプに表示される説明文を設定します。"
 msgstr "`*_set_description`: sets the description shown in the help."
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:125
-msgid "ArgXでは`--help`も特別扱いされず、普通のフラグとして定義します。"
+#: content/ja/blog/argx-usage/index.md:130
+msgid ""
+"ArgXは`--help`を自動では追加しないため、普通のフラグとして定義し、"
+"`argx_option_set_terminal`で終端フラグにします。`--version`のように、指定され"
+"たらほかの引数に関係なく1つの処理だけをして終わるフラグにも使えます。"
 msgstr ""
-"ArgX gives `--help` no special treatment: you define it as an ordinary flag."
+"ArgX does not add `--help` automatically, so you define it as an ordinary "
+"flag and make it a terminal flag with `argx_option_set_terminal`. The same "
+"works for flags such as `--version` that, when given, do just one thing and "
+"finish, whatever the other arguments are."
 
 #. heading (level 3)
-#: content/ja/blog/argx-usage/index.md:127
+#: content/ja/blog/argx-usage/index.md:132
 msgid "エラー処理をまとめるTRYマクロ"
 msgstr "The TRY Macro for Error Handling"
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:129
+#: content/ja/blog/argx-usage/index.md:134
 msgid ""
 "失敗する可能性のある関数は`argx_error_t`を返し、成功時は`ARGX_ERROR_NONE`にな"
 "ります。呼び出しのたびに`if`文を書くと長くなるため、サンプルでは次の`TRY`マク"
@@ -367,7 +399,7 @@ msgstr ""
 "the `TRY` macro below to jump to the `define_failed` label on a failure."
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:143
+#: content/ja/blog/argx-usage/index.md:148
 msgid ""
 "`goto`を使ったエラー処理の考え方は、「[【C言語】goto文でメモリ解放の管理を容"
 "易にする](/blog/c-goto-memory-free)」で詳しく解説しています。"
@@ -376,19 +408,19 @@ msgstr ""
 "Memory Management with goto Statements in C](/blog/c-goto-memory-free)\"."
 
 #. heading (level 2)
-#: content/ja/blog/argx-usage/index.md:145
+#: content/ja/blog/argx-usage/index.md:150
 msgid "スキーマを検証する"
 msgstr "Validating the Schema"
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:147
+#: content/ja/blog/argx-usage/index.md:152
 msgid "定義が終わったら、`argx_command_validate`でスキーマを検証します。"
 msgstr ""
 "When the definitions are complete, validate the schema with "
 "`argx_command_validate`."
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:153
+#: content/ja/blog/argx-usage/index.md:158
 msgid ""
 "検証では、型に合わないデフォルト値や、必須の位置引数の前に省略可能な位置引数"
 "があるといった、複数の定義にまたがる矛盾を確認します。なお、名前の重複のよう"
@@ -404,19 +436,19 @@ msgstr ""
 "command, option, and positional; we don't need them here, so we pass `NULL`."
 
 #. heading (level 2)
-#: content/ja/blog/argx-usage/index.md:155
+#: content/ja/blog/argx-usage/index.md:160
 msgid "argvを解析する"
 msgstr "Parsing argv"
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:157
+#: content/ja/blog/argx-usage/index.md:162
 msgid ""
 "`argx_parse`に`argc`と`argv`を渡して解析します。戻り値は次の3種類のいずれかで"
 "す。"
 msgstr "Pass `argc` and `argv` to `argx_parse`. It returns one of three codes:"
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:159
+#: content/ja/blog/argx-usage/index.md:164
 msgid ""
 "| 戻り値 | 意味 | 解析結果 |\n"
 "| --- | --- | --- |\n"
@@ -433,30 +465,93 @@ msgstr ""
 "| `ARGX_ERROR_OUT_OF_MEMORY` | An allocation failed | Not created |"
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:197
-msgid ""
-"ポイントは、**解析エラーのときにも`--help`を確認している**ことです。`greet --"
-"help`は必須の位置引数`name`がないため解析エラーになりますが、解析結果にはエ"
-"ラーまでに読み取った内容が入っています。そのため、`--help`が指定されていれば"
-"ヘルプを表示できます。"
-msgstr ""
-"Note that **`--help` is checked even after a parse error**. `greet --help` "
-"is a parse error, because the required positional `name` is missing, but the "
-"result holds everything read before the error. So if `--help` was given, the "
-"help can still be printed."
-
-#. paragraph
-#: content/ja/blog/argx-usage/index.md:199
+#: content/ja/blog/argx-usage/index.md:195
 msgid "`argx_result_flag`は、フラグが指定されたかどうかを`bool`で返します。"
 msgstr "`argx_result_flag` returns, as a `bool`, whether a flag was given."
 
-#. heading (level 2)
+#. heading (level 3)
+#: content/ja/blog/argx-usage/index.md:197
+msgid "終端フラグで解析を終わらせる"
+msgstr "Stopping the Parse with a Terminal Flag"
+
+#. paragraph
+#: content/ja/blog/argx-usage/index.md:199
+msgid ""
+"`--help`を終端フラグにしているため、`--help`を読んだ時点で解析が終わり、"
+"`argx_parse`は`ARGX_ERROR_NONE`を返します。このとき、次のように動作します。"
+msgstr ""
+"Because `--help` is a terminal flag, parsing stops as soon as `--help` is "
+"read, and `argx_parse` returns `ARGX_ERROR_NONE`. In that case:"
+
+#. list item > paragraph
 #: content/ja/blog/argx-usage/index.md:201
+msgid "`--help`より後ろの引数は読まれず、確認もされません。"
+msgstr "Arguments after `--help` are neither read nor checked."
+
+#. list item > paragraph
+#: content/ja/blog/argx-usage/index.md:202
+msgid ""
+"必須の引数があるかは確認されません。そのため、`greet --help`は必須の位置引数"
+"`name`がなくても成功します。"
+msgstr ""
+"Required arguments are not checked. So `greet --help` succeeds even without "
+"the required positional `name`."
+
+#. list item > paragraph
+#: content/ja/blog/argx-usage/index.md:203
+msgid "デフォルト値も適用されません。"
+msgstr "Default values are not applied either."
+
+#. paragraph
+#: content/ja/blog/argx-usage/index.md:205
+msgid ""
+"| コマンドライン | 結果 |\n"
+"| --- | --- |\n"
+"| `greet --help` | 成功（`name`がなくてもよい） |\n"
+"| `greet -h --bogus` | 成功（`--bogus`は読まれない） |\n"
+"| `greet --bogus -h` | 解析エラー（`-h`より前の`--bogus`でエラーになる） |"
+msgstr ""
+"| Command line | Result |\n"
+"| --- | --- |\n"
+"| `greet --help` | Success (`name` may be missing) |\n"
+"| `greet -h --bogus` | Success (`--bogus` is not read) |\n"
+"| `greet --bogus -h` | Parse error (`--bogus`, before `-h`, causes the "
+"error) |"
+
+#. paragraph
+#: content/ja/blog/argx-usage/index.md:211
+msgid ""
+"つまり、**解析に成功しても、必須の値やデフォルト値が入っているとは限りません"
+"**。そのため、`ARGX_ERROR_NONE`のときは、ほかの値を読む前に`--help`を確認しま"
+"す。終端フラグで解析が終わったかどうかは、そのフラグを返す"
+"`argx_result_terminal_option`でも調べられます。`--help`と`--version`のように"
+"終端フラグが複数あるときに便利です。"
+msgstr ""
+"In other words, **a successful parse does not guarantee that required values "
+"or default values are present**. So when the return value is "
+"`ARGX_ERROR_NONE`, check `--help` before reading any other value. You can "
+"also tell whether a terminal flag ended the parse with "
+"`argx_result_terminal_option`, which returns that flag. This is handy when "
+"there are several terminal flags, such as `--help` and `--version`."
+
+#. paragraph
+#: content/ja/blog/argx-usage/index.md:213
+msgid ""
+"`--help`を終端フラグにしない場合は、`greet --help`が`name`のない解析エラーに"
+"なります。その場合は、解析エラーのときにも`argx_result_flag`で`--help`を確認"
+"する必要があります。"
+msgstr ""
+"If `--help` is not a terminal flag, `greet --help` is a parse error because "
+"`name` is missing. In that case, you have to check `--help` with "
+"`argx_result_flag` even after a parse error."
+
+#. heading (level 2)
+#: content/ja/blog/argx-usage/index.md:215
 msgid "ヘルプとエラーを出力する"
 msgstr "Printing the Help and Errors"
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:203
+#: content/ja/blog/argx-usage/index.md:217
 msgid ""
 "ArgXは自分では何も出力しません。代わりに、テキストを書き込む関数を受け取り、"
 "ヘルプを分割して渡します。ここでは`fwrite`でストリームに書き込む関数を用意し"
@@ -467,7 +562,7 @@ msgstr ""
 "that writes to a stream with `fwrite`."
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:221
+#: content/ja/blog/argx-usage/index.md:235
 msgid ""
 "`argx_help_write`の第4引数（`stdout`）は、そのまま書き込み関数の`user_data`と"
 "して渡されます。第2引数には表示幅などを指定するヘルプオプションを渡せますが、"
@@ -478,7 +573,7 @@ msgstr ""
 "such as the width; `NULL` uses the defaults."
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:223
+#: content/ja/blog/argx-usage/index.md:237
 msgid ""
 "解析エラーのときは、エラーメッセージと使い方の行を標準エラー出力に書き込みま"
 "す。"
@@ -487,7 +582,7 @@ msgstr ""
 "error stream."
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:234
+#: content/ja/blog/argx-usage/index.md:248
 msgid ""
 "`argx_result_error_message`は`missing required argument 'name'`のような1行の"
 "メッセージを返します。`argx_help_write_usage`は`Usage: greet [OPTIONS] "
@@ -498,18 +593,18 @@ msgstr ""
 "greet [OPTIONS] <name>` line."
 
 #. heading (level 2)
-#: content/ja/blog/argx-usage/index.md:236
+#: content/ja/blog/argx-usage/index.md:250
 msgid "値を読み取る"
 msgstr "Reading the Values"
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:238
+#: content/ja/blog/argx-usage/index.md:252
 msgid "解析に成功したら、ハンドルを使って解析結果から値を取り出します。"
 msgstr ""
 "After a successful parse, read the values from the result with the handles."
 
 #. list item > paragraph
-#: content/ja/blog/argx-usage/index.md:257
+#: content/ja/blog/argx-usage/index.md:271
 msgid ""
 "`argx_result_positional_string`：位置引数の値を文字列で取り出します。第3引数"
 "は値の番号で、複数の値を取る位置引数のときに使います。"
@@ -519,7 +614,7 @@ msgstr ""
 "values."
 
 #. list item > paragraph
-#: content/ja/blog/argx-usage/index.md:258
+#: content/ja/blog/argx-usage/index.md:272
 msgid ""
 "`argx_result_option_int`：オプションの値を`int64_t`で取り出します。`-n`が省略"
 "された場合は、デフォルト値の`1`が入ります。"
@@ -528,7 +623,7 @@ msgstr ""
 "was omitted, it holds the default value, `1`."
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:260
+#: content/ja/blog/argx-usage/index.md:274
 msgid ""
 "どちらも、値があれば`true`を返します。整数への変換は解析時に済んでいるため、"
 "ここで`strtol`などを呼ぶ必要はありません。"
@@ -538,17 +633,17 @@ msgstr ""
 "like."
 
 #. heading (level 2)
-#: content/ja/blog/argx-usage/index.md:262
+#: content/ja/blog/argx-usage/index.md:276
 msgid "破棄する"
 msgstr "Destroying"
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:264
+#: content/ja/blog/argx-usage/index.md:278
 msgid "最後に、解析結果、スキーマの順に破棄します。"
 msgstr "Finally, destroy the result, then the schema."
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:272
+#: content/ja/blog/argx-usage/index.md:286
 msgid ""
 "`NULL`を渡しても何もしないため、途中で失敗した場合も含めて、1か所の後始末で済"
 "ませられます。スキーマに追加したオプションや位置引数はコマンドと一緒に破棄さ"
@@ -560,22 +655,22 @@ msgstr ""
 "its own."
 
 #. heading (level 2)
-#: content/ja/blog/argx-usage/index.md:274
+#: content/ja/blog/argx-usage/index.md:288
 msgid "コード全体"
 msgstr "The Complete Code"
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:276
+#: content/ja/blog/argx-usage/index.md:290
 msgid "`main.c`の全体は次のとおりです。"
 msgstr "Here is the whole `main.c`:"
 
 #. heading (level 2)
-#: content/ja/blog/argx-usage/index.md:407
+#: content/ja/blog/argx-usage/index.md:415
 msgid "ビルドして実行する"
 msgstr "Building and Running"
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:409
+#: content/ja/blog/argx-usage/index.md:417
 msgid ""
 "`greet`ディレクトリで次のコマンドを実行し、ビルドします。初回の構成時に、"
 "CMakeがGitHubからArgXのソースを取得します。"
@@ -584,7 +679,7 @@ msgstr ""
 "configure, CMake fetches the ArgX sources from GitHub."
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:416
+#: content/ja/blog/argx-usage/index.md:424
 msgid ""
 "ビルドが終わると、`build/greet`が作られます。MSVCなどのマルチ構成のジェネレー"
 "ターでは、`build/Debug/greet.exe`のように構成名のディレクトリに作られます。"
@@ -594,12 +689,12 @@ msgstr ""
 "`build/Debug/greet.exe`."
 
 #. heading (level 3)
-#: content/ja/blog/argx-usage/index.md:418
+#: content/ja/blog/argx-usage/index.md:426
 msgid "正しいコマンドライン"
 msgstr "A Valid Command Line"
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:427
+#: content/ja/blog/argx-usage/index.md:435
 msgid ""
 "短いオプションはまとめて書くこともでき、`./build/greet -ln 2 world`も同じ結果"
 "になります。`--count=2`のように`=`で値を渡すこともできます。"
@@ -608,26 +703,28 @@ msgstr ""
 "output. You can also pass a value with `=`, as in `--count=2`."
 
 #. heading (level 3)
-#: content/ja/blog/argx-usage/index.md:429
+#: content/ja/blog/argx-usage/index.md:437
 msgid "ヘルプの表示"
 msgstr "Printing the Help"
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:446
+#: content/ja/blog/argx-usage/index.md:454
 msgid ""
 "スキーマに設定した説明文、値の名前、デフォルト値から、ヘルプが自動で生成され"
-"ています。`name`を指定していなくても、ヘルプが表示されることも確認できます。"
+"ています。`--help`は終端フラグなので、`name`を指定していなくてもヘルプが表示"
+"され、終了コードは0になります。"
 msgstr ""
 "The help is generated from the descriptions, the value name, and the default "
-"value set in the schema. It is printed even though no `name` was given."
+"value set in the schema. Because `--help` is a terminal flag, the help is "
+"printed even though no `name` was given, and the exit status is 0."
 
 #. heading (level 3)
-#: content/ja/blog/argx-usage/index.md:448
+#: content/ja/blog/argx-usage/index.md:456
 msgid "誤ったコマンドライン"
 msgstr "Invalid Command Lines"
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:450
+#: content/ja/blog/argx-usage/index.md:458
 msgid ""
 "必須の位置引数がない場合や、整数に変換できない値を渡した場合は、エラーメッ"
 "セージと使い方の行が表示され、終了コードは1になります。"
@@ -637,7 +734,7 @@ msgstr ""
 "with status 1."
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:469
+#: content/ja/blog/argx-usage/index.md:477
 msgid ""
 "型の検証やエラーメッセージを自分で書かなくても、これだけのチェックが行われま"
 "す。"
@@ -646,17 +743,17 @@ msgstr ""
 "yourself."
 
 #. heading (level 2)
-#: content/ja/blog/argx-usage/index.md:471
+#: content/ja/blog/argx-usage/index.md:479
 msgid "さらに使いこなす"
 msgstr "Going Further"
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:473
+#: content/ja/blog/argx-usage/index.md:481
 msgid "ArgXには、この記事で扱わなかった機能もあります。"
 msgstr "ArgX has more features than this article covers:"
 
 #. list item > paragraph
-#: content/ja/blog/argx-usage/index.md:475
+#: content/ja/blog/argx-usage/index.md:483
 msgid ""
 "**サブコマンド**：`argx_command_add_subcommand`で、`git commit`のようなサブコ"
 "マンドを定義できます。サブコマンドの中にさらにサブコマンドを入れることもでき"
@@ -666,7 +763,16 @@ msgstr ""
 "commit`, which can have subcommands of their own."
 
 #. list item > paragraph
-#: content/ja/blog/argx-usage/index.md:476
+#: content/ja/blog/argx-usage/index.md:484
+msgid ""
+"**グローバルオプション**：`argx_option_set_global`で、サブコマンドの前にも後"
+"ろにも書けるオプションにできます。"
+msgstr ""
+"**Global options**: `argx_option_set_global` makes an option that can be "
+"written either before or after a subcommand."
+
+#. list item > paragraph
+#: content/ja/blog/argx-usage/index.md:485
 msgid ""
 "**回数と否定できるフラグ**：`argx_command_add_count`で`-vvv`のように指定回数"
 "を数えるオプションを、`argx_command_add_negatable`で`--color`と`--no-color`の"
@@ -678,7 +784,16 @@ msgstr ""
 "color`."
 
 #. list item > paragraph
-#: content/ja/blog/argx-usage/index.md:477
+#: content/ja/blog/argx-usage/index.md:486
+msgid ""
+"**リストオプション**：`argx_command_add_list`で、`-I a -I b`や`--keys a,b`の"
+"ように指定されたすべての値を集めるオプションを定義できます。"
+msgstr ""
+"**List options**: `argx_command_add_list` defines an option that collects "
+"every value given, as in `-I a -I b` or `--keys a,b`."
+
+#. list item > paragraph
+#: content/ja/blog/argx-usage/index.md:487
 msgid ""
 "**選択肢と独自の型**：`argx_type_create_choice`で`tar`、`zip`のような選択肢"
 "を、`argx_type_create`で独自の変換を行う型を作れます。"
@@ -688,16 +803,18 @@ msgstr ""
 "type with your own conversion."
 
 #. list item > paragraph
-#: content/ja/blog/argx-usage/index.md:478
+#: content/ja/blog/argx-usage/index.md:488
 msgid ""
 "**ヘルプのカスタマイズ**：表示幅をターミナルに合わせたり、ヘルプを文字列とし"
-"て受け取ったりできます。"
+"て受け取ったりできます。日本語のような全角文字の説明文も、表示幅を測る関数を"
+"渡せば揃えて折り返せます。"
 msgstr ""
 "**Customizing the help**: fit the help to the terminal width, or get it as a "
-"string."
+"string. Descriptions with wide characters such as Japanese text also line up "
+"and wrap correctly if you pass a function that measures the display width."
 
 #. list item > paragraph
-#: content/ja/blog/argx-usage/index.md:479
+#: content/ja/blog/argx-usage/index.md:489
 msgid ""
 "**Windowsのワイド文字**：`argx_parse_wide`で`wmain`の引数をそのまま解析できま"
 "す。"
@@ -706,7 +823,7 @@ msgstr ""
 "`wmain` directly."
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:481
+#: content/ja/blog/argx-usage/index.md:491
 msgid ""
 "サブコマンドや独自の型を使った例は、リポジトリの[examples/pack/pack.c]"
 "(https://github.com/vabelorg/argx/blob/main/examples/pack/pack.c)にあり、"
@@ -724,12 +841,12 @@ msgstr ""
 "md)."
 
 #. heading (level 2)
-#: content/ja/blog/argx-usage/index.md:483
+#: content/ja/blog/argx-usage/index.md:493
 msgid "まとめ"
 msgstr "Conclusion"
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:485
+#: content/ja/blog/argx-usage/index.md:495
 msgid ""
 "ArgXを使うと、コマンドラインの仕様をスキーマとして一度定義するだけで、解析、"
 "型変換、エラーメッセージ、ヘルプまでをまとめて扱えます。ライブラリ自身は何も"
@@ -742,10 +859,26 @@ msgstr ""
 "goes and which exit status the program returns."
 
 #. paragraph
-#: content/ja/blog/argx-usage/index.md:487
+#: content/ja/blog/argx-usage/index.md:497
 msgid ""
 "C言語でコマンドラインツールを作るときは、`getopt`の代わりに使ってみてはいかが"
 "でしょうか。"
 msgstr ""
 "Next time you write a command-line tool in C, consider trying it instead of "
 "`getopt`."
+
+#~ msgid "ArgXでは`--help`も特別扱いされず、普通のフラグとして定義します。"
+#~ msgstr ""
+#~ "ArgX gives `--help` no special treatment: you define it as an ordinary "
+#~ "flag."
+
+#~ msgid ""
+#~ "ポイントは、**解析エラーのときにも`--help`を確認している**ことです。"
+#~ "`greet --help`は必須の位置引数`name`がないため解析エラーになりますが、解析"
+#~ "結果にはエラーまでに読み取った内容が入っています。そのため、`--help`が指定"
+#~ "されていればヘルプを表示できます。"
+#~ msgstr ""
+#~ "Note that **`--help` is checked even after a parse error**. `greet --"
+#~ "help` is a parse error, because the required positional `name` is "
+#~ "missing, but the result holds everything read before the error. So if `--"
+#~ "help` was given, the help can still be printed."

@@ -1,6 +1,7 @@
 ---
 title: 【C言語】ArgXでコマンドライン引数を解析する
 date: 2026-11-15T00:00:00+09:00
+lastmod: 2026-11-17T08:00:00+09:00
 draft: false
 tags:
   - C
@@ -19,8 +20,8 @@ C言語でコマンドラインツールを作るとき、`argv`の解析は意�
 ArgXは、コマンドラインの仕様を**スキーマ**として一度定義するだけで、`argv`の解析、検証、値の型変換、ヘルプの生成までを行うライブラリです。主な特徴は次のとおりです。
 
 - 標準Cライブラリ以外に依存しない、C99のみで書かれたライブラリです。
-- Linux（GCC、Clang）、macOS（Clang）、Windows（MSVC）でビルドでき、静的ライブラリと共有ライブラリのどちらにもできます。
-- フラグ、回数を数えるオプション（`-vv`など）、`--no-`で否定できるフラグ、値を取るオプション、位置引数、ネストしたサブコマンドを扱えます。
+- Linux（GCC、Clang）、macOS（Clang）、Windows（MSVC、MinGW）でビルドでき、静的ライブラリと共有ライブラリのどちらにもできます。
+- フラグ、回数を数えるオプション（`-vv`など）、`--no-`で否定できるフラグ、値を取るオプション、指定されたすべての値を集めるリストオプション、位置引数、ネストしたサブコマンドを扱えます。すべてのサブコマンドで使えるグローバルオプションも定義できます。
 - 値は文字列、整数、浮動小数点数、選択肢、独自に定義した型に変換できます。
 - ヘルプと使い方の行（Usage）はスキーマから自動で生成されます。
 - ライブラリ自身は何も出力せず、プロセスを終了させず、環境変数も読みません。エラーはエラーコードと1行のメッセージで返されます。
@@ -35,7 +36,9 @@ ArgXは、コマンドラインの仕様を**スキーマ**として一度定義
 - C99に対応したCコンパイラ（GCC、Clang、MSVCなど）
 - Git（CMakeがArgXのソースを取得するために使います）
 
-記事の手順はUbuntu 24.04、CMake 3.28、GCC 13で動作を確認しています。ArgXのバージョンは`v0.1.0`です。
+記事の手順はUbuntu 24.04、CMake 3.28、GCC 13で動作を確認しています。ArgXのバージョンは`v0.2.0`です。
+
+`v0.2.0`で`--help`の書き方が変わったため、記事の内容を更新しました。`v0.1.x`では、解析エラーのときにも`--help`が指定されたかを確認する必要がありましたが、`v0.2.0`では`--help`を**終端フラグ**にすることで不要になりました（「[argvを解析する](#argvを解析する)」を参照）。
 
 ## プロジェクトを準備する
 
@@ -56,7 +59,7 @@ project(greet LANGUAGES C)
 include(FetchContent)
 FetchContent_Declare(ArgX
     GIT_REPOSITORY https://github.com/vabelorg/argx.git
-    GIT_TAG v0.1.0
+    GIT_TAG v0.2.0
 )
 FetchContent_MakeAvailable(ArgX)
 
@@ -102,6 +105,7 @@ TRY(argx_command_create("greet", &root));
 TRY(argx_command_set_description(root, "Greet somebody."));
 TRY(argx_command_add_flag(root, 'h', "help", &help));
 TRY(argx_option_set_description(help, "Print this help."));
+TRY(argx_option_set_terminal(help, true));
 TRY(argx_command_add_flag(root, 'l', "loud", &loud));
 TRY(argx_option_set_description(loud, "Add an exclamation mark."));
 TRY(argx_command_add_value(root, 'n', "count", argx_type_int(), &count));
@@ -116,13 +120,14 @@ TRY(argx_positional_set_description(name, "Whom to greet."));
 
 - `argx_command_create`：コマンドを作ります。ここで指定した名前がヘルプに表示されます。
 - `argx_command_add_flag`：値を取らないフラグを追加します。短い名前（`'h'`）と長い名前（`"help"`）を指定し、最後の引数に**ハンドル**（`argx_option_t *`）が書き込まれます。ハンドルは、属性の設定や値の読み取りに使います。
+- `argx_option_set_terminal`：フラグを**終端フラグ**にします。終端フラグが指定されると、解析はそこで終わり、成功します（後述）。
 - `argx_command_add_value`：値を取るオプションを追加します。値の型には`argx_type_int()`（整数）を指定しています。
 - `argx_option_set_value_name`：ヘルプで値を表す名前（`<COUNT>`）を設定します。
 - `argx_option_set_default`：省略時の値を文字列で設定します。この値がオプションの型に変換できるかどうかは、後述の検証で確認されます。
 - `argx_command_add_positional`：位置引数を追加します。`ARGX_ARITY_REQUIRED`は「ちょうど1つ必要」という意味です。ほかに`ARGX_ARITY_OPTIONAL`（0個か1個）、`ARGX_ARITY_ZERO_OR_MORE`（0個以上）、`ARGX_ARITY_ONE_OR_MORE`（1個以上）を指定できます。
 - `*_set_description`：ヘルプに表示される説明文を設定します。
 
-ArgXでは`--help`も特別扱いされず、普通のフラグとして定義します。
+ArgXは`--help`を自動では追加しないため、普通のフラグとして定義し、`argx_option_set_terminal`で終端フラグにします。`--version`のように、指定されたらほかの引数に関係なく1つの処理だけをして終わるフラグにも使えます。
 
 ### エラー処理をまとめるTRYマクロ
 
@@ -178,14 +183,7 @@ case ARGX_ERROR_NONE:
     break;
 
 case ARGX_ERROR_INVALID_COMMAND_LINE:
-    if (argx_result_flag(result, help))
-    {
-        status = print_help(root);
-    }
-    else
-    {
-        print_parse_error(result);
-    }
+    print_parse_error(result);
     break;
 
 default:
@@ -194,9 +192,25 @@ default:
 }
 ```
 
-ポイントは、**解析エラーのときにも`--help`を確認している**ことです。`greet --help`は必須の位置引数`name`がないため解析エラーになりますが、解析結果にはエラーまでに読み取った内容が入っています。そのため、`--help`が指定されていればヘルプを表示できます。
-
 `argx_result_flag`は、フラグが指定されたかどうかを`bool`で返します。
+
+### 終端フラグで解析を終わらせる
+
+`--help`を終端フラグにしているため、`--help`を読んだ時点で解析が終わり、`argx_parse`は`ARGX_ERROR_NONE`を返します。このとき、次のように動作します。
+
+- `--help`より後ろの引数は読まれず、確認もされません。
+- 必須の引数があるかは確認されません。そのため、`greet --help`は必須の位置引数`name`がなくても成功します。
+- デフォルト値も適用されません。
+
+| コマンドライン | 結果 |
+| --- | --- |
+| `greet --help` | 成功（`name`がなくてもよい） |
+| `greet -h --bogus` | 成功（`--bogus`は読まれない） |
+| `greet --bogus -h` | 解析エラー（`-h`より前の`--bogus`でエラーになる） |
+
+つまり、**解析に成功しても、必須の値やデフォルト値が入っているとは限りません**。そのため、`ARGX_ERROR_NONE`のときは、ほかの値を読む前に`--help`を確認します。終端フラグで解析が終わったかどうかは、そのフラグを返す`argx_result_terminal_option`でも調べられます。`--help`と`--version`のように終端フラグが複数あるときに便利です。
+
+`--help`を終端フラグにしない場合は、`greet --help`が`name`のない解析エラーになります。その場合は、解析エラーのときにも`argx_result_flag`で`--help`を確認する必要があります。
 
 ## ヘルプとエラーを出力する
 
@@ -334,6 +348,7 @@ int main(int argc, char **argv)
     TRY(argx_command_set_description(root, "Greet somebody."));
     TRY(argx_command_add_flag(root, 'h', "help", &help));
     TRY(argx_option_set_description(help, "Print this help."));
+    TRY(argx_option_set_terminal(help, true)); /* "greet --help" は name がなくても成功する */
     TRY(argx_command_add_flag(root, 'l', "loud", &loud));
     TRY(argx_option_set_description(loud, "Add an exclamation mark."));
     TRY(argx_command_add_value(root, 'n', "count", argx_type_int(), &count));
@@ -349,6 +364,7 @@ int main(int argc, char **argv)
     switch (error)
     {
     case ARGX_ERROR_NONE:
+        /* --help で解析が終わったときは、値を読まずにヘルプを表示する */
         if (argx_result_flag(result, help))
         {
             status = print_help(root);
@@ -373,15 +389,7 @@ int main(int argc, char **argv)
         break;
 
     case ARGX_ERROR_INVALID_COMMAND_LINE:
-        /* 結果にはエラーの前までに読んだ内容が入っているため、"greet --help" は name がなくても動く */
-        if (argx_result_flag(result, help))
-        {
-            status = print_help(root);
-        }
-        else
-        {
-            print_parse_error(result);
-        }
+        print_parse_error(result);
         break;
 
     default:
@@ -443,7 +451,7 @@ Options:
   -n, --count <COUNT>  How often to greet. [default: 1]
 ```
 
-スキーマに設定した説明文、値の名前、デフォルト値から、ヘルプが自動で生成されています。`name`を指定していなくても、ヘルプが表示されることも確認できます。
+スキーマに設定した説明文、値の名前、デフォルト値から、ヘルプが自動で生成されています。`--help`は終端フラグなので、`name`を指定していなくてもヘルプが表示され、終了コードは0になります。
 
 ### 誤ったコマンドライン
 
@@ -473,9 +481,11 @@ For more information, try '--help'.
 ArgXには、この記事で扱わなかった機能もあります。
 
 - **サブコマンド**：`argx_command_add_subcommand`で、`git commit`のようなサブコマンドを定義できます。サブコマンドの中にさらにサブコマンドを入れることもできます。
+- **グローバルオプション**：`argx_option_set_global`で、サブコマンドの前にも後ろにも書けるオプションにできます。
 - **回数と否定できるフラグ**：`argx_command_add_count`で`-vvv`のように指定回数を数えるオプションを、`argx_command_add_negatable`で`--color`と`--no-color`の組を定義できます。
+- **リストオプション**：`argx_command_add_list`で、`-I a -I b`や`--keys a,b`のように指定されたすべての値を集めるオプションを定義できます。
 - **選択肢と独自の型**：`argx_type_create_choice`で`tar`、`zip`のような選択肢を、`argx_type_create`で独自の変換を行う型を作れます。
-- **ヘルプのカスタマイズ**：表示幅をターミナルに合わせたり、ヘルプを文字列として受け取ったりできます。
+- **ヘルプのカスタマイズ**：表示幅をターミナルに合わせたり、ヘルプを文字列として受け取ったりできます。日本語のような全角文字の説明文も、表示幅を測る関数を渡せば揃えて折り返せます。
 - **Windowsのワイド文字**：`argx_parse_wide`で`wmain`の引数をそのまま解析できます。
 
 サブコマンドや独自の型を使った例は、リポジトリの[examples/pack/pack.c](https://github.com/vabelorg/argx/blob/main/examples/pack/pack.c)にあり、[Tutorial](https://github.com/vabelorg/argx/blob/main/docs/getting-started/tutorial.md)で順に解説されています。具体的な使い方は[How-to](https://github.com/vabelorg/argx/blob/main/docs/guides/how-to.md)と[FAQ](https://github.com/vabelorg/argx/blob/main/docs/guides/faq.md)を参照してください。
