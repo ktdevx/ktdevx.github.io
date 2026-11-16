@@ -1,0 +1,190 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-16 16:33+0000\n"
+"PO-Revision-Date: 2026-11-16 16:32+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/projects/index.md:2
+msgid "プロジェクト"
+msgstr "Projects"
+
+#. paragraph
+#: content/ja/projects/index.md:7
+msgid ""
+"私が開発・公開しているオープンソースソフトウェア（OSS）を紹介します。いずれ"
+"も GitHub で公開しており、Issue や Pull Request を歓迎しています。"
+msgstr ""
+"Here are the open-source software (OSS) projects I develop and publish. All "
+"of them are on GitHub, and issues and pull requests are welcome."
+
+#. heading (level 2)
+#: content/ja/projects/index.md:9
+msgid "Naos"
+msgstr "Naos"
+
+#. paragraph
+#: content/ja/projects/index.md:11
+msgid ""
+"C と C++ 向けのテストハーネスです。必要なのは C99 のコンパイラだけで、インス"
+"トールするライブラリもコンパイラ拡張も要りません。CMake でビルドし、どのビル"
+"ドシステムからも使えます。"
+msgstr ""
+"A test harness for C and C++ that needs only a C99 compiler: no library to "
+"install, no compiler extension. It is built with CMake and usable from any "
+"build system."
+
+#. list item > paragraph
+#: content/ja/projects/index.md:13
+msgid "**リポジトリ**：[vabelorg/naos](https://github.com/vabelorg/naos)"
+msgstr "**Repository**: [vabelorg/naos](https://github.com/vabelorg/naos)"
+
+#. list item > paragraph
+#: content/ja/projects/index.md:14
+msgid "**言語**：C99（C++11 からも利用可能）"
+msgstr "**Language**: C99 (also usable from C++11)"
+
+#. list item > paragraph
+#: content/ja/projects/index.md:15 content/ja/projects/index.md:33
+msgid "**ライセンス**：MIT"
+msgstr "**License**: MIT"
+
+#. list item > paragraph
+#: content/ja/projects/index.md:16
+msgid ""
+"**対応環境**：Linux（GCC、Clang）、macOS（Clang）、Windows（MSVC、MinGW-w64）"
+msgstr ""
+"**Platforms**: Linux (GCC, Clang), macOS (Clang), Windows (MSVC, MinGW-w64)"
+
+#. paragraph
+#: content/ja/projects/index.md:18 content/ja/projects/index.md:36
+msgid "主な特徴は次のとおりです。"
+msgstr "Its main features are as follows."
+
+#. list item > paragraph
+#: content/ja/projects/index.md:20
+msgid ""
+"1 つの実行ファイルですべてのテストを実行し、結果を終了コードで返します。"
+msgstr ""
+"One executable runs every test and returns the result as its exit code."
+
+#. list item > paragraph
+#: content/ja/projects/index.md:21
+msgid ""
+"`naos_add_executable()` で各テストを CTest に登録すると、テストごとにプロセス"
+"を分けて並列に実行できます。"
+msgstr ""
+"Registering each test with CTest through `naos_add_executable()` runs every "
+"test in its own process, in parallel."
+
+#. list item > paragraph
+#: content/ja/projects/index.md:22
+msgid ""
+"アサーションを 1 つも実行しなかったテストは失敗として扱うため、書きかけのテス"
+"トが成功に見えることがありません。"
+msgstr ""
+"A test that runs no assertion fails, so an unfinished test never reads as a "
+"pass."
+
+#. list item > paragraph
+#: content/ja/projects/index.md:23
+msgid ""
+"失敗は `file:line: error: ...` の形式で出力され、エディターから該当行へ移動で"
+"きます。"
+msgstr ""
+"Failures are reported as `file:line: error: ...`, so your editor can jump to "
+"the line."
+
+#. heading (level 2)
+#: content/ja/projects/index.md:25
+msgid "ArgX"
+msgstr "ArgX"
+
+#. paragraph
+#: content/ja/projects/index.md:27
+msgid ""
+"{{< themed-image light=\"images/argx-logo-light.svg\" dark=\"images/argx-"
+"logo-dark.svg\" alt=\"ArgX\" width=240 >}}"
+msgstr ""
+"{{< themed-image light=\"images/argx-logo-light.svg\" dark=\"images/argx-"
+"logo-dark.svg\" alt=\"ArgX\" width=240 >}}"
+
+#. paragraph
+#: content/ja/projects/index.md:29
+msgid ""
+"C99 向けのコマンドライン引数パーサーです。コマンドラインの仕様をスキーマとし"
+"て一度定義するだけで、`argv` の解析、検証、値の型変換、ヘルプの生成までを行い"
+"ます。"
+msgstr ""
+"A command-line argument parser for C99. Define your command line once as a "
+"schema, and ArgX parses `argv`, checks it, converts the values and generates "
+"the help."
+
+#. list item > paragraph
+#: content/ja/projects/index.md:31
+msgid "**リポジトリ**：[vabelorg/argx](https://github.com/vabelorg/argx)"
+msgstr "**Repository**: [vabelorg/argx](https://github.com/vabelorg/argx)"
+
+#. list item > paragraph
+#: content/ja/projects/index.md:32
+msgid "**言語**：C99"
+msgstr "**Language**: C99"
+
+#. list item > paragraph
+#: content/ja/projects/index.md:34
+msgid ""
+"**対応環境**：Linux（GCC、Clang）、macOS（Clang）、Windows（MSVC、MinGW）"
+msgstr ""
+"**Platforms**: Linux (GCC, Clang), macOS (Clang), Windows (MSVC, MinGW)"
+
+#. list item > paragraph
+#: content/ja/projects/index.md:38
+msgid "C 標準ライブラリ以外に依存せず、コンパイラ拡張も使いません。"
+msgstr ""
+"It depends on nothing beyond the C standard library and uses no compiler "
+"extensions."
+
+#. list item > paragraph
+#: content/ja/projects/index.md:39
+msgid ""
+"フラグ、値を取るオプション、位置引数、入れ子のサブコマンドに対応しています。"
+msgstr ""
+"It supports flags, options with a value, positionals and nested subcommands."
+
+#. list item > paragraph
+#: content/ja/projects/index.md:40
+msgid "文字列、整数、浮動小数点数、選択肢に加え、独自の値の型を定義できます。"
+msgstr ""
+"Besides strings, integers, floating-point numbers and choices, you can "
+"define your own value types."
+
+#. list item > paragraph
+#: content/ja/projects/index.md:41
+msgid ""
+"ライブラリは何も出力せず、プロセスを終了させないため、アプリケーション側でエ"
+"ラー処理を制御できます。"
+msgstr ""
+"The library prints nothing and never exits the process, so your application "
+"stays in control of error handling."
+
+#. paragraph
+#: content/ja/projects/index.md:43
+msgid "関連記事："
+msgstr "Related articles:"
+
+#. list item > paragraph
+#: content/ja/projects/index.md:45
+msgid "[【C言語】ArgXでコマンドライン引数を解析する](/blog/argx-usage)"
+msgstr "[Parse Command-Line Arguments in C with ArgX](/blog/argx-usage)"
+
+#. list item > paragraph
+#: content/ja/projects/index.md:46
+msgid "[【C言語】ArgXでサブコマンドを持つCLIを作る](/blog/argx-subcommands)"
+msgstr "[Build a CLI with Subcommands in C Using ArgX](/blog/argx-subcommands)"

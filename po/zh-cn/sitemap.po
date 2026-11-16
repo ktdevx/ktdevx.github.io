@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-15 23:59+0000\n"
+"POT-Creation-Date: 2026-11-16 16:32+0000\n"
 "PO-Revision-Date: 2026-11-15 23:56+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,15 +34,20 @@ msgstr "[博客](/blog)"
 
 #. list item > paragraph
 #: content/ja/sitemap/index.md:10
+msgid "[プロジェクト](/projects)"
+msgstr "[项目](/projects)"
+
+#. list item > paragraph
+#: content/ja/sitemap/index.md:11
 msgid "[連絡先](/contact)"
 msgstr "[联系方式](/contact)"
 
 #. list item > paragraph
-#: content/ja/sitemap/index.md:11
+#: content/ja/sitemap/index.md:12
 msgid "[利用規約](/terms-of-use)"
 msgstr "[使用条款](/terms-of-use)"
 
 #. list item > paragraph
-#: content/ja/sitemap/index.md:12
+#: content/ja/sitemap/index.md:13
 msgid "[プライバシーポリシー](/privacy-policy)"
 msgstr "[隐私政策](/privacy-policy)"
