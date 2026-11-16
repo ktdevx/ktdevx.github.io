@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-15 23:59+0000\n"
+"POT-Creation-Date: 2026-11-16 00:00+0000\n"
 "PO-Revision-Date: 2026-11-15 23:56+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -47,7 +47,7 @@ msgstr ""
 #. paragraph
 #: content/ja/blog/git-basic-usage/index.md:19
 msgid "[【Windows】Gitのインストール手順](/blog/install-git-on-windows)"
-msgstr "[【Windows】Git 的安装步骤](/blog/install-git-on-windows)"
+msgstr "[【Windows】Git 安装步骤](/blog/install-git-on-windows)"
 
 #. heading (level 2)
 #: content/ja/blog/git-basic-usage/index.md:21
