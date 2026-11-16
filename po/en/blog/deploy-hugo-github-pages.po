@@ -1,0 +1,298 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:47+0000\n"
+"PO-Revision-Date: 2026-11-15 23:40+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/deploy-hugo-github-pages/index.md:2
+msgid "HugoとGitHub Pagesで静的なWebサイトを公開する"
+msgstr "Publish a Static Website with Hugo and GitHub Pages"
+
+#. paragraph
+#: content/ja/blog/deploy-hugo-github-pages/index.md:12
+msgid ""
+"HugoとGitHub Pagesを利用することで、非常に簡単に静的なWebサイトを公開すること"
+"ができます。ここでは、その手順について解説します。"
+msgstr ""
+"Using Hugo and GitHub Pages, you can publish a static website very easily. "
+"This article explains the steps."
+
+#. heading (level 2)
+#: content/ja/blog/deploy-hugo-github-pages/index.md:14
+msgid "GitHubにWebサイト用のリポジトリを作成する"
+msgstr "Create a Repository for the Website on GitHub"
+
+#. paragraph
+#: content/ja/blog/deploy-hugo-github-pages/index.md:16
+msgid ""
+"GitHubで任意の名前のリポジトリを作成します。詳細は[こちら](/blog/create-"
+"github-repository)を参照してください。"
+msgstr ""
+"Create a repository with any name on GitHub. For details, see [this article]"
+"(/blog/create-github-repository)."
+
+#. paragraph
+#: content/ja/blog/deploy-hugo-github-pages/index.md:18
+msgid ""
+"リポジトリ名を`<アカウント名>.github.io`とすると、`https://<アカウント名>."
+"github.io/`にWebサイトが公開されます。アカウント名に大文字が含まれている場合"
+"は、小文字にする必要があります。"
+msgstr ""
+"If you name the repository `<account-name>.github.io`, your website is "
+"published at `https://<account-name>.github.io/`. If your account name "
+"contains uppercase letters, you need to convert them to lowercase."
+
+#. paragraph
+#: content/ja/blog/deploy-hugo-github-pages/index.md:20
+msgid ""
+"別の名前のリポジトリを作成する場合、公開URLは`https://<アカウント名>.github."
+"io/<リポジトリ名>`になります。"
+msgstr ""
+"If you create a repository with a different name, the published URL is "
+"`https://<account-name>.github.io/<repository-name>`."
+
+#. paragraph
+#: content/ja/blog/deploy-hugo-github-pages/index.md:22
+msgid ""
+"GitHub Freeを使用している場合、リポジトリをパブリックに設定する必要がありま"
+"す。"
+msgstr "If you are using GitHub Free, you must make the repository public."
+
+#. paragraph
+#: content/ja/blog/deploy-hugo-github-pages/index.md:24
+msgid "リポジトリ作成後は、ローカルにクローンしてください。"
+msgstr "After creating the repository, clone it locally."
+
+#. heading (level 2)
+#: content/ja/blog/deploy-hugo-github-pages/index.md:26
+msgid "Hugoのセットアップ"
+msgstr "Set Up Hugo"
+
+#. paragraph
+#: content/ja/blog/deploy-hugo-github-pages/index.md:28
+msgid ""
+"クローンしたリポジトリに移動し、`hugo new site . --force`を実行します。これに"
+"より、ディレクトリ内にHugoのディレクトリ構造が作成されます。すでに空でない"
+"ディレクトリで実行するため、`--force`オプションを使用します。"
+msgstr ""
+"Move to the cloned repository and run `hugo new site . --force`. This "
+"creates Hugo's directory structure in the directory. Because the command is "
+"run in a directory that is not empty, the `--force` option is used."
+
+#. heading (level 2)
+#: content/ja/blog/deploy-hugo-github-pages/index.md:30
+msgid "Hugo設定ファイルの編集"
+msgstr "Edit the Hugo Configuration File"
+
+#. paragraph
+#: content/ja/blog/deploy-hugo-github-pages/index.md:32
+msgid ""
+"Hugoのセットアップが完了すると、`hugo.toml`という設定ファイルが生成されます。"
+msgstr ""
+"Once the Hugo setup is complete, a configuration file named `hugo.toml` is "
+"generated."
+
+#. paragraph
+#: content/ja/blog/deploy-hugo-github-pages/index.md:40
+msgid "基本設定について変更します。"
+msgstr "Change the basic settings."
+
+#. list item > paragraph
+#: content/ja/blog/deploy-hugo-github-pages/index.md:42
+msgid ""
+"baseURL  \n"
+"公開するWebサイトのURLを指定します。この設定はリポジトリ名によって決まりま"
+"す。"
+msgstr ""
+"baseURL  \n"
+"Specify the URL of the website to publish. This setting depends on the "
+"repository name."
+
+#. list item > paragraph
+#: content/ja/blog/deploy-hugo-github-pages/index.md:44
+msgid ""
+"languageCode  \n"
+"Webサイトの言語を指定します。"
+msgstr ""
+"languageCode  \n"
+"Specify the language of the website."
+
+#. list item > paragraph
+#: content/ja/blog/deploy-hugo-github-pages/index.md:46
+msgid ""
+"title  \n"
+"Webサイトのタイトルを指定します。"
+msgstr ""
+"title  \n"
+"Specify the title of the website."
+
+#. paragraph
+#: content/ja/blog/deploy-hugo-github-pages/index.md:49
+msgid "今回は以下のように設定を変更しました。"
+msgstr "In this example, the settings were changed as follows."
+
+#. paragraph
+#: content/ja/blog/deploy-hugo-github-pages/index.md:57
+msgid ""
+"設定の詳細は[公式サイト](https://gohugo.io/getting-started/configuration/)を"
+"参照してください。"
+msgstr ""
+"For details on the settings, see the [official website](https://gohugo.io/"
+"getting-started/configuration/)."
+
+#. heading (level 2)
+#: content/ja/blog/deploy-hugo-github-pages/index.md:59
+msgid "テーマをプロジェクトに追加"
+msgstr "Add a Theme to the Project"
+
+#. paragraph
+#: content/ja/blog/deploy-hugo-github-pages/index.md:61
+msgid ""
+"Hugoのテーマをプロジェクトに追加します。テーマは[公式サイト](https://themes."
+"gohugo.io/)から選べます。"
+msgstr ""
+"Add a Hugo theme to the project. You can choose a theme from the [official "
+"website](https://themes.gohugo.io/)."
+
+#. paragraph
+#: content/ja/blog/deploy-hugo-github-pages/index.md:63
+msgid ""
+"今回は[Ananke](https://github.com/theNewDynamic/gohugo-theme-ananke)を使用し"
+"ます。以下のコマンドでGit Submodulesを使ってAnankeをプロジェクトに追加しま"
+"す。"
+msgstr ""
+"In this example, we use [Ananke](https://github.com/theNewDynamic/gohugo-"
+"theme-ananke). Run the following command to add Ananke to the project using "
+"Git Submodules."
+
+#. paragraph
+#: content/ja/blog/deploy-hugo-github-pages/index.md:69
+msgid "テーマを適用するために、`hugo.toml`に`theme = 'ananke'`を追加します。"
+msgstr "To apply the theme, add `theme = 'ananke'` to `hugo.toml`."
+
+#. heading (level 2)
+#: content/ja/blog/deploy-hugo-github-pages/index.md:71
+msgid "ページを追加する"
+msgstr "Add a Page"
+
+#. paragraph
+#: content/ja/blog/deploy-hugo-github-pages/index.md:73
+msgid ""
+"次に、実際のコンテンツを作成します。以下のコマンドで新しい記事を作成します。"
+msgstr ""
+"Next, create the actual content. Run the following command to create a new "
+"post."
+
+#. paragraph
+#: content/ja/blog/deploy-hugo-github-pages/index.md:79
+msgid "生成された`hello-world.md`を編集し、記事を書きます。"
+msgstr "Edit the generated `hello-world.md` and write the post."
+
+#. paragraph
+#: content/ja/blog/deploy-hugo-github-pages/index.md:91
+msgid ""
+"ここで注意する点は`draft = true`という設定です。これは記事が下書き状態である"
+"ことを示します。"
+msgstr ""
+"One thing to note here is the `draft = true` setting, which indicates that "
+"the post is a draft."
+
+#. paragraph
+#: content/ja/blog/deploy-hugo-github-pages/index.md:93
+msgid ""
+"記事を公開するには、`draft = false`とするか、`draft`の設定を削除します。"
+msgstr ""
+"To publish the post, set `draft = false` or remove the `draft` setting."
+
+#. heading (level 2)
+#: content/ja/blog/deploy-hugo-github-pages/index.md:95
+msgid "ローカルでサイトをプレビュー"
+msgstr "Preview the Site Locally"
+
+#. paragraph
+#: content/ja/blog/deploy-hugo-github-pages/index.md:97
+msgid "以下のコマンドでローカルサーバーを起動して、サイトを確認します。"
+msgstr "Run the following command to start a local server and check the site."
+
+#. paragraph
+#: content/ja/blog/deploy-hugo-github-pages/index.md:103
+msgid ""
+"`-D`オプションは、下書きの記事を表示するためのものです。ブラウザを開き、"
+"`http://localhost:1313/`にアクセスすると、サイトをプレビューできます。"
+msgstr ""
+"The `-D` option displays draft posts. Open your browser and go to `http://"
+"localhost:1313/` to preview the site."
+
+#. paragraph
+#: content/ja/blog/deploy-hugo-github-pages/index.md:105
+msgid ""
+"プレビューが問題なければ、先ほど作成した記事の下書き設定を無効化し、リモート"
+"リポジトリにプッシュしましょう。"
+msgstr ""
+"If the preview looks good, turn off the draft setting of the post you just "
+"created and push it to the remote repository."
+
+#. heading (level 2)
+#: content/ja/blog/deploy-hugo-github-pages/index.md:107
+msgid "GitHub Pagesのデプロイ設定"
+msgstr "Configure Deployment with GitHub Pages"
+
+#. paragraph
+#: content/ja/blog/deploy-hugo-github-pages/index.md:109
+msgid ""
+"GitHubリポジトリの「Settings」から「Pages」をクリックし、GitHub Pagesを有効化"
+"します。今回はGitHub Actionsでデプロイを行います。「Source」を「GitHub "
+"Actions」に設定します。"
+msgstr ""
+"In the GitHub repository, go to \"Settings\", click \"Pages\", and enable "
+"GitHub Pages. In this example, deployment is done with GitHub Actions. Set "
+"\"Source\" to \"GitHub Actions\"."
+
+#. heading (level 2)
+#: content/ja/blog/deploy-hugo-github-pages/index.md:111
+msgid "ビルドとデプロイを行うワークフローを作成"
+msgstr "Create a Workflow for Build and Deployment"
+
+#. paragraph
+#: content/ja/blog/deploy-hugo-github-pages/index.md:113
+msgid ""
+"Webサイトのビルドとデプロイを行うワークフローをプロジェクトに追加します。`."
+"github/workflows/`ディレクトリに`gh-pages.yml`を作成し、以下のように記述しま"
+"す。"
+msgstr ""
+"Add a workflow that builds and deploys the website to the project. Create "
+"`gh-pages.yml` in the `.github/workflows/` directory with the following "
+"content."
+
+#. paragraph
+#: content/ja/blog/deploy-hugo-github-pages/index.md:161
+msgid ""
+"これにより、mainブランチにプッシュされるたびにWebサイトが自動的にビルド・デプ"
+"ロイされます。"
+msgstr ""
+"With this, the website is automatically built and deployed every time you "
+"push to the main branch."
+
+#. heading (level 2)
+#: content/ja/blog/deploy-hugo-github-pages/index.md:163
+msgid "公開されたWebサイトを確認"
+msgstr "Check the Published Website"
+
+#. paragraph
+#: content/ja/blog/deploy-hugo-github-pages/index.md:165
+msgid ""
+"ブラウザで`https://<アカウント名>.github.io/`、または`https://<アカウント名>."
+"github.io/<リポジトリ名>`にアクセスし、Webサイトが公開されていることを確認し"
+"ます。"
+msgstr ""
+"Open `https://<account-name>.github.io/` or `https://<account-name>.github."
+"io/<repository-name>` in a browser and confirm that the website is published."

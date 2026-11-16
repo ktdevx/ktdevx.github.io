@@ -1,0 +1,125 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:59+0000\n"
+"PO-Revision-Date: 2026-11-15 23:56+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/generate-ssh-key/index.md:2
+msgid "SSH鍵の生成方法"
+msgstr "SSH 密钥的生成方法"
+
+#. paragraph
+#: content/ja/blog/generate-ssh-key/index.md:11
+msgid ""
+"SSHは、ネットワーク経由で安全にリモートコンピューターにログインしたり、ファイ"
+"ルの転送やコマンドの実行を行うためのプロトコルです。通信内容を暗号化して送信"
+"するため、通信内容が盗聴されることを防ぎ、安全性を確保することができます。"
+msgstr ""
+"SSH 是一种通过网络安全地登录远程计算机、传输文件和执行命令的协议。由于通信内"
+"容经过加密后再发送，因此可以防止通信内容被窃听，确保安全性。"
+
+#. paragraph
+#: content/ja/blog/generate-ssh-key/index.md:13
+msgid "ここでは、SSHで使用する鍵を生成する手順について解説します。"
+msgstr "本文将介绍生成 SSH 所用密钥的步骤。"
+
+#. heading (level 2)
+#: content/ja/blog/generate-ssh-key/index.md:15
+msgid "暗号アルゴリズムと鍵長の設定"
+msgstr "设置加密算法和密钥长度"
+
+#. paragraph
+#: content/ja/blog/generate-ssh-key/index.md:17
+msgid ""
+"鍵は`ssh-keygen`コマンドを用いて生成することができます。以下の例では、RSAとい"
+"う暗号アルゴリズムで、鍵長が4096の鍵を生成しています。"
+msgstr ""
+"可以使用 `ssh-keygen` 命令生成密钥。以下示例使用名为 RSA 的加密算法，生成密钥"
+"长度为 4096 的密钥。"
+
+#. paragraph
+#: content/ja/blog/generate-ssh-key/index.md:23
+msgid ""
+"暗号アルゴリズムは`-t`オプションで指定できます。指定できる暗号アルゴリズムは"
+"以下の通りです。"
+msgstr "加密算法可以通过 `-t` 选项指定。可指定的加密算法如下。"
+
+#. list item > paragraph
+#: content/ja/blog/generate-ssh-key/index.md:25
+msgid "RSA"
+msgstr "RSA"
+
+#. list item > paragraph
+#: content/ja/blog/generate-ssh-key/index.md:26
+msgid "DSA"
+msgstr "DSA"
+
+#. list item > paragraph
+#: content/ja/blog/generate-ssh-key/index.md:27
+msgid "ECDSA"
+msgstr "ECDSA"
+
+#. list item > paragraph
+#: content/ja/blog/generate-ssh-key/index.md:28
+msgid "Ed25519"
+msgstr "Ed25519"
+
+#. paragraph
+#: content/ja/blog/generate-ssh-key/index.md:30
+msgid "鍵長は`-b`オプションで指定できます。"
+msgstr "密钥长度可以通过 `-b` 选项指定。"
+
+#. heading (level 2)
+#: content/ja/blog/generate-ssh-key/index.md:32
+msgid "保存場所とファイル名の設定"
+msgstr "设置保存位置和文件名"
+
+#. paragraph
+#: content/ja/blog/generate-ssh-key/index.md:38
+msgid ""
+"鍵の保存場所とファイル名の入力が求められます。特に指定がなければデフォルトの"
+"ままEnterキーを押します。"
+msgstr ""
+"系统会要求输入密钥的保存位置和文件名。如果没有特别指定，保持默认值直接按 "
+"Enter 键即可。"
+
+#. heading (level 2)
+#: content/ja/blog/generate-ssh-key/index.md:40
+msgid "パスフレーズの設定"
+msgstr "设置密码短语"
+
+#. paragraph
+#: content/ja/blog/generate-ssh-key/index.md:47
+msgid ""
+"パスフレーズを設定するように求められます。パスフレーズを設定することで秘密鍵"
+"を保護することができます。パスフレーズが不要の場合はそのままEnterキーを押しま"
+"す。"
+msgstr ""
+"系统会要求设置密码短语。设置密码短语可以保护私钥。如果不需要密码短语，直接按 "
+"Enter 键即可。"
+
+#. heading (level 2)
+#: content/ja/blog/generate-ssh-key/index.md:49
+msgid "鍵の生成"
+msgstr "生成密钥"
+
+#. paragraph
+#: content/ja/blog/generate-ssh-key/index.md:60
+msgid ""
+"このように表示されれば鍵の生成は完了です。デフォルト設定の場合、`.ssh`ディレ"
+"クトリに`id_rsa`という名前の秘密鍵と、`id_rsa.pub`という名前の公開鍵が生成さ"
+"れます。公開鍵をリモートホストに登録することで、SSH接続を安全に行うことができ"
+"ます。"
+msgstr ""
+"显示如上内容即表示密钥生成完成。使用默认设置时，会在 `.ssh` 目录中生成名为 "
+"`id_rsa` 的私钥和名为 `id_rsa.pub` 的公钥。将公钥注册到远程主机后，就可以安全"
+"地进行 SSH 连接。"

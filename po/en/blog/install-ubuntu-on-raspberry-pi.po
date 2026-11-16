@@ -1,0 +1,156 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:42+0000\n"
+"PO-Revision-Date: 2026-11-15 23:40+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:2
+msgid "Raspberry PiにUbuntuをインストールする"
+msgstr "Install Ubuntu on a Raspberry Pi"
+
+#. paragraph
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:12
+msgid "Raspberry Piは、Raspberry Pi OSの他にUbuntuを起動することもできます。"
+msgstr ""
+"In addition to Raspberry Pi OS, you can also boot Ubuntu on a Raspberry Pi."
+
+#. paragraph
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:14
+msgid ""
+"ここでは、Raspberry PiにUbuntuをインストールする方法について解説します。"
+msgstr "This article explains how to install Ubuntu on a Raspberry Pi."
+
+#. heading (level 2)
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:16
+msgid "Raspberry Pi Imagerをインストール"
+msgstr "Install Raspberry Pi Imager"
+
+#. paragraph
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:18
+msgid ""
+"microSDにUbuntuを書き込むため、Raspberry Pi Imagerというツールをインストール"
+"します。"
+msgstr ""
+"Install a tool called Raspberry Pi Imager to write Ubuntu to a microSD card."
+
+#. paragraph
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:20
+msgid ""
+"[公式サイト](https://www.raspberrypi.com/software/)からツールをダウンロード"
+"し、PCにインストールしてください。"
+msgstr ""
+"Download the tool from the [official website](https://www.raspberrypi.com/"
+"software/) and install it on your PC."
+
+#. heading (level 2)
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:22
+msgid "UbuntuをmicroSDに書き込む"
+msgstr "Write Ubuntu to a microSD Card"
+
+#. paragraph
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:24
+msgid ""
+"UbuntuをmicroSDに書き込みます。microSDをPCにセットし、Raspberry Pi Imagerを起"
+"動してください。"
+msgstr ""
+"Write Ubuntu to a microSD card. Insert the microSD card into your PC and "
+"launch Raspberry Pi Imager."
+
+#. paragraph
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:26
+msgid "![Raspberry Pi Imager](images/raspberry-pi-imager-1.webp)"
+msgstr "![Raspberry Pi Imager](images/raspberry-pi-imager-1.webp)"
+
+#. paragraph
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:28
+msgid ""
+"「OSを選ぶ」、「Other general-purpose OS」、「Ubuntu」の順に選択すると、イン"
+"ストール可能なUbuntuの一覧が表示されます。"
+msgstr ""
+"Select OS, Other general-purpose OS, and Ubuntu in that order to display the "
+"list of Ubuntu versions available for installation."
+
+#. paragraph
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:30
+msgid "![Raspberry Pi Imager](images/raspberry-pi-imager-2.webp)"
+msgstr "![Raspberry Pi Imager](images/raspberry-pi-imager-2.webp)"
+
+#. paragraph
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:32
+msgid "任意のOSを選択してください。"
+msgstr "Select the OS you want to install."
+
+#. paragraph
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:34
+msgid ""
+"OS選択後は「ストレージを選ぶ」から、Ubuntuを書き込みたいmicroSDを選択します。"
+msgstr ""
+"After selecting the OS, select the microSD card to which you want to write "
+"Ubuntu from Storage."
+
+#. paragraph
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:36
+msgid "![Raspberry Pi Imager](images/raspberry-pi-imager-3.webp)"
+msgstr "![Raspberry Pi Imager](images/raspberry-pi-imager-3.webp)"
+
+#. paragraph
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:38
+msgid ""
+"OSとストレージの選択に問題がなければ、「書き込む」を選択して書き込みを開始し"
+"てください。"
+msgstr ""
+"If the OS and storage selections are correct, select Write to start writing "
+"the image."
+
+#. paragraph
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:40
+msgid "![Raspberry Pi Imager](images/raspberry-pi-imager-4.webp)"
+msgstr "![Raspberry Pi Imager](images/raspberry-pi-imager-4.webp)"
+
+#. paragraph
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:42
+msgid "しばらく待つと書き込みが完了します。"
+msgstr "Wait a while for the writing process to complete."
+
+#. heading (level 2)
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:44
+msgid "Ubuntuを起動"
+msgstr "Boot Ubuntu"
+
+#. paragraph
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:46
+msgid ""
+"Raspberry Piに、Ubuntuが書き込まれたmicroSDを差し込み、電源を入れて起動してく"
+"ださい。"
+msgstr ""
+"Insert the microSD card containing Ubuntu into the Raspberry Pi and turn it "
+"on."
+
+#. paragraph
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:48
+msgid ""
+"ログインを要求されるため、ユーザー名とパスワードに`ubuntu`と入力します。"
+msgstr "When prompted to log in, enter `ubuntu` as the username and password."
+
+#. paragraph
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:57
+msgid ""
+"初回ログイン時は、パスワードを変更するように要求されます。任意のパスワードを"
+"入力して再設定してください。"
+msgstr ""
+"On the first login, you are prompted to change the password. Enter a new "
+"password of your choice."
+
+#. paragraph
+#: content/ja/blog/install-ubuntu-on-raspberry-pi/index.md:67
+msgid "これにより、Raspberry PiでUbuntuが使用可能になります。"
+msgstr "Ubuntu is now ready to use on the Raspberry Pi."

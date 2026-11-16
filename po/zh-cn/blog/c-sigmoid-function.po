@@ -1,0 +1,109 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:59+0000\n"
+"PO-Revision-Date: 2026-11-15 23:56+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/c-sigmoid-function/index.md:2
+msgid "【C言語】シグモイド関数の実装"
+msgstr "【C语言】Sigmoid 函数的实现"
+
+#. paragraph
+#: content/ja/blog/c-sigmoid-function/index.md:12
+msgid ""
+"シグモイド関数は、機械学習やニューラルネットワークなどの分野でよく使用される"
+"関数です。"
+msgstr "Sigmoid 函数是机器学习和神经网络等领域中常用的函数。"
+
+#. paragraph
+#: content/ja/blog/c-sigmoid-function/index.md:14
+msgid "ここでは、C言語でシグモイド関数を実装する方法について、解説します。"
+msgstr "本文将介绍如何用 C 语言实现 Sigmoid 函数。"
+
+#. heading (level 2)
+#: content/ja/blog/c-sigmoid-function/index.md:16
+msgid "シグモイド関数とは"
+msgstr "什么是 Sigmoid 函数"
+
+#. paragraph
+#: content/ja/blog/c-sigmoid-function/index.md:18
+msgid ""
+"シグモイド関数は、入力値を \\\\( 0 \\\\) から \\\\( 1 \\\\) の範囲に変換する"
+"非線形の関数です。この関数は、機械学習やニューラルネットワークなどの分野で広"
+"く使用され、入力値を確率のように扱うことができます。"
+msgstr ""
+"Sigmoid 函数是一种将输入值转换到 \\\\( 0 \\\\) 到 \\\\( 1 \\\\) 范围内的非线"
+"性函数。该函数广泛用于机器学习和神经网络等领域，可以将输入值当作概率来处理。"
+
+#. paragraph
+#: content/ja/blog/c-sigmoid-function/index.md:20
+msgid "シグモイド関数は、次の式で表されます。"
+msgstr "Sigmoid 函数可以用下式表示。"
+
+#. paragraph
+#: content/ja/blog/c-sigmoid-function/index.md:22
+msgid "\\\\[ f(x) = \\frac{1}{1 + e^{-x}} \\\\]"
+msgstr "\\\\[ f(x) = \\frac{1}{1 + e^{-x}} \\\\]"
+
+#. paragraph
+#: content/ja/blog/c-sigmoid-function/index.md:24
+msgid ""
+"ここで、 \\\\( e \\\\) は自然対数の底であり、 \\\\( x \\\\) は入力値を表しま"
+"す。この関数は、 \\\\( x \\\\) を入力として受け取り、それを \\\\( 0 \\\\) か"
+"ら \\\\( 1 \\\\) の範囲に正規化した値を返します。"
+msgstr ""
+"其中，\\\\( e \\\\) 是自然对数的底，\\\\( x \\\\) 表示输入值。该函数接收 \\"
+"\\( x \\\\) 作为输入，并返回将其归一化到 \\\\( 0 \\\\) 到 \\\\( 1 \\\\) 范围"
+"内的值。"
+
+#. paragraph
+#: content/ja/blog/c-sigmoid-function/index.md:26
+msgid "![シグモイド関数](images/sigmoid-function.webp)"
+msgstr "![Sigmoid 函数](images/sigmoid-function.webp)"
+
+#. paragraph
+#: content/ja/blog/c-sigmoid-function/index.md:28
+msgid ""
+"シグモイド関数は、入力値が大きくなるにつれて、出力値が \\\\( 1 \\\\) に近づ"
+"き、入力値が小さくなるにつれて、出力値が \\\\( 0 \\\\) に近づく性質を持ってい"
+"ます。"
+msgstr ""
+"Sigmoid 函数具有这样的性质：随着输入值增大，输出值趋近于 \\\\( 1 \\\\)；随着"
+"输入值减小，输出值趋近于 \\\\( 0 \\\\)。"
+
+#. heading (level 2)
+#: content/ja/blog/c-sigmoid-function/index.md:30
+msgid "シグモイド関数の実装"
+msgstr "Sigmoid 函数的实现"
+
+#. paragraph
+#: content/ja/blog/c-sigmoid-function/index.md:32
+msgid "以下に、シグモイド関数の実装例を示します。"
+msgstr "下面给出 Sigmoid 函数的实现示例。"
+
+#. paragraph
+#: content/ja/blog/c-sigmoid-function/index.md:43
+msgid ""
+"`sigmoid`関数は、引数として \\\\( x \\\\) を受け取り、シグモイド関数の計算結"
+"果を戻り値として返します。"
+msgstr ""
+"`sigmoid` 函数接收 \\\\( x \\\\) 作为参数，并将 Sigmoid 函数的计算结果作为返"
+"回值返回。"
+
+#. paragraph
+#: content/ja/blog/c-sigmoid-function/index.md:45
+msgid ""
+"自然対数の底 \\\\( e \\\\) のべき乗を求めるために、`exp`関数を利用していま"
+"す。利用するには`math.h`をインクルードする必要があります。"
+msgstr ""
+"为了求自然对数的底 \\\\( e \\\\) 的幂，这里使用了 `exp` 函数。要使用该函数，"
+"需要包含 `math.h`。"

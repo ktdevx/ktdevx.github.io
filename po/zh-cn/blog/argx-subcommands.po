@@ -1,0 +1,658 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:58+0000\n"
+"PO-Revision-Date: 2026-11-15 23:56+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/argx-subcommands/index.md:2
+msgid "【C言語】ArgXでサブコマンドを持つCLIを作る"
+msgstr "【C语言】使用 ArgX 创建带子命令的 CLI"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:13
+msgid ""
+"`git commit`や`docker run`のように、1つのコマンドの下に複数の機能を「サブコマ"
+"ンド」として持たせたCLIはよく見かけます。"
+msgstr ""
+"像 `git commit` 和 `docker run` 这样，在一个命令下以“子命令”的形式提供多种功"
+"能的 CLI 十分常见。"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:15
+msgid ""
+"ここでは、C99向けのコマンドライン引数パーサー「[ArgX](https://github.com/"
+"vabelorg/argx)」で、サブコマンドを持つCLIを作る方法を解説します。ArgXの基本的"
+"な使い方（スキーマの定義、検証、解析、値の読み取り、破棄）は「[【C言語】ArgX"
+"でコマンドライン引数を解析する](/blog/argx-usage)」で解説しているため、先にそ"
+"ちらを読んでおくと理解しやすくなります。"
+msgstr ""
+"本文介绍如何使用面向 C99 的命令行参数解析器“[ArgX](https://github.com/"
+"vabelorg/argx)”创建带子命令的 CLI。ArgX 的基本用法（模式的定义、验证、解析、"
+"读取值以及销毁）已在“[【C语言】使用 ArgX 解析命令行参数](/blog/argx-usage)”中"
+"介绍过，建议先阅读该文章，以便更好地理解本文内容。"
+
+#. heading (level 2)
+#: content/ja/blog/argx-subcommands/index.md:17
+msgid "前提条件"
+msgstr "前提条件"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:19
+msgid "前回の記事と同じく、次の環境を前提とします。"
+msgstr "与上一篇文章相同，本文以如下环境为前提。"
+
+#. list item > paragraph
+#: content/ja/blog/argx-subcommands/index.md:21
+msgid "CMake 3.21以上"
+msgstr "CMake 3.21 及以上版本"
+
+#. list item > paragraph
+#: content/ja/blog/argx-subcommands/index.md:22
+msgid "C99に対応したCコンパイラ（GCC、Clang、MSVCなど）"
+msgstr "支持 C99 的 C 编译器（GCC、Clang、MSVC 等）"
+
+#. list item > paragraph
+#: content/ja/blog/argx-subcommands/index.md:23
+msgid "Git"
+msgstr "Git"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:25
+msgid ""
+"記事の手順はUbuntu 24.04、CMake 3.28、GCC 13で動作を確認しています。ArgXの"
+"バージョンは`v0.1.0`です。"
+msgstr ""
+"本文的步骤已在 Ubuntu 24.04、CMake 3.28、GCC 13 上验证。ArgX 的版本为 "
+"`v0.1.0`。"
+
+#. heading (level 2)
+#: content/ja/blog/argx-subcommands/index.md:27
+msgid "プロジェクトを準備する"
+msgstr "准备项目"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:29
+msgid "次の構成のプロジェクトを作ります。"
+msgstr "创建如下结构的项目。"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:37
+msgid ""
+"`CMakeLists.txt`は前回の記事とほぼ同じで、実行ファイルの名前だけを`todo`に変"
+"えています。"
+msgstr ""
+"`CMakeLists.txt` 与上一篇文章基本相同，只是将可执行文件的名称改为了 `todo`。"
+
+#. heading (level 2)
+#: content/ja/blog/argx-subcommands/index.md:54
+msgid "作るプログラム"
+msgstr "要创建的程序"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:56
+msgid ""
+"この記事では、タスクを管理する架空のツール`todo`を作ります。実際にはデータを"
+"保存せず、受け取った内容を表示するだけのプログラムです。受け付けるコマンドラ"
+"インは次のとおりです。"
+msgstr ""
+"本文将创建一个用于管理任务的虚构工具 `todo`。该程序实际上并不保存数据，只是显"
+"示接收到的内容。它接受的命令行如下。"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:67
+msgid ""
+"| コマンド | 動作 | 引数 |\n"
+"| --- | --- | --- |\n"
+"| `todo` | ルート。サブコマンドが必須 | `-q`, `--quiet`：何も表示しない |\n"
+"| `todo add` | タスクを追加する | `-p`, `--priority`：優先度（整数、省略時は"
+"3）<br>`text`：タスクの内容（必須） |\n"
+"| `todo list` | タスクを一覧表示する | `-a`, `--all`：完了したタスクも含める "
+"|\n"
+"| `todo tag` | タグを管理する。サブコマンドを省略するとタグを一覧表示する | "
+"なし |\n"
+"| `todo tag add` | タグを追加する | `name`：タグの名前（必須） |\n"
+"| `todo tag remove` | タグを削除する | `name`：タグの名前（必須） |"
+msgstr ""
+"| 命令 | 行为 | 参数 |\n"
+"| --- | --- | --- |\n"
+"| `todo` | 根命令。必须指定子命令 | `-q`, `--quiet`：不显示任何内容 |\n"
+"| `todo add` | 添加任务 | `-p`, `--priority`：优先级（整数，省略时为 3）"
+"<br>`text`：任务内容（必需） |\n"
+"| `todo list` | 列出任务 | `-a`, `--all`：包括已完成的任务 |\n"
+"| `todo tag` | 管理标签。省略子命令时列出标签 | 无 |\n"
+"| `todo tag add` | 添加标签 | `name`：标签名称（必需） |\n"
+"| `todo tag remove` | 删除标签 | `name`：标签名称（必需） |"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:76
+msgid ""
+"すべてのコマンドに`-h`, `--help`があります。`tag`の下にさらにサブコマンドがあ"
+"ること、`tag`だけはサブコマンドを省略できることがポイントです。"
+msgstr ""
+"所有命令都有 `-h`, `--help`。要点在于 `tag` 下还有子命令，并且只有 `tag` 可以"
+"省略子命令。"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:78
+msgid ""
+"以降では`main.c`の内容を順に説明します。コード全体は「[コード全体](#コード全"
+"体)」に掲載しています。"
+msgstr "下面将按顺序说明 `main.c` 的内容。完整代码见“[完整代码](#完整代码)”。"
+
+#. heading (level 2)
+#: content/ja/blog/argx-subcommands/index.md:80
+msgid "サブコマンドを定義する"
+msgstr "定义子命令"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:82
+msgid "サブコマンドは`argx_command_add_subcommand`で追加します。"
+msgstr "子命令使用 `argx_command_add_subcommand` 添加。"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:89
+msgid ""
+"第1引数に親のコマンド、第2引数にサブコマンドの名前を指定すると、第3引数にサブ"
+"コマンドのハンドル（`argx_command_t *`）が書き込まれます。**サブコマンドも"
+"ルートと同じコマンド**なので、`argx_command_add_flag`や"
+"`argx_command_add_positional`などで、オプションや位置引数を同じように追加でき"
+"ます。"
+msgstr ""
+"在第 1 个参数中指定父命令，在第 2 个参数中指定子命令的名称，子命令的句柄"
+"（`argx_command_t *`）就会写入第 3 个参数。**子命令和根命令一样也是命令**，因"
+"此可以同样使用 `argx_command_add_flag`、`argx_command_add_positional` 等函数"
+"添加选项和位置参数。"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:91
+msgid ""
+"ただし、1つのコマンドに位置引数とサブコマンドの両方を持たせることはできませ"
+"ん。`todo`や`todo tag`のようにサブコマンドを持つコマンドには、位置引数を追加"
+"しないようにします。"
+msgstr ""
+"不过，一个命令不能同时拥有位置参数和子命令。对于 `todo`、`todo tag` 这样带有"
+"子命令的命令，不要添加位置参数。"
+
+#. heading (level 3)
+#: content/ja/blog/argx-subcommands/index.md:93
+msgid "-h, --helpをすべてのコマンドに追加する"
+msgstr "为所有命令添加 -h, --help"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:95
+msgid ""
+"ArgXでは、**オプションはそれを定義したコマンドでしか認識されず、サブコマンド"
+"には引き継がれません**。ルートに`--help`を追加しただけでは、`todo add --help`"
+"は不明なオプションとしてエラーになります。そのため、`-h`, `--help`はコマンド"
+"ごとに追加する必要があります。"
+msgstr ""
+"在 ArgX 中，**选项只能被定义它的命令识别，不会被子命令继承**。如果只在根命令"
+"中添加 `--help`，`todo add --help` 会因未知选项而报错。因此，需要为每个命令分"
+"别添加 `-h`, `--help`。"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:97
+msgid ""
+"サンプルでは、`-h`, `--help`を追加する関数と、サブコマンドを追加して説明と`-"
+"h`, `--help`をまとめて設定する関数を用意しています。"
+msgstr ""
+"示例中准备了两个函数：一个用于添加 `-h`, `--help`，另一个用于添加子命令并一并"
+"设置说明和 `-h`, `--help`。"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:120
+msgid ""
+"`-h`, `--help`のハンドルは`add_help`の中でしか使いません。後で`--help`が指定"
+"されたかを調べるときは、コマンドから名前で検索します（後述）。"
+msgstr ""
+"`-h`, `--help` 的句柄只在 `add_help` 中使用。之后需要检查是否指定了 `--help` "
+"时，会按名称在命令中查找（后述）。"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:122
+msgid ""
+"今回のサンプルでは、前回の記事と違って定義を関数に分けているため、`TRY`マクロ"
+"は失敗したときに`goto`ではなく`return error;`でエラーコードを返すようにしてい"
+"ます。"
+msgstr ""
+"本次示例与上一篇文章不同，将定义拆分成了多个函数，因此 `TRY` 宏在失败时不使"
+"用 `goto`，而是通过 `return error;` 返回错误码。"
+
+#. heading (level 3)
+#: content/ja/blog/argx-subcommands/index.md:136
+msgid "ハンドルを構造体にまとめる"
+msgstr "将句柄汇总到结构体中"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:138
+msgid ""
+"サブコマンドが増えるとハンドルも増えるため、構造体にまとめておきます。解析後"
+"にどのコマンドが選ばれたかを判定したり、値を読み取ったりするときにも使いま"
+"す。"
+msgstr ""
+"子命令增多后句柄也会随之增多，因此将它们汇总到结构体中。在解析后判断选择了哪"
+"个命令以及读取值时也会用到它。"
+
+#. heading (level 3)
+#: content/ja/blog/argx-subcommands/index.md:161
+msgid "ルートとサブコマンドを定義する"
+msgstr "定义根命令和子命令"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:163
+msgid "ルートと、`add`、`list`の定義は次のとおりです。"
+msgstr "根命令以及 `add`、`list` 的定义如下。"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:189
+msgid ""
+"オプションや位置引数を追加する先が、ルート（`schema->root`）ではなくサブコマ"
+"ンド（`schema->add`、`schema->list`）になっている点以外は、前回の記事と同じで"
+"す。`argx_command_set_description`で設定した説明は、親コマンドのヘルプのサブ"
+"コマンド一覧にも表示されます。"
+msgstr ""
+"除了选项和位置参数的添加对象不是根命令（`schema->root`）而是子命令（`schema-"
+">add`、`schema->list`）之外，其余与上一篇文章相同。使用 "
+"`argx_command_set_description` 设置的说明也会显示在父命令帮助的子命令列表中。"
+
+#. heading (level 2)
+#: content/ja/blog/argx-subcommands/index.md:191
+msgid "ネストしたサブコマンドと省略可能なサブコマンド"
+msgstr "嵌套子命令与可省略的子命令"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:193
+msgid ""
+"`tag`の下に`add`と`remove`を追加します。サブコマンドの下にサブコマンドを追加"
+"するときも、親に`schema->tag`を指定するだけです。"
+msgstr ""
+"在 `tag` 下添加 `add` 和 `remove`。在子命令下添加子命令时，只需将父命令指定"
+"为 `schema->tag` 即可。"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:216
+msgid ""
+"`tag add`の`add`と、ルートの`add`は同じ名前ですが、親が異なるため問題ありませ"
+"ん。"
+msgstr ""
+"`tag add` 中的 `add` 与根命令的 `add` 名称相同，但由于父命令不同，因此没有问"
+"题。"
+
+#. heading (level 3)
+#: content/ja/blog/argx-subcommands/index.md:218
+msgid "サブコマンドを省略可能にする"
+msgstr "使子命令可省略"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:220
+msgid ""
+"ArgXでは、**サブコマンドを持つコマンドは、既定でサブコマンドが必須**です。"
+"`todo`だけで実行すると、`ARGX_PARSE_ERROR_MISSING_SUBCOMMAND`という種類の解析"
+"エラーになります。"
+msgstr ""
+"在 ArgX 中，**带有子命令的命令默认必须指定子命令**。只执行 `todo` 时，会产生"
+"类型为 `ARGX_PARSE_ERROR_MISSING_SUBCOMMAND` 的解析错误。"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:222
+msgid ""
+"一方、`git remote`がサブコマンドなしでリモートの一覧を表示するように、サブコ"
+"マンドを省略したときに独自の動作をさせたいこともあります。その場合は"
+"`argx_command_set_subcommand_optional`で`true`を設定します。この設定はコマン"
+"ドごとで、ここでは`tag`だけを省略可能にし、ルートの`todo`はサブコマンドが必須"
+"のままにしています。"
+msgstr ""
+"另一方面，就像 `git remote` 在不带子命令时会列出远程仓库一样，有时也希望在省"
+"略子命令时执行特定的操作。这种情况下，使用 "
+"`argx_command_set_subcommand_optional` 设置为 `true`。此设置针对每个命令，这"
+"里只让 `tag` 可以省略，根命令 `todo` 仍然必须指定子命令。"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:224
+msgid "省略可能にすると、使い方の行の表記も変わります。"
+msgstr "设置为可省略后，用法行的写法也会发生变化。"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:231
+msgid ""
+"なお、サブコマンドを持たないコマンドに`true`を設定すると、"
+"`argx_command_validate`での検証がエラーになります。"
+msgstr ""
+"另外，如果对没有子命令的命令设置 `true`，`argx_command_validate` 的验证会出"
+"错。"
+
+#. heading (level 2)
+#: content/ja/blog/argx-subcommands/index.md:233
+msgid "オプションを書く位置"
+msgstr "选项的书写位置"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:235
+msgid ""
+"前述のとおり、オプションは定義したコマンドでしか認識されません。そのため、**"
+"オプションは、それを定義したコマンド名の後ろ、かつ次のサブコマンド名の前**に"
+"書きます。"
+msgstr ""
+"如前所述，选项只能被定义它的命令识别。因此，**选项要写在定义它的命令名之后、"
+"下一个子命令名之前**。"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:237
+msgid "ルートの`-q`は`todo`と`add`の間に書くと認識されます。"
+msgstr "根命令的 `-q` 写在 `todo` 和 `add` 之间时才能被识别。"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:243
+msgid ""
+"`add`の後ろに書くと、`add`には`-q`が定義されていないため、エラーになります。"
+msgstr "如果写在 `add` 之后，由于 `add` 中没有定义 `-q`，因此会出错。"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:252
+msgid ""
+"逆に、`add`の`-p`は`add`の後ろに書く必要があります。親と子で同じ名前のオプ"
+"ションを定義することもでき、その場合は別々のオプションとして扱われます。"
+msgstr ""
+"反之，`add` 的 `-p` 必须写在 `add` 之后。父命令和子命令也可以定义同名的选项，"
+"此时它们会被视为不同的选项。"
+
+#. heading (level 2)
+#: content/ja/blog/argx-subcommands/index.md:254
+msgid "解析結果からコマンドを判定する"
+msgstr "根据解析结果判断命令"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:256
+msgid ""
+"解析は前回と同じく`argx_parse`で行います。解析に成功したら、"
+"`argx_result_command`で**最後に選ばれたコマンド**を取得し、スキーマのハンドル"
+"と比較して処理を分けます。"
+msgstr ""
+"与上一篇文章相同，使用 `argx_parse` 进行解析。解析成功后，通过 "
+"`argx_result_command` 获取**最后选择的命令**，并与模式中的句柄进行比较来区分"
+"处理。"
+
+#. list item > paragraph
+#: content/ja/blog/argx-subcommands/index.md:300
+msgid ""
+"`todo tag add work`では`schema->tag_add`、`todo tag`では`schema->tag`が返され"
+"ます。ルートの`todo`はサブコマンドが必須のため、解析に成功した時点でルートが"
+"返されることはありません。"
+msgstr ""
+"`todo tag add work` 返回 `schema->tag_add`，`todo tag` 返回 `schema->tag`。由"
+"于根命令 `todo` 必须指定子命令，因此解析成功时不会返回根命令。"
+
+#. list item > paragraph
+#: content/ja/blog/argx-subcommands/index.md:301
+msgid ""
+"親のコマンドのオプション（ここでは`-q`）も、同じ解析結果から親のハンドルを"
+"使って読み取れます。"
+msgstr ""
+"父命令的选项（这里是 `-q`）也可以使用父命令的句柄，从同一个解析结果中读取。"
+
+#. list item > paragraph
+#: content/ja/blog/argx-subcommands/index.md:302
+msgid ""
+"選ばれなかったコマンドのオプションや位置引数は、「指定されなかった」ものとし"
+"て読み取られます。"
+msgstr "未被选择的命令的选项和位置参数，会被当作“未指定”来读取。"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:304
+msgid ""
+"`todo -q tag add work`の場合、選ばれたコマンドは`todo`、`tag`、`tag add`の3つ"
+"です。選ばれたコマンドはルートから順に`argx_result_command_count`と"
+"`argx_result_command_at`で取得でき、`argx_result_command`は最後の1つを返しま"
+"す。"
+msgstr ""
+"对于 `todo -q tag add work`，被选择的命令有 `todo`、`tag`、`tag add` 三个。可"
+"以使用 `argx_result_command_count` 和 `argx_result_command_at` 从根命令开始依"
+"次获取被选择的命令，`argx_result_command` 返回最后一个。"
+
+#. heading (level 2)
+#: content/ja/blog/argx-subcommands/index.md:306
+msgid "ヘルプとエラーを出力する"
+msgstr "输出帮助和错误"
+
+#. heading (level 3)
+#: content/ja/blog/argx-subcommands/index.md:308
+msgid "--helpが指定されたかを調べる"
+msgstr "检查是否指定了 --help"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:310
+msgid ""
+"`-h`, `--help`はコマンドごとに定義しているため、選ばれたコマンドを順に調べ、"
+"どれかで指定されていればヘルプを表示します。"
+msgstr ""
+"由于每个命令都定义了 `-h`, `--help`，因此依次检查被选择的命令，只要其中任意一"
+"个指定了该选项，就显示帮助。"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:331
+msgid ""
+"`argx_command_find_long`は、長い名前でコマンドのオプションを検索します。第3引"
+"数は名前の長さです。この方法なら、`-h`, `--help`のハンドルをすべて構造体に保"
+"存しておく必要はありません。"
+msgstr ""
+"`argx_command_find_long` 按长名称查找命令的选项。第 3 个参数是名称的长度。使"
+"用这种方法，就不需要把所有 `-h`, `--help` 的句柄都保存在结构体中。"
+
+#. heading (level 3)
+#: content/ja/blog/argx-subcommands/index.md:333
+msgid "選ばれたコマンドのヘルプを表示する"
+msgstr "显示所选命令的帮助"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:335
+msgid ""
+"ヘルプは、最後に選ばれたコマンドについて表示します。これで、`todo --help`では"
+"ルートのヘルプが、`todo tag add --help`では`tag add`のヘルプが表示されます。"
+msgstr ""
+"帮助针对最后选择的命令显示。这样，`todo --help` 会显示根命令的帮助，`todo "
+"tag add --help` 会显示 `tag add` 的帮助。"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:349
+msgid ""
+"解析エラーのときは、`argx_result_error_command`でエラーが見つかったコマンドを"
+"取得し、そのコマンドの使い方の行を表示します。`todo tag add`で名前を省略した"
+"場合は、`Usage: todo tag add [OPTIONS] <name>`のように、サブコマンドまで含ん"
+"だ使い方が表示されます。"
+msgstr ""
+"发生解析错误时，通过 `argx_result_error_command` 获取发现错误的命令，并显示该"
+"命令的用法行。如果在 `todo tag add` 中省略了名称，就会像 `Usage: todo tag "
+"add [OPTIONS] <name>` 这样显示包含子命令在内的用法。"
+
+#. heading (level 3)
+#: content/ja/blog/argx-subcommands/index.md:360
+msgid "サブコマンドがないときにヘルプを表示する"
+msgstr "没有子命令时显示帮助"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:362
+msgid "`argx_parse`の戻り値で分岐する部分は次のとおりです。"
+msgstr "根据 `argx_parse` 的返回值进行分支的部分如下。"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:401
+msgid ""
+"前回の記事と同じく、解析エラーのときにも`--help`を確認しています。たとえば"
+"`todo add --help`は必須の`text`がないため解析エラーになりますが、`--help`は読"
+"み取られているため、ヘルプを表示できます。"
+msgstr ""
+"与上一篇文章相同，发生解析错误时也会检查 `--help`。例如，`todo add --help` 因"
+"缺少必需的 `text` 而产生解析错误，但由于 `--help` 已被读取，因此仍可以显示帮"
+"助。"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:403
+msgid ""
+"今回はそれに加えて、`argx_result_error_kind`で解析エラーの種類を調べていま"
+"す。サブコマンドがない（`ARGX_PARSE_ERROR_MISSING_SUBCOMMAND`）ときは、多くの"
+"CLIと同じように、そのコマンドのヘルプを表示します。何も処理していないため、終"
+"了コードは失敗（`status`の初期値の`EXIT_FAILURE`）のままにしています。"
+msgstr ""
+"此外，本次还通过 `argx_result_error_kind` 检查了解析错误的类型。没有子命令"
+"（`ARGX_PARSE_ERROR_MISSING_SUBCOMMAND`）时，与许多 CLI 一样，显示该命令的帮"
+"助。由于没有执行任何处理，退出码保持为失败（`status` 的初始值 "
+"`EXIT_FAILURE`）。"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:405
+msgid ""
+"ヘルプではなく、ほかの解析エラーと同じようにエラーメッセージを表示したい場合"
+"は、この`else if`の分岐を削除します。その場合、`todo`だけで実行すると`todo: "
+"missing required command`と表示されます。"
+msgstr ""
+"如果希望不显示帮助，而是像其他解析错误一样显示错误消息，请删除这个 `else if` "
+"分支。这样，只执行 `todo` 时会显示 `todo: missing required command`。"
+
+#. heading (level 2)
+#: content/ja/blog/argx-subcommands/index.md:407
+msgid "コード全体"
+msgstr "完整代码"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:409
+msgid "`main.c`の全体は次のとおりです。"
+msgstr "`main.c` 的完整内容如下。"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:667
+msgid ""
+"スキーマの定義に失敗した場合も、途中まで作られたスキーマは"
+"`argx_command_destroy`で破棄できます。サブコマンドはルートと一緒に破棄される"
+"ため、個別に破棄する必要はありません。"
+msgstr ""
+"即使模式定义失败，也可以使用 `argx_command_destroy` 销毁已创建了一部分的模"
+"式。子命令会与根命令一起被销毁，因此无需单独销毁。"
+
+#. heading (level 2)
+#: content/ja/blog/argx-subcommands/index.md:669
+msgid "ビルドして実行する"
+msgstr "构建并运行"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:671
+msgid "`todo`ディレクトリで次のコマンドを実行し、ビルドします。"
+msgstr "在 `todo` 目录中执行以下命令进行构建。"
+
+#. heading (level 3)
+#: content/ja/blog/argx-subcommands/index.md:678
+msgid "サブコマンドを実行する"
+msgstr "执行子命令"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:697
+msgid ""
+"`todo tag`は、サブコマンドを省略可能にしているため、エラーにならずにタグの一"
+"覧を表示する処理が実行されています。"
+msgstr ""
+"由于 `todo tag` 的子命令被设置为可省略，因此不会出错，而是执行了列出标签的处"
+"理。"
+
+#. heading (level 3)
+#: content/ja/blog/argx-subcommands/index.md:699
+msgid "ヘルプを表示する"
+msgstr "显示帮助"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:701
+msgid "ルートのヘルプには、`Commands:`としてサブコマンドの一覧が表示されます。"
+msgstr "根命令的帮助中，会以 `Commands:` 的形式显示子命令列表。"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:719
+msgid "サブコマンドの`--help`では、そのサブコマンドのヘルプが表示されます。"
+msgstr "子命令的 `--help` 会显示该子命令的帮助。"
+
+#. heading (level 3)
+#: content/ja/blog/argx-subcommands/index.md:747
+msgid "誤ったコマンドライン"
+msgstr "错误的命令行"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:749
+msgid ""
+"サブコマンドを指定せずに`todo`だけを実行すると、ルートのヘルプが表示され、終"
+"了コードは1になります。"
+msgstr "不指定子命令而只执行 `todo` 时，会显示根命令的帮助，退出码为 1。"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:767
+msgid ""
+"そのほかの誤りでは、エラーメッセージと、エラーが見つかったコマンドの使い方の"
+"行が表示されます。"
+msgstr "其他错误会显示错误消息以及发现错误的命令的用法行。"
+
+#. heading (level 2)
+#: content/ja/blog/argx-subcommands/index.md:786
+msgid "まとめ"
+msgstr "总结"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:788
+msgid "ArgXでサブコマンドを持つCLIを作るときのポイントは次のとおりです。"
+msgstr "使用 ArgX 创建带子命令的 CLI 时，要点如下。"
+
+#. list item > paragraph
+#: content/ja/blog/argx-subcommands/index.md:790
+msgid ""
+"サブコマンドは`argx_command_add_subcommand`で追加し、ルートと同じようにオプ"
+"ションや位置引数を追加できます。サブコマンドの下にさらにサブコマンドを追加す"
+"ることもできます。"
+msgstr ""
+"子命令使用 `argx_command_add_subcommand` 添加，可以像根命令一样添加选项和位置"
+"参数。还可以在子命令下继续添加子命令。"
+
+#. list item > paragraph
+#: content/ja/blog/argx-subcommands/index.md:791
+msgid ""
+"オプションはサブコマンドに引き継がれないため、`-h`, `--help`はコマンドごとに"
+"定義します。オプションは、定義したコマンド名の後ろに書きます。"
+msgstr ""
+"选项不会被子命令继承，因此需要为每个命令定义 `-h`, `--help`。选项写在定义它的"
+"命令名之后。"
+
+#. list item > paragraph
+#: content/ja/blog/argx-subcommands/index.md:792
+msgid ""
+"サブコマンドは既定で必須です。`argx_command_set_subcommand_optional`で、コマ"
+"ンドごとに省略可能にできます。"
+msgstr ""
+"子命令默认是必需的。可以使用 `argx_command_set_subcommand_optional` 针对每个"
+"命令设置为可省略。"
+
+#. list item > paragraph
+#: content/ja/blog/argx-subcommands/index.md:793
+msgid ""
+"解析後は`argx_result_command`で最後に選ばれたコマンドを取得し、ハンドルと比較"
+"して処理を分けます。"
+msgstr ""
+"解析后，通过 `argx_result_command` 获取最后选择的命令，并与句柄进行比较来区分"
+"处理。"
+
+#. paragraph
+#: content/ja/blog/argx-subcommands/index.md:795
+msgid ""
+"より大きな例として、選択肢や独自の型も使ったサンプルがリポジトリの[examples/"
+"pack/pack.c](https://github.com/vabelorg/argx/blob/main/examples/pack/pack.c)"
+"にあります。サブコマンドに関するほかの使い方は、[How-to](https://github.com/"
+"vabelorg/argx/blob/main/docs/guides/how-to.md)と[FAQ](https://github.com/"
+"vabelorg/argx/blob/main/docs/guides/faq.md)を参照してください。"
+msgstr ""
+"作为更大的示例，仓库中的 [examples/pack/pack.c](https://github.com/vabelorg/"
+"argx/blob/main/examples/pack/pack.c) 还使用了可选值列表（choices）和自定义类"
+"型。有关子命令的其他用法，请参阅 [How-to](https://github.com/vabelorg/argx/"
+"blob/main/docs/guides/how-to.md) 和 [FAQ](https://github.com/vabelorg/argx/"
+"blob/main/docs/guides/faq.md)。"

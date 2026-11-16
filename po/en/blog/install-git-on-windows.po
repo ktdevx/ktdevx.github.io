@@ -1,0 +1,691 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:45+0000\n"
+"PO-Revision-Date: 2026-11-15 23:40+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/install-git-on-windows/index.md:2
+msgid "【Windows】Gitのインストール手順"
+msgstr "How to Install Git on Windows"
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:11
+msgid ""
+"Gitは、バージョン管理システムの一種で、プログラムや文書などの変更履歴を管理す"
+"るためのツールです。"
+msgstr ""
+"Git is a version control system, a tool for managing the change history of "
+"programs, documents, and other files."
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:13
+msgid "ここでは、Windows向けにGitをインストールする手順について解説します。"
+msgstr "This guide explains the steps to install Git on Windows."
+
+#. heading (level 2)
+#: content/ja/blog/install-git-on-windows/index.md:15
+msgid "インストーラーのダウンロードと実行"
+msgstr "Download and Run the Installer"
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:17
+msgid ""
+"[公式サイト](https://gitforwindows.org/)にアクセスし、ページ中央にある"
+"「Download」をクリックしてインストーラーをダウンロードします。"
+msgstr ""
+"Go to the [official website](https://gitforwindows.org/) and click "
+"\"Download\" in the middle of the page to download the installer."
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:19
+msgid ""
+"その後、ダウンロードしたインストーラーを実行します。実行には管理者権限が必要"
+"です。"
+msgstr ""
+"Then run the downloaded installer. Administrator privileges are required to "
+"run it."
+
+#. heading (level 2)
+#: content/ja/blog/install-git-on-windows/index.md:21
+msgid "ライセンスの確認"
+msgstr "License Agreement"
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:23
+msgid "ライセンスが表示されます。"
+msgstr "The license is displayed."
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:25
+msgid "![Git for Windows](images/git-for-windows-1.webp)"
+msgstr "![Git for Windows](images/git-for-windows-1.webp)"
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:27
+msgid "内容を確認したうえで問題がなければ「Next」をクリックし、次へ進みます。"
+msgstr ""
+"Review the content, and if you have no objections, click \"Next\" to proceed."
+
+#. heading (level 2)
+#: content/ja/blog/install-git-on-windows/index.md:29
+msgid "インストール先の選択"
+msgstr "Select the Installation Destination"
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:31
+msgid "Gitのインストール先フォルダを選択します。"
+msgstr "Choose the folder where Git will be installed."
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:33
+msgid "![Git fow Windows](images/git-for-windows-2.webp)"
+msgstr "![Git fow Windows](images/git-for-windows-2.webp)"
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:35
+#: content/ja/blog/install-git-on-windows/index.md:64
+#: content/ja/blog/install-git-on-windows/index.md:74
+#: content/ja/blog/install-git-on-windows/index.md:111
+#: content/ja/blog/install-git-on-windows/index.md:124
+#: content/ja/blog/install-git-on-windows/index.md:140
+#: content/ja/blog/install-git-on-windows/index.md:170
+#: content/ja/blog/install-git-on-windows/index.md:185
+#: content/ja/blog/install-git-on-windows/index.md:198
+#: content/ja/blog/install-git-on-windows/index.md:211
+msgid "特に指定がなければデフォルトのまま「Next」をクリックし、次へ進みます。"
+msgstr ""
+"If you don’t have a specific preference, click \"Next\" to keep the default "
+"and proceed."
+
+#. heading (level 2)
+#: content/ja/blog/install-git-on-windows/index.md:37
+msgid "インストールするコンポーネントの選択"
+msgstr "Select Components to Install"
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:39
+msgid "インストールするコンポーネントを選択します。"
+msgstr "Choose the components to install."
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:41
+msgid "![Git for Windows](images/git-for-windows-3.webp)"
+msgstr "![Git for Windows](images/git-for-windows-3.webp)"
+
+#. list item > paragraph
+#: content/ja/blog/install-git-on-windows/index.md:43
+msgid "Additional icons"
+msgstr "Additional icons"
+
+#. list item > list item > paragraph
+#: content/ja/blog/install-git-on-windows/index.md:44
+msgid ""
+"On the Desktop  \n"
+"Git Bashのショートカットをデスクトップに追加する。"
+msgstr ""
+"On the Desktop  \n"
+"Add a shortcut for Git Bash to the desktop."
+
+#. list item > paragraph
+#: content/ja/blog/install-git-on-windows/index.md:46
+msgid "Windows Explorer integration"
+msgstr "Windows Explorer integration"
+
+#. list item > list item > paragraph
+#: content/ja/blog/install-git-on-windows/index.md:47
+msgid ""
+"Git Bash Here  \n"
+"右クリックで表示されるメニューにGit Bashを追加する。"
+msgstr ""
+"Git Bash Here  \n"
+"Add Git Bash to the right-click menu."
+
+#. list item > list item > paragraph
+#: content/ja/blog/install-git-on-windows/index.md:49
+msgid ""
+"Git GUI Here  \n"
+"右クリックで表示されるメニューにGit GUIを追加する。"
+msgstr ""
+"Git GUI Here  \n"
+"Add Git GUI to the right-click menu."
+
+#. list item > paragraph
+#: content/ja/blog/install-git-on-windows/index.md:51
+msgid ""
+"Git LFS (Large File Support)  \n"
+"Git LFSをインストールする。"
+msgstr ""
+"Git LFS (Large File Support)  \n"
+"Install Git LFS."
+
+#. list item > paragraph
+#: content/ja/blog/install-git-on-windows/index.md:53
+msgid ""
+"Associate .git* configuration files with the default text editor  \n"
+"拡張子が.gitから始まるファイルをデフォルトのテキストエディターに関連付ける。"
+msgstr ""
+"Associate .git* configuration files with the default text editor  \n"
+"Associate files whose extension starts with .git with the default text "
+"editor."
+
+#. list item > paragraph
+#: content/ja/blog/install-git-on-windows/index.md:55
+msgid ""
+"Associate .sh files to be run with Bash  \n"
+"拡張子が.shのファイルをGit Bashに関連付ける。"
+msgstr ""
+"Associate .sh files to be run with Bash  \n"
+"Associate files with the .sh extension with Git Bash."
+
+#. list item > paragraph
+#: content/ja/blog/install-git-on-windows/index.md:57
+msgid ""
+"Check daily for Git for Windows updates  \n"
+"Git for Windowsの更新を毎日確認する。"
+msgstr ""
+"Check daily for Git for Windows updates  \n"
+"Check for Git for Windows updates daily."
+
+#. list item > paragraph
+#: content/ja/blog/install-git-on-windows/index.md:59
+msgid ""
+"Add a Git Bash Profile to Windows Terminal  \n"
+"Windows TerminalにGit Bashを追加する。"
+msgstr ""
+"Add a Git Bash Profile to Windows Terminal  \n"
+"Add Git Bash to Windows Terminal."
+
+#. list item > paragraph
+#: content/ja/blog/install-git-on-windows/index.md:61
+msgid ""
+"Scalar (Git add-on to manage large-scale repositories)  \n"
+"Scalarをインストールする。"
+msgstr ""
+"Scalar (Git add-on to manage large-scale repositories)  \n"
+"Install Scalar."
+
+#. heading (level 2)
+#: content/ja/blog/install-git-on-windows/index.md:66
+msgid "スタートメニューに表示するフォルダ名の設定"
+msgstr "Start Menu Folder Name"
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:68
+msgid "Windowsのスタートメニューに表示するフォルダ名を設定します。"
+msgstr "Set the folder name to display in the Windows Start Menu."
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:70
+msgid "![Git for Windows](images/git-for-windows-4.webp)"
+msgstr "![Git for Windows](images/git-for-windows-4.webp)"
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:72
+msgid ""
+"スタートメニューにフォルダを作成しない場合は「Don’t create a Start Menu "
+"folder」にチェックを入れましょう。"
+msgstr ""
+"If you do not want to create a Start Menu folder, check \"Don’t create a "
+"Start Menu folder.\""
+
+#. heading (level 2)
+#: content/ja/blog/install-git-on-windows/index.md:76
+msgid "Gitで使用するエディターの選択"
+msgstr "Choose the Default Editor for Git"
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:78
+msgid "Gitで使用するデフォルトのエディターを選択します。"
+msgstr "Select the default editor to use with Git."
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:80
+msgid "![Git for Windows](images/git-for-windows-5.webp)"
+msgstr "![Git for Windows](images/git-for-windows-5.webp)"
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:82
+msgid ""
+"デフォルトはVimです。特に指定がなければデフォルトのまま「Next」をクリックし、"
+"次へ進みます。"
+msgstr ""
+"The default is Vim. If you don’t have a specific preference, click \"Next\" "
+"to keep the default and proceed."
+
+#. heading (level 2)
+#: content/ja/blog/install-git-on-windows/index.md:84
+msgid "最初に作成されるブランチ名の設定"
+msgstr "Set the Name of the Initial Branch"
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:86
+msgid "新しいリポジトリの最初のブランチ名を設定します。"
+msgstr "Set the name of the first branch in new repositories."
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:88
+msgid "![Git for Windows](images/git-for-windows-6.webp)"
+msgstr "![Git for Windows](images/git-for-windows-6.webp)"
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:90
+msgid ""
+"デフォルトは「master」です。GitHubではデフォルトで「main」を採用しています。"
+msgstr "The default is \"master.\" GitHub uses \"main\" by default."
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:92
+msgid "設定後は「Next」をクリックし、次へ進みます。"
+msgstr "After setting this, click \"Next\" to proceed."
+
+#. heading (level 2)
+#: content/ja/blog/install-git-on-windows/index.md:94
+msgid "環境変数の設定"
+msgstr "Configure the Environment Variables"
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:96
+msgid "環境変数を設定します。"
+msgstr "Configure the environment variables."
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:98
+msgid "![Git for Windows](images/git-for-windows-7.webp)"
+msgstr "![Git for Windows](images/git-for-windows-7.webp)"
+
+#. list item > paragraph
+#: content/ja/blog/install-git-on-windows/index.md:100
+msgid ""
+"Use Git from Git Bash only  \n"
+"環境変数を変更しない。  \n"
+"GitやUnixツールはGit Bashからのみ使用できる。"
+msgstr ""
+"Use Git from Git Bash only  \n"
+"Do not modify the environment variables.  \n"
+"Git and Unix tools can only be used from Git Bash."
+
+#. list item > paragraph
+#: content/ja/blog/install-git-on-windows/index.md:103
+msgid ""
+"Git from the command line and also from 3rd-party software  \n"
+"Gitのみを環境変数に追加する。  \n"
+"コマンドプロンプトやPowerShellからGitを実行することができる。  \n"
+"UnixツールはGit Bashからのみ使用できる。"
+msgstr ""
+"Git from the command line and also from 3rd-party software  \n"
+"Add only Git to the environment variables.  \n"
+"Git can be run from the Command Prompt or PowerShell.  \n"
+"Unix tools can only be used from Git Bash."
+
+#. list item > paragraph
+#: content/ja/blog/install-git-on-windows/index.md:107
+msgid ""
+"Use Git and optional Unix tools from the Command Prompt  \n"
+"GitとUnixツールを環境変数に追加する。  \n"
+"コマンドプロンプトやPowerShellからGitとUnixツールを実行することができる。"
+msgstr ""
+"Use Git and optional Unix tools from the Command Prompt  \n"
+"Add Git and Unix tools to the environment variables.  \n"
+"Git and Unix tools can be run from the Command Prompt or PowerShell."
+
+#. heading (level 2)
+#: content/ja/blog/install-git-on-windows/index.md:113
+msgid "SSHの設定"
+msgstr "Configure SSH"
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:115
+msgid "SSHの設定をします。"
+msgstr "Configure SSH settings."
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:117
+msgid "![Git for Windows](images/git-for-windows-8.webp)"
+msgstr "![Git for Windows](images/git-for-windows-8.webp)"
+
+#. list item > paragraph
+#: content/ja/blog/install-git-on-windows/index.md:119
+msgid ""
+"Use bundled OpenSSH  \n"
+"Gitに付属しているssh.exeを使用する。"
+msgstr ""
+"Use bundled OpenSSH  \n"
+"Use the ssh.exe bundled with Git."
+
+#. list item > paragraph
+#: content/ja/blog/install-git-on-windows/index.md:121
+msgid ""
+"Use external OpenSSH  \n"
+"外部のssh.exeを使用する。"
+msgstr ""
+"Use external OpenSSH  \n"
+"Use an external ssh.exe."
+
+#. heading (level 2)
+#: content/ja/blog/install-git-on-windows/index.md:126
+msgid "SSL/TLSの設定"
+msgstr "Configure SSL/TLS"
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:128
+msgid "SSL/TLSの設定をします。"
+msgstr "Configure SSL/TLS settings."
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:130
+msgid "![Git for Windows](images/git-for-windows-9.webp)"
+msgstr "![Git for Windows](images/git-for-windows-9.webp)"
+
+#. list item > paragraph
+#: content/ja/blog/install-git-on-windows/index.md:132
+msgid ""
+"Use the OpenSSL library  \n"
+"OpenSSLライブラリを使用する。  \n"
+"サーバー証明書は、ca-bundle.crtファイルを使って検証される。"
+msgstr ""
+"Use the OpenSSL library  \n"
+"Use the OpenSSL library.  \n"
+"Server certificates are verified using the ca-bundle.crt file."
+
+#. list item > paragraph
+#: content/ja/blog/install-git-on-windows/index.md:135
+msgid ""
+"Use the native Windows Secure Channel library  \n"
+"WindowsのSecure Channeライブラリを使用する。  \n"
+"サーバ証明書は、Windowsの証明書ストアを使用して検証される。  \n"
+"Active Directoryドメインサービスなどで配布される社内ルートCA証明書を使用する"
+"ことができる。"
+msgstr ""
+"Use the native Windows Secure Channel library  \n"
+"Use the Windows Secure Channel library.  \n"
+"Server certificates are verified using the Windows certificate store.  \n"
+"Internal root CA certificates distributed via Active Directory Domain "
+"Services and similar can be used."
+
+#. heading (level 2)
+#: content/ja/blog/install-git-on-windows/index.md:142
+msgid "改行コードの設定"
+msgstr "Configure Line Endings"
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:144
+msgid "改行コードの変換設定を選択します。"
+msgstr "Select the line ending conversion settings."
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:146
+msgid "![Git for Windows](images/git-for-windows-10.webp)"
+msgstr "![Git for Windows](images/git-for-windows-10.webp)"
+
+#. list item > paragraph
+#: content/ja/blog/install-git-on-windows/index.md:148
+msgid ""
+"Checkout Windows-style, commit Unix-style line endings  \n"
+"チェックアウト時にCR+LFに変換し、コミット時にLFに変換する。"
+msgstr ""
+"Checkout Windows-style, commit Unix-style line endings  \n"
+"Convert to CR+LF on checkout and to LF on commit."
+
+#. list item > paragraph
+#: content/ja/blog/install-git-on-windows/index.md:150
+msgid ""
+"Checkout as-is, commit Unix-style line endings  \n"
+"チェックアウト時は変換を行わず、コミット時にのみLFに変換する。"
+msgstr ""
+"Checkout as-is, commit Unix-style line endings  \n"
+"Do not convert on checkout; convert to LF only on commit."
+
+#. list item > paragraph
+#: content/ja/blog/install-git-on-windows/index.md:152
+msgid ""
+"Checkout as-is, commit as-is  \n"
+"チェックアウト時にもコミット時にも変換を行わない。"
+msgstr ""
+"Checkout as-is, commit as-is  \n"
+"Do not convert on either checkout or commit."
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:155
+msgid ""
+"デフォルトではチェックアウト時にCR+LFに変換し、コミット時にLFに変換する設定に"
+"なっています。意図せぬトラブルが発生する可能性があるため、慎重に選択しましょ"
+"う。"
+msgstr ""
+"By default, line endings are converted to CR+LF on checkout and to LF on "
+"commit. Choose carefully, as this may cause unintended issues."
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:157
+msgid "選択後は「Next」をクリックし、次へ進みます。"
+msgstr "After selecting, click \"Next\" to proceed."
+
+#. heading (level 2)
+#: content/ja/blog/install-git-on-windows/index.md:159
+msgid "ターミナルの選択"
+msgstr "Choose the Terminal"
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:161
+msgid "Git Bashで使用するターミナルを選択します。"
+msgstr "Select the terminal to use with Git Bash."
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:163
+msgid "![Git for Windows](images/git-for-windows-11.webp)"
+msgstr "![Git for Windows](images/git-for-windows-11.webp)"
+
+#. list item > paragraph
+#: content/ja/blog/install-git-on-windows/index.md:165
+msgid ""
+"Use MinTTY (the default terminal of MSYS2)  \n"
+"MinTTY(MSYS2の標準ターミナル)を使用する。"
+msgstr ""
+"Use MinTTY (the default terminal of MSYS2)  \n"
+"Use MinTTY (the default terminal of MSYS2)."
+
+#. list item > paragraph
+#: content/ja/blog/install-git-on-windows/index.md:167
+msgid ""
+"Use Windows' default console window  \n"
+"Windowsの標準コンソールを使用する。"
+msgstr ""
+"Use Windows' default console window  \n"
+"Use the default Windows console."
+
+#. heading (level 2)
+#: content/ja/blog/install-git-on-windows/index.md:172
+msgid "git pullのデフォルトの動作を選択"
+msgstr "Set the Default Behavior of git pull"
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:174
+msgid "git pullのデフォルトの動作を選択します。"
+msgstr "Select the default behavior of git pull."
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:176
+msgid "![Git for Windows](images/git-for-windows-12.webp)"
+msgstr "![Git for Windows](images/git-for-windows-12.webp)"
+
+#. list item > paragraph
+#: content/ja/blog/install-git-on-windows/index.md:178
+msgid ""
+"Default (fast-forward or merge)  \n"
+"`git pull --ff`が実行される。"
+msgstr ""
+"Default (fast-forward or merge)  \n"
+"`git pull --ff` is run."
+
+#. list item > paragraph
+#: content/ja/blog/install-git-on-windows/index.md:180
+msgid ""
+"Rebase  \n"
+"`git pull --rebase`が実行される。"
+msgstr ""
+"Rebase  \n"
+"`git pull --rebase` is run."
+
+#. list item > paragraph
+#: content/ja/blog/install-git-on-windows/index.md:182
+msgid ""
+"Only ever fast-forward  \n"
+"`git pull --ff-only`が実行される。"
+msgstr ""
+"Only ever fast-forward  \n"
+"`git pull --ff-only` is run."
+
+#. heading (level 2)
+#: content/ja/blog/install-git-on-windows/index.md:187
+msgid "認証補助の設定"
+msgstr "Configure the Credential Helper"
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:189
+msgid "認証補助の設定をします。"
+msgstr "Configure the credential helper settings."
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:191
+msgid "![Git for Windows](images/git-for-windows-13.webp)"
+msgstr "![Git for Windows](images/git-for-windows-13.webp)"
+
+#. list item > paragraph
+#: content/ja/blog/install-git-on-windows/index.md:193
+msgid ""
+"Git Credential Manager  \n"
+"Git Credential Managerを使用する。"
+msgstr ""
+"Git Credential Manager  \n"
+"Use Git Credential Manager."
+
+#. list item > paragraph
+#: content/ja/blog/install-git-on-windows/index.md:195
+msgid ""
+"None  \n"
+"認証補助を使用しない。"
+msgstr ""
+"None  \n"
+"Do not use a credential helper."
+
+#. heading (level 2)
+#: content/ja/blog/install-git-on-windows/index.md:200
+msgid "追加オプションの設定"
+msgstr "Set Additional Options"
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:202
+msgid "追加オプションの設定をします。"
+msgstr "Configure additional options."
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:204
+msgid "![Git for Windows](images/git-for-windows-14.webp)"
+msgstr "![Git for Windows](images/git-for-windows-14.webp)"
+
+#. list item > paragraph
+#: content/ja/blog/install-git-on-windows/index.md:206
+msgid ""
+"Enable file system caching  \n"
+"キャッシュを有効にする。これによりパフォーマンスが大幅に向上する。"
+msgstr ""
+"Enable file system caching  \n"
+"Enable caching. This significantly improves performance."
+
+#. list item > paragraph
+#: content/ja/blog/install-git-on-windows/index.md:208
+msgid ""
+"Enable symbolic links  \n"
+"シンボリックリンクを有効にする。"
+msgstr ""
+"Enable symbolic links  \n"
+"Enable symbolic links."
+
+#. heading (level 2)
+#: content/ja/blog/install-git-on-windows/index.md:213
+msgid "実験的なオプションの設定"
+msgstr "Set Experimental Options"
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:215
+msgid "実験的なオプションを設定します。"
+msgstr "Configure experimental options."
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:217
+msgid "![Git for Windows](images/git-for-windows-15.webp)"
+msgstr "![Git for Windows](images/git-for-windows-15.webp)"
+
+#. list item > paragraph
+#: content/ja/blog/install-git-on-windows/index.md:219
+msgid ""
+"Enable experimental support for pseudo consoles.  \n"
+"Git BashでPythonやNodeを実行できるようになる。"
+msgstr ""
+"Enable experimental support for pseudo consoles.  \n"
+"Allows running Python or Node in Git Bash."
+
+#. list item > paragraph
+#: content/ja/blog/install-git-on-windows/index.md:221
+msgid ""
+"Enable experimental built-in file system monitor  \n"
+"多数のファイルがある場合にGitコマンドが高速化される。"
+msgstr ""
+"Enable experimental built-in file system monitor  \n"
+"Speeds up Git commands when there are many files."
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:224
+msgid ""
+"特に指定がなければデフォルトのまま「Install」をクリックし、インストールへ進み"
+"ます。"
+msgstr ""
+"If you don’t have a specific preference, click \"Install\" to keep the "
+"default and proceed with the installation."
+
+#. heading (level 2)
+#: content/ja/blog/install-git-on-windows/index.md:226
+msgid "Gitをインストール"
+msgstr "Install Git"
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:228
+msgid "Gitのインストール中です。インストールが完了するまで待ちます。"
+msgstr "Git is being installed. Wait for the installation to complete."
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:230
+msgid "![Git for Windows](images/git-for-windows-16.webp)"
+msgstr "![Git for Windows](images/git-for-windows-16.webp)"
+
+#. paragraph
+#: content/ja/blog/install-git-on-windows/index.md:232
+msgid ""
+"「Completing The Git Setup Wizard」と表示されればインストール完了です。"
+"「Finish」を選択してインストーラーを閉じましょう。"
+msgstr ""
+"Once \"Completing The Git Setup Wizard\" is displayed, the installation is "
+"complete. Select \"Finish\" to close the installer."
+
+#. heading (level 2)
+#: content/ja/blog/install-git-on-windows/index.md:234
+msgid "外部リンク"
+msgstr "External Links"
+
+#. list item > paragraph
+#: content/ja/blog/install-git-on-windows/index.md:236
+msgid "[Git](https://git-scm.com/)"
+msgstr "[Git](https://git-scm.com/)"
+
+#. list item > paragraph
+#: content/ja/blog/install-git-on-windows/index.md:237
+msgid "[Git for Windows](https://gitforwindows.org/)"
+msgstr "[Git for Windows](https://gitforwindows.org/)"

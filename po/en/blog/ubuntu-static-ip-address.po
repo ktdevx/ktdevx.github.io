@@ -1,0 +1,126 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:42+0000\n"
+"PO-Revision-Date: 2026-11-15 23:40+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/ubuntu-static-ip-address/index.md:2
+msgid "【Ubuntu】固定IPアドレスを割り当てる"
+msgstr "Assign a Static Address on Ubuntu"
+
+#. paragraph
+#: content/ja/blog/ubuntu-static-ip-address/index.md:11
+msgid ""
+"サーバーのOSとしてUbuntuを利用する場合、IPアドレスが変化しないように設定する"
+"必要があります。"
+msgstr ""
+"When using Ubuntu as a server OS, you may need to configure it so that the "
+"IP address remains consistent."
+
+#. paragraph
+#: content/ja/blog/ubuntu-static-ip-address/index.md:13
+msgid "ここでは、UbuntuでIPアドレスを固定化する方法について解説します。"
+msgstr "This guide explains how to set a static IP address on Ubuntu."
+
+#. heading (level 2)
+#: content/ja/blog/ubuntu-static-ip-address/index.md:15
+msgid "ネットワークインターフェース情報の確認"
+msgstr "Check Network Interface Information"
+
+#. paragraph
+#: content/ja/blog/ubuntu-static-ip-address/index.md:17
+msgid "`ip address`と入力し、ネットワークインターフェースの情報を確認します。"
+msgstr "Enter `ip address` to check your network interface information."
+
+#. paragraph
+#: content/ja/blog/ubuntu-static-ip-address/index.md:37
+msgid ""
+"今回は、`eth0`という名前のネットワークインターフェースのIPアドレスを固定化し"
+"ます。"
+msgstr ""
+"In this example, we’ll set a static IP for the network interface named "
+"`eth0`."
+
+#. heading (level 2)
+#: content/ja/blog/ubuntu-static-ip-address/index.md:39
+msgid "Netplan設定ファイルの作成"
+msgstr "Create a Netplan Configuration File"
+
+#. paragraph
+#: content/ja/blog/ubuntu-static-ip-address/index.md:41
+msgid ""
+"IPアドレスを固定化するため、`/etc/netplan`ディレクトリ配下にNetplanの設定ファ"
+"イルを追加します。"
+msgstr ""
+"To set a static IP, add a Netplan configuration file under the `/etc/"
+"netplan` directory."
+
+#. paragraph
+#: content/ja/blog/ubuntu-static-ip-address/index.md:43
+msgid ""
+"デフォルトで存在する`50-cloud-init.yaml`は、システムによって上書きされる恐れ"
+"があるため、必ず新しくファイルを作成しましょう。この時、設定ファイルは名前の"
+"昇順で参照されることに注意してください。"
+msgstr ""
+"Do not edit the existing `50-cloud-init.yaml`, as it may be overwritten by "
+"the system. Instead, create a new file. Note that configuration files are "
+"read in ascending alphabetical order."
+
+#. paragraph
+#: content/ja/blog/ubuntu-static-ip-address/index.md:45
+msgid ""
+"ここでは、ファイル名を`99-config.yaml`として、内容を以下のように編集しまし"
+"た。"
+msgstr ""
+"Here, we create a file named `99-config.yaml` and configure it as follows:"
+
+#. paragraph
+#: content/ja/blog/ubuntu-static-ip-address/index.md:64
+msgid ""
+"この例では、`eth0`のIPアドレスが`192.168.10.2`、デフォルトゲートウェイとDNS"
+"サーバーのIPアドレスが`192.168.10.1`となるように設定しています。"
+msgstr ""
+"In this example, we set the IP address of `eth0` to `192.168.10.2`, with a "
+"default gateway and DNS server address of `192.168.10.1`."
+
+#. paragraph
+#: content/ja/blog/ubuntu-static-ip-address/index.md:66
+msgid ""
+"内容に問題がなければ、`/etc/netplan`ディレクトリ配下にファイルを保存してくだ"
+"さい。"
+msgstr ""
+"Save this file in the `/etc/netplan` directory if the configuration is "
+"correct."
+
+#. heading (level 2)
+#: content/ja/blog/ubuntu-static-ip-address/index.md:68
+msgid "ネットワーク設定の反映"
+msgstr "Apply Network Settings"
+
+#. paragraph
+#: content/ja/blog/ubuntu-static-ip-address/index.md:70
+msgid "以下のコマンドで設定を反映します。"
+msgstr "Apply the settings with the following command:"
+
+#. paragraph
+#: content/ja/blog/ubuntu-static-ip-address/index.md:76
+msgid ""
+"これによりネットワーク設定が反映されます。`ip address`と入力して設定が反映さ"
+"れたか確認しましょう。"
+msgstr ""
+"This will apply the network configuration. Enter `ip address` to confirm "
+"that the changes have taken effect."
+
+#. paragraph
+#: content/ja/blog/ubuntu-static-ip-address/index.md:96
+msgid "`eth0`の設定が反映されていることが確認できました。"
+msgstr "You can confirm that the settings for `eth0` have been applied."

@@ -1,0 +1,669 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:58+0000\n"
+"PO-Revision-Date: 2026-11-15 23:56+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/install-debian/index.md:2
+msgid "Debianをインストールする"
+msgstr "安装 Debian"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:11
+msgid "ここでは、Debianをインストールする方法について説明します。"
+msgstr "本文介绍如何安装 Debian。"
+
+#. heading (level 2)
+#: content/ja/blog/install-debian/index.md:13
+msgid "はじめに"
+msgstr "前言"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:15
+msgid "サーバーのハードウェアには、GMKtecのNucBox M5 Plusを選択しました。"
+msgstr "服务器硬件选用了 GMKtec 的 NucBox M5 Plus。"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:17
+msgid "{{< ads/nucbox-m5-plus >}}"
+msgstr "{{< ads/nucbox-m5-plus >}}"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:19
+msgid ""
+"ミニPCには仮想化プラットフォームのProxmox VEをインストールしているため、そこ"
+"に仮想マシンを作成してDebianをインストールします。"
+msgstr ""
+"由于这台迷你 PC 上已经安装了虚拟化平台 Proxmox VE，因此在其上创建虚拟机并安"
+"装 Debian。"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:21
+msgid ""
+"Proxmox VE上の仮想マシンにインストールする場合は、「[Proxmox VEで仮想マシン"
+"(VM)を作成する](/blog/create-vm-in-proxmox-ve)」の記事も参考にしてください。"
+msgstr ""
+"如果要安装到 Proxmox VE 上的虚拟机中，也请参考“[在 Proxmox VE 中创建虚拟机"
+"（VM）](/blog/create-vm-in-proxmox-ve)”一文。"
+
+#. heading (level 2)
+#: content/ja/blog/install-debian/index.md:23
+msgid "Debianのダウンロード"
+msgstr "下载 Debian"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:25
+msgid ""
+"[Debianのダウンロードページ](https://www.debian.org/distrib/)から、ISOイメー"
+"ジをダウンロードします。今回はDebian 12.10.0をダウンロードしました。"
+msgstr ""
+"从 [Debian 下载页面](https://www.debian.org/distrib/)下载 ISO 镜像。本次下载"
+"的是 Debian 12.10.0。"
+
+#. heading (level 2)
+#: content/ja/blog/install-debian/index.md:27
+msgid "インストール用USBメモリの作成"
+msgstr "制作安装用 U 盘"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:29
+msgid ""
+"先ほどダウンロードしたISOイメージを、USBメモリに書き込みます。Win32 Disk "
+"Imagerなどのイメージ書き込みソフトを使用してUSBメモリへ書き込みましょう。"
+msgstr ""
+"将刚才下载的 ISO 镜像写入 U 盘。请使用 Win32 Disk Imager 等镜像写入软件将其写"
+"入 U 盘。"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:31
+msgid ""
+"Win32 Disk Imagerを使用した書き込み方法については、[Win32 Disk Imagerのインス"
+"トールと使い方](/blog/install-win32-disk-imager)で詳しく説明しています。そち"
+"らを参考にしてください。"
+msgstr ""
+"关于使用 Win32 Disk Imager 写入的方法，[Win32 Disk Imager 的安装与使用方法](/"
+"blog/install-win32-disk-imager)中有详细说明，请参考该文章。"
+
+#. heading (level 2)
+#: content/ja/blog/install-debian/index.md:33
+msgid "Debianのインストール"
+msgstr "安装 Debian"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:35
+msgid ""
+"DebianをインストールしたいPCにUSBメモリを接続し、PCを起動してUSBメモリから"
+"ブートさせましょう。起動するとDebianのインストール画面が表示されます。"
+msgstr ""
+"将 U 盘连接到要安装 Debian 的 PC，启动 PC 并从 U 盘引导。启动后会显示 Debian "
+"的安装界面。"
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:37
+msgid "インストール方法の選択"
+msgstr "选择安装方式"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:39
+msgid "![Debianのインストール画面](images/install-debian-1.webp)"
+msgstr "![Debian 的安装界面](images/install-debian-1.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:41
+msgid ""
+"インストール方法が表示されます。「Graphical Install」を選択してEnterキーを押"
+"すか、自動でインストールが開始されるまで待ちましょう。"
+msgstr ""
+"界面上会显示安装方式。选择“Graphical Install”并按 Enter 键，或者等待安装自动"
+"开始。"
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:43
+msgid "言語の設定"
+msgstr "设置语言"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:45
+msgid "![Debianのインストール画面](images/install-debian-2.webp)"
+msgstr "![Debian 的安装界面](images/install-debian-2.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:47
+msgid ""
+"インストール中に表示される言語の設定を行います。日本語を選択して「Continue」"
+"を押しましょう。"
+msgstr "设置安装过程中显示的语言。选择日语，然后点击“Continue”。"
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:49
+msgid "ロケールの設定"
+msgstr "设置区域"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:51
+msgid "![Debianのインストール画面](images/install-debian-3.webp)"
+msgstr "![Debian 的安装界面](images/install-debian-3.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:53
+msgid ""
+"ロケールの設定を行います。この設定はタイムゾーンの設定やシステムのロケールの"
+"選択の支援に使用されます。"
+msgstr "设置区域（Locale）。该设置将用于帮助设置时区和选择系统区域。"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:55
+msgid "日本を選択して「続ける」を押しましょう。"
+msgstr "选择日本，然后点击“Continue”。"
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:57
+msgid "キーボードの設定"
+msgstr "设置键盘"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:59
+msgid "![Debianのインストール画面](images/install-debian-4.webp)"
+msgstr "![Debian 的安装界面](images/install-debian-4.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:61
+msgid ""
+"キーボードの設定を行います。使用しているキーボードの配列に合わせて選択し、"
+"「続ける」を押しましょう。"
+msgstr "设置键盘。根据所用键盘的布局进行选择，然后点击“Continue”。"
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:63
+msgid "ホスト名の設定"
+msgstr "设置主机名"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:65
+msgid "![Debianのインストール画面](images/install-debian-5.webp)"
+msgstr "![Debian 的安装界面](images/install-debian-5.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:67
+msgid "サーバーのホスト名を設定します。"
+msgstr "设置服务器的主机名。"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:69
+msgid ""
+"デフォルトは`debian`になっています。特に指定がなければそのままでも問題ありま"
+"せん。ホスト名を入力して「続ける」を押しましょう。"
+msgstr ""
+"默认值为 `debian`。如果没有特别要求，保持不变也没有问题。输入主机名后点"
+"击“Continue”。"
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:71
+msgid "ドメイン名の設定"
+msgstr "设置域名"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:73
+msgid "![Debianのインストール画面](images/install-debian-6.webp)"
+msgstr "![Debian 的安装界面](images/install-debian-6.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:75
+msgid "サーバーのドメイン名を設定します。"
+msgstr "设置服务器的域名。"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:77
+msgid ""
+"デフォルトは空欄になっています。特に指定がなければそのままでも問題ありませ"
+"ん。ドメイン名を入力して「続ける」を押しましょう。"
+msgstr ""
+"默认为空。如果没有特别要求，保持不变也没有问题。输入域名后点击“Continue”。"
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:79
+msgid "管理者のパスワードの設定"
+msgstr "设置管理员密码"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:81
+msgid "![Debianのインストール画面](images/install-debian-7.webp)"
+msgstr "![Debian 的安装界面](images/install-debian-7.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:83
+msgid "管理者ユーザー(`root`)のパスワードを設定します。"
+msgstr "设置管理员用户（`root`）的密码。"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:85
+msgid ""
+"パスワードを入力すると`su`コマンドで`root`ユーザーへのログインが可能になりま"
+"す。"
+msgstr "设置密码后，可以使用 `su` 命令登录到 `root` 用户。"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:87
+msgid ""
+"空にすると`root`ユーザーへのログインが制限され、後に作成するユーザーに`sudo`"
+"権限が与えられます。"
+msgstr ""
+"如果留空，将限制登录到 `root` 用户，并为之后创建的用户授予 `sudo` 权限。"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:89
+msgid "ユースケースに合わせて設定し、「続ける」を押しましょう。"
+msgstr "请根据使用场景进行设置，然后点击“Continue”。"
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:91
+msgid "ユーザーの表示名の設定"
+msgstr "设置用户的显示名称"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:93
+msgid "![Debianのインストール画面](images/install-debian-8.webp)"
+msgstr "![Debian 的安装界面](images/install-debian-8.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:95
+msgid ""
+"非管理者権限のユーザーを作成します。作成するアカウントを所有するユーザーのフ"
+"ルネームを入力しましょう。"
+msgstr "创建一个不具有管理员权限的用户。请输入拥有该账户的用户的全名。"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:97
+msgid ""
+"この情報はユーザーの本名を表示、利用するプログラムのほか、このユーザーから送"
+"られるメールのデフォルトの発信元といった形で使用されます。一般的には本名を入"
+"力しましょう。"
+msgstr ""
+"该信息会用于显示或使用用户真实姓名的程序，以及作为该用户所发送邮件的默认发件"
+"人等。一般情况下请输入真实姓名。"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:99
+msgid "ユーザーの表示名を入力して「続ける」を押しましょう。"
+msgstr "输入用户的显示名称后点击“Continue”。"
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:101
+msgid "ユーザー名の設定"
+msgstr "设置用户名"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:103
+msgid "![Debianのインストール画面](images/install-debian-9.webp)"
+msgstr "![Debian 的安装界面](images/install-debian-9.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:105
+msgid ""
+"非管理者権限のユーザーを作成します。作成するアカウントのユーザー名を入力しま"
+"す。"
+msgstr "创建一个不具有管理员权限的用户。输入要创建的账户的用户名。"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:107
+msgid ""
+"ユーザー名の先頭は小文字のアルファベットでなければなりません。ユーザー名を入"
+"力して「続ける」を押しましょう。"
+msgstr "用户名必须以小写字母开头。输入用户名后点击“Continue”。"
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:109
+msgid "パスワードの設定"
+msgstr "设置密码"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:111
+msgid "![Debianのインストール画面](images/install-debian-10.webp)"
+msgstr "![Debian 的安装界面](images/install-debian-10.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:113
+msgid ""
+"非管理者権限のユーザーを作成します。作成するアカウントのパスワードを入力しま"
+"す。"
+msgstr "创建一个不具有管理员权限的用户。输入要创建的账户的密码。"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:115
+msgid "パスワードを入力して「続ける」を押しましょう。"
+msgstr "输入密码后点击“Continue”。"
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:117
+msgid "パーティショニング方法の設定"
+msgstr "设置分区方法"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:119
+msgid "![Debianのインストール画面](images/install-debian-11.webp)"
+msgstr "![Debian 的安装界面](images/install-debian-11.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:121
+msgid "パーティショニングの方法を設定します。"
+msgstr "设置分区方法。"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:123
+msgid ""
+"特に指定がなければ「ガイド・ディスク全体を使う」を選択して「続ける」を押しま"
+"しょう。"
+msgstr "如果没有特别要求，选择“Guided - use entire disk”，然后点击“Continue”。"
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:125
+msgid "パーティショニングするディスクの設定"
+msgstr "设置要分区的磁盘"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:127
+msgid "![Debianのインストール画面](images/install-debian-12.webp)"
+msgstr "![Debian 的安装界面](images/install-debian-12.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:129
+msgid "パーティショニングするディスクを設定します。"
+msgstr "设置要进行分区的磁盘。"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:131
+msgid "ディスクを選択して「続ける」を押しましょう。"
+msgstr "选择磁盘后点击“Continue”。"
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:133
+msgid "パーティショニング機構の設定"
+msgstr "设置分区方案"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:135
+msgid "![Debianのインストール画面](images/install-debian-13.webp)"
+msgstr "![Debian 的安装界面](images/install-debian-13.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:137
+msgid "パーティショニング機構の設定をします。"
+msgstr "设置分区方案。"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:139
+msgid ""
+"特に指定がなければ「すべてのファイルを1つのパーティションに」を選択して「続け"
+"る」を押しましょう。"
+msgstr ""
+"如果没有特别要求，选择“All files in one partition”，然后点击“Continue”。"
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:141
+msgid "パーティションの詳細設定"
+msgstr "分区的详细设置"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:143
+msgid "![Debianのインストール画面](images/install-debian-14.webp)"
+msgstr "![Debian 的安装界面](images/install-debian-14.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:145
+msgid "パーティションの詳細が設定できます。"
+msgstr "可以设置分区的详细信息。"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:147
+msgid ""
+"特に指定がなければデフォルトのまま、「パーティショニングの終了とディスクへの"
+"変更の書き込み」を選択して「続ける」を押しましょう。」"
+msgstr ""
+"如果没有特别要求，保持默认设置，选择“Finish partitioning and write changes "
+"to disk”，然后点击“Continue”。"
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:149
+msgid "パーティションの作成"
+msgstr "创建分区"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:151
+msgid "![Debianのインストール画面](images/install-debian-15.webp)"
+msgstr "![Debian 的安装界面](images/install-debian-15.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:153
+msgid "作成されるパーティションの最終確認です。"
+msgstr "这是对将要创建的分区进行最终确认。"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:155
+msgid ""
+"内容に問題がなければ「はい」にチェックを入れ、「続ける」を押しましょう。"
+msgstr "如果内容没有问题，选中“Yes”，然后点击“Continue”。"
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:157
+msgid "メディアの検査"
+msgstr "扫描介质"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:159
+msgid "![Debianのインストール画面](images/install-debian-16.webp)"
+msgstr "![Debian 的安装界面](images/install-debian-16.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:161
+msgid ""
+"パッケージマネージャー(apt)によって使用される追加のメディアの検査を指定できま"
+"す。"
+msgstr "可以指定是否扫描供软件包管理器（apt）使用的其他介质。"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:163
+msgid ""
+"特に指定がなければ「いいえ」にチェックを入れ、「続ける」を押しましょう。"
+msgstr "如果没有特别要求，选中“No”，然后点击“Continue”。"
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:165
+msgid "Debianパッケージリポジトリの設定"
+msgstr "设置 Debian 软件包仓库"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:167
+msgid "![Debianのインストール画面](images/install-debian-17.webp)"
+msgstr "![Debian 的安装界面](images/install-debian-17.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:169
+msgid ""
+"Debianのパッケージリポジトリの設定を行います。「日本」を選択して「続ける」を"
+"押しましょう。"
+msgstr "设置 Debian 的软件包仓库。选择“日本”，然后点击“Continue”。"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:171
+msgid "![Debianのインストール画面](images/install-debian-18.webp)"
+msgstr "![Debian 的安装界面](images/install-debian-18.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:173
+msgid ""
+"パッケージリポジトリとそのミラーが一覧で表示されます。特に指定がなければ`deb."
+"debian.org`で問題ありません。"
+msgstr ""
+"界面上会列出软件包仓库及其镜像。如果没有特别要求，使用 `deb.debian.org` 即"
+"可。"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:175
+msgid "リポジトリを選択して「続ける」を押しましょう。"
+msgstr "选择仓库后点击“Continue”。"
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:177
+msgid "HTTPプロキシの設定"
+msgstr "设置 HTTP 代理"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:179
+msgid "![Debianのインストール画面](images/install-debian-19.webp)"
+msgstr "![Debian 的安装界面](images/install-debian-19.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:181
+msgid "HTTPプロキシの設定を行います。"
+msgstr "设置 HTTP 代理。"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:183
+msgid ""
+"プロキシを介してインターネットへアクセスする必要がある場合は、プロキシ情報を"
+"入力しましょう。必要ない場合は空のままにします。"
+msgstr "如果需要通过代理访问互联网，请输入代理信息。如果不需要，则保持为空。"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:185
+msgid "設定したら「続ける」を押しましょう。"
+msgstr "设置完成后点击“Continue”。"
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:187
+msgid "Debian Popularity Contestの設定"
+msgstr "设置 Debian Popularity Contest"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:189
+msgid "![Debianのインストール画面](images/install-debian-20.webp)"
+msgstr "![Debian 的安装界面](images/install-debian-20.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:191
+msgid ""
+"このシステムで最も利用したパッケージについての統計を、Debianコミュニティに匿"
+"名で提供するようシステムを設定できます。"
+msgstr "可以将系统设置为向 Debian 社区匿名提供本系统中最常用软件包的统计信息。"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:193
+msgid ""
+"参加することを選ぶと、自動送信スクリプトが毎週1回自動的に実行され、Debianコ"
+"ミュニティに統計が送られます。収集された統計は、[Debian Popularity Contest]"
+"(https://popcon.debian.org/)で確認できます。"
+msgstr ""
+"如果选择参与，自动提交脚本将每周自动运行一次，并将统计信息发送给 Debian 社"
+"区。收集到的统计信息可以在 [Debian Popularity Contest](https://popcon.debian."
+"org/) 上查看。"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:195
+msgid "いずれかを選択して「続ける」を押しましょう。"
+msgstr "任选其一，然后点击“Continue”。"
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:197
+msgid "インストールするソフトウェアの選択"
+msgstr "选择要安装的软件"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:199
+msgid "![Debianのインストール画面](images/install-debian-21.webp)"
+msgstr "![Debian 的安装界面](images/install-debian-21.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:201
+msgid ""
+"デフォルトでは、システムのコア機能のみがインストールされます。ここで追加でイ"
+"ンストールするソフトウェアを選択することができます。"
+msgstr "默认情况下只会安装系统的核心功能。可以在这里选择需要额外安装的软件。"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:203
+msgid ""
+"デスクトップPCとして使用する場合など、GUI環境が必要な場合は「Debian デスク"
+"トップ環境」と「GNOME」にチェックを入れましょう。"
+msgstr ""
+"如果需要 GUI 环境（例如作为台式机使用），请选中“Debian desktop "
+"environment”和“GNOME”。"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:205
+msgid ""
+"サーバー用途で使用する場合など、リモート接続環境が必要な場合は「SSHサーバー」"
+"にチェックを入れましょう。"
+msgstr "如果需要远程连接环境（例如用作服务器），请选中“SSH server”。"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:207
+msgid "インストールするソフトウェアを選択したら「続ける」を押しましょう。"
+msgstr "选择好要安装的软件后点击“Continue”。"
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:209
+msgid "ブートローダのインストール"
+msgstr "安装引导加载程序"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:211
+msgid "![Debianのインストール画面](images/install-debian-22.webp)"
+msgstr "![Debian 的安装界面](images/install-debian-22.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:213
+msgid ""
+"GRUBブートローダーをインストールします。「はい」にチェックを入れ、「続ける」"
+"を押しましょう。"
+msgstr "安装 GRUB 引导加载程序。选中“Yes”，然后点击“Continue”。"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:215
+msgid "![Debianのインストール画面](images/install-debian-23.webp)"
+msgstr "![Debian 的安装界面](images/install-debian-23.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:217
+msgid ""
+"GRUBブートローダーをインストールするデバイスを選択し、「続ける」を押します。"
+"インストールが完了するまで待ちましょう。"
+msgstr "选择要安装 GRUB 引导加载程序的设备，然后点击“Continue”。等待安装完成。"
+
+#. heading (level 3)
+#: content/ja/blog/install-debian/index.md:219
+msgid "システムの再起動"
+msgstr "重启系统"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:221
+msgid "![Debianのインストール画面](images/install-debian-24.webp)"
+msgstr "![Debian 的安装界面](images/install-debian-24.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:223
+msgid "インストールに使用したUSBメモリを取り外し、「続ける」を押しましょう。"
+msgstr "拔下安装时使用的 U 盘，然后点击“Continue”。"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:225
+msgid "これによりシステムが再起動され、Debianが立ち上がります。"
+msgstr "系统随即重启，Debian 启动。"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:227
+msgid "![Debianのログイン画面](images/install-debian-25.webp)"
+msgstr "![Debian 的登录界面](images/install-debian-25.webp)"
+
+#. paragraph
+#: content/ja/blog/install-debian/index.md:229
+msgid "シェルのログイン画面が表示されました。Debianのインストールは完了です。"
+msgstr "显示了 Shell 的登录界面。Debian 安装完成。"

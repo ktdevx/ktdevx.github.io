@@ -1,0 +1,437 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-16 01:11+0000\n"
+"PO-Revision-Date: 2026-11-15 23:40+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/what-is-github-copilot/index.md:2
+msgid "GitHub Copilotとはなにか"
+msgstr "What Is GitHub Copilot?"
+
+#. paragraph
+#: content/ja/blog/what-is-github-copilot/index.md:12
+msgid ""
+"GitHub Copilotは、AIを活用してソフトウェア開発を支援するサービスです。コード"
+"の入力中に候補を提示したり、自然言語で質問に答えたりすることで、開発者の作業"
+"を効率化します。"
+msgstr ""
+"GitHub Copilot is a service that uses AI to support software development. It "
+"makes developers' work more efficient by suggesting code as they type and "
+"answering questions in natural language."
+
+#. paragraph
+#: content/ja/blog/what-is-github-copilot/index.md:14
+msgid ""
+"ここでは、GitHub Copilotの概要、できること、利用時の注意点について解説しま"
+"す。"
+msgstr ""
+"This article explains what GitHub Copilot is, what it can do, and what to "
+"keep in mind when using it."
+
+#. heading (level 2)
+#: content/ja/blog/what-is-github-copilot/index.md:16
+msgid "GitHub Copilotとは"
+msgstr "What Is GitHub Copilot?"
+
+#. paragraph
+#: content/ja/blog/what-is-github-copilot/index.md:18
+msgid ""
+"GitHub Copilotは、開発者が記述しているコードやコメントなどのコンテキストをも"
+"とに、コードの候補を生成するAIコーディングアシスタントです。"
+msgstr ""
+"GitHub Copilot is an AI coding assistant that generates code suggestions "
+"based on context such as the code and comments the developer is writing."
+
+#. paragraph
+#: content/ja/blog/what-is-github-copilot/index.md:20
+msgid ""
+"単にコードを自動生成するだけではなく、コードの説明、エラーの原因調査、テスト"
+"コードの作成、実装方法の相談などにも利用できます。開発者の代わりにすべてを判"
+"断するものではなく、提案を受けながら開発を進めるための支援ツールです。"
+msgstr ""
+"It does more than generate code automatically. You can also use it to "
+"explain code, investigate the cause of errors, create test code, and discuss "
+"implementation approaches. It is not a tool that makes every decision on the "
+"developer's behalf, but a support tool for moving development forward while "
+"receiving suggestions."
+
+#. heading (level 2)
+#: content/ja/blog/what-is-github-copilot/index.md:22
+msgid "GitHub Copilotでできること"
+msgstr "What Can GitHub Copilot Do?"
+
+#. heading (level 3)
+#: content/ja/blog/what-is-github-copilot/index.md:24
+msgid "コード補完"
+msgstr "Code Completion"
+
+#. paragraph
+#: content/ja/blog/what-is-github-copilot/index.md:26
+msgid ""
+"エディターでコードやコメントを入力すると、続きとして考えられるコードを提案し"
+"ます。"
+msgstr ""
+"When you enter code or comments in an editor, it suggests code that could "
+"plausibly come next."
+
+#. paragraph
+#: content/ja/blog/what-is-github-copilot/index.md:28
+msgid ""
+"関数のひな形や定型的な処理を作成する場合に、入力の手間を減らせます。提案され"
+"たコードは内容を確認してから採用できます。"
+msgstr ""
+"This reduces typing when creating function skeletons or routine code. You "
+"can review the suggested code before accepting it."
+
+#. heading (level 3)
+#: content/ja/blog/what-is-github-copilot/index.md:30
+msgid "チャットで質問する"
+msgstr "Ask Questions in Chat"
+
+#. paragraph
+#: content/ja/blog/what-is-github-copilot/index.md:32
+msgid "チャット形式で、コードの内容やエラーについて質問できます。"
+msgstr "You can ask questions about code and errors in a chat format."
+
+#. paragraph
+#: content/ja/blog/what-is-github-copilot/index.md:34
+msgid "例えば、次のような依頼が可能です。"
+msgstr "For example, you can ask it to:"
+
+#. list item > paragraph
+#: content/ja/blog/what-is-github-copilot/index.md:36
+msgid "選択したコードの処理内容を説明する"
+msgstr "Explain what selected code does"
+
+#. list item > paragraph
+#: content/ja/blog/what-is-github-copilot/index.md:37
+msgid "エラーの原因と修正方法を提案する"
+msgstr "Suggest the cause of an error and how to fix it"
+
+#. list item > paragraph
+#: content/ja/blog/what-is-github-copilot/index.md:38
+msgid "コードを別のプログラミング言語に変換する"
+msgstr "Convert code to another programming language"
+
+#. list item > paragraph
+#: content/ja/blog/what-is-github-copilot/index.md:39
+msgid "テストコードを作成する"
+msgstr "Create test code"
+
+#. list item > paragraph
+#: content/ja/blog/what-is-github-copilot/index.md:40
+msgid "処理を改善する方法を提案する"
+msgstr "Suggest ways to improve the code"
+
+#. heading (level 3)
+#: content/ja/blog/what-is-github-copilot/index.md:42
+msgid "コマンドラインで利用する"
+msgstr "Use It from the Command Line"
+
+#. paragraph
+#: content/ja/blog/what-is-github-copilot/index.md:44
+msgid ""
+"GitHub Copilotは、GitHub CLIを通じてコマンドラインから利用することもできま"
+"す。シェルコマンドの相談や、コマンドの意味の確認などに役立ちます。"
+msgstr ""
+"GitHub Copilot can also be used from the command line through GitHub CLI. It "
+"is useful for getting help with shell commands and checking what commands do."
+
+#. paragraph
+#: content/ja/blog/what-is-github-copilot/index.md:46
+msgid ""
+"ただし、提案されたコマンドをそのまま実行するのではなく、対象ファイルやオプ"
+"ションを確認してから実行することが大切です。"
+msgstr ""
+"However, rather than running a suggested command as is, it is important to "
+"check the target files and options before running it."
+
+#. heading (level 3)
+#: content/ja/blog/what-is-github-copilot/index.md:48
+msgid "Pull Requestやコードレビューを支援する"
+msgstr "Support Pull Requests and Code Reviews"
+
+#. paragraph
+#: content/ja/blog/what-is-github-copilot/index.md:50
+msgid ""
+"変更内容の説明文を作成したり、コードレビューを支援したりできます。変更の概要"
+"を整理する作業や、見落としやすい確認項目の洗い出しに利用できます。"
+msgstr ""
+"It can write descriptions of changes and support code reviews. You can use "
+"it to summarize changes and to list check items that are easy to overlook."
+
+#. heading (level 3)
+#: content/ja/blog/what-is-github-copilot/index.md:52
+msgid "エージェントとして開発作業を支援する"
+msgstr "Support Development Work as an Agent"
+
+#. paragraph
+#: content/ja/blog/what-is-github-copilot/index.md:54
+msgid ""
+"利用する機能やプランによっては、実装方法の調査、計画の作成、コードの変更、"
+"Pull Requestの作成までを支援できます。"
+msgstr ""
+"Depending on the features and plan you use, it can support everything from "
+"researching implementation approaches and creating plans to changing code "
+"and creating Pull Requests."
+
+#. paragraph
+#: content/ja/blog/what-is-github-copilot/index.md:56
+msgid ""
+"この場合も、生成された変更を開発者がレビューし、テストや動作確認を行ってから"
+"取り込むことが重要です。"
+msgstr ""
+"Even in this case, it is important for developers to review the generated "
+"changes and run tests and check behavior before incorporating them."
+
+#. heading (level 2)
+#: content/ja/blog/what-is-github-copilot/index.md:58
+msgid "利用できる環境"
+msgstr "Where You Can Use It"
+
+#. paragraph
+#: content/ja/blog/what-is-github-copilot/index.md:60
+msgid ""
+"GitHub Copilotは、Visual Studio Codeをはじめとする複数の開発環境で利用できま"
+"す。代表的な利用場所は次のとおりです。"
+msgstr ""
+"GitHub Copilot is available in multiple development environments, including "
+"Visual Studio Code. Typical places where you can use it include:"
+
+#. list item > paragraph
+#: content/ja/blog/what-is-github-copilot/index.md:62
+msgid "Visual Studio CodeなどのIDE"
+msgstr "IDEs such as Visual Studio Code"
+
+#. list item > paragraph
+#: content/ja/blog/what-is-github-copilot/index.md:63
+msgid "GitHubのWebサイト"
+msgstr "The GitHub website"
+
+#. list item > paragraph
+#: content/ja/blog/what-is-github-copilot/index.md:64
+msgid "GitHub Mobile"
+msgstr "GitHub Mobile"
+
+#. list item > paragraph
+#: content/ja/blog/what-is-github-copilot/index.md:65
+msgid "GitHub CLIを利用するコマンドライン"
+msgstr "The command line through GitHub CLI"
+
+#. list item > paragraph
+#: content/ja/blog/what-is-github-copilot/index.md:66
+msgid "Visual Studio、Xcode、JetBrains IDEなどの開発環境"
+msgstr ""
+"Development environments such as Visual Studio, Xcode, and JetBrains IDEs"
+
+#. paragraph
+#: content/ja/blog/what-is-github-copilot/index.md:68
+msgid ""
+"対応する環境や利用できる機能は変更される場合があります。利用を始める前に、使"
+"用する環境に対応しているか公式ドキュメントで確認してください。"
+msgstr ""
+"Supported environments and available features may change. Before getting "
+"started, check the official documentation to confirm that the environment "
+"you use is supported."
+
+#. heading (level 2)
+#: content/ja/blog/what-is-github-copilot/index.md:70
+msgid "GitHub Copilotのメリット"
+msgstr "Benefits of GitHub Copilot"
+
+#. paragraph
+#: content/ja/blog/what-is-github-copilot/index.md:72
+msgid ""
+"GitHub Copilotを利用すると、定型的なコードの入力や調査にかかる時間を短縮でき"
+"ます。また、慣れていないプログラミング言語やライブラリを使うときに、実装例を"
+"得るための補助としても役立ちます。"
+msgstr ""
+"GitHub Copilot can reduce the time spent typing routine code and doing "
+"research. It is also helpful for getting implementation examples when you "
+"use a programming language or library you are not familiar with."
+
+#. paragraph
+#: content/ja/blog/what-is-github-copilot/index.md:74
+msgid ""
+"コードの説明や改善案を質問できるため、既存コードを理解するときのきっかけにも"
+"なります。ただし、回答が常に正しいとは限らないため、学習や設計の判断をすべて"
+"任せるのではなく、開発者自身が内容を理解する必要があります。"
+msgstr ""
+"Because you can ask it to explain code and suggest improvements, it can also "
+"be a starting point for understanding existing code. However, its answers "
+"are not always correct, so rather than leaving all learning and design "
+"decisions to it, developers need to understand the content themselves."
+
+#. heading (level 2)
+#: content/ja/blog/what-is-github-copilot/index.md:76
+msgid "利用時の注意点"
+msgstr "Things to Keep in Mind"
+
+#. heading (level 3)
+#: content/ja/blog/what-is-github-copilot/index.md:78
+msgid "生成されたコードを検証する"
+msgstr "Verify Generated Code"
+
+#. paragraph
+#: content/ja/blog/what-is-github-copilot/index.md:80
+msgid ""
+"GitHub Copilotが生成したコードには、誤りや非効率な処理、脆弱性が含まれる可能"
+"性があります。採用する前に、コードの内容を確認し、テストや静的解析を実行して"
+"ください。"
+msgstr ""
+"Code generated by GitHub Copilot may contain errors, inefficient processing, "
+"or vulnerabilities. Before adopting it, review the code and run tests and "
+"static analysis."
+
+#. paragraph
+#: content/ja/blog/what-is-github-copilot/index.md:82
+msgid ""
+"特に、認証、認可、入力値の検証、暗号化、データベース操作などのセキュリティに"
+"関わる処理は慎重に確認する必要があります。"
+msgstr ""
+"In particular, security-related code such as authentication, authorization, "
+"input validation, encryption, and database operations needs to be reviewed "
+"carefully."
+
+#. heading (level 3)
+#: content/ja/blog/what-is-github-copilot/index.md:84
+msgid "機密情報を入力しない"
+msgstr "Do Not Enter Sensitive Information"
+
+#. paragraph
+#: content/ja/blog/what-is-github-copilot/index.md:86
+msgid ""
+"APIキー、パスワード、個人情報、社内の機密情報などを、チャットへの入力やプロン"
+"プトに含めないようにします。組織で利用する場合は、会社のセキュリティポリシー"
+"やGitHubの管理設定も確認してください。"
+msgstr ""
+"Do not include API keys, passwords, personal information, or confidential "
+"company information in chat input or prompts. When using it in an "
+"organization, also check your company's security policies and GitHub's "
+"administrative settings."
+
+#. heading (level 3)
+#: content/ja/blog/what-is-github-copilot/index.md:88
+msgid "ライセンスを確認する"
+msgstr "Check Licenses"
+
+#. paragraph
+#: content/ja/blog/what-is-github-copilot/index.md:90
+msgid ""
+"生成されたコードが既存のコードと似ている場合があります。公開するソフトウェア"
+"に利用する場合は、プロジェクトのライセンスや依存ライブラリの条件を確認し、必"
+"要な対応を行ってください。"
+msgstr ""
+"Generated code may resemble existing code. If you use it in software you "
+"publish, check the project's license and the terms of dependent libraries, "
+"and take any necessary action."
+
+#. heading (level 3)
+#: content/ja/blog/what-is-github-copilot/index.md:92
+msgid "利用制限を確認する"
+msgstr "Check Usage Limits"
+
+#. paragraph
+#: content/ja/blog/what-is-github-copilot/index.md:94
+msgid ""
+"利用できるモデル、補完やチャットの回数、AIクレジットなどは、プランや機能に"
+"よって異なります。プランの内容や料金は変更される可能性があるため、最新情報は"
+"公式の料金ページで確認してください。"
+msgstr ""
+"Available models, the number of completions and chat requests, AI credits, "
+"and so on vary by plan and feature. Plan details and pricing may change, so "
+"check the official pricing page for the latest information."
+
+#. heading (level 2)
+#: content/ja/blog/what-is-github-copilot/index.md:96
+msgid "料金プランと始め方"
+msgstr "Pricing Plans and Getting Started"
+
+#. paragraph
+#: content/ja/blog/what-is-github-copilot/index.md:98
+msgid ""
+"GitHub Copilotには個人向けの無料プランや有料プラン、組織・企業向けのプランが"
+"あります。利用できる機能や使用量の上限はプランによって異なります。"
+msgstr ""
+"GitHub Copilot offers a free plan and paid plans for individuals, as well as "
+"plans for organizations and enterprises. Available features and usage limits "
+"vary by plan."
+
+#. paragraph
+#: content/ja/blog/what-is-github-copilot/index.md:100
+msgid ""
+"最新の料金、利用可能な機能、対応環境については、以下の公式ページを確認してく"
+"ださい。"
+msgstr ""
+"For the latest pricing, available features, and supported environments, see "
+"the following official pages."
+
+#. list item > paragraph
+#: content/ja/blog/what-is-github-copilot/index.md:102
+msgid ""
+"[GitHub Copilotの概要（GitHub Docs）](https://docs.github.com/ja/copilot/"
+"about-github-copilot/what-is-github-copilot)"
+msgstr ""
+"[What is GitHub Copilot? (GitHub Docs)](https://docs.github.com/en/copilot/"
+"about-github-copilot/what-is-github-copilot)"
+
+#. list item > paragraph
+#: content/ja/blog/what-is-github-copilot/index.md:103
+msgid "[GitHub Copilotの料金プラン](https://github.com/features/copilot/plans)"
+msgstr "[GitHub Copilot Plans](https://github.com/features/copilot/plans)"
+
+#. list item > paragraph
+#: content/ja/blog/what-is-github-copilot/index.md:104
+msgid ""
+"[GitHub Copilotのセットアップ（GitHub Docs）](https://docs.github.com/ja/"
+"copilot/how-tos/set-up)"
+msgstr ""
+"[Setting up GitHub Copilot (GitHub Docs)](https://docs.github.com/en/copilot/"
+"how-tos/set-up)"
+
+#. paragraph
+#: content/ja/blog/what-is-github-copilot/index.md:106
+msgid ""
+"利用を始める場合は、GitHubアカウントで公式ページにサインインし、自分の目的に"
+"合ったプランを選択します。その後、使用するIDEやGitHub CLIなどに必要な拡張機"
+"能・設定を追加します。"
+msgstr ""
+"To get started, sign in to the official website with your GitHub account and "
+"choose a plan that suits your purpose. Then add the required extensions and "
+"settings to the IDE, GitHub CLI, or other tools you use."
+
+#. heading (level 2)
+#: content/ja/blog/what-is-github-copilot/index.md:108
+msgid "まとめ"
+msgstr "Summary"
+
+#. paragraph
+#: content/ja/blog/what-is-github-copilot/index.md:110
+msgid ""
+"GitHub Copilotは、コード補完、チャット、コマンドライン、コードレビューなどを"
+"通じて、ソフトウェア開発を支援するAIサービスです。定型的な作業を効率化し、実"
+"装方法を検討するときの相談相手として利用できます。"
+msgstr ""
+"GitHub Copilot is an AI service that supports software development through "
+"code completion, chat, the command line, code reviews, and more. You can use "
+"it to streamline routine tasks and as someone to consult when considering "
+"implementation approaches."
+
+#. paragraph
+#: content/ja/blog/what-is-github-copilot/index.md:112
+msgid ""
+"一方で、生成されたコードが正しいとは限りません。機密情報を入力せず、セキュリ"
+"ティやライセンスを確認し、テストとレビューを行いながら活用しましょう。"
+msgstr ""
+"On the other hand, generated code is not always correct. Use it while "
+"avoiding entering sensitive information, checking security and licensing, "
+"and performing tests and reviews."

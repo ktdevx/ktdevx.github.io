@@ -1,0 +1,63 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:58+0000\n"
+"PO-Revision-Date: 2026-11-15 23:56+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/about/index.md:2
+msgid "私について"
+msgstr "关于我"
+
+#. paragraph
+#: content/ja/about/index.md:7
+msgid "こんにちは、竹村海斗です。"
+msgstr "你好，我是竹村海斗。"
+
+#. paragraph
+#: content/ja/about/index.md:9
+msgid ""
+"本業はシステムエンジニアで、主に組み込みシステムの分野で開発に携わっていま"
+"す。業界の技術は時代とともに進化し続けているため、日々の業務に活かせるよう、"
+"常に学習を心がけています。"
+msgstr ""
+"我的本职工作是系统工程师，主要从事嵌入式系统领域的开发。行业技术随着时代不断"
+"发展，因此我始终坚持学习，以便将所学运用到日常工作中。"
+
+#. paragraph
+#: content/ja/about/index.md:11
+msgid ""
+"システムエンジニアとして学んできたことが、皆様のお役に立てればと思い、このサ"
+"イトを立ち上げました。"
+msgstr ""
+"我希望自己作为系统工程师所学到的东西能对大家有所帮助，因此创建了这个网站。"
+
+#. heading (level 2)
+#: content/ja/about/index.md:13
+msgid "保有資格"
+msgstr "持有资格"
+
+#. paragraph
+#: content/ja/about/index.md:15
+msgid ""
+"|取得日    |資格名                      |\n"
+"|----------|----------------------------|\n"
+"|2016年11月|IPA 基本情報技術者試験（FE）|\n"
+"|2017年6月 |IPA 応用情報技術者試験（AP）|\n"
+"|2020年11月|JDLA G検定                  |\n"
+"|2023年9月 |JDLA E資格                  |"
+msgstr ""
+"|取得时间       |资格名称                    |\n"
+"|----------|----------------------------|\n"
+"|2016 年 11 月|IPA 基本信息技术者考试（FE）|\n"
+"|2017 年 6 月 |IPA 应用信息技术者考试（AP）|\n"
+"|2020 年 11 月|JDLA G 检定                 |\n"
+"|2023 年 9 月 |JDLA E 资格                 |"

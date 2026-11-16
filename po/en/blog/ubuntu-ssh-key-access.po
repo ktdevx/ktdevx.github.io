@@ -1,0 +1,125 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:42+0000\n"
+"PO-Revision-Date: 2026-11-15 23:40+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:2
+msgid "【Ubuntu】公開鍵認証でSSH接続する方法"
+msgstr "Connect to Ubuntu over SSH Using Public Key Authentication"
+
+#. paragraph
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:12
+msgid ""
+"UbuntuにSSH接続する際、パスワード認証ではなく公開鍵認証を利用すると、セキュリ"
+"ティを向上させることができます。本記事では、SSH公開鍵認証の設定方法を詳しく解"
+"説します。"
+msgstr ""
+"When connecting to Ubuntu over SSH, using public key authentication instead "
+"of password authentication can improve security. This article explains how "
+"to configure SSH public key authentication."
+
+#. heading (level 2)
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:14
+msgid "公開鍵と秘密鍵の生成"
+msgstr "Generate a Public and Private Key Pair"
+
+#. paragraph
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:16
+msgid ""
+"まずはクライアント側でSSH鍵を生成します。今回は鍵アルゴリズムED25519で作成し"
+"ました。"
+msgstr ""
+"First, generate an SSH key pair on the client. In this example, the ED25519 "
+"key algorithm is used."
+
+#. paragraph
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:22
+msgid ""
+"SSH鍵の生成方法は以下のページで詳しく解説しています。参考にしてください。"
+msgstr "The following page explains how to generate SSH keys in detail."
+
+#. paragraph
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:24
+msgid "[SSH鍵の生成方法](/blog/generate-ssh-key)"
+msgstr "[How to Generate an SSH Key](/blog/generate-ssh-key)"
+
+#. paragraph
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:26
+msgid ""
+"上記コマンドを実行すると、秘密鍵と公開鍵が`~/.ssh/`ディレクトリに生成されま"
+"す。"
+msgstr ""
+"When you run the command above, the private and public keys are generated in "
+"the `~/.ssh/` directory."
+
+#. heading (level 2)
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:28
+msgid "公開鍵をサーバーにコピー"
+msgstr "Copy the Public Key to the Server"
+
+#. paragraph
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:30
+msgid "生成した公開鍵をSSHサーバーにコピーします。"
+msgstr "Copy the public key you generated to the SSH server."
+
+#. paragraph
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:36
+msgid ""
+"または、手動で公開鍵の内容をサーバーの`~/.ssh/authorized_keys`に追加すること"
+"もできます。"
+msgstr ""
+"Alternatively, you can manually add the public key contents to the server's "
+"`~/.ssh/authorized_keys` file."
+
+#. heading (level 2)
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:38
+msgid "SSH設定の変更"
+msgstr "Change the SSH Configuration"
+
+#. paragraph
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:40
+msgid ""
+"セキュリティ向上のため、パスワードでのSSH接続を禁止し、公開鍵認証のみで接続で"
+"きるようにします。"
+msgstr ""
+"For improved security, disable SSH connections using passwords so that "
+"connections can be made only with public key authentication."
+
+#. paragraph
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:42
+msgid ""
+"SSHの設定を変更するには、サーバーの`/etc/ssh/sshd_config`をテキストエディタで"
+"編集します。以下の設定を確認・変更してください。"
+msgstr ""
+"To change the SSH configuration, edit the server's `/etc/ssh/sshd_config` "
+"file with a text editor. Check and change the following settings."
+
+#. paragraph
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:49
+msgid "設定を反映させるため、SSHを再起動します。"
+msgstr "Restart SSH to apply the changes."
+
+#. heading (level 2)
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:55
+msgid "SSH接続の確認"
+msgstr "Verify the SSH Connection"
+
+#. paragraph
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:57
+msgid "クライアントからSSH接続を試します。"
+msgstr "Try connecting over SSH from the client."
+
+#. paragraph
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:63
+msgid "ログインできれば、公開鍵認証の設定は完了です。"
+msgstr "If you can log in, the public key authentication setup is complete."

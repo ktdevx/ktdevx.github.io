@@ -1,0 +1,140 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:45+0000\n"
+"PO-Revision-Date: 2026-11-15 23:40+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/c-goto-memory-free/index.md:2
+msgid "【C言語】goto文でメモリ解放の管理を容易にする"
+msgstr "Simplify Memory Management with goto Statements in C"
+
+#. paragraph
+#: content/ja/blog/c-goto-memory-free/index.md:11
+msgid ""
+"開発中、関数内で複数の動的メモリを確保する必要がある状況に直面することがあり"
+"ます。メモリ確保に失敗した場合、それまでに確保したメモリを解放する必要があ"
+"り、エラー処理が複雑化しがちです。"
+msgstr ""
+"During development, you may encounter situations where you need to allocate "
+"multiple blocks of dynamic memory within a function. If a memory allocation "
+"fails, you need to free any memory allocated up to that point, which tends "
+"to make error handling complex."
+
+#. paragraph
+#: content/ja/blog/c-goto-memory-free/index.md:13
+msgid ""
+"ここでは、`goto`文を利用してエラー処理をシンプルにし、メモリ解放の管理を容易"
+"にする方法を解説します。"
+msgstr ""
+"This article explains how to simplify error handling and make memory "
+"deallocation easier to manage by using the `goto` statement."
+
+#. heading (level 2)
+#: content/ja/blog/c-goto-memory-free/index.md:15
+msgid "goto文とは"
+msgstr "What Is the goto Statement?"
+
+#. paragraph
+#: content/ja/blog/c-goto-memory-free/index.md:17
+msgid ""
+"`goto`文は、関数内で指定されたラベルにジャンプするための構文です。以下のよう"
+"な形式で使います。"
+msgstr ""
+"The `goto` statement is a construct for jumping to a specified label within "
+"a function. It is used in the following format."
+
+#. paragraph
+#: content/ja/blog/c-goto-memory-free/index.md:23
+msgid ""
+"ラベル名は関数内の任意の位置に定義でき、`goto`文はそのラベルの位置までジャン"
+"プします。コードの流れを複雑にし、可読性や保守性を低下させる可能性があるた"
+"め、使用は避けられがちです。"
+msgstr ""
+"A label can be defined anywhere within the function, and the `goto` "
+"statement jumps to that label's location. Because it can complicate the flow "
+"of code and reduce readability and maintainability, its use is often avoided."
+
+#. paragraph
+#: content/ja/blog/c-goto-memory-free/index.md:25
+msgid ""
+"しかし、正しく使用することで、プログラムのシンプルさ、可読性、保守性を向上さ"
+"せることができます。"
+msgstr ""
+"However, when used correctly, it can improve the simplicity, readability, "
+"and maintainability of a program."
+
+#. heading (level 2)
+#: content/ja/blog/c-goto-memory-free/index.md:27
+msgid "メモリ解放を伴う複雑なエラー処理"
+msgstr "Complex Error Handling with Memory Deallocation"
+
+#. paragraph
+#: content/ja/blog/c-goto-memory-free/index.md:29
+msgid "以下は、複数の動的メモリを管理するコードの一例です。"
+msgstr ""
+"Here is an example of code that manages multiple blocks of dynamic memory."
+
+#. paragraph
+#: content/ja/blog/c-goto-memory-free/index.md:67
+msgid ""
+"このコードは正しく動作しますが、各メモリの確保と解放が個別に行われており、エ"
+"ラーが発生するたびに解放コードを記述する必要があります。これにより、コードが"
+"冗長になり、メモリリークのリスクも増大します。"
+msgstr ""
+"While this code works correctly, each memory allocation and deallocation is "
+"handled individually, and deallocation code has to be written every time an "
+"error occurs. This makes the code redundant and increases the risk of memory "
+"leaks."
+
+#. heading (level 2)
+#: content/ja/blog/c-goto-memory-free/index.md:69
+msgid "goto文でメモリ解放をシンプルにする"
+msgstr "Simplify Memory Deallocation with goto"
+
+#. paragraph
+#: content/ja/blog/c-goto-memory-free/index.md:71
+msgid ""
+"`goto`文を利用すると、エラー発生時の処理を一箇所に集約でき、メモリ解放をシン"
+"プルに管理できます。"
+msgstr ""
+"Using the `goto` statement, you can consolidate error handling in one place "
+"and manage memory deallocation simply."
+
+#. paragraph
+#: content/ja/blog/c-goto-memory-free/index.md:110
+msgid ""
+"この例では、`goto cleanup`を使ってエラーが発生した場合でも、最後にすべてのメ"
+"モリを解放できるようになっています。`free`関数は`NULL`を引数にしても問題ない"
+"ため、この方法でメモリ管理を安全かつ効率的に行えます。"
+msgstr ""
+"In this example, `goto cleanup` ensures that all memory is freed at the end "
+"even if an error occurs. Since the `free` function can safely take `NULL` as "
+"an argument, this approach allows memory to be managed safely and "
+"efficiently."
+
+#. heading (level 2)
+#: content/ja/blog/c-goto-memory-free/index.md:112
+msgid "まとめ"
+msgstr "Conclusion"
+
+#. paragraph
+#: content/ja/blog/c-goto-memory-free/index.md:114
+msgid ""
+"`goto`文は誤用すると可読性や保守性を損なう可能性がありますが、適切に使うこと"
+"でコードをシンプルに保つことができます。今回はメモリ管理の例を通じてその利点"
+"を説明しましたが、他の状況でも有効な場合があります。**適切な場面で活用するこ"
+"とが重要です。**"
+msgstr ""
+"Misusing the `goto` statement can harm readability and maintainability, but "
+"using it appropriately keeps code simple. This article demonstrated its "
+"benefits with a memory management example, but it can be effective in other "
+"situations as well. **What matters is using it in the right situations.**"

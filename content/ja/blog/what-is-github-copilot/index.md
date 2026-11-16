@@ -99,9 +99,9 @@ GitHub Copilotには個人向けの無料プランや有料プラン、組織・
 
 最新の料金、利用可能な機能、対応環境については、以下の公式ページを確認してください。
 
-- [GitHub Copilotの概要（GitHub Docs）](https://docs.github.com/en/copilot/about-github-copilot/what-is-github-copilot)
+- [GitHub Copilotの概要（GitHub Docs）](https://docs.github.com/ja/copilot/about-github-copilot/what-is-github-copilot)
 - [GitHub Copilotの料金プラン](https://github.com/features/copilot/plans)
-- [GitHub Copilotのセットアップ（GitHub Docs）](https://docs.github.com/en/copilot/how-tos/set-up)
+- [GitHub Copilotのセットアップ（GitHub Docs）](https://docs.github.com/ja/copilot/how-tos/set-up)
 
 利用を始める場合は、GitHubアカウントで公式ページにサインインし、自分の目的に合ったプランを選択します。その後、使用するIDEやGitHub CLIなどに必要な拡張機能・設定を追加します。
 

@@ -1,0 +1,48 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:59+0000\n"
+"PO-Revision-Date: 2026-11-15 23:56+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/sitemap/index.md:2
+msgid "サイトマップ"
+msgstr "网站地图"
+
+#. list item > paragraph
+#: content/ja/sitemap/index.md:7
+msgid "[ホーム](/)"
+msgstr "[首页](/)"
+
+#. list item > paragraph
+#: content/ja/sitemap/index.md:8
+msgid "[私について](/about)"
+msgstr "[关于我](/about)"
+
+#. list item > paragraph
+#: content/ja/sitemap/index.md:9
+msgid "[ブログ](/blog)"
+msgstr "[博客](/blog)"
+
+#. list item > paragraph
+#: content/ja/sitemap/index.md:10
+msgid "[連絡先](/contact)"
+msgstr "[联系方式](/contact)"
+
+#. list item > paragraph
+#: content/ja/sitemap/index.md:11
+msgid "[利用規約](/terms-of-use)"
+msgstr "[使用条款](/terms-of-use)"
+
+#. list item > paragraph
+#: content/ja/sitemap/index.md:12
+msgid "[プライバシーポリシー](/privacy-policy)"
+msgstr "[隐私政策](/privacy-policy)"

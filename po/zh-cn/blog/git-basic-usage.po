@@ -1,0 +1,222 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-16 00:00+0000\n"
+"PO-Revision-Date: 2026-11-15 23:56+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/git-basic-usage/index.md:2
+msgid "Gitの基本操作"
+msgstr "Git 的基本操作"
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:11
+msgid ""
+"Gitを使うことで、プログラムやドキュメントなどの変更履歴を管理し、過去の状態に"
+"戻したり、複数人での共同開発を効率的に行うすることができます。"
+msgstr ""
+"使用 Git，可以管理程序和文档等的变更历史，恢复到过去的状态，并高效地进行多人"
+"协作开发。"
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:13
+msgid "ここでは、Gitの基本操作について解説します。"
+msgstr "本文将介绍 Git 的基本操作。"
+
+#. heading (level 2)
+#: content/ja/blog/git-basic-usage/index.md:15
+msgid "Gitのインストール"
+msgstr "安装 Git"
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:17
+msgid ""
+"Gitのインストール手順は以下のページで詳しく解説しています。内容を参考に、ご自"
+"身の環境にインストールしてください。"
+msgstr ""
+"Git 的安装步骤在以下页面中有详细介绍。请参考其内容，在自己的环境中进行安装。"
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:19
+msgid "[【Windows】Gitのインストール手順](/blog/install-git-on-windows)"
+msgstr "[【Windows】Git 安装步骤](/blog/install-git-on-windows)"
+
+#. heading (level 2)
+#: content/ja/blog/git-basic-usage/index.md:21
+msgid "Gitの初期設定"
+msgstr "Git 的初始设置"
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:23
+msgid ""
+"Gitを使用するには、ユーザー名とメールアドレスの設定が必要です。以下のコマンド"
+"でGitの初期設定を行います。"
+msgstr ""
+"使用 Git 之前，需要设置用户名和电子邮件地址。使用以下命令进行 Git 的初始设"
+"置。"
+
+#. heading (level 2)
+#: content/ja/blog/git-basic-usage/index.md:30
+msgid "リポジトリのクローン"
+msgstr "克隆仓库"
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:32
+msgid ""
+"Gitで管理するプロジェクトは、リポジトリと呼ばれる単位で管理されます。リモート"
+"リポジトリをクローンするには、以下のコマンドを使います。"
+msgstr ""
+"由 Git 管理的项目以称为仓库的单位进行管理。要克隆远程仓库，请使用以下命令。"
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:38
+msgid "これにより、リモートリポジトリからクローンできます。"
+msgstr "这样就可以从远程仓库进行克隆。"
+
+#. heading (level 2)
+#: content/ja/blog/git-basic-usage/index.md:40
+msgid "ブランチの作成と切り替え"
+msgstr "创建和切换分支"
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:42
+msgid ""
+"Gitでは、複数のブランチを使って、異なる機能や修正を並行して開発することができ"
+"ます。以下のコマンドで、新しいブランチを作成し、ブランチを切り替えることがで"
+"きます。"
+msgstr ""
+"在 Git 中，可以使用多个分支并行开发不同的功能或修复。使用以下命令，可以创建新"
+"分支并切换分支。"
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:44
+msgid ""
+"ブランチを作成するため、まずは派生元となるブランチをチェックアウトします。"
+msgstr "要创建分支，首先检出作为派生来源的分支。"
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:50
+msgid "その後、以下のコマンドで派生元ブランチから新たにブランチを作成します。"
+msgstr "然后，使用以下命令从派生来源分支创建新的分支。"
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:57
+msgid ""
+"これにより、`feature`という名前の新しいブランチが作成され、現在のブランチが"
+"`feature`に切り替わります。"
+msgstr ""
+"这样就会创建一个名为 `feature` 的新分支，并将当前分支切换到 `feature`。"
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:59
+msgid ""
+"ただし、これではまだリモートリポジトリに新しいリポジトリが反映されていないた"
+"め、`git push`コマンドを使用して反映します。"
+msgstr ""
+"不过，此时新分支还没有反映到远程仓库中，因此需要使用 `git push` 命令进行推"
+"送。"
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:65
+msgid "これにより、リモートリポジトリにブランチが反映されます。"
+msgstr "这样，分支就会反映到远程仓库中。"
+
+#. heading (level 2)
+#: content/ja/blog/git-basic-usage/index.md:67
+msgid "ファイルの追加とコミット"
+msgstr "添加和提交文件"
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:69
+msgid ""
+"リポジトリにファイルを追加し、変更履歴を記録するには、以下のコマンドを使いま"
+"す。"
+msgstr "要向仓库添加文件并记录变更历史，请使用以下命令。"
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:77
+msgid ""
+"この例では、`README.md`ファイルを追加し、変更履歴を「Initial commit」という"
+"メッセージでコミットしています。`-m`オプションを利用しない場合は、変更履歴を"
+"記録するためにテキストエディターが開かれます。"
+msgstr ""
+"本例中添加了 `README.md` 文件，并以“Initial commit”为消息提交了变更。如果不使"
+"用 `-m` 选项，则会打开文本编辑器以便输入提交消息。"
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:79
+msgid ""
+"これだけでは変更はローカルのリポジトリにしか反映されないため注意してくださ"
+"い。"
+msgstr "请注意，仅执行这些操作的话，变更只会反映到本地仓库中。"
+
+#. heading (level 2)
+#: content/ja/blog/git-basic-usage/index.md:81
+msgid "変更をリモートリポジトリに反映"
+msgstr "将变更推送到远程仓库"
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:83
+msgid "リモートリポジトリに変更を反映するには、以下のコマンドを使います。"
+msgstr "要将变更反映到远程仓库，请使用以下命令。"
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:89
+msgid "これにより、コミットした内容がリモートリポジトリに反映されます。"
+msgstr "这样，提交的内容就会反映到远程仓库中。"
+
+#. heading (level 2)
+#: content/ja/blog/git-basic-usage/index.md:91
+msgid "ブランチ間で変更をマージ"
+msgstr "在分支之间合并变更"
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:93
+msgid ""
+"複数のブランチで変更した内容を、マージして一つのブランチに統合することができ"
+"ます。以下のコマンドで、ブランチをマージすることができます。"
+msgstr ""
+"可以将在多个分支中所做的变更合并到一个分支中。使用以下命令即可合并分支。"
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:100
+msgid ""
+"これにより、ブランチ間で変更がマージされます。ローカルリポジトリにマージした"
+"場合は忘れずに変更をプッシュしましょう。"
+msgstr ""
+"这样，变更就会在分支之间合并。如果是在本地仓库中合并的，别忘了推送变更。"
+
+#. heading (level 2)
+#: content/ja/blog/git-basic-usage/index.md:102
+msgid "リモートリポジトリの変更を取り込む"
+msgstr "拉取远程仓库的变更"
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:104
+msgid ""
+"リモートリポジトリの変更内容をローカルに反映するには、プルを行います。以下の"
+"コマンドを使います。"
+msgstr "要将远程仓库的变更内容反映到本地，需要执行拉取。请使用以下命令。"
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:110
+msgid "これにより、リモートリポジトリの変更内容がローカルに反映されます。"
+msgstr "这样，远程仓库的变更内容就会反映到本地。"
+
+#. heading (level 2)
+#: content/ja/blog/git-basic-usage/index.md:112
+msgid "外部リンク"
+msgstr "外部链接"
+
+#. list item > paragraph
+#: content/ja/blog/git-basic-usage/index.md:114
+msgid "[Git](https://git-scm.com/)"
+msgstr "[Git](https://git-scm.com/)"

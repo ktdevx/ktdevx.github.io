@@ -1,0 +1,46 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:42+0000\n"
+"PO-Revision-Date: 2026-11-15 23:40+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/contact/index.md:2
+msgid "連絡先"
+msgstr "Contact"
+
+#. paragraph
+#: content/ja/contact/index.md:7
+msgid ""
+"以下の方法でご連絡いただけます。**返信にはお時間をいただく場合がございます**"
+"ので、あらかじめご了承ください。"
+msgstr ""
+"You can contact me through the following methods. **Please note that it may "
+"take some time to respond**."
+
+#. list item > paragraph
+#: content/ja/contact/index.md:9
+msgid "メールアドレス：[ktdevx@gmail.com](mailto:ktdevx@gmail.com)"
+msgstr "E-mail: [ktdevx@gmail.com](mailto:ktdevx@gmail.com)"
+
+#. list item > paragraph
+#: content/ja/contact/index.md:10
+msgid "X：[@ktdevx](https://x.com/ktdevx)"
+msgstr "X: [@ktdevx](https://x.com/ktdevx)"
+
+#. paragraph
+#: content/ja/contact/index.md:12
+msgid ""
+"ご提供いただいた個人情報は、当サイトの[プライバシーポリシー](/privacy-policy)"
+"に基づき適切に管理いたします。"
+msgstr ""
+"Any personal information you provide will be properly managed in accordance "
+"with this site's [Privacy Policy](/privacy-policy)."

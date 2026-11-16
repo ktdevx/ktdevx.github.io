@@ -1,0 +1,77 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:42+0000\n"
+"PO-Revision-Date: 2026-11-15 23:40+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/disable-apt-auto-update/index.md:2
+msgid "APTパッケージの自動更新を無効化する"
+msgstr "Disable Automatic Updates for APT Packages"
+
+#. paragraph
+#: content/ja/blog/disable-apt-auto-update/index.md:11
+msgid ""
+"パッケージが自動更新されると、これまで動いていたソフトウェアが突然動かなく"
+"なってしまう可能性があります。"
+msgstr ""
+"When packages are updated automatically, there is a chance that software "
+"that was previously working may suddenly stop functioning."
+
+#. paragraph
+#: content/ja/blog/disable-apt-auto-update/index.md:13
+msgid "ここでは、APTパッケージの自動更新を無効化する方法について解説します。"
+msgstr "This guide explains how to disable automatic updates for APT packages."
+
+#. heading (level 2)
+#: content/ja/blog/disable-apt-auto-update/index.md:15
+msgid "自動更新設定の確認"
+msgstr "Check Automatic Update Settings"
+
+#. paragraph
+#: content/ja/blog/disable-apt-auto-update/index.md:17
+msgid ""
+"自動更新の設定は、`/etc/apt/apt.conf.d`ディレクトリに格納されている`20auto-"
+"upgrades`に記載されています。以下は、設定の表示例です。"
+msgstr ""
+"The automatic update settings are located in the `20auto-upgrades` file "
+"within the `/etc/apt/apt.conf.d` directory. Below is an example of the "
+"settings:"
+
+#. paragraph
+#: content/ja/blog/disable-apt-auto-update/index.md:24
+msgid ""
+"`Update-Package-Lists`はパッケージの自動アップデート、`Unattended-Upgrade`は"
+"パッケージの自動アップグレードの設定を示しています。1が有効、0が無効を意味し"
+"ます。"
+msgstr ""
+"`Update-Package-Lists` indicates automatic package updates, while "
+"`Unattended-Upgrade` represents automatic package upgrades. A value of `1` "
+"enables the setting, and `0` disables it."
+
+#. heading (level 2)
+#: content/ja/blog/disable-apt-auto-update/index.md:26
+msgid "自動更新の無効化"
+msgstr "Disable Automatic Updates"
+
+#. paragraph
+#: content/ja/blog/disable-apt-auto-update/index.md:28
+msgid ""
+"パッケージの自動アップデートおよびアップグレードを無効化するには、`20auto-"
+"upgrades`を以下のように編集します。"
+msgstr ""
+"To disable automatic package updates and upgrades, edit `20auto-upgrades` as "
+"shown below:"
+
+#. paragraph
+#: content/ja/blog/disable-apt-auto-update/index.md:35
+msgid "これにより、パッケージの自動更新が無効化されます。"
+msgstr "This will disable automatic updates for packages."

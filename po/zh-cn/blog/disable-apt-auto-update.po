@@ -1,0 +1,71 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:57+0000\n"
+"PO-Revision-Date: 2026-11-15 23:56+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/disable-apt-auto-update/index.md:2
+msgid "APTパッケージの自動更新を無効化する"
+msgstr "禁用 APT 软件包的自动更新"
+
+#. paragraph
+#: content/ja/blog/disable-apt-auto-update/index.md:11
+msgid ""
+"パッケージが自動更新されると、これまで動いていたソフトウェアが突然動かなく"
+"なってしまう可能性があります。"
+msgstr "如果软件包被自动更新，原本正常运行的软件可能会突然无法运行。"
+
+#. paragraph
+#: content/ja/blog/disable-apt-auto-update/index.md:13
+msgid "ここでは、APTパッケージの自動更新を無効化する方法について解説します。"
+msgstr "本文介绍如何禁用 APT 软件包的自动更新。"
+
+#. heading (level 2)
+#: content/ja/blog/disable-apt-auto-update/index.md:15
+msgid "自動更新設定の確認"
+msgstr "确认自动更新设置"
+
+#. paragraph
+#: content/ja/blog/disable-apt-auto-update/index.md:17
+msgid ""
+"自動更新の設定は、`/etc/apt/apt.conf.d`ディレクトリに格納されている`20auto-"
+"upgrades`に記載されています。以下は、設定の表示例です。"
+msgstr ""
+"自动更新的设置写在 `/etc/apt/apt.conf.d` 目录下的 `20auto-upgrades` 文件中。"
+"以下是设置内容的示例。"
+
+#. paragraph
+#: content/ja/blog/disable-apt-auto-update/index.md:24
+msgid ""
+"`Update-Package-Lists`はパッケージの自動アップデート、`Unattended-Upgrade`は"
+"パッケージの自動アップグレードの設定を示しています。1が有効、0が無効を意味し"
+"ます。"
+msgstr ""
+"`Update-Package-Lists` 表示软件包的自动更新设置，`Unattended-Upgrade` 表示软"
+"件包的自动升级设置。1 表示启用，0 表示禁用。"
+
+#. heading (level 2)
+#: content/ja/blog/disable-apt-auto-update/index.md:26
+msgid "自動更新の無効化"
+msgstr "禁用自动更新"
+
+#. paragraph
+#: content/ja/blog/disable-apt-auto-update/index.md:28
+msgid ""
+"パッケージの自動アップデートおよびアップグレードを無効化するには、`20auto-"
+"upgrades`を以下のように編集します。"
+msgstr "要禁用软件包的自动更新和升级，请按如下方式编辑 `20auto-upgrades`。"
+
+#. paragraph
+#: content/ja/blog/disable-apt-auto-update/index.md:35
+msgid "これにより、パッケージの自動更新が無効化されます。"
+msgstr "这样就禁用了软件包的自动更新。"

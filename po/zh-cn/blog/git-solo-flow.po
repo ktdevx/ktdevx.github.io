@@ -1,0 +1,176 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:58+0000\n"
+"PO-Revision-Date: 2026-11-15 23:56+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/git-solo-flow/index.md:2
+msgid "個人開発におすすめなGitワークフロー"
+msgstr "适合个人开发的 Git 工作流"
+
+#. paragraph
+#: content/ja/blog/git-solo-flow/index.md:11
+msgid ""
+"個人開発においても、Gitを使った運用方法は重要です。Gitを使うことで、バージョ"
+"ン管理やコードの履歴管理が容易になります。"
+msgstr ""
+"即使是个人开发，基于 Git 的工作方式也很重要。使用 Git 可以轻松进行版本管理和"
+"代码历史管理。"
+
+#. paragraph
+#: content/ja/blog/git-solo-flow/index.md:13
+msgid "以下では、個人開発でおすすめのGitワークフローについて解説します。"
+msgstr "下面介绍适合个人开发的 Git 工作流。"
+
+#. heading (level 2)
+#: content/ja/blog/git-solo-flow/index.md:15
+msgid "ワークフローの概要"
+msgstr "工作流概述"
+
+#. paragraph
+#: content/ja/blog/git-solo-flow/index.md:17
+msgid "![Gitソロフロー](images/git-solo-flow.webp)"
+msgstr "![Git 个人开发流程](images/git-solo-flow.webp)"
+
+#. paragraph
+#: content/ja/blog/git-solo-flow/index.md:19
+msgid ""
+"このワークフローでは、機能やバグ修正ごとに作業ブランチを作成して開発を行い、"
+"最終的にメインブランチにマージするという流れを取ります。"
+msgstr ""
+"在这个工作流中，针对每个功能或 Bug 修复创建工作分支进行开发，最后合并到主分"
+"支。"
+
+#. paragraph
+#: content/ja/blog/git-solo-flow/index.md:21
+msgid ""
+"開発者は、新しい機能を実装するために作業ブランチを作成し、開発を行います。完"
+"成した機能は、メインブランチにマージされます。この手法により、開発者は機能ご"
+"とに分離された開発環境で作業し、本番環境への影響を最小限に抑えることができま"
+"す。"
+msgstr ""
+"开发者为实现新功能而创建工作分支并进行开发。完成的功能会被合并到主分支。通过"
+"这种方法，开发者可以在按功能隔离的开发环境中工作，并将对生产环境的影响降到最"
+"低。"
+
+#. heading (level 2)
+#: content/ja/blog/git-solo-flow/index.md:23
+msgid "メインブランチから作業ブランチを作成"
+msgstr "从主分支创建工作分支"
+
+#. paragraph
+#: content/ja/blog/git-solo-flow/index.md:25
+msgid ""
+"各機能やバグ修正毎に別々のブランチを作成し、変更を加えるためにチェックアウト"
+"します。ブランチ名は、後から見てもわかりやすい名前をつけることを心がけましょ"
+"う。"
+msgstr ""
+"为每个功能或 Bug 修复分别创建分支，并检出该分支以进行修改。分支名称应尽量取得"
+"事后一看就能明白。"
+
+#. paragraph
+#: content/ja/blog/git-solo-flow/index.md:32
+msgid ""
+"これにより、メインブランチから作業ブランチが作成され、チェックアウトされま"
+"す。"
+msgstr "这样就会从主分支创建工作分支并将其检出。"
+
+#. heading (level 2)
+#: content/ja/blog/git-solo-flow/index.md:34
+msgid "作業ブランチ上で開発"
+msgstr "在工作分支上开发"
+
+#. paragraph
+#: content/ja/blog/git-solo-flow/index.md:36
+msgid ""
+"作成した作業ブランチで機能の追加やバグの修正を行います。コード変更後は、変更"
+"を行ったファイルを追加し、コミットとプッシュを行います。"
+msgstr ""
+"在创建的工作分支上添加功能或修复 Bug。修改代码后，添加已修改的文件，然后提交"
+"并推送。"
+
+#. paragraph
+#: content/ja/blog/git-solo-flow/index.md:44
+msgid "これにより、変更を行った内容がリモートリポジトリに反映されます。"
+msgstr "这样，所做的修改就会反映到远程仓库。"
+
+#. heading (level 2)
+#: content/ja/blog/git-solo-flow/index.md:46
+msgid "メインブランチに変更をマージ"
+msgstr "将修改合并到主分支"
+
+#. paragraph
+#: content/ja/blog/git-solo-flow/index.md:48
+msgid "開発が完了したら、メインブランチへ変更内容をマージします。"
+msgstr "开发完成后，将修改内容合并到主分支。"
+
+#. paragraph
+#: content/ja/blog/git-solo-flow/index.md:56
+msgid ""
+"これにより、作業ブランチの変更内容がメインブランチにマージされ、リモートリポ"
+"ジトリに反映されます。"
+msgstr "这样，工作分支的修改内容就会合并到主分支，并反映到远程仓库。"
+
+#. heading (level 2)
+#: content/ja/blog/git-solo-flow/index.md:58
+msgid "作業ブランチの削除"
+msgstr "删除工作分支"
+
+#. paragraph
+#: content/ja/blog/git-solo-flow/index.md:60
+msgid ""
+"不要なブランチが多数存在すると、プロジェクト内のブランチの可視性や、保守性が"
+"低下します。"
+msgstr "如果存在大量不需要的分支，项目中分支的可见性和可维护性就会降低。"
+
+#. paragraph
+#: content/ja/blog/git-solo-flow/index.md:62
+msgid ""
+"そのため、メインブランチへマージ後は、不要となった作業ブランチを削除します。"
+msgstr "因此，合并到主分支后，应删除不再需要的工作分支。"
+
+#. paragraph
+#: content/ja/blog/git-solo-flow/index.md:69
+msgid ""
+"これにより、ローカルリポジトリとリモートリポジトリから作業ブランチが削除され"
+"ます。"
+msgstr "这样，工作分支就会从本地仓库和远程仓库中删除。"
+
+#. heading (level 2)
+#: content/ja/blog/git-solo-flow/index.md:71
+msgid "バージョンタグの作成"
+msgstr "创建版本标签"
+
+#. paragraph
+#: content/ja/blog/git-solo-flow/index.md:73
+msgid ""
+"このワークフローでは、メインブランチの変更が機能単位ごとに行われるため、どの"
+"リビジョンをリリースしたかを簡単に見つけることができません。"
+msgstr ""
+"在这个工作流中，主分支的修改是以功能为单位进行的，因此很难轻松找出发布的是哪"
+"个修订版本。"
+
+#. paragraph
+#: content/ja/blog/git-solo-flow/index.md:75
+msgid ""
+"そのため、リリース時のリビジョンにバージョンタグを作成することで、リビジョン"
+"とリリースとの関係を明確にし、リリースの管理を容易にします。"
+msgstr ""
+"因此，通过为发布时的修订版本创建版本标签，可以明确修订版本与发布之间的关系，"
+"使发布管理更加容易。"
+
+#. paragraph
+#: content/ja/blog/git-solo-flow/index.md:82
+msgid ""
+"これにより、リリースバージョンの名前でタグが作成され、リモートリポジトリに反"
+"映されます。"
+msgstr "这样，就会以发布版本的名称创建标签，并反映到远程仓库。"

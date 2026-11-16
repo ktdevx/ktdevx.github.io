@@ -4,22 +4,25 @@
 
 - このリポジトリは KTDEVX の多言語 Hugo サイトです。
 - Anubis2 テーマを Git サブモジュールとして使用しています。Hugo Extended が必要です。
-- サイト全体の設定と言語ごとの URL は [hugo.yml](hugo.yml) で管理しています。日本語がデフォルト言語で、URL には `/ja/` または `/en/` が含まれます。
+- サイト全体の設定と言語ごとの URL は [hugo.yml](hugo.yml) で管理しています。日本語がデフォルト言語で、URL には `/ja/`、`/en/`、`/zh-cn/` のいずれかが含まれます。
+- 原本は日本語（`content/ja/`）だけです。ほかの言語のページは、[monde](https://github.com/ktdevx/monde-private) で翻訳ファイル `po/<lang>/` から生成します（`tools/l10n.sh`）。`content/en/` と `content/zh-cn/` は生成物で、Git では管理しません。
 
 ## 検証
 
-- 変更を検証するときは CI と同じ `hugo --minify` を実行してください。
+- 変更を検証するときは CI と同じく `tools/l10n.sh build` の後に `hugo --minify` を実行してください。`tools/l10n.sh` には monde の実行ファイルが必要です（PATH に置くか、環境変数 `MONDE` で指定します）。
 - CI では Hugo Extended `0.133.1` を固定しています。可能な限り同じバージョンを使用してください。新しく clone したリポジトリをビルドする前に、テーマサブモジュールを初期化します（`git submodule update --init --recursive`）。
-- ローカルでプレビューするには `hugo server` を使用します。ドラフトも確認する場合は `hugo server -D` を使用してください。
+- ローカルでプレビューするには `tools/l10n.sh build` の後に `hugo server` を使用します。ドラフトも確認する場合は `hugo server -D` を使用してください。
 - 個別のテストや lint はありません。Hugo のビルド成功が主な検証方法です。
-- `aaa.sh` は `po4a` を使って README を翻訳するためのスクリプトであり、サイトのビルドスクリプトではありません。
 
 ## コンテンツの規約
 
-- 翻訳済みコンテンツは `content/ja/` と `content/en/` 配下に配置します。
+- コンテンツは `content/ja/` 配下に日本語で書きます。`content/en/` と `content/zh-cn/` を直接編集しないでください。
 - ブログ記事は `content/<lang>/blog/<slug>/index.md` の page bundle として管理します。基本的な front matter は [archetypes/blog.md](archetypes/blog.md) を使用してください。
 - 既存の YAML front matter の形式を維持します。主な項目は `title`、タイムゾーン付きの `date`、`draft`、任意の `tags`、`params.toc` です。
-- 記事を追加・変更するときは、同じ slug の別言語版も確認します。意図的な省略でない限り、日本語版と英語版のナビゲーションやコンテンツを揃えてください。
+- 記事を追加・変更したら `tools/l10n.sh update` を実行し、`po/` の変更も同じ変更に含めます（PR の CI が検査します）。
+- 翻訳は `po/<lang>/<ページ>.po` の msgstr に書きます。訳し終えた（fuzzy・未翻訳がない）ページだけがその言語で公開されます。状況は `tools/l10n.sh status` で確認できます。
+- msgstr では、コードスパン、リンク先、HTML タグを原文と同じに保ちます。空行を入れたり、行頭を Markdown のブロック記号（`#`、`-`、`>` など）にしたりしないでください（`tools/l10n.sh build` が失敗します）。ページ内リンク（`#見出し`）は、訳した見出しのアンカーに書き換えます。
+- monde はコードブロックを翻訳しないため、コードブロックの中の日本語は他言語版にもそのまま出ます（許容している仕様です）。
 - 記事固有の画像は、その記事の bundle ディレクトリに配置し、bundle からの相対パスで参照します。
 - サイトの数式表示が必要なページに限り、`params.math: true` を設定してください。
 - 近くにある日本語版・英語版の記事の文体と Markdown 形式に従い、依頼と無関係な大規模な本文変更は避けてください。

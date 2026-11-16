@@ -1,0 +1,104 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:59+0000\n"
+"PO-Revision-Date: 2026-11-15 23:56+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/set-a-static-ip-address-on-debian/index.md:2
+msgid "Debianで静的IPアドレスを設定する"
+msgstr "在 Debian 上设置静态 IP 地址"
+
+#. paragraph
+#: content/ja/blog/set-a-static-ip-address-on-debian/index.md:11
+msgid ""
+"サーバーのOSとしてDebianを利用する場合、IPアドレスが変化しないように設定する"
+"必要があります。"
+msgstr "将 Debian 用作服务器操作系统时，需要进行设置以使 IP 地址不发生变化。"
+
+#. paragraph
+#: content/ja/blog/set-a-static-ip-address-on-debian/index.md:13
+msgid "ここでは、DebianでIPアドレスを固定化する方法について解説します。"
+msgstr "本文介绍在 Debian 上固定 IP 地址的方法。"
+
+#. heading (level 2)
+#: content/ja/blog/set-a-static-ip-address-on-debian/index.md:15
+msgid "ネットワークインターフェース情報の確認"
+msgstr "确认网络接口信息"
+
+#. paragraph
+#: content/ja/blog/set-a-static-ip-address-on-debian/index.md:17
+msgid "`ip a`と入力し、ネットワークインターフェースの情報を確認します。"
+msgstr "输入 `ip a`，确认网络接口的信息。"
+
+#. paragraph
+#: content/ja/blog/set-a-static-ip-address-on-debian/index.md:38
+msgid ""
+"今回は、`ens18`という名前のネットワークインターフェースのIPアドレスを固定化し"
+"ます。"
+msgstr "本次将名为 `ens18` 的网络接口的 IP 地址设为固定地址。"
+
+#. heading (level 2)
+#: content/ja/blog/set-a-static-ip-address-on-debian/index.md:40
+msgid "ネットワーク設定ファイルの編集"
+msgstr "编辑网络配置文件"
+
+#. paragraph
+#: content/ja/blog/set-a-static-ip-address-on-debian/index.md:42
+msgid ""
+"IPアドレスを固定化するため、`/etc/network/interfaces`という名前の設定ファイル"
+"を編集します。"
+msgstr "为了固定 IP 地址，需要编辑名为 `/etc/network/interfaces` 的配置文件。"
+
+#. paragraph
+#: content/ja/blog/set-a-static-ip-address-on-debian/index.md:44
+msgid ""
+"DHCPが有効な設定になっていると、`iface ens18 inet dhcp`といったような行がある"
+"かと思います。このdhcpの箇所をstaticに変更することで手動設定に変更します。"
+msgstr ""
+"如果启用了 DHCP，文件中应该会有类似 `iface ens18 inet dhcp` 的行。将其中的 "
+"dhcp 改为 static，即可切换为手动设置。"
+
+#. paragraph
+#: content/ja/blog/set-a-static-ip-address-on-debian/index.md:54
+msgid ""
+"この例では、`ens18`のIPアドレスが`192.168.2.3/24`、デフォルトゲートウェイと"
+"DNSサーバーのIPアドレスが`192.168.2.1`となるように設定しています。"
+msgstr ""
+"在此示例中，将 `ens18` 的 IP 地址设置为 `192.168.2.3/24`，将默认网关和 DNS 服"
+"务器的 IP 地址设置为 `192.168.2.1`。"
+
+#. paragraph
+#: content/ja/blog/set-a-static-ip-address-on-debian/index.md:56
+msgid "内容に問題がなければファイルを保存してください。"
+msgstr "确认内容无误后，请保存文件。"
+
+#. heading (level 2)
+#: content/ja/blog/set-a-static-ip-address-on-debian/index.md:58
+msgid "ネットワーク設定の反映"
+msgstr "应用网络设置"
+
+#. paragraph
+#: content/ja/blog/set-a-static-ip-address-on-debian/index.md:60
+msgid "以下のコマンドで設定を反映します。"
+msgstr "使用以下命令应用设置。"
+
+#. paragraph
+#: content/ja/blog/set-a-static-ip-address-on-debian/index.md:66
+msgid ""
+"これによりネットワーク設定が反映されます。`ip a`と入力して設定が反映されたか"
+"確認しましょう。"
+msgstr "这样网络设置就会生效。输入 `ip a` 确认设置是否已生效。"
+
+#. paragraph
+#: content/ja/blog/set-a-static-ip-address-on-debian/index.md:87
+msgid "`ens18`の設定が反映されていることが確認できました。"
+msgstr "可以确认 `ens18` 的设置已经生效。"

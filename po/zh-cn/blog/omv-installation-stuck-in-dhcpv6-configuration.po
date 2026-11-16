@@ -1,0 +1,189 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:59+0000\n"
+"PO-Revision-Date: 2026-11-15 23:56+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/omv-installation-stuck-in-dhcpv6-configuration/index.md:2
+msgid "OpenMediaVaultのインストールがDHCPv6の設定でスタックする"
+msgstr "OpenMediaVault 的安装卡在 DHCPv6 配置阶段"
+
+#. paragraph
+#: content/ja/blog/omv-installation-stuck-in-dhcpv6-configuration/index.md:12
+msgid ""
+"OpenMediaVaultのインストール中、DHCPv6の設定でスタックする現象に遭遇しまし"
+"た。"
+msgstr ""
+"在安装 OpenMediaVault 的过程中，我遇到了安装卡在 DHCPv6 配置阶段的现象。"
+
+#. paragraph
+#: content/ja/blog/omv-installation-stuck-in-dhcpv6-configuration/index.md:14
+msgid "ここでは、その現象と対処法について説明します。"
+msgstr "本文介绍该现象及其解决方法。"
+
+#. heading (level 2)
+#: content/ja/blog/omv-installation-stuck-in-dhcpv6-configuration/index.md:16
+msgid "現象"
+msgstr "现象"
+
+#. paragraph
+#: content/ja/blog/omv-installation-stuck-in-dhcpv6-configuration/index.md:18
+msgid "![OpenMediaVaultインストーラー](images/pve-dhcpv6-stack.webp)"
+msgstr "![OpenMediaVault 安装程序](images/pve-dhcpv6-stack.webp)"
+
+#. paragraph
+#: content/ja/blog/omv-installation-stuck-in-dhcpv6-configuration/index.md:20
+msgid ""
+"OpenMediaVaultのインストールをしていたところ、DHCPv6の自動設定が動作したとこ"
+"ろでインストールがスタックし、ブルースクリーンのまま停止しました。"
+msgstr ""
+"在安装 OpenMediaVault 时，安装进行到 DHCPv6 自动配置时卡住，并一直停留在蓝屏"
+"界面。"
+
+#. paragraph
+#: content/ja/blog/omv-installation-stuck-in-dhcpv6-configuration/index.md:22
+msgid ""
+"画像下の方を見るとわかりますが、完全に止まっているわけではなく、入力は受け付"
+"けている状態です。"
+msgstr "从图片下方可以看出，安装程序并没有完全停止，仍处于可以接受输入的状态。"
+
+#. heading (level 2)
+#: content/ja/blog/omv-installation-stuck-in-dhcpv6-configuration/index.md:24
+msgid "解析結果"
+msgstr "分析结果"
+
+#. paragraph
+#: content/ja/blog/omv-installation-stuck-in-dhcpv6-configuration/index.md:26
+msgid ""
+"私の環境では、IPv6アドレスはISPからSLAAC方式で割り当てられており、ルーター側"
+"でRAとDHCPv6、NDPプロキシを全てリレーする設定にしておりました。"
+msgstr ""
+"在我的环境中，ISP 以 SLAAC 方式分配 IPv6 地址，并且路由器被设置为中继 RA、"
+"DHCPv6 和 NDP 代理全部内容。"
+
+#. paragraph
+#: content/ja/blog/omv-installation-stuck-in-dhcpv6-configuration/index.md:28
+msgid ""
+"SLAAC方式では、IPv6アドレスのプレフィックスがRAで通知されます。そして、DNS"
+"サーバーのアドレスについては、DHCPv6のInformation-requestか、RDNSSのいずれか"
+"で取得することになります。"
+msgstr ""
+"在 SLAAC 方式下，IPv6 地址的前缀通过 RA 进行通告。而 DNS 服务器的地址则通过 "
+"DHCPv6 的 Information-request 或 RDNSS 中的一种方式获取。"
+
+#. paragraph
+#: content/ja/blog/omv-installation-stuck-in-dhcpv6-configuration/index.md:30
+msgid ""
+"ルーターのパケットを解析すると、私の環境ではDNSサーバーのアドレスは"
+"Information-requestにより取得されていました。"
+msgstr ""
+"分析路由器的数据包后发现，在我的环境中，DNS 服务器的地址是通过 Information-"
+"request 获取的。"
+
+#. paragraph
+#: content/ja/blog/omv-installation-stuck-in-dhcpv6-configuration/index.md:32
+msgid ""
+"ルーターでDHCPv6をリレーする場合、クライアントから送られてきたInformation-"
+"requestを、ルーターがDHCPv6サーバーに向けてRelay-forwordで転送することになり"
+"ます。"
+msgstr ""
+"当路由器中继 DHCPv6 时，路由器会将客户端发来的 Information-request 通过 "
+"Relay-forward 转发给 DHCPv6 服务器。"
+
+#. paragraph
+#: content/ja/blog/omv-installation-stuck-in-dhcpv6-configuration/index.md:34
+msgid ""
+"DHCPv6リレー時のパケットを解析したところ、DHCPv6サーバーがRelay-forwordに対応"
+"していなかったようで、結果的にクライアントにInformation-requestの応答が返らな"
+"い状態となっていました。"
+msgstr ""
+"分析 DHCPv6 中继时的数据包后发现，DHCPv6 服务器似乎不支持 Relay-forward，结果"
+"导致 Information-request 的应答无法返回给客户端。"
+
+#. paragraph
+#: content/ja/blog/omv-installation-stuck-in-dhcpv6-configuration/index.md:36
+msgid ""
+"これにより、OpenMediaVaultのインストールがスタックしてしまっていたようです。"
+msgstr "OpenMediaVault 的安装似乎就是因此而卡住的。"
+
+#. heading (level 2)
+#: content/ja/blog/omv-installation-stuck-in-dhcpv6-configuration/index.md:38
+msgid "対処法"
+msgstr "解决方法"
+
+#. heading (level 3)
+#: content/ja/blog/omv-installation-stuck-in-dhcpv6-configuration/index.md:40
+msgid "一時的にIPv6を無効化する"
+msgstr "暂时禁用 IPv6"
+
+#. paragraph
+#: content/ja/blog/omv-installation-stuck-in-dhcpv6-configuration/index.md:42
+msgid ""
+"まずはネットワーク設定を見直すことを推奨しますが、IPv6環境下でよくないことが"
+"起きていることは明白なので、ルーターの設定で一時的にIPv6を無効化してみるのも"
+"一つの手です。"
+msgstr ""
+"建议首先检查网络设置，不过既然 IPv6 环境下明显出现了问题，那么在路由器设置中"
+"暂时禁用 IPv6 也是一种办法。"
+
+#. paragraph
+#: content/ja/blog/omv-installation-stuck-in-dhcpv6-configuration/index.md:44
+msgid ""
+"試しにルーターのIPv6設定を全て無効化したところ、OpenMediaVaultのインストール"
+"がスタックせずに進むことを確認しました。"
+msgstr ""
+"尝试禁用路由器的所有 IPv6 设置后，确认 OpenMediaVault 的安装能够顺利进行而不"
+"会卡住。"
+
+#. paragraph
+#: content/ja/blog/omv-installation-stuck-in-dhcpv6-configuration/index.md:46
+msgid ""
+"IPv6環境下でなければ良いので、インストーラーがIPv6の設定をしている時だけLAN"
+"ケーブルを抜く、というのも効果があります。"
+msgstr ""
+"只要不处于 IPv6 环境下即可，因此仅在安装程序进行 IPv6 配置时拔掉网线也同样有"
+"效。"
+
+#. paragraph
+#: content/ja/blog/omv-installation-stuck-in-dhcpv6-configuration/index.md:48
+msgid ""
+"とりあえずインストールしたい、そもそもIPv6は必要ない、という場合はこの方法で"
+"良いかと思います。"
+msgstr ""
+"如果只是想先完成安装，或者本来就不需要 IPv6，我认为使用这种方法就可以了。"
+
+#. heading (level 3)
+#: content/ja/blog/omv-installation-stuck-in-dhcpv6-configuration/index.md:50
+msgid "ネットワークのIPv6設定を見直す"
+msgstr "检查网络的 IPv6 设置"
+
+#. paragraph
+#: content/ja/blog/omv-installation-stuck-in-dhcpv6-configuration/index.md:52
+msgid ""
+"私の環境では、DHCPv6のInformation-requestをルーターからDHCPv6サーバーへ転送す"
+"るのは辞め、ルーター側で応答を返させるように設定を変更しました。"
+msgstr ""
+"在我的环境中，我修改了设置，不再由路由器将 DHCPv6 的 Information-request 转发"
+"给 DHCPv6 服务器，而是由路由器自己返回应答。"
+
+#. paragraph
+#: content/ja/blog/omv-installation-stuck-in-dhcpv6-configuration/index.md:54
+msgid ""
+"これにより、OpenMediaVaultのインストールにてスタックしないようになりました。"
+msgstr "这样，OpenMediaVault 的安装就不会再卡住了。"
+
+#. paragraph
+#: content/ja/blog/omv-installation-stuck-in-dhcpv6-configuration/index.md:56
+msgid ""
+"クライアントからルーターにかけて、IPv6のパケットを監視してどこでなにが起きて"
+"いるか、見直してみましょう。"
+msgstr "请监视从客户端到路由器之间的 IPv6 数据包，检查一下在哪里发生了什么。"

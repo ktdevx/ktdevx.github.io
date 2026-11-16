@@ -1,0 +1,945 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:45+0000\n"
+"PO-Revision-Date: 2026-11-15 23:40+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:2
+msgid ""
+"OpenWrtでOpenVPNサーバーを構築し、外部から自宅ネットワークにアクセスする"
+msgstr ""
+"Build an OpenVPN Server on OpenWrt for Remote Access to Your Home Network"
+
+#. heading (level 2)
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:13
+msgid "はじめに"
+msgstr "Introduction"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:15
+msgid ""
+"OpenVPNは暗号化されたVPNトンネルを提供し、外出先から自宅ネットワークに安全に"
+"アクセスできるオープンソースのVPN技術です。本記事では、OpenWrtルーター上に"
+"OpenVPNサーバーを構築し、複数のクライアントから接続する手順を詳しく解説しま"
+"す。"
+msgstr ""
+"OpenVPN is an open-source VPN technology that provides an encrypted VPN "
+"tunnel and secure access to your home network while away. This article "
+"explains in detail how to build an OpenVPN server on an OpenWrt router and "
+"connect multiple clients to it."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:17
+msgid ""
+"**対象者：** OpenWrtがインストール済みで、SSH接続が可能なユーザー  \n"
+"**前提条件：** [OpenWrtのインストール](/blog/install-friendlywrt-on-nanopi-"
+"r2s)、管理者権限での操作、ターミナル/SSH接続の基本知識"
+msgstr ""
+"**Audience:** Users with OpenWrt installed and SSH access  \n"
+"**Prerequisites:** [OpenWrt installation](/blog/install-friendlywrt-on-"
+"nanopi-r2s), administrator access, and basic terminal/SSH knowledge"
+
+#. heading (level 2)
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:20
+msgid "環境情報"
+msgstr "Environment"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:22
+msgid ""
+"| 項目 | 値 |\n"
+"|------|-----|\n"
+"| OS | OpenWrt 24.10.0 以降 |\n"
+"| VPN プロトコル | OpenVPN UDP 1194 |\n"
+"| VPN ネットワーク | 10.8.0.0/24 |\n"
+"| 暗号化方式 | AES-128-CBC |\n"
+"| 認証方式 | SHA256 |\n"
+"| 認証局有効期限 | 3650 日（10 年） |\n"
+"| 証明書有効期限 | 825 日 |"
+msgstr ""
+"| Item | Value |\n"
+"|------|-----|\n"
+"| OS | OpenWrt 24.10.0 or later |\n"
+"| VPN protocol | OpenVPN UDP 1194 |\n"
+"| VPN network | 10.8.0.0/24 |\n"
+"| Encryption | AES-128-CBC |\n"
+"| Authentication | SHA256 |\n"
+"| CA validity | 3650 days (10 years) |\n"
+"| Certificate validity | 825 days |"
+
+#. heading (level 2)
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:33
+msgid "パッケージのインストール"
+msgstr "Install the Packages"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:35
+msgid ""
+"まず、OpenWrtのパッケージリストを更新し、OpenVPN関連パッケージをインストール"
+"します。"
+msgstr ""
+"First, update the OpenWrt package list and install the OpenVPN packages."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:42
+msgid "**インストール内容：**"
+msgstr "**What gets installed:**"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:44
+msgid ""
+"| パッケージ | 説明 |\n"
+"|-----------|------|\n"
+"| **openvpn-openssl** | OpenVPNメインパッケージ（SSL/TLS対応） |\n"
+"| **openvpn-easy-rsa** | CA（認証局）と証明書を生成・管理するツール |\n"
+"| **luci-app-openvpn**（オプション） | LuCI WebUIでOpenVPNを管理するインター"
+"フェース |\n"
+"| **luci-i18n-openvpn-ja**（オプション） | LuCIのOpenVPN日本語ローカライズ |"
+msgstr ""
+"| Package | Description |\n"
+"|-----------|------|\n"
+"| **openvpn-openssl** | Main OpenVPN package (with SSL/TLS support) |\n"
+"| **openvpn-easy-rsa** | Tool for generating and managing the CA "
+"(certificate authority) and certificates |\n"
+"| **luci-app-openvpn** (optional) | Interface for managing OpenVPN in the "
+"LuCI web UI |\n"
+"| **luci-i18n-openvpn-ja** (optional) | Japanese localization of OpenVPN for "
+"LuCI |"
+
+#. heading (level 2)
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:52
+msgid "環境変数の設定"
+msgstr "Set the Environment Variables"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:54
+msgid "テキストエディタで`/etc/profile.d/50-openvpn-easy-rsa.sh`を編集します。"
+msgstr "Edit `/etc/profile.d/50-openvpn-easy-rsa.sh` in a text editor."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:64
+msgid ""
+"編集して保存しましょう。profile.dの内容はログイン時に適用されるため、再度ログ"
+"インしなおすか、`. /etc/profile.d/50-openvpn-easy-rsa.sh`と打って設定を適用さ"
+"せましょう。これにより、easy-rsaのベースディレクトリやpkiフォルダのパスが環境"
+"変数に設定されます。"
+msgstr ""
+"Edit and save the file. The contents of profile.d are applied at login, so "
+"log in again or run `. /etc/profile.d/50-openvpn-easy-rsa.sh` to apply the "
+"settings. This sets the Easy-RSA base directory and the PKI folder path in "
+"the environment variables."
+
+#. heading (level 2)
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:66
+msgid "証明書認証局(CA)の構築"
+msgstr "Build the Certificate Authority (CA)"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:68
+msgid "Easy-RSAの`build-ca`コマンドで証明書認証局(CA)を構築します。"
+msgstr ""
+"Build the certificate authority (CA) with Easy-RSA's `build-ca` command."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:102
+msgid ""
+"これにより、`/etc/easy-rsa/pki`ディレクトリにCA証明書`ca.crt`と、`/etc/easy-"
+"rsa/pki/private/`ディレクトリにCA秘密鍵`ca.key`が生成されます。CA証明書を`/"
+"etc/openvpn`ディレクトリにコピーしましょう。"
+msgstr ""
+"This creates the CA certificate `ca.crt` in the `/etc/easy-rsa/pki` "
+"directory and the CA private key `ca.key` in the `/etc/easy-rsa/pki/private/"
+"` directory. Copy the CA certificate to the `/etc/openvpn` directory."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:108
+msgid "CAの構築は以上で完了です。"
+msgstr "The CA setup is complete."
+
+#. heading (level 2)
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:110
+msgid "サーバー証明書と秘密鍵の作成"
+msgstr "Create the Server Certificate and Private Key"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:112
+msgid "Easy-RSAの`build-server-full`コマンドでサーバー証明書と鍵を生成します。"
+msgstr ""
+"Generate the server certificate and key with Easy-RSA's `build-server-full` "
+"command."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:114
+msgid ""
+"任意のサーバー名を指定して証明書と鍵を生成します。ここではサーバー名は"
+"`server`としました。パスフレーズは設定しないため`nopass`オプションを設定しま"
+"す。"
+msgstr ""
+"Specify any server name to generate the certificate and key. In this "
+"example, the server is named `server`. Since no passphrase is set, the "
+"`nopass` option is specified."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:170
+msgid ""
+"これにより、`/etc/easy-rsa/pki/issued`ディレクトリにサーバー証明書`server."
+"crt`と、`/etc/easy-rsa/pki/private/`ディレクトリにサーバー秘密鍵`server.key`"
+"が生成されます。サーバー証明書と秘密鍵を`/etc/openvpn`ディレクトリに移動しま"
+"しょう。"
+msgstr ""
+"This creates the server certificate `server.crt` in the `/etc/easy-rsa/pki/"
+"issued` directory and the server private key `server.key` in the `/etc/easy-"
+"rsa/pki/private/` directory. Move the server certificate and private key to "
+"the `/etc/openvpn` directory."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:176
+msgid "以上でサーバー証明書と秘密鍵の作成は完了です。"
+msgstr "The server certificate and private key are now created."
+
+#. heading (level 2)
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:178
+msgid "DHパラメータの生成"
+msgstr "Generate the DH Parameters"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:180
+msgid ""
+"Easy-Rsaの`gen-dh`コマンドを使って、暗号化に必要な乱数パラメータを生成しま"
+"す。"
+msgstr ""
+"Generate the random parameters required for encryption with Easy-RSA's `gen-"
+"dh` command."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:201
+msgid ""
+"しばらく待つと、`/etc/easy-rsa/pki`ディレクトリにDHパラメータ`dh.pem`が生成さ"
+"れます。DHパラメータを`/etc/openvpn`ディレクトリに移動しましょう。"
+msgstr ""
+"After a while, the DH parameters `dh.pem` are generated in the `/etc/easy-"
+"rsa/pki` directory. Move the DH parameters to the `/etc/openvpn` directory."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:207
+msgid "以上でDHパラメータの生成は完了です。"
+msgstr "The DH parameters are now generated."
+
+#. heading (level 2)
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:209
+msgid "TLS-Authキーの生成"
+msgstr "Generate the TLS-Auth Key"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:211
+msgid "TLS-Auth機能を使用するためTLS-Authキーを生成します。"
+msgstr "Generate a TLS-Auth key to use the TLS-Auth feature."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:213
+msgid ""
+"TLS-Auth機能を有効化すると、VPNセッション開始時のパケットをHMACで認証し、認可"
+"されないパケットを破棄することができます。"
+msgstr ""
+"When TLS-Auth is enabled, packets at the start of a VPN session are "
+"authenticated with HMAC, and unauthorized packets are discarded."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:219
+msgid ""
+"これにより、`/etc/openvpn`ディレクトリにTLS-Authキー`ta.key`が生成されます。"
+msgstr ""
+"This creates the TLS-Auth key `ta.key` in the `/etc/openvpn` directory."
+
+#. heading (level 2)
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:221
+msgid "サーバー設定ファイルの作成"
+msgstr "Create the Server Configuration File"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:223
+msgid ""
+"OpenVPNのサーバー設定ファイルを作成し、クライアント接続時のルート設定を行いま"
+"す。"
+msgstr ""
+"Create the OpenVPN server configuration file and configure the routes for "
+"client connections."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:225
+msgid ""
+"テキストエディタで`/etc/openvpn/server.conf`を新規作成し、以下の内容を記載し"
+"ます："
+msgstr ""
+"Create a new file `/etc/openvpn/server.conf` in a text editor with the "
+"following contents:"
+
+#. heading (level 3)
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:264
+msgid "設定パラメータの説明"
+msgstr "Configuration Parameters"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:266
+msgid ""
+"| パラメータ | 値 | 説明 |\n"
+"|-----------|-----|------|\n"
+"| `port` | 1194 | OpenVPNが待機するUDPポート |\n"
+"| `proto` | udp | プロトコル（UDPまたはTCP） |\n"
+"| `dev` | tun | VPN用のトンネルデバイス |\n"
+"| `server` | 10.8.0.0/24 | VPNクライアント用のIPアドレス範囲 |\n"
+"| `push \"route ...\"` | 192.168.1.0/24 | クライアントに自宅LANへのルートを通"
+"知 |\n"
+"| `push \"dhcp-option DNS\"` | 8.8.8.8 | クライアント側で使用するDNSサーバー "
+"|\n"
+"| `cipher` | AES-128-CBC | 通信を暗号化する方式 |\n"
+"| `auth` | SHA256 | HMAC認証アルゴリズム |\n"
+"| `tls-version-min` | 1.2 | TLS最低バージョン（セキュリティ向上） |\n"
+"| `keepalive` | 10 120 | 10秒ごとにキープアライブを送信、120秒以上受信なけれ"
+"ば切断判定 |\n"
+"| `user nobody` | - | OpenVPNプロセスを非特権ユーザーで実行（セキュリティ向"
+"上） |\n"
+"| `persist-key` | - | プロセス再起動時にキーファイルを保持 |\n"
+"| `persist-tun` | - | プロセス再起動時に仮想インターフェースを保持 |\n"
+"| `status` | `/var/log/openvpn-status.log` | 接続中のクライアント一覧ログ |\n"
+"| `verb` | 3 | ログ詳細度（3=詳細、4以上=さらに詳細） |"
+msgstr ""
+"| Parameter | Value | Description |\n"
+"|-----------|-----|------|\n"
+"| `port` | 1194 | UDP port on which OpenVPN listens |\n"
+"| `proto` | udp | Protocol (UDP or TCP) |\n"
+"| `dev` | tun | Tunnel device for the VPN |\n"
+"| `server` | 10.8.0.0/24 | IP address range for VPN clients |\n"
+"| `push \"route ...\"` | 192.168.1.0/24 | Notifies clients of the route to "
+"the home LAN |\n"
+"| `push \"dhcp-option DNS\"` | 8.8.8.8 | DNS server used by clients |\n"
+"| `cipher` | AES-128-CBC | Encryption method for the traffic |\n"
+"| `auth` | SHA256 | HMAC authentication algorithm |\n"
+"| `tls-version-min` | 1.2 | Minimum TLS version (improves security) |\n"
+"| `keepalive` | 10 120 | Sends a keepalive every 10 seconds and considers "
+"the connection lost after 120 seconds without a response |\n"
+"| `user nobody` | - | Runs the OpenVPN process as an unprivileged user "
+"(improves security) |\n"
+"| `persist-key` | - | Retains key files when the process restarts |\n"
+"| `persist-tun` | - | Retains the virtual interface when the process "
+"restarts |\n"
+"| `status` | `/var/log/openvpn-status.log` | Log listing connected clients "
+"|\n"
+"| `verb` | 3 | Log verbosity (3 = detailed, 4 or higher = more detailed) |"
+
+#. heading (level 3)
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:284
+msgid "自宅LANアドレスの確認"
+msgstr "Check the Home LAN Address"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:286
+msgid ""
+"`push \"route 192.168.1.0 255.255.255.0\"`の部分は、ご自身の自宅ネットワーク"
+"のアドレス範囲に変更してください。自宅LANアドレスを確認するには："
+msgstr ""
+"Change the `push \"route 192.168.1.0 255.255.255.0\"` part to the address "
+"range of your own home network. To check your home LAN address:"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:298
+msgid ""
+"このように表示される場合、自宅LANは`192.168.1.0/24`です。異なる場合はそのアド"
+"レスに置き換えてください。"
+msgstr ""
+"If the output looks like this, your home LAN is `192.168.1.0/24`. If it "
+"differs, replace it with your address."
+
+#. heading (level 2)
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:300
+msgid "OpenVPNサーバーの起動と確認"
+msgstr "Start and Verify the OpenVPN Server"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:302
+msgid "サーバー設定ファイルを保存後、OpenVPNサーバーを起動します。"
+msgstr "After saving the server configuration file, start the OpenVPN server."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:308
+msgid "OpenVPNサーバーが起動したことを確認します："
+msgstr "Check that the OpenVPN server has started:"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:315
+msgid "次回のルーター起動時にOpenVPNが自動起動されるよう設定します："
+msgstr "Enable OpenVPN to start automatically the next time the router boots:"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:321
+msgid "ポート1194が正しくリッスンしているか確認します："
+msgstr "Check that port 1194 is listening correctly:"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:330
+msgid ""
+"`openvpn`プロセスがポート1194でリッスン中であることが確認できれば成功です。"
+msgstr ""
+"The setup is successful if the `openvpn` process is listening on port 1194."
+
+#. heading (level 2)
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:332
+msgid "ネットワークインターフェースの追加"
+msgstr "Add the Network Interface"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:334
+msgid "`ip`コマンドで先ほど追加されたtunデバイスの確認をします。"
+msgstr "Use the `ip` command to check the tun device that was just added."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:348
+msgid ""
+"`tun0`という名前のデバイスが追加されていることが確認できました。これを`vpn`と"
+"いう名前でネットワークインターフェースに追加します。"
+msgstr ""
+"A device named `tun0` has been added. Add it to the network interfaces under "
+"the name `vpn`."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:350
+msgid ""
+"テキストエディタで`/etc/config/network`を開き、以下の内容を追記しましょう。"
+msgstr "Open `/etc/config/network` in a text editor and append the following."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:358
+msgid "保存してネットワークを再起動しましょう。"
+msgstr "Save the file and restart the network."
+
+#. heading (level 2)
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:364
+msgid "ファイアウォールの設定"
+msgstr "Configure the Firewall"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:366
+msgid ""
+"テキストエディタで`/etc/config/firewall`を開き、ファイアウォールの設定を変更"
+"します。"
+msgstr ""
+"Open `/etc/config/firewall` in a text editor and change the firewall "
+"settings."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:368
+msgid ""
+"まずは、先ほど追加したネットワークインターフェース`vpn`を`lan`と同じゾーンに"
+"配置します。以下は設定例です。`lan`ゾーンに`list network 'vpn'`の行を追加しま"
+"した。"
+msgstr ""
+"First, place the `vpn` network interface added earlier in the same zone as "
+"`lan`. Below is an example configuration, with the line `list network 'vpn'` "
+"added to the `lan` zone."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:380
+msgid "次に、`wan`側からOpenVPNの接続を許可するようルールを追加します。"
+msgstr "Next, add a rule to allow OpenVPN connections from the `wan` side."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:391
+msgid "保存してファイアウォールを再起動しましょう。"
+msgstr "Save the file and restart the firewall."
+
+#. heading (level 2)
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:397
+msgid "クライアント証明書と秘密鍵の作成"
+msgstr "Create the Client Certificate and Private Key"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:399
+msgid "Easy-RSAの`build-client-full`コマンドでサーバー証明書と鍵を生成します。"
+msgstr ""
+"Generate the client certificate and key with Easy-RSA's `build-client-full` "
+"command."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:401
+msgid ""
+"任意のクライアント名を指定して証明書と秘密鍵を生成します。ここではクライアン"
+"ト名は`client`としました。パスフレーズは設定しないため`nopass`オプションを設"
+"定します。"
+msgstr ""
+"Specify any client name to generate the certificate and private key. In this "
+"example, the client is named `client`. Since no passphrase is set, the "
+"`nopass` option is specified."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:457
+msgid ""
+"これにより、`/etc/easy-rsa/pki/issued`ディレクトリにクライアント証明書"
+"`client.crt`と、`/etc/easy-rsa/pki/private/`ディレクトリにクライアント秘密鍵"
+"`client.key`が生成されます。"
+msgstr ""
+"This creates the client certificate `client.crt` in the `/etc/easy-rsa/pki/"
+"issued` directory and the client private key `client.key` in the `/etc/easy-"
+"rsa/pki/private/` directory."
+
+#. heading (level 2)
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:459
+msgid "クライアント設定ファイルの生成と配置"
+msgstr "Create and Place the Client Configuration File"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:461
+msgid ""
+"Easy-RSAで生成したクライアント証明書・鍵を使用して、クライアント設定ファイル"
+"（.ovpn）を作成します。"
+msgstr ""
+"Create a client configuration file (.ovpn) using the client certificate and "
+"key generated by Easy-RSA."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:463
+msgid "サーバー側で生成したクライアント用ファイルを`/tmp`にコピーします："
+msgstr "Copy the client files generated on the server to `/tmp`:"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:472
+msgid ""
+"クライアント設定ファイル`client.ovpn`を作成します。以下のテンプレートをテキス"
+"トエディタで新規作成してください："
+msgstr ""
+"Create the client configuration file `client.ovpn`. Create a new file in a "
+"text editor using the following template:"
+
+#. heading (level 3)
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:521
+msgid "証明書・鍵の内容をコピーする手順"
+msgstr "Copying the Certificate and Key Contents"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:523
+msgid "サーバー上で、各ファイルをテキストエディタで開いて内容をコピーします："
+msgstr "On the server, open each file in a text editor and copy its contents:"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:539
+msgid ""
+"各出力内容を、.ovpnファイルの対応するセクション（`<ca>...</ca>`など）に貼り付"
+"けてください。"
+msgstr ""
+"Paste each output into the corresponding section of the .ovpn file (such as "
+"`<ca>...</ca>`)."
+
+#. heading (level 3)
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:541
+msgid "クライアント接続情報の設定"
+msgstr "Set the Client Connection Information"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:543
+msgid "`client.ovpn`の`remote`パラメータを以下のように設定してください："
+msgstr "Set the `remote` parameter in `client.ovpn` as follows:"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:545
+msgid ""
+"| 状況 | 設定値 |\n"
+"|------|-------|\n"
+"| **グローバルIPアドレスが固定** | `remote 203.0.113.1 1194`（実際のIPに置"
+"換） |\n"
+"| **動的IP（DDNS使用）** | `remote example.ddns.jp 1194`（DDNSホスト名に置"
+"換） |"
+msgstr ""
+"| Situation | Setting |\n"
+"|------|-------|\n"
+"| **Static global IP address** | `remote 203.0.113.1 1194` (replace with "
+"your actual IP) |\n"
+"| **Dynamic IP (using DDNS)** | `remote example.ddns.jp 1194` (replace with "
+"your DDNS hostname) |"
+
+#. heading (level 2)
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:550
+msgid "クライアント側での接続テスト"
+msgstr "Test the Connection from the Client"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:552
+msgid ""
+"作成した`client.ovpn`ファイルをクライアント側に転送して、接続テストを行いま"
+"す。"
+msgstr ""
+"Transfer the `client.ovpn` file you created to the client and test the "
+"connection."
+
+#. heading (level 3)
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:554
+msgid "Linux/Macでの接続"
+msgstr "Connecting from Linux/Mac"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:556
+msgid "OpenVPNクライアントをインストール（未インストールの場合）："
+msgstr "Install the OpenVPN client (if not already installed):"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:566
+msgid "接続テスト実行："
+msgstr "Run the connection test:"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:578
+msgid "接続確認："
+msgstr "Verify the connection:"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:589
+msgid "接続を終了："
+msgstr "Disconnect:"
+
+#. heading (level 3)
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:595
+msgid "Windowsでの接続"
+msgstr "Connecting from Windows"
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:597
+msgid "**OpenVPN GUIをインストール**"
+msgstr "**Install OpenVPN GUI**"
+
+#. list item > list item > paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:598
+msgid ""
+"[OpenVPN公式ダウンロードページ](https://openvpn.net/download-open-vpn/)から"
+"OpenVPN GUIをダウンロード"
+msgstr ""
+"Download OpenVPN GUI from the [official OpenVPN download page](https://"
+"openvpn.net/download-open-vpn/)"
+
+#. list item > list item > paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:599
+msgid "インストーラーを実行し、デフォルト設定でインストール"
+msgstr "Run the installer and install with the default settings"
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:601
+msgid "**クライアント設定ファイルの配置**"
+msgstr "**Place the client configuration file**"
+
+#. list item > list item > paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:602
+msgid ""
+"`client.ovpn`ファイルを`C:\\Users\\<ユーザー名>\\OpenVPN\\config\\`にコピー"
+msgstr ""
+"Copy the `client.ovpn` file to `C:\\Users\\<username>\\OpenVPN\\config\\`"
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:604
+msgid "**OpenVPN GUIの起動と接続**"
+msgstr "**Launch OpenVPN GUI and connect**"
+
+#. list item > list item > paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:605
+msgid "スタートメニューから「OpenVPN GUI」を起動"
+msgstr "Launch \"OpenVPN GUI\" from the Start menu"
+
+#. list item > list item > paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:606
+msgid "タスクバーのOpenVPNアイコンを右クリック"
+msgstr "Right-click the OpenVPN icon in the taskbar"
+
+#. list item > list item > paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:607
+msgid "`client.ovpn`を選択して「接続」をクリック"
+msgstr "Select `client.ovpn` and click \"Connect\""
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:609
+msgid "**接続確認**"
+msgstr "**Verify the connection**"
+
+#. list item > list item > paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:610
+msgid "Windows PowerShellで実行："
+msgstr "Run in Windows PowerShell:"
+
+#. heading (level 3)
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:618
+msgid "iOS/Androidでの接続（OpenVPN Connectアプリ）"
+msgstr "Connecting from iOS/Android (OpenVPN Connect App)"
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:620
+msgid "**アプリインストール**"
+msgstr "**Install the app**"
+
+#. list item > list item > paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:621
+msgid "App Store/Google Playで「OpenVPN Connect」をインストール"
+msgstr "Install \"OpenVPN Connect\" from the App Store/Google Play"
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:623
+msgid "**クライアント設定ファイルの転送**"
+msgstr "**Transfer the client configuration file**"
+
+#. list item > list item > paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:624
+msgid "`client.ovpn`をメール添付またはクラウドストレージ経由でデバイスに転送"
+msgstr ""
+"Transfer `client.ovpn` to the device as an email attachment or via cloud "
+"storage"
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:626
+msgid "**アプリで設定ファイルをインポート**"
+msgstr "**Import the configuration file in the app**"
+
+#. list item > list item > paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:627
+msgid "OpenVPN Connectを起動"
+msgstr "Launch OpenVPN Connect"
+
+#. list item > list item > paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:628
+msgid "ファイルブラウザから`client.ovpn`を選択"
+msgstr "Select `client.ovpn` from the file browser"
+
+#. list item > list item > paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:629
+msgid "「インポート」をタップ"
+msgstr "Tap \"Import\""
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:631
+msgid "**接続**"
+msgstr "**Connect**"
+
+#. list item > list item > paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:632
+msgid "インポートされた接続プロフィールをタップして接続"
+msgstr "Tap the imported connection profile to connect"
+
+#. heading (level 2)
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:634
+msgid "トラブルシューティング"
+msgstr "Troubleshooting"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:636
+msgid "接続がうまくいかない場合の対処方法："
+msgstr "What to do if the connection does not work:"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:638
+msgid ""
+"| 問題 | 原因 | 対処方法 |\n"
+"|------|------|--------|\n"
+"| **接続時にタイムアウト** | ファイアウォール設定不足またはルーターの設定不"
+"足 | [ファイアウォール設定](#ファイアウォールの設定)を確認、ポート転送設定を"
+"確認 |\n"
+"| **認証エラー（TLS Handshake failed）** | 証明書・鍵のミスマッチ | クライア"
+"ント設定ファイルの`<ca>`、`<cert>`、`<key>`セクションの内容を再確認 |\n"
+"| **自宅ネットワークに到達できない** | `push \"route ...\"`設定が不正 | サー"
+"バー側`server.conf`の`push \"route\"`パラメータが自宅LANアドレスと一致してい"
+"るか確認 |\n"
+"| **DNSが機能しない** | DNS設定が通知されていない | `push \"dhcp-option "
+"DNS\"`の設定を確認、クライアント側でDNS設定を手動で行う |\n"
+"| **VPN接続後、インターネット通信ができない** | デフォルトルートの競合 | "
+"`client.ovpn`に`redirect-gateway def1`を追加（全トラフィックをVPN経由に統"
+"一） |"
+msgstr ""
+"| Problem | Cause | Solution |\n"
+"|------|------|--------|\n"
+"| **Timeout while connecting** | Insufficient firewall or router "
+"configuration | Check the [firewall configuration](#configure-the-firewall) "
+"and the port forwarding settings |\n"
+"| **Authentication error (TLS Handshake failed)** | Certificate or key "
+"mismatch | Recheck the contents of the `<ca>`, `<cert>`, and `<key>` "
+"sections in the client configuration file |\n"
+"| **Cannot reach the home network** | Invalid `push \"route ...\"` setting | "
+"Confirm that the `push \"route\"` parameter in the server's `server.conf` "
+"matches your home LAN address |\n"
+"| **DNS does not work** | DNS settings are not being pushed | Check the "
+"`push \"dhcp-option DNS\"` setting, or configure DNS manually on the client "
+"|\n"
+"| **No internet access after connecting to the VPN** | Conflicting default "
+"route | Add `redirect-gateway def1` to `client.ovpn` (routes all traffic "
+"through the VPN) |"
+
+#. heading (level 3)
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:646
+msgid "ログでのデバッグ"
+msgstr "Debugging with Logs"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:648
+msgid "サーバー側でのログ確認："
+msgstr "Check the logs on the server:"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:657
+msgid "接続失敗時のクライアント側ログ確認（詳細度を上げる）："
+msgstr ""
+"Check the client logs when a connection fails (with increased verbosity):"
+
+#. heading (level 2)
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:667
+msgid "動的IP対応（DDNS設定）"
+msgstr "Dynamic IP Support (DDNS)"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:669
+msgid ""
+"OpenWrtの外部IPが変動する場合、DDNS（ダイナミックDNS）機能を利用して、クライ"
+"アント側でホスト名での接続を可能にします。"
+msgstr ""
+"If the external IP address of OpenWrt changes, use DDNS (Dynamic DNS) so "
+"that clients can connect by hostname."
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:671
+msgid ""
+"[関連記事：OpenWrtでDDNSを設定し、定期的にDNSレコードを更新する](/blog/"
+"automatically-update-dns-records-for-onamae-com-from-openwrt-with-ddns-using-"
+"ddns-scripts-onamae)"
+msgstr ""
+"[Related article: Configure DDNS on OpenWrt to update DNS records "
+"periodically](/blog/automatically-update-dns-records-for-onamae-com-from-"
+"openwrt-with-ddns-using-ddns-scripts-onamae)"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:673
+msgid ""
+"DDNS設定後、クライアント設定ファイルの`remote`パラメータをDDNSホスト名に変更"
+"します："
+msgstr ""
+"After setting up DDNS, change the `remote` parameter in the client "
+"configuration file to the DDNS hostname:"
+
+#. heading (level 2)
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:683
+msgid "セキュリティ推奨事項"
+msgstr "Security Recommendations"
+
+#. heading (level 3)
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:685
+msgid "定期的な証明書更新"
+msgstr "Renew Certificates Regularly"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:687
+msgid ""
+"生成した証明書は825日間有効です。定期的に新しい証明書を生成・配置してくださ"
+"い。"
+msgstr ""
+"Generated certificates are valid for 825 days. Generate and deploy new "
+"certificates regularly."
+
+#. heading (level 3)
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:694
+msgid "ファイアウォール設定の確認"
+msgstr "Check the Firewall Settings"
+
+#. heading (level 3)
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:704
+msgid "PAM認証の追加（オプション）"
+msgstr "Add PAM Authentication (Optional)"
+
+#. paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:706
+msgid "パスワード認証を追加する場合、`server.conf`に以下を追加："
+msgstr "To add password authentication, add the following to `server.conf`:"
+
+#. heading (level 2)
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:714
+msgid "関連記事・外部リンク"
+msgstr "Related Articles and External Links"
+
+#. heading (level 3)
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:716
+msgid "OpenWrt関連"
+msgstr "OpenWrt"
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:718
+msgid ""
+"[OpenWrtへのOpenVPN インストール（公式ドキュメント）](https://openwrt.org/"
+"docs/guide_user/services/vpn/openvpn/server)"
+msgstr ""
+"[OpenVPN installation on OpenWrt (official documentation)](https://openwrt."
+"org/docs/guide_user/services/vpn/openvpn/server)"
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:719
+msgid ""
+"[OpenWrt Wiki - OpenVPN](https://openwrt.org/docs/guide_user/services/vpn/"
+"openvpn/start)"
+msgstr ""
+"[OpenWrt Wiki - OpenVPN](https://openwrt.org/docs/guide_user/services/vpn/"
+"openvpn/start)"
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:720
+msgid ""
+"[本サイト：OpenWrtのインストール](/blog/install-friendlywrt-on-nanopi-r2s)"
+msgstr ""
+"[This site: OpenWrt installation](/blog/install-friendlywrt-on-nanopi-r2s)"
+
+#. heading (level 3)
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:722
+msgid "VPN代替技術"
+msgstr "Alternative VPN Technologies"
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:724
+msgid ""
+"[WireGuardでVPNサーバーを構築する（本サイト）](/blog/set-up-a-vpn-server-on-"
+"openwrt-using-wireguard-to-access-the-home-network-from-outside)"
+msgstr ""
+"[Build a VPN server with WireGuard (this site)](/blog/set-up-a-vpn-server-on-"
+"openwrt-using-wireguard-to-access-the-home-network-from-outside)"
+
+#. heading (level 3)
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:726
+msgid "動的IP対応"
+msgstr "Dynamic IP Support"
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:728
+msgid ""
+"[OpenWrtでDDNSを設定する（本サイト）](/blog/automatically-update-dns-records-"
+"for-onamae-com-from-openwrt-with-ddns-using-ddns-scripts-onamae)"
+msgstr ""
+"[Configure DDNS on OpenWrt (this site)](/blog/automatically-update-dns-"
+"records-for-onamae-com-from-openwrt-with-ddns-using-ddns-scripts-onamae)"
+
+#. heading (level 3)
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:730
+msgid "SSH・セキュリティ関連"
+msgstr "SSH and Security"
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:732
+msgid "[SSH鍵の生成方法（本サイト）](/blog/generate-ssh-key)"
+msgstr "[How to generate an SSH key (this site)](/blog/generate-ssh-key)"
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:733
+msgid "[OpenSSL公式ドキュメント](https://www.openssl.org/docs/)"
+msgstr "[OpenSSL official documentation](https://www.openssl.org/docs/)"
+
+#. list item > paragraph
+#: content/ja/blog/set-up-a-vpn-server-on-openwrt-using-openvpn/index.md:734
+msgid ""
+"[NIST暗号化推奨設定](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/"
+"NIST.SP.800-38A.pdf)"
+msgstr ""
+"[NIST recommended encryption settings](https://nvlpubs.nist.gov/nistpubs/"
+"SpecialPublications/NIST.SP.800-38A.pdf)"

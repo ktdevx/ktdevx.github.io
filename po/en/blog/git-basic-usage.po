@@ -1,0 +1,232 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:42+0000\n"
+"PO-Revision-Date: 2026-11-15 23:40+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/git-basic-usage/index.md:2
+msgid "Gitの基本操作"
+msgstr "Basic Git Operations"
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:11
+msgid ""
+"Gitを使うことで、プログラムやドキュメントなどの変更履歴を管理し、過去の状態に"
+"戻したり、複数人での共同開発を効率的に行うすることができます。"
+msgstr ""
+"Git allows you to manage the history of changes for programs and documents, "
+"enabling you to revert to previous states and collaborate efficiently with "
+"others."
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:13
+msgid "ここでは、Gitの基本操作について解説します。"
+msgstr "This guide explains basic Git operations."
+
+#. heading (level 2)
+#: content/ja/blog/git-basic-usage/index.md:15
+msgid "Gitのインストール"
+msgstr "Install Git"
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:17
+msgid ""
+"Gitのインストール手順は以下のページで詳しく解説しています。内容を参考に、ご自"
+"身の環境にインストールしてください。"
+msgstr ""
+"Detailed instructions for installing Git can be found in the following "
+"article. Refer to it to install Git in your environment."
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:19
+msgid "[【Windows】Gitのインストール手順](/blog/install-git-on-windows)"
+msgstr "[How to Install Git on Windows](/blog/install-git-on-windows)"
+
+#. heading (level 2)
+#: content/ja/blog/git-basic-usage/index.md:21
+msgid "Gitの初期設定"
+msgstr "Initial Git Configuration"
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:23
+msgid ""
+"Gitを使用するには、ユーザー名とメールアドレスの設定が必要です。以下のコマンド"
+"でGitの初期設定を行います。"
+msgstr ""
+"To use Git, you need to set your username and email address. Use the "
+"following commands for the initial configuration:"
+
+#. heading (level 2)
+#: content/ja/blog/git-basic-usage/index.md:30
+msgid "リポジトリのクローン"
+msgstr "Clone a Repository"
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:32
+msgid ""
+"Gitで管理するプロジェクトは、リポジトリと呼ばれる単位で管理されます。リモート"
+"リポジトリをクローンするには、以下のコマンドを使います。"
+msgstr ""
+"Projects managed by Git are organized into units called repositories. To "
+"clone a remote repository, use the following command:"
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:38
+msgid "これにより、リモートリポジトリからクローンできます。"
+msgstr "This clones the remote repository."
+
+#. heading (level 2)
+#: content/ja/blog/git-basic-usage/index.md:40
+msgid "ブランチの作成と切り替え"
+msgstr "Create and Switching Branches"
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:42
+msgid ""
+"Gitでは、複数のブランチを使って、異なる機能や修正を並行して開発することができ"
+"ます。以下のコマンドで、新しいブランチを作成し、ブランチを切り替えることがで"
+"きます。"
+msgstr ""
+"Git allows you to develop different features or fixes concurrently using "
+"multiple branches. Use the following commands to create and switch branches."
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:44
+msgid ""
+"ブランチを作成するため、まずは派生元となるブランチをチェックアウトします。"
+msgstr "First, check out the branch you want to base the new branch on:"
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:50
+msgid "その後、以下のコマンドで派生元ブランチから新たにブランチを作成します。"
+msgstr "Then create and switch to the new branch:"
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:57
+msgid ""
+"これにより、`feature`という名前の新しいブランチが作成され、現在のブランチが"
+"`feature`に切り替わります。"
+msgstr "This example creates a new branch called `feature` and switches to it."
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:59
+msgid ""
+"ただし、これではまだリモートリポジトリに新しいリポジトリが反映されていないた"
+"め、`git push`コマンドを使用して反映します。"
+msgstr ""
+"To reflect the new branch in the remote repository, use the `git push` "
+"command:"
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:65
+msgid "これにより、リモートリポジトリにブランチが反映されます。"
+msgstr "This pushes the branch to the remote repository."
+
+#. heading (level 2)
+#: content/ja/blog/git-basic-usage/index.md:67
+msgid "ファイルの追加とコミット"
+msgstr "Add Files and Committing Changes"
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:69
+msgid ""
+"リポジトリにファイルを追加し、変更履歴を記録するには、以下のコマンドを使いま"
+"す。"
+msgstr ""
+"To add files to the repository and record changes, use the following "
+"commands:"
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:77
+msgid ""
+"この例では、`README.md`ファイルを追加し、変更履歴を「Initial commit」という"
+"メッセージでコミットしています。`-m`オプションを利用しない場合は、変更履歴を"
+"記録するためにテキストエディターが開かれます。"
+msgstr ""
+"In this example, the file `README.md` is added, and the changes are "
+"committed with the message \"Initial commit.\" If you don’t use the `-m` "
+"option, a text editor will open for you to enter the commit message."
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:79
+msgid ""
+"これだけでは変更はローカルのリポジトリにしか反映されないため注意してくださ"
+"い。"
+msgstr ""
+"Note that changes are only reflected in the local repository at this point."
+
+#. heading (level 2)
+#: content/ja/blog/git-basic-usage/index.md:81
+msgid "変更をリモートリポジトリに反映"
+msgstr "Push Changes to the Remote Repository"
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:83
+msgid "リモートリポジトリに変更を反映するには、以下のコマンドを使います。"
+msgstr "To push changes to the remote repository, use the following command:"
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:89
+msgid "これにより、コミットした内容がリモートリポジトリに反映されます。"
+msgstr "This command reflects the committed changes in the remote repository."
+
+#. heading (level 2)
+#: content/ja/blog/git-basic-usage/index.md:91
+msgid "ブランチ間で変更をマージ"
+msgstr "Merge Changes Between Branches"
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:93
+msgid ""
+"複数のブランチで変更した内容を、マージして一つのブランチに統合することができ"
+"ます。以下のコマンドで、ブランチをマージすることができます。"
+msgstr ""
+"You can merge changes from multiple branches into a single branch. Use the "
+"following commands to merge branches:"
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:100
+msgid ""
+"これにより、ブランチ間で変更がマージされます。ローカルリポジトリにマージした"
+"場合は忘れずに変更をプッシュしましょう。"
+msgstr ""
+"This merges the changes between branches. If you merged locally, don’t "
+"forget to push the changes."
+
+#. heading (level 2)
+#: content/ja/blog/git-basic-usage/index.md:102
+msgid "リモートリポジトリの変更を取り込む"
+msgstr "Pull Changes from the Remote Repository"
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:104
+msgid ""
+"リモートリポジトリの変更内容をローカルに反映するには、プルを行います。以下の"
+"コマンドを使います。"
+msgstr ""
+"To pull changes from the remote repository and update your local repository, "
+"use the following command:"
+
+#. paragraph
+#: content/ja/blog/git-basic-usage/index.md:110
+msgid "これにより、リモートリポジトリの変更内容がローカルに反映されます。"
+msgstr "This reflects the changes from the remote repository locally."
+
+#. heading (level 2)
+#: content/ja/blog/git-basic-usage/index.md:112
+msgid "外部リンク"
+msgstr "External Links"
+
+#. list item > paragraph
+#: content/ja/blog/git-basic-usage/index.md:114
+msgid "[Git](https://git-scm.com/)"
+msgstr "[Git](https://git-scm.com/)"

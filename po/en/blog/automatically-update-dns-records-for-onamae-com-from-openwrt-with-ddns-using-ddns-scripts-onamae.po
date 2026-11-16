@@ -1,0 +1,176 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:42+0000\n"
+"PO-Revision-Date: 2026-11-15 23:40+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/automatically-update-dns-records-for-onamae-com-from-openwrt-with-ddns-using-ddns-scripts-onamae/index.md:2
+msgid ""
+"ddns-scripts-onamaeを使用してOpenWrtからお名前.comのDNSレコードをダイナミック"
+"DNS（DDNS）で自動更新する"
+msgstr "Automatically Update Onamae.com DNS Records from OpenWrt Using DDNS"
+
+#. heading (level 2)
+#: content/ja/blog/automatically-update-dns-records-for-onamae-com-from-openwrt-with-ddns-using-ddns-scripts-onamae/index.md:11
+msgid "はじめに"
+msgstr "Introduction"
+
+#. paragraph
+#: content/ja/blog/automatically-update-dns-records-for-onamae-com-from-openwrt-with-ddns-using-ddns-scripts-onamae/index.md:13
+msgid ""
+"お名前.comのダイナミックDNS（DDNS）クライアントはWindowsしか対応していませ"
+"ん。しかし、ddns-scripts-onamaeを使用することで、OpenWrtがインストールされた"
+"ルーターからお名前.comのDNSレコードを更新することができます。"
+msgstr ""
+"The Onamae.com Dynamic DNS (DDNS) client supports only Windows. However, "
+"using ddns-scripts-onamae, you can update Onamae.com DNS records from a "
+"router running OpenWrt."
+
+#. paragraph
+#: content/ja/blog/automatically-update-dns-records-for-onamae-com-from-openwrt-with-ddns-using-ddns-scripts-onamae/index.md:15
+msgid ""
+"ddns-scripts-onamaeは、OpenWrtのDDNS管理を支援するddns-scriptsパッケージのサ"
+"ブモジュールの一つであり、日本国内で広く使われているドメイン登録サービス「お"
+"名前.com」のDNSレコードを自動で更新する機能を提供します。"
+msgstr ""
+"ddns-scripts-onamae is a submodule of the ddns-scripts package, which "
+"supports DDNS management on OpenWrt. It provides a function for "
+"automatically updating DNS records for Onamae.com, a widely used domain "
+"registrar in Japan."
+
+#. paragraph
+#: content/ja/blog/automatically-update-dns-records-for-onamae-com-from-openwrt-with-ddns-using-ddns-scripts-onamae/index.md:17
+msgid ""
+"これにより、固定IPアドレスを持たないインターネット回線でも、自宅のOpenWrtルー"
+"ターを用いてお名前.comに登録されたホスト名と最新のIPアドレスを常に同期させる"
+"ことが可能になります。"
+msgstr ""
+"This allows you to keep a hostname registered with Onamae.com synchronized "
+"with the latest IP address using an OpenWrt router, even when your internet "
+"connection does not have a static IP address."
+
+#. paragraph
+#: content/ja/blog/automatically-update-dns-records-for-onamae-com-from-openwrt-with-ddns-using-ddns-scripts-onamae/index.md:19
+msgid ""
+"ここでは、ddns-scripts-onamaeを使用してOpenWrtからお名前.comのDNSレコードを"
+"DDNSで自動更新する方法について説明します。"
+msgstr ""
+"This article explains how to automatically update Onamae.com DNS records "
+"from OpenWrt using DDNS and ddns-scripts-onamae."
+
+#. heading (level 2)
+#: content/ja/blog/automatically-update-dns-records-for-onamae-com-from-openwrt-with-ddns-using-ddns-scripts-onamae/index.md:21
+msgid "ddns-scripts-onamaeのインストール"
+msgstr "Install ddns-scripts-onamae"
+
+#. paragraph
+#: content/ja/blog/automatically-update-dns-records-for-onamae-com-from-openwrt-with-ddns-using-ddns-scripts-onamae/index.md:23
+msgid ""
+"[ddns-scripts-onamaeのダウンロードサイト](https://github.com/ktdevx/ddns-"
+"scripts-onamae/releases)にアクセスして最新バージョンのパッケージを確認しま"
+"す。今回はv1.0.2を選択しました。"
+msgstr ""
+"Visit the [ddns-scripts-onamae download site](https://github.com/ktdevx/ddns-"
+"scripts-onamae/releases) and check the latest package version. In this "
+"example, v1.0.2 is used."
+
+#. paragraph
+#: content/ja/blog/automatically-update-dns-records-for-onamae-com-from-openwrt-with-ddns-using-ddns-scripts-onamae/index.md:25
+msgid ""
+"OpenWrtにSSHでアクセスして`wget`コマンドでパッケージをダウンロードしましょ"
+"う。"
+msgstr "Access OpenWrt over SSH and download the package with `wget`."
+
+#. paragraph
+#: content/ja/blog/automatically-update-dns-records-for-onamae-com-from-openwrt-with-ddns-using-ddns-scripts-onamae/index.md:31
+msgid ""
+"これにより、`/tmp`ディレクトリに`ddns-scripts-onamae.ipk`という名前で、ddns-"
+"scripts-onamaeのパッケージファイルが保存されます。`opkg install`コマンドで"
+"パッケージをインストールしましょう。"
+msgstr ""
+"The ddns-scripts-onamae package is saved as `ddns-scripts-onamae.ipk` in `/"
+"tmp`. Install it with `opkg install`."
+
+#. paragraph
+#: content/ja/blog/automatically-update-dns-records-for-onamae-com-from-openwrt-with-ddns-using-ddns-scripts-onamae/index.md:38
+msgid "ddns-scripts-onamaeのインストールは以上で完了です。"
+msgstr "The ddns-scripts-onamae installation is complete."
+
+#. heading (level 2)
+#: content/ja/blog/automatically-update-dns-records-for-onamae-com-from-openwrt-with-ddns-using-ddns-scripts-onamae/index.md:40
+msgid "DDNSの設定"
+msgstr "Configure DDNS"
+
+#. paragraph
+#: content/ja/blog/automatically-update-dns-records-for-onamae-com-from-openwrt-with-ddns-using-ddns-scripts-onamae/index.md:42
+msgid "テキストエディタで`/etc/config/ddns`を開いて設定を追記します。"
+msgstr ""
+"Open `/etc/config/ddns` in a text editor and append the following "
+"configuration."
+
+#. paragraph
+#: content/ja/blog/automatically-update-dns-records-for-onamae-com-from-openwrt-with-ddns-using-ddns-scripts-onamae/index.md:58
+msgid ""
+"この例では、`example.com`という名前のドメインを`wan`のIPアドレスで更新する設"
+"定を、`example_com`という名前で追加しています。環境に応じて下記設定を変更しま"
+"しょう。"
+msgstr ""
+"This adds a service named `example_com` that updates the `example.com` "
+"domain with the IP address of `wan`. Change the following settings for your "
+"environment."
+
+#. paragraph
+#: content/ja/blog/automatically-update-dns-records-for-onamae-com-from-openwrt-with-ddns-using-ddns-scripts-onamae/index.md:60
+msgid ""
+"| 設定                   | 詳"
+"細                                                         |\n"
+"| ---------------------- | "
+"------------------------------------------------------------ |\n"
+"| lookup_host            | IPアドレスを更新するドメイン名 "
+"(FQDN)                        |\n"
+"| domain                 | IPアドレスを更新するドメイン名 (`サブドメイン名@ド"
+"メイン名`) |\n"
+"| username               | お名前.com Naviのお名前"
+"ID                                    |\n"
+"| password               | お名前.com Naviのパスワー"
+"ド                                  |\n"
+"| interface / ip_network | 設定するIPアドレスを読み取るネットワー"
+"ク                     |"
+msgstr ""
+"| Setting | Details |\n"
+"| --- | --- |\n"
+"| lookup_host | Domain name (FQDN) whose IP address is updated |\n"
+"| domain | Domain name to update (`subdomain@domain`) |\n"
+"| username | Onamae.com Navi ID |\n"
+"| password | Onamae.com Navi password |\n"
+"| interface / ip_network | Network from which to read the IP address |"
+
+#. paragraph
+#: content/ja/blog/automatically-update-dns-records-for-onamae-com-from-openwrt-with-ddns-using-ddns-scripts-onamae/index.md:68
+msgid ""
+"更新対象がサブドメインの場合は`lookup_host`と`domain`の設定は以下のようにしま"
+"す。"
+msgstr "For a subdomain, configure `lookup_host` and `domain` as follows."
+
+#. paragraph
+#: content/ja/blog/automatically-update-dns-records-for-onamae-com-from-openwrt-with-ddns-using-ddns-scripts-onamae/index.md:75
+msgid "設定後は以下のコマンドを実行してサービスを再起動しましょう。"
+msgstr "After configuring the service, restart it with the following command."
+
+#. paragraph
+#: content/ja/blog/automatically-update-dns-records-for-onamae-com-from-openwrt-with-ddns-using-ddns-scripts-onamae/index.md:81
+msgid ""
+"以上でDDNSの設定は完了です。これにより、DNSレコードが自動で設定されるようにな"
+"ります。"
+msgstr ""
+"The DDNS configuration is complete. DNS records are now updated "
+"automatically."

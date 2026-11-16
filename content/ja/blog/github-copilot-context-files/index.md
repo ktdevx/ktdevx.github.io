@@ -192,4 +192,4 @@ GitHub Copilotのコンテキストファイルを使うと、プロジェクト
 - Agent固有のルールは`AGENTS.md`に記述する
 - 指示は短く具体的にし、生成結果を必ず確認する
 
-詳しい仕様は、[GitHub Copilotのリポジトリカスタム指示（GitHub Docs）](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)と[VS CodeのCopilotカスタマイズ](https://code.visualstudio.com/docs/copilot/copilot-customization)を参照してください。
+詳しい仕様は、[GitHub Copilotのリポジトリカスタム指示（GitHub Docs）](https://docs.github.com/ja/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)と[VS CodeのCopilotカスタマイズ](https://code.visualstudio.com/docs/copilot/copilot-customization)を参照してください。

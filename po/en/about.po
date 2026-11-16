@@ -1,0 +1,71 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:42+0000\n"
+"PO-Revision-Date: 2026-11-15 23:40+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/about/index.md:2
+msgid "私について"
+msgstr "About"
+
+#. paragraph
+#: content/ja/about/index.md:7
+msgid "こんにちは、竹村海斗です。"
+msgstr "Hello, my name is Kaito Takemura."
+
+#. paragraph
+#: content/ja/about/index.md:9
+msgid ""
+"本業はシステムエンジニアで、主に組み込みシステムの分野で開発に携わっていま"
+"す。業界の技術は時代とともに進化し続けているため、日々の業務に活かせるよう、"
+"常に学習を心がけています。"
+msgstr ""
+"I work as a systems engineer, mainly involved in embedded systems "
+"development. Since technology in the industry constantly evolves with the "
+"times, I always strive to keep learning so that I can apply new knowledge to "
+"my daily work."
+
+#. paragraph
+#: content/ja/about/index.md:11
+msgid ""
+"システムエンジニアとして学んできたことが、皆様のお役に立てればと思い、このサ"
+"イトを立ち上げました。"
+msgstr ""
+"I created this site in the hope that what I have learned as a systems "
+"engineer may be of help to others."
+
+#. heading (level 2)
+#: content/ja/about/index.md:13
+msgid "保有資格"
+msgstr "Qualifications"
+
+#. paragraph
+#: content/ja/about/index.md:15
+msgid ""
+"|取得日    |資格名                      |\n"
+"|----------|----------------------------|\n"
+"|2016年11月|IPA 基本情報技術者試験（FE）|\n"
+"|2017年6月 |IPA 応用情報技術者試験（AP）|\n"
+"|2020年11月|JDLA G検定                  |\n"
+"|2023年9月 |JDLA E資格                  |"
+msgstr ""
+"|Date Obtained |Certification "
+"Name                                              |\n"
+"|--------------|----------------------------------------------------------------|\n"
+"|November 2016 |IPA Fundamental Information Technology Engineer Examination "
+"(FE)|\n"
+"|June 2017     |IPA Applied Information Technology Engineer Examination "
+"(AP)    |\n"
+"|November 2020 |JDLA Deep Learning for "
+"GENERAL                                  |\n"
+"|September 2023|JDLA Deep Learning for "
+"ENGINEER                                 |"

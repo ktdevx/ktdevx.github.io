@@ -1,0 +1,152 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:42+0000\n"
+"PO-Revision-Date: 2026-11-15 23:40+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/pass-through-phisical-disk-to-vm-on-pve/index.md:2
+msgid "Proxmox VE上の仮想マシンに物理ディスクをパススルーする"
+msgstr "Pass Through a Physical Disk to a Virtual Machine on Proxmox VE"
+
+#. paragraph
+#: content/ja/blog/pass-through-phisical-disk-to-vm-on-pve/index.md:11
+msgid ""
+"ここでは、Proxmox VE上の仮想マシンに物理ディスクをパススルーする方法について"
+"説明します。"
+msgstr ""
+"This article explains how to pass through a physical disk to a virtual "
+"machine on Proxmox VE."
+
+#. heading (level 2)
+#: content/ja/blog/pass-through-phisical-disk-to-vm-on-pve/index.md:13
+msgid "はじめに"
+msgstr "Introduction"
+
+#. paragraph
+#: content/ja/blog/pass-through-phisical-disk-to-vm-on-pve/index.md:15
+msgid ""
+"仮想マシンに物理ディスクをパススルーする前に、現在仮想マシンに接続されている"
+"ディスクを`lsblk`コマンドで確認してみます。"
+msgstr ""
+"Before passing through a physical disk to the virtual machine, check the "
+"disks currently connected to it with the `lsblk` command."
+
+#. paragraph
+#: content/ja/blog/pass-through-phisical-disk-to-vm-on-pve/index.md:27
+msgid "今回はここに1TBの物理ディスクをパススルーして接続します。"
+msgstr ""
+"In this example, a 1 TB physical disk is connected through to the virtual "
+"machine."
+
+#. heading (level 2)
+#: content/ja/blog/pass-through-phisical-disk-to-vm-on-pve/index.md:29
+msgid "ディスクの確認"
+msgstr "Check the Disk"
+
+#. paragraph
+#: content/ja/blog/pass-through-phisical-disk-to-vm-on-pve/index.md:31
+msgid ""
+"物理ディスクの型番を確認後、Proxmox VEがインストールされたサーバーにディスク"
+"を接続しましょう。"
+msgstr ""
+"Check the model number of the physical disk, then connect it to the server "
+"where Proxmox VE is installed."
+
+#. paragraph
+#: content/ja/blog/pass-through-phisical-disk-to-vm-on-pve/index.md:33
+msgid ""
+"接続後、Proxmox VEのシェルで`ls -l /dev/disk/by-id/`と打ってディスクを確認し"
+"ます。"
+msgstr ""
+"After connecting it, run `ls -l /dev/disk/by-id/` in the Proxmox VE shell to "
+"check the disk."
+
+#. paragraph
+#: content/ja/blog/pass-through-phisical-disk-to-vm-on-pve/index.md:46
+msgid ""
+"`/dev/disk/by-id/`は、Linuxにおいてストレージデバイスへのシンボリックリンクが"
+"集められたディレクトリです。"
+msgstr ""
+"`/dev/disk/by-id/` is a directory containing symbolic links to storage "
+"devices on Linux."
+
+#. paragraph
+#: content/ja/blog/pass-through-phisical-disk-to-vm-on-pve/index.md:48
+msgid ""
+"`/dev/sdX`のような名前は、起動順や接続順で変わる可能性がありますが、`/dev/"
+"disk/by-id/`のリンクは、デバイス固有のIDを使ってアクセスできるパスを提供する"
+"ため、**常に同じディスクをマウントしたい**場合に非常に便利です。"
+msgstr ""
+"Names such as `/dev/sdX` can change depending on the boot or connection "
+"order. Links in `/dev/disk/by-id/` use device-specific IDs, so they are very "
+"useful when you want to always access the same disk."
+
+#. paragraph
+#: content/ja/blog/pass-through-phisical-disk-to-vm-on-pve/index.md:50
+msgid ""
+"今回接続したディスクへのパスは`/dev/disk/by-id/ata-"
+"TOSHIBA_DT01ACA100_X7P8MYTFS`でした。これを控えておきましょう。"
+msgstr ""
+"The path to the disk connected in this example was `/dev/disk/by-id/ata-"
+"TOSHIBA_DT01ACA100_X7P8MYTFS`. Make a note of it."
+
+#. heading (level 2)
+#: content/ja/blog/pass-through-phisical-disk-to-vm-on-pve/index.md:52
+msgid "ディスクを仮想マシンにパススルー"
+msgstr "Pass Through the Disk to the Virtual Machine"
+
+#. paragraph
+#: content/ja/blog/pass-through-phisical-disk-to-vm-on-pve/index.md:54
+msgid ""
+"仮想マシンに物理ディスクをパススルーするには、`qm set`コマンドを使用します。"
+msgstr ""
+"Use the `qm set` command to pass through a physical disk to the virtual "
+"machine."
+
+#. paragraph
+#: content/ja/blog/pass-through-phisical-disk-to-vm-on-pve/index.md:60
+msgid "今回は以下のように設定しました。"
+msgstr "The following configuration was used in this example."
+
+#. paragraph
+#: content/ja/blog/pass-through-phisical-disk-to-vm-on-pve/index.md:67
+msgid ""
+"これにより、VM IDが100の仮想マシンに、SCSI1を介して、指定した物理ディスクが接"
+"続されます。"
+msgstr ""
+"The specified physical disk is connected to the virtual machine with VM ID "
+"100 through SCSI1."
+
+#. heading (level 2)
+#: content/ja/blog/pass-through-phisical-disk-to-vm-on-pve/index.md:69
+msgid "パススルーしたディスクの確認"
+msgstr "Check the Passed-Through Disk"
+
+#. paragraph
+#: content/ja/blog/pass-through-phisical-disk-to-vm-on-pve/index.md:71
+msgid ""
+"物理ディスクをパススルーした後、仮想マシンを再起動して仮想マシンのシェルにロ"
+"グインしましょう。"
+msgstr ""
+"After passing through the physical disk, restart the virtual machine and log "
+"in to its shell."
+
+#. paragraph
+#: content/ja/blog/pass-through-phisical-disk-to-vm-on-pve/index.md:73
+msgid "`lsblk`コマンドでディスクを確認してみます。"
+msgstr "Check the disk with the `lsblk` command."
+
+#. paragraph
+#: content/ja/blog/pass-through-phisical-disk-to-vm-on-pve/index.md:87
+msgid "無事、物理ディスクがパススルー出来ていることを確認できました。"
+msgstr ""
+"You can confirm that the physical disk has been passed through successfully."

@@ -1,0 +1,576 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-16 01:11+0000\n"
+"PO-Revision-Date: 2026-11-15 23:40+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/github-copilot-context-files/index.md:2
+msgid "GitHub Copilotのコンテキストファイルを設定する方法"
+msgstr "How to Configure GitHub Copilot Context Files"
+
+#. paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:13
+msgid ""
+"GitHub Copilotは、開いているファイルや入力中のコードだけでなく、プロジェクト"
+"に保存した指示も参考にして回答や変更を生成できます。プロジェクトのルールをコ"
+"ンテキストファイルにまとめると、毎回同じ説明を入力する手間を減らせます。"
+msgstr ""
+"GitHub Copilot can use more than the file you have open or the code you are "
+"typing. It can also use instructions stored in your project when generating "
+"answers and changes. Keeping project rules in context files reduces the need "
+"to repeat the same explanation in every request."
+
+#. paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:15
+msgid ""
+"この記事では、Visual Studio Code（VS Code）で使える代表的なコンテキストファイ"
+"ルの種類と、リポジトリに設定する手順を解説します。Copilotのバージョンや利用す"
+"るAgentによって、対応するファイルや表示名が異なる場合があります。実際に利用す"
+"るときは、最新の公式ドキュメントも確認してください。"
+msgstr ""
+"This article explains the main types of context files available in Visual "
+"Studio Code (VS Code) and how to configure them in a repository. The "
+"supported files and labels can vary by Copilot version and agent. Check the "
+"latest official documentation when you use these features."
+
+#. heading (level 2)
+#: content/ja/blog/github-copilot-context-files/index.md:17
+msgid "前提条件"
+msgstr "Prerequisites"
+
+#. paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:19
+msgid "次のものを準備します。"
+msgstr "Prepare the following:"
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:21
+msgid "VS Code"
+msgstr "VS Code"
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:22
+msgid "GitHub Copilotを利用できるGitHubアカウント"
+msgstr "A GitHub account with access to GitHub Copilot"
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:23
+msgid "Gitで管理しているプロジェクト"
+msgstr "A project managed with Git"
+
+#. paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:25
+msgid ""
+"この記事では、プロジェクトのルートディレクトリを`PROJECT_ROOT`と表記します。"
+"すでにプロジェクトをVS Codeで開いている場合は、`PROJECT_ROOT`を実際のプロジェ"
+"クトの場所に読み替えてください。"
+msgstr ""
+"This article uses `PROJECT_ROOT` to represent the root directory of the "
+"project. If you already opened the project in VS Code, replace "
+"`PROJECT_ROOT` with its actual location."
+
+#. heading (level 2)
+#: content/ja/blog/github-copilot-context-files/index.md:27
+msgid "コンテキストファイルの種類"
+msgstr "Types of context files"
+
+#. paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:29
+msgid ""
+"VS Codeでプロジェクトの指示を共有するときは、目的に応じて次のファイルを使い分"
+"けます。"
+msgstr ""
+"Use the following files for different types of shared project instructions "
+"in VS Code."
+
+#. paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:31
+msgid ""
+"| ファイル | 主な用途 |\n"
+"| --- | --- |\n"
+"| `.github/copilot-instructions.md` | リポジトリ全体に適用する指示 |\n"
+"| `.github/instructions/NAME.instructions.md` | 特定のファイルやディレクトリ"
+"に適用する指示 |\n"
+"| `AGENTS.md` | Agentに対する指示。配置したディレクトリ以下の作業に適用 |"
+msgstr ""
+"| File | Main purpose |\n"
+"| --- | --- |\n"
+"| `.github/copilot-instructions.md` | Instructions for the entire repository "
+"|\n"
+"| `.github/instructions/NAME.instructions.md` | Instructions for specific "
+"files or directories |\n"
+"| `AGENTS.md` | Instructions for an agent, applied to work under its "
+"directory |"
+
+#. paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:37
+msgid ""
+"`copilot-instructions.md`は、プロジェクトの目的や共通の開発ルールを書くファイ"
+"ルです。ファイル名と配置場所を変更すると、自動的に読み込まれないことがありま"
+"す。"
+msgstr ""
+"Use `copilot-instructions.md` for the project purpose and common development "
+"rules. Changing its file name or location can prevent it from being "
+"discovered automatically."
+
+#. paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:39
+msgid ""
+"パス別の指示ファイルは、先頭のfront matterに`applyTo`を記述して適用対象を指定"
+"します。例えば、次の指定はすべてのTypeScriptファイルに適用されます。"
+msgstr ""
+"Path-specific instruction files use `applyTo` in front matter to define "
+"their targets. For example, the following applies to all TypeScript files:"
+
+#. paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:47
+msgid ""
+"`AGENTS.md`は、モノレポなどでディレクトリごとに異なるルールを設定したい場合に"
+"便利です。利用するAgentや実行環境によって対応状況が異なるため、対象となる"
+"Agentのドキュメントも確認します。"
+msgstr ""
+"`AGENTS.md` is useful when different directories in a monorepo need "
+"different rules. Support can vary by agent and execution environment, so "
+"check the documentation for the agent you use."
+
+#. heading (level 2)
+#: content/ja/blog/github-copilot-context-files/index.md:49
+msgid "リポジトリ全体に指示を追加する"
+msgstr "Add repository-wide instructions"
+
+#. paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:51
+msgid ""
+"まず、すべての作業で共有したいルールを`.github/copilot-instructions.md`に記述"
+"します。"
+msgstr ""
+"Start by writing the rules that should be shared across all work in `.github/"
+"copilot-instructions.md`."
+
+#. heading (level 3)
+#: content/ja/blog/github-copilot-context-files/index.md:53
+msgid "ファイルを作成する"
+msgstr "Create the file"
+
+#. paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:55
+msgid "プロジェクトのルートで、次のディレクトリとファイルを作成します。"
+msgstr "Create the following directory and file at the project root:"
+
+#. paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:63
+msgid ""
+"ファイルには、Copilotが作業に必要とする情報を短く具体的に記述します。例えば、"
+"次のように書きます。"
+msgstr "Keep the instructions short and specific. For example:"
+
+#. paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:75
+msgid ""
+"プロジェクトの目的、主要なディレクトリ、使用するコマンド、変更時に守るルール"
+"を含めると、Copilotが作業の前提を理解しやすくなります。長いドキュメントをその"
+"まま貼り付けるのではなく、繰り返し必要になる情報に絞ります。"
+msgstr ""
+"Include the project purpose, the role of important directories, required "
+"commands, and rules to follow when making changes. Focus on information that "
+"is needed repeatedly instead of copying a long document into the file."
+
+#. heading (level 2)
+#: content/ja/blog/github-copilot-context-files/index.md:77
+msgid "パス別の指示を追加する"
+msgstr "Add path-specific instructions"
+
+#. paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:79
+msgid ""
+"言語やディレクトリごとにルールが異なる場合は、`.github/instructions/`に指示"
+"ファイルを作成します。"
+msgstr ""
+"When rules differ by language or directory, create instruction files in `."
+"github/instructions/`."
+
+#. paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:81
+msgid "例えば、Markdownファイルに対するルールを次のように保存します。"
+msgstr "For example, save Markdown rules in the following location:"
+
+#. paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:100
+msgid ""
+"特定のディレクトリだけを対象にする場合は、例えば`content/ja/**/*.md`のような"
+"globを指定します。複数の拡張子を対象にするときは、`applyTo`の値をカンマで区切"
+"ります。"
+msgstr ""
+"To target only one directory, use a glob such as `content/en/**/*.md`. "
+"Separate multiple file extensions with commas in the `applyTo` value."
+
+#. paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:102
+msgid ""
+"リポジトリ全体向けの指示とパス別の指示が対象リクエストに一致する場合、両方の"
+"指示が使われることがあります。内容が矛盾すると回答や変更の品質に影響するた"
+"め、共通ルールと個別ルールの役割を分けて記述します。"
+msgstr ""
+"When a repository-wide instruction and a path-specific instruction both "
+"match a request, both may be used. Conflicting instructions can reduce the "
+"quality of answers and changes, so keep common rules and local rules clearly "
+"separated."
+
+#. heading (level 2)
+#: content/ja/blog/github-copilot-context-files/index.md:104
+msgid "AGENTS.mdを使う"
+msgstr "Use AGENTS.md"
+
+#. paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:106
+msgid ""
+"Agentの作業に固有のルールを設定するときは、`AGENTS.md`を利用できます。リポジ"
+"トリのルートに置くと、プロジェクト全体のAgent作業に対する指示になります。"
+msgstr ""
+"Use `AGENTS.md` for rules specific to an agent's work. Put it at the "
+"repository root to provide instructions for agent work across the project."
+
+#. paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:113
+msgid ""
+"モノレポでサブプロジェクトごとにルールを分ける場合は、次のように配置できま"
+"す。"
+msgstr ""
+"In a monorepo, place additional files closer to the subproject when its "
+"rules differ:"
+
+#. paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:123
+msgid ""
+"サブディレクトリの作業では、より近い場所にある`AGENTS.md`が優先されます。ルー"
+"トの共通ルールとサブプロジェクト固有のルールが矛盾しないようにします。"
+msgstr ""
+"For work in a subdirectory, the nearest `AGENTS.md` takes precedence. Keep "
+"the root rules and subproject rules consistent where they overlap."
+
+#. paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:125
+msgid ""
+"`AGENTS.md`は、すべてのCopilot機能に同じように適用されるとは限りません。コー"
+"ド補完、Chat、Agent、GitHub.comのCloud AgentやCode Reviewでは、対応するカスタ"
+"マイズの種類が異なる場合があります。"
+msgstr ""
+"`AGENTS.md` is not necessarily applied in the same way to every Copilot "
+"feature. Code completion, Chat, Agent, GitHub.com Cloud Agent, and Code "
+"Review can support different customization types."
+
+#. heading (level 2)
+#: content/ja/blog/github-copilot-context-files/index.md:127
+msgid "指示内容の書き方"
+msgstr "Write useful instructions"
+
+#. paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:129
+msgid "コンテキストファイルには、Copilotが判断しやすい情報を記述します。"
+msgstr "Include information that helps Copilot make verifiable decisions:"
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:131
+msgid "プロジェクトの目的と主要な技術"
+msgstr "The project purpose and main technologies"
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:132
+msgid "ディレクトリやファイルの役割"
+msgstr "The role of directories and files"
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:133
+msgid "コーディング規約と命名規則"
+msgstr "Coding conventions and naming rules"
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:134
+msgid "テスト、ビルド、静的解析のコマンド"
+msgstr "Test, build, and static analysis commands"
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:135
+msgid "変更してはいけないファイルや互換性の条件"
+msgstr "Files that must not be changed and compatibility requirements"
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:136
+msgid "変更後に確認すべき項目"
+msgstr "Checks to perform after making changes"
+
+#. paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:138
+msgid ""
+"例えば、「きれいなコードにする」と書くより、「公開APIの名前を変更せず、既存の"
+"テストを実行する」と書くほうが確認可能です。指示を小さな箇条書きに分け、必要"
+"な条件や例外を明記します。"
+msgstr ""
+"For example, instead of writing “make the code clean,” write “do not rename "
+"the public API and run the existing tests.” Split instructions into small "
+"bullet points and state important conditions and exceptions."
+
+#. heading (level 2)
+#: content/ja/blog/github-copilot-context-files/index.md:140
+msgid "Copilotで適用結果を確認する"
+msgstr "Check whether instructions are applied"
+
+#. paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:142
+msgid ""
+"ファイルを保存したら、VS CodeでCopilot Chatを開いて、指示が使われているかを確"
+"認します。"
+msgstr ""
+"After saving the file, open Copilot Chat in VS Code and check whether the "
+"instructions are being used."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:144
+msgid "プロジェクトのルートをVS Codeで開きます。"
+msgstr "Open the project root in VS Code."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:145
+msgid "`.github/copilot-instructions.md`などの指示ファイルを保存します。"
+msgstr "Save an instruction file such as `.github/copilot-instructions.md`."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:146
+msgid "Chatで、プロジェクトの構成や変更時の確認手順について質問します。"
+msgstr ""
+"Ask Chat about the project structure or the checks required after a change."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:147
+msgid "回答に、指示ファイルに記述した内容が反映されているか確認します。"
+msgstr "Check whether the answer reflects the content of the instruction file."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:148
+msgid ""
+"Agentに作業を依頼する場合は、変更されたファイルと実行されたコマンドを確認しま"
+"す。"
+msgstr ""
+"If you ask an Agent to work, review the changed files and commands it ran."
+
+#. paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:150
+msgid ""
+"パス別の指示を確認するときは、`applyTo`に一致するファイルを対象に質問します。"
+"例えば、Markdownファイルだけに適用する指示を設定した場合は、Markdown記事の見"
+"出しやリンクについて質問します。"
+msgstr ""
+"To check path-specific instructions, ask about a file that matches "
+"`applyTo`. For example, if instructions target Markdown files, ask about "
+"headings or links in a Markdown article."
+
+#. paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:152
+msgid ""
+"指示ファイルの内容が回答に反映されない場合でも、ファイルを読み込んだことだけ"
+"で正しさが保証されるわけではありません。回答の参照情報やAgentのデバッグログを"
+"確認し、必要な指示を質問文にも具体的に含めて結果を比較します。"
+msgstr ""
+"Seeing an instruction file in the context does not guarantee that the answer "
+"is correct. Check the response references or Agent debug logs, and compare "
+"the result with a request that states the relevant requirement explicitly."
+
+#. heading (level 2)
+#: content/ja/blog/github-copilot-context-files/index.md:154
+msgid "適用されないときの確認"
+msgstr "Troubleshoot missing instructions"
+
+#. paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:156
+msgid ""
+"コンテキストファイルが使われていないように見える場合は、次の項目を確認しま"
+"す。"
+msgstr "If a context file does not appear to be used, check the following:"
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:158
+msgid ""
+"ファイル名が`copilot-instructions.md`または`NAME.instructions.md`の形式になっ"
+"ているか確認します。"
+msgstr ""
+"Confirm that the file name is `copilot-instructions.md` or follows the `NAME."
+"instructions.md` pattern."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:159
+msgid ""
+"`copilot-instructions.md`がリポジトリの`.github`ディレクトリにあるか確認しま"
+"す。"
+msgstr ""
+"Confirm that `copilot-instructions.md` is inside the repository's `.github` "
+"directory."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:160
+msgid "パス別ファイルが`.github/instructions`以下にあるか確認します。"
+msgstr "Confirm that path-specific files are inside `.github/instructions`."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:161
+msgid "`applyTo`のglobが対象ファイルのパスと一致しているか確認します。"
+msgstr "Confirm that the `applyTo` glob matches the target file path."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:162
+msgid "VS Codeでリポジトリのルートを開いているか確認します。"
+msgstr "Confirm that the repository root is open in VS Code."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:163
+msgid "VS CodeとGitHub Copilotを最新の状態に更新します。"
+msgstr "Update VS Code and GitHub Copilot when possible."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:164
+msgid ""
+"Agentを利用している場合は、Agentのデバッグログで読み込まれたファイルを確認し"
+"ます。"
+msgstr "If you use an Agent, inspect the Agent debug logs for loaded files."
+
+#. paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:166
+msgid ""
+"モノレポでリポジトリのサブディレクトリだけを開いている場合は、親リポジトリの"
+"カスタマイズを検索する設定が関係することがあります。設定名や既定値はVS Codeの"
+"バージョンによって変わる可能性があるため、公式ドキュメントで確認してくださ"
+"い。"
+msgstr ""
+"When you open only a subdirectory of a monorepo, a setting for discovering "
+"customizations in parent repositories may affect the result. The setting "
+"name and default value can change with VS Code versions, so check the "
+"official documentation."
+
+#. heading (level 2)
+#: content/ja/blog/github-copilot-context-files/index.md:168
+msgid "注意点"
+msgstr "Things to keep in mind"
+
+#. heading (level 3)
+#: content/ja/blog/github-copilot-context-files/index.md:170
+msgid "指示は短く具体的にする"
+msgstr "Keep instructions short and specific"
+
+#. paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:172
+msgid ""
+"指示を増やしすぎると、重要な条件が埋もれたり、指示同士が矛盾したりします。プ"
+"ロジェクト全体のルールと、特定のファイルだけのルールを適切に分けます。"
+msgstr ""
+"Too many instructions can hide important conditions or create conflicts. "
+"Separate repository-wide rules from rules for a particular type of file."
+
+#. heading (level 3)
+#: content/ja/blog/github-copilot-context-files/index.md:174
+msgid "生成結果を検証する"
+msgstr "Verify generated results"
+
+#. paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:176
+msgid ""
+"コンテキストファイルを設定しても、Copilotが正しいコードを生成するとは限りませ"
+"ん。差分、型、例外処理、境界値、セキュリティ上の問題を確認し、テストや静的解"
+"析を実行します。"
+msgstr ""
+"A context file does not guarantee correct code. Review the diff, types, "
+"exception handling, boundary cases, and security concerns, then run tests "
+"and static analysis."
+
+#. heading (level 3)
+#: content/ja/blog/github-copilot-context-files/index.md:178
+msgid "機密情報を含めない"
+msgstr "Do not include sensitive information"
+
+#. paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:180
+msgid ""
+"APIキー、パスワード、個人情報、顧客情報、社内の機密情報をコンテキストファイル"
+"に書かないでください。リポジトリを共有したときに、意図せず他の人やサービスか"
+"ら参照される可能性があります。"
+msgstr ""
+"Do not put API keys, passwords, personal information, customer information, "
+"or confidential company information in context files. When a repository is "
+"shared, other people or services may be able to access the content."
+
+#. heading (level 3)
+#: content/ja/blog/github-copilot-context-files/index.md:182
+msgid "対応機能を確認する"
+msgstr "Check feature support"
+
+#. paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:184
+msgid ""
+"コンテキストファイルの種類によって、適用されるCopilotの機能が異なります。VS "
+"Code、GitHub.com、Cloud Agent、Code Reviewで同じ動作になるとは限らないため、"
+"利用する環境の公式ドキュメントを確認します。"
+msgstr ""
+"The Copilot features that use a context file depend on its type. VS Code, "
+"GitHub.com, Cloud Agent, and Code Review may not behave the same way. Check "
+"the official documentation for the environment you use."
+
+#. heading (level 2)
+#: content/ja/blog/github-copilot-context-files/index.md:186
+msgid "まとめ"
+msgstr "Summary"
+
+#. paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:188
+msgid ""
+"GitHub Copilotのコンテキストファイルを使うと、プロジェクトの目的、開発ルー"
+"ル、検証方法を繰り返し伝える手間を減らせます。"
+msgstr ""
+"GitHub Copilot context files can reduce the need to repeat a project's "
+"purpose, development rules, and verification steps."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:190
+msgid "共通ルールは`.github/copilot-instructions.md`に記述する"
+msgstr "Put shared rules in `.github/copilot-instructions.md`."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:191
+msgid ""
+"ファイルやディレクトリごとのルールは`.github/instructions/*.instructions.md`"
+"に記述する"
+msgstr ""
+"Put file- or directory-specific rules in `.github/instructions/*."
+"instructions.md`."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:192
+msgid "Agent固有のルールは`AGENTS.md`に記述する"
+msgstr "Put agent-specific rules in `AGENTS.md`."
+
+#. list item > paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:193
+msgid "指示は短く具体的にし、生成結果を必ず確認する"
+msgstr ""
+"Keep instructions short and specific, and always verify generated results."
+
+#. paragraph
+#: content/ja/blog/github-copilot-context-files/index.md:195
+msgid ""
+"詳しい仕様は、[GitHub Copilotのリポジトリカスタム指示（GitHub Docs）]"
+"(https://docs.github.com/ja/copilot/customizing-copilot/adding-repository-"
+"custom-instructions-for-github-copilot)と[VS CodeのCopilotカスタマイズ]"
+"(https://code.visualstudio.com/docs/copilot/copilot-customization)を参照して"
+"ください。"
+msgstr ""
+"For details, see [Repository custom instructions for GitHub Copilot (GitHub "
+"Docs)](https://docs.github.com/en/copilot/customizing-copilot/adding-"
+"repository-custom-instructions-for-github-copilot) and [Copilot "
+"customization in VS Code](https://code.visualstudio.com/docs/copilot/copilot-"
+"customization)."

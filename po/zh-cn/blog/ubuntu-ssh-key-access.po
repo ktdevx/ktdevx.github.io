@@ -1,0 +1,118 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:59+0000\n"
+"PO-Revision-Date: 2026-11-15 23:56+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:2
+msgid "【Ubuntu】公開鍵認証でSSH接続する方法"
+msgstr "【Ubuntu】使用公钥认证进行 SSH 连接的方法"
+
+#. paragraph
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:12
+msgid ""
+"UbuntuにSSH接続する際、パスワード認証ではなく公開鍵認証を利用すると、セキュリ"
+"ティを向上させることができます。本記事では、SSH公開鍵認証の設定方法を詳しく解"
+"説します。"
+msgstr ""
+"通过 SSH 连接 Ubuntu 时，使用公钥认证代替密码认证可以提高安全性。本文将详细介"
+"绍 SSH 公钥认证的设置方法。"
+
+#. heading (level 2)
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:14
+msgid "公開鍵と秘密鍵の生成"
+msgstr "生成公钥和私钥"
+
+#. paragraph
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:16
+msgid ""
+"まずはクライアント側でSSH鍵を生成します。今回は鍵アルゴリズムED25519で作成し"
+"ました。"
+msgstr "首先，在客户端生成 SSH 密钥。本次使用 ED25519 密钥算法生成。"
+
+#. paragraph
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:22
+msgid ""
+"SSH鍵の生成方法は以下のページで詳しく解説しています。参考にしてください。"
+msgstr "SSH 密钥的生成方法在以下页面中有详细介绍，请参考。"
+
+#. paragraph
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:24
+msgid "[SSH鍵の生成方法](/blog/generate-ssh-key)"
+msgstr "[SSH 密钥的生成方法](/blog/generate-ssh-key)"
+
+#. paragraph
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:26
+msgid ""
+"上記コマンドを実行すると、秘密鍵と公開鍵が`~/.ssh/`ディレクトリに生成されま"
+"す。"
+msgstr "执行上述命令后，私钥和公钥会生成在 `~/.ssh/` 目录中。"
+
+#. heading (level 2)
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:28
+msgid "公開鍵をサーバーにコピー"
+msgstr "将公钥复制到服务器"
+
+#. paragraph
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:30
+msgid "生成した公開鍵をSSHサーバーにコピーします。"
+msgstr "将生成的公钥复制到 SSH 服务器。"
+
+#. paragraph
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:36
+msgid ""
+"または、手動で公開鍵の内容をサーバーの`~/.ssh/authorized_keys`に追加すること"
+"もできます。"
+msgstr ""
+"或者，也可以手动将公钥的内容添加到服务器的 `~/.ssh/authorized_keys` 中。"
+
+#. heading (level 2)
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:38
+msgid "SSH設定の変更"
+msgstr "更改 SSH 设置"
+
+#. paragraph
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:40
+msgid ""
+"セキュリティ向上のため、パスワードでのSSH接続を禁止し、公開鍵認証のみで接続で"
+"きるようにします。"
+msgstr ""
+"为了提高安全性，禁止使用密码进行 SSH 连接，只允许通过公钥认证进行连接。"
+
+#. paragraph
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:42
+msgid ""
+"SSHの設定を変更するには、サーバーの`/etc/ssh/sshd_config`をテキストエディタで"
+"編集します。以下の設定を確認・変更してください。"
+msgstr ""
+"要更改 SSH 的设置，请使用文本编辑器编辑服务器上的 `/etc/ssh/sshd_config`。请"
+"确认并修改以下设置。"
+
+#. paragraph
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:49
+msgid "設定を反映させるため、SSHを再起動します。"
+msgstr "为使设置生效，重启 SSH。"
+
+#. heading (level 2)
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:55
+msgid "SSH接続の確認"
+msgstr "确认 SSH 连接"
+
+#. paragraph
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:57
+msgid "クライアントからSSH接続を試します。"
+msgstr "从客户端尝试进行 SSH 连接。"
+
+#. paragraph
+#: content/ja/blog/ubuntu-ssh-key-access/index.md:63
+msgid "ログインできれば、公開鍵認証の設定は完了です。"
+msgstr "如果能够登录，公钥认证的设置就完成了。"

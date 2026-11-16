@@ -1,0 +1,330 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:42+0000\n"
+"PO-Revision-Date: 2026-11-15 23:40+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:2
+msgid "Raspberry Piで自宅にGitサーバーを構築する"
+msgstr "Build a Git Server at Home with a Raspberry Pi"
+
+#. paragraph
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:12
+msgid ""
+"自宅にGitサーバーを構築することは、自分のソースコードを公開したくない場合や、"
+"サーバーを自分でカスタマイズしたい場合に非常に有用です。"
+msgstr ""
+"Building a Git server at home is useful when you do not want to publish your "
+"source code or want to customize the server yourself."
+
+#. paragraph
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:14
+msgid ""
+"安価に入手でき、インターネット上でも情報が豊富なRaspberry Piを使って、Gitサー"
+"バーを構築してみましょう。"
+msgstr ""
+"Let's build a Git server using a Raspberry Pi, which is inexpensive and has "
+"extensive documentation available online."
+
+#. heading (level 2)
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:16
+msgid "ネットワーク構成"
+msgstr "Network Configuration"
+
+#. paragraph
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:18
+msgid "ネットワーク構成は以下の通りです。"
+msgstr "The network configuration is as follows."
+
+#. paragraph
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:20
+msgid "![ネットワーク構成](images/git-server-network.webp)"
+msgstr "![Network configuration](images/git-server-network.webp)"
+
+#. paragraph
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:22
+msgid ""
+"Raspberry PiでGitサーバーを構築し、同じネットワーク内に存在するPCからGitサー"
+"バーにアクセスできるようにします。"
+msgstr ""
+"A Git server is built on the Raspberry Pi so that PCs on the same network "
+"can access it."
+
+#. heading (level 2)
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:24
+msgid "Raspberry Piの事前準備"
+msgstr "Prepare the Raspberry Pi"
+
+#. heading (level 3)
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:26
+msgid "OSのインストール"
+msgstr "Install the OS"
+
+#. paragraph
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:28
+msgid ""
+"最初に、Raspberry PiにOSをインストールする必要があります。サーバー用途の場合"
+"はGUIは不要なため、今回はRaspberry Pi OS Liteをインストールします。"
+msgstr ""
+"First, install an OS on the Raspberry Pi. A GUI is unnecessary for a server, "
+"so Raspberry Pi OS Lite is installed in this example."
+
+#. paragraph
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:30
+msgid ""
+"Raspberry Pi OS LiteはRaspberry Pi用のOSで、公式サイトからダウンロードするこ"
+"とができます。OSをインストールする方法については、Raspberry Piの[公式サイト]"
+"(https://www.raspberrypi.com/)に詳しい手順が記載されています。"
+msgstr ""
+"Raspberry Pi OS Lite is an OS for Raspberry Pi devices and can be downloaded "
+"from the official website. Detailed installation instructions are available "
+"on the Raspberry Pi [official website](https://www.raspberrypi.com/)."
+
+#. heading (level 3)
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:32
+msgid "固定IPアドレスの設定"
+msgstr "Set a Static IP Address"
+
+#. paragraph
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:34
+msgid ""
+"Raspberry Piに常に同じIPアドレスでアクセスできるようにするために、固定IPアド"
+"レスを割り当てます。"
+msgstr ""
+"Assign a static IP address so that the Raspberry Pi can always be accessed "
+"at the same address."
+
+#. paragraph
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:36
+msgid "IPアドレスを変更するには、以下のコマンドを実行します。"
+msgstr "Run the following command to change the IP address settings."
+
+#. paragraph
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:42
+msgid "テキストエディターが起動するため、以下の内容をファイルに追記します。"
+msgstr "When the text editor starts, append the following to the file."
+
+#. paragraph
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:51
+msgid ""
+"この例では、IPアドレスが`192.168.0.2`、サブネットマスクが`255.255.255.0`、デ"
+"フォルトゲートウェイとDNSサーバーが`192.168.0.1`であることを指定しています。"
+msgstr ""
+"This example specifies an IP address of `192.168.0.2`, a subnet mask of "
+"`255.255.255.0`, and `192.168.0.1` as the default gateway and DNS server."
+
+#. paragraph
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:53
+msgid "ファイルを保存し、以下のコマンドでRaspberry Piを再起動します。"
+msgstr "Save the file and restart the Raspberry Pi with the following command."
+
+#. paragraph
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:59
+msgid "これにより、IPアドレスが固定化されます。"
+msgstr "The IP address is now static."
+
+#. heading (level 3)
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:61
+msgid "SSHサーバーの有効化"
+msgstr "Enable the SSH Server"
+
+#. paragraph
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:63
+msgid ""
+"Raspberry PiにSSHで接続できるようにするため、SSH接続を有効化します。手順につ"
+"いては、以下の記事で詳しく説明しています。"
+msgstr ""
+"Enable SSH access so that you can connect to the Raspberry Pi over SSH. "
+"Detailed instructions are available in the following article."
+
+#. paragraph
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:65
+msgid ""
+"[Raspberry Pi OSでSSH接続を有効化する](/blog/enable-ssh-on-raspberry-pi-os)"
+msgstr ""
+"[Enable SSH Access on Raspberry Pi OS](/blog/enable-ssh-on-raspberry-pi-os)"
+
+#. heading (level 2)
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:67
+msgid "Gitのインストール"
+msgstr "Install Git"
+
+#. paragraph
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:69
+msgid "サーバーにGitをインストールするために、以下のコマンドを実行します。"
+msgstr "Run the following commands to install Git on the server."
+
+#. paragraph
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:76
+msgid "これにより、サーバーにGitがインストールされます。"
+msgstr "Git is now installed on the server."
+
+#. heading (level 2)
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:78
+msgid "Gitユーザーの追加とディレクトリの作成"
+msgstr "Add the Git User and Create a Directory"
+
+#. paragraph
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:80
+msgid ""
+"Git操作用に、`git`という名前のユーザーをサーバー上に作成します。ユーザーの作"
+"成には以下のコマンドを実行します。"
+msgstr "Create a user named `git` on the server for Git operations."
+
+#. paragraph
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:86
+msgid ""
+"パスワードを聞かれるため、任意のパスワードを入力してEnterキーを押します。再度"
+"パスワードを入力するよう求められるため、同じパスワードを入力してEnterキーを押"
+"します。これにより、gitユーザーが作成されます。"
+msgstr ""
+"When prompted for a password, enter one of your choice and press Enter. "
+"Enter the same password again when prompted. The `git` user is created."
+
+#. paragraph
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:88
+msgid ""
+"次に、Gitリポジトリを格納するディレクトリを作成します。作成には以下のコマンド"
+"を実行します。"
+msgstr "Next, create a directory to store Git repositories."
+
+#. paragraph
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:95
+msgid ""
+"このコマンドは、`/opt`ディレクトリ配下に`git`という名前のディレクトリを作成"
+"し、その所有者を`git`ユーザーに変更するものです。こうすることで、`git`ユー"
+"ザーが`/opt/git`配下に作成されるGitリポジトリを読み書きできるようになります。"
+msgstr ""
+"These commands create a directory named `git` under `/opt` and change its "
+"owner to the `git` user. This allows the `git` user to read and write Git "
+"repositories created under `/opt/git`."
+
+#. paragraph
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:97
+msgid ""
+"以降、サーバー上での操作は`git`ユーザーで行います。以下のコマンドを実行し、"
+"ユーザを切り替えます。"
+msgstr ""
+"From this point on, perform operations on the server as the `git` user. "
+"Switch users with the following command."
+
+#. heading (level 2)
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:103
+msgid "SSH公開鍵の登録"
+msgstr "Register an SSH Public Key"
+
+#. paragraph
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:105
+msgid ""
+"SSH鍵を生成することで、Gitサーバーとの通信をセキュアに行うことができます。Git"
+"サーバーにSSHでアクセスするために、公開鍵の登録を行います。"
+msgstr ""
+"Generating an SSH key enables secure communication with the Git server. "
+"Register a public key so that you can access the Git server over SSH."
+
+#. paragraph
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:107
+msgid "PCで以下のコマンドを実行し、SSH鍵を生成します。"
+msgstr "Run the following command on the PC to generate an SSH key."
+
+#. paragraph
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:113
+msgid ""
+"Enterキーを押すと、デフォルトの設定で鍵が生成されます。デフォルト設定の場合、"
+"`.ssh`ディレクトリに`id_rsa`という名前の秘密鍵と、`id_rsa.pub`という名前の公"
+"開鍵が生成されます。"
+msgstr ""
+"Press Enter to generate the key using the default settings. With the default "
+"settings, a private key named `id_rsa` and a public key named `id_rsa.pub` "
+"are generated in the `.ssh` directory."
+
+#. paragraph
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:115
+msgid ""
+"SSHでアクセスするためには、サーバーに公開鍵を登録する必要があります。生成した"
+"公開鍵は、FTPやSFTPを利用してサーバーに転送しましょう。"
+msgstr ""
+"To access the server over SSH, register the public key on the server. "
+"Transfer the public key you generated to the server using FTP or SFTP."
+
+#. paragraph
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:117
+msgid ""
+"公開鍵の転送後は、`.ssh`ディレクトリ配下に`authorized_keys`という名前のファイ"
+"ルを作成し、そこに公開鍵を登録します。サーバー上で以下のコマンドを実行し、"
+"`authorized_keys`を作成します。"
+msgstr ""
+"After transferring the public key, create a file named `authorized_keys` "
+"under the `.ssh` directory and register the public key in it. Run the "
+"following commands on the server to create `authorized_keys`."
+
+#. paragraph
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:125
+msgid ""
+"空の`authorized_keys`が作成されるため、先ほど作成した公開鍵をこのファイルに追"
+"加します。"
+msgstr ""
+"An empty `authorized_keys` file is created. Add the public key you generated "
+"earlier to this file."
+
+#. paragraph
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:131
+msgid "これにより、`authorized_keys`に公開鍵が追加されます。"
+msgstr "The public key is now added to `authorized_keys`."
+
+#. heading (level 2)
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:133
+msgid "Gitリポジトリの作成"
+msgstr "Create a Git Repository"
+
+#. paragraph
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:135
+msgid "Gitサーバーにリポジトリを作成するため、以下のコマンドを実行します。"
+msgstr "Run the following commands to create a repository on the Git server."
+
+#. paragraph
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:143
+msgid "この例では、`project.git`という名前でGitリポジトリを作成しています。"
+msgstr "This example creates a Git repository named `project.git`."
+
+#. paragraph
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:145
+msgid ""
+"`git init`コマンドに`--bare`オプションを指定して実行することで、作業ディレク"
+"トリを持たない空のリポジトリが作成されます。これを、ベアリポジトリといいま"
+"す。"
+msgstr ""
+"Running `git init` with the `--bare` option creates an empty repository "
+"without a working directory. This is called a bare repository."
+
+#. paragraph
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:147
+msgid ""
+"ベアリポジトリのディレクトリ名の末尾には、`.git`を付けるという慣例がありま"
+"す。"
+msgstr "By convention, a bare repository directory name ends with `.git`."
+
+#. heading (level 2)
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:149
+msgid "Gitリポジトリのクローン"
+msgstr "Clone the Git Repository"
+
+#. paragraph
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:151
+msgid "リポジトリをクローンするためには、以下のコマンドを実行します。"
+msgstr "Run the following command to clone the repository."
+
+#. paragraph
+#: content/ja/blog/setup-git-server-on-raspberry-pi/index.md:157
+msgid ""
+"以上で、Raspberry Piを使用して自宅にGitサーバーを構築することができます。"
+msgstr "You have now built a Git server at home using a Raspberry Pi."

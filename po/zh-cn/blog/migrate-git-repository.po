@@ -1,0 +1,100 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:59+0000\n"
+"PO-Revision-Date: 2026-11-15 23:56+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/migrate-git-repository/index.md:2
+msgid "Gitリポジトリを別のサーバーに移行する"
+msgstr "将 Git 仓库迁移到其他服务器"
+
+#. paragraph
+#: content/ja/blog/migrate-git-repository/index.md:11
+msgid "ここでは、Gitリポジトリを別のサーバーに移行する方法について解説します。"
+msgstr "本文介绍如何将 Git 仓库迁移到其他服务器。"
+
+#. heading (level 2)
+#: content/ja/blog/migrate-git-repository/index.md:13
+msgid "移行先となる空のベアリポジトリを作成"
+msgstr "创建作为迁移目标的空裸仓库"
+
+#. paragraph
+#: content/ja/blog/migrate-git-repository/index.md:15
+msgid ""
+"事前に、移行先のサーバーで空のベアリポジトリを作成しておきましょう。以下のコ"
+"マンドを移行先のサーバで実行します。"
+msgstr ""
+"请事先在迁移目标服务器上创建一个空的裸仓库。在迁移目标服务器上执行以下命令。"
+
+#. paragraph
+#: content/ja/blog/migrate-git-repository/index.md:21
+msgid ""
+"ここで作成したベアリポジトリに、Gitリポジトリを移行することが本記事の目標で"
+"す。"
+msgstr "本文的目标就是将 Git 仓库迁移到这里创建的裸仓库中。"
+
+#. heading (level 2)
+#: content/ja/blog/migrate-git-repository/index.md:23
+msgid "移行元リポジトリからベアリポジトリをクローン"
+msgstr "从迁移源仓库克隆裸仓库"
+
+#. paragraph
+#: content/ja/blog/migrate-git-repository/index.md:25
+msgid ""
+"以下のコマンドをPCで実行し、移行元のリポジトリから、ベアリポジトリをクローン"
+"します。"
+msgstr "在 PC 上执行以下命令，从迁移源仓库克隆裸仓库。"
+
+#. paragraph
+#: content/ja/blog/migrate-git-repository/index.md:31
+msgid ""
+"`clone`コマンドに`--bare`オプションを付けることにより、ベアリポジトリとしてク"
+"ローンすることができます。"
+msgstr "通过为 `clone` 命令加上 `--bare` 选项，可以将其克隆为裸仓库。"
+
+#. heading (level 2)
+#: content/ja/blog/migrate-git-repository/index.md:33
+msgid "ベアリポジトリを移行先リポジトリにプッシュ"
+msgstr "将裸仓库推送到迁移目标仓库"
+
+#. paragraph
+#: content/ja/blog/migrate-git-repository/index.md:35
+msgid ""
+"以下のコマンドをPCで実行し、先ほどクローンしたベアリポジトリを、移行先のリポ"
+"ジトリにプッシュします。"
+msgstr "在 PC 上执行以下命令，将刚才克隆的裸仓库推送到迁移目标仓库。"
+
+#. paragraph
+#: content/ja/blog/migrate-git-repository/index.md:42
+msgid ""
+"pushコマンドに`--mirror`オプションを付けることにより、指定したリポジトリの全"
+"てのブランチ、タグ、リファレンスを同期することができます。"
+msgstr ""
+"通过为 push 命令加上 `--mirror` 选项，可以同步指定仓库的所有分支、标签和引"
+"用。"
+
+#. heading (level 2)
+#: content/ja/blog/migrate-git-repository/index.md:44
+msgid "クローンしたベアリポジトリの削除"
+msgstr "删除克隆的裸仓库"
+
+#. paragraph
+#: content/ja/blog/migrate-git-repository/index.md:46
+msgid "以下のコマンドをPCで実行し、不要となったベアリポジトリを削除します。"
+msgstr "在 PC 上执行以下命令，删除不再需要的裸仓库。"
+
+#. paragraph
+#: content/ja/blog/migrate-git-repository/index.md:53
+msgid ""
+"移行元のリポジトリも忘れずに削除しましょう。これにより、Gitリポジトリの移行作"
+"業は完了です。"
+msgstr "别忘了把迁移源仓库也删除。至此，Git 仓库的迁移工作就完成了。"

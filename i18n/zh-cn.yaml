@@ -1,0 +1,12 @@
+# テーマの zh-cn.yaml にないキーだけを定義する（ほかのキーはテーマの訳を使う）
+lastMod:
+  other: "最后修改："
+
+toNewPost:
+  other: "较新的文章"
+
+toOldPost:
+  other: "较早的文章"
+
+videoIsNotSupported:
+  other: "您的浏览器不支持视频播放"

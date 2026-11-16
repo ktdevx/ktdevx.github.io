@@ -1,0 +1,195 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:59+0000\n"
+"PO-Revision-Date: 2026-11-15 23:56+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/setup-tftp-server-on-windows-using-tftpd64/index.md:2
+msgid "WindowsでTftpd64を使用してTFTPサーバーを立てる"
+msgstr "在 Windows 上使用 Tftpd64 搭建 TFTP 服务器"
+
+#. paragraph
+#: content/ja/blog/setup-tftp-server-on-windows-using-tftpd64/index.md:11
+msgid ""
+"Tftpd64は、Windows向けのTFTP、SNTP、SYSLOG、DHCP、DNSサーバーのソフトウェアで"
+"す。"
+msgstr ""
+"Tftpd64 是一款面向 Windows 的 TFTP、SNTP、SYSLOG、DHCP 和 DNS 服务器软件。"
+
+#. paragraph
+#: content/ja/blog/setup-tftp-server-on-windows-using-tftpd64/index.md:13
+msgid ""
+"ここでは、Tftpd64を使用してWindows上でTFTPサーバーを立てる方法について説明し"
+"ます。"
+msgstr "本文介绍如何使用 Tftpd64 在 Windows 上搭建 TFTP 服务器。"
+
+#. heading (level 2)
+#: content/ja/blog/setup-tftp-server-on-windows-using-tftpd64/index.md:15
+msgid "Tftpd64のインストール"
+msgstr "安装 Tftpd64"
+
+#. paragraph
+#: content/ja/blog/setup-tftp-server-on-windows-using-tftpd64/index.md:17
+msgid ""
+"[Tftpd64の公式サイト](https://pjo2.github.io/tftpd64/)のダウンロードページに"
+"て、`Tftpd64-<バージョン>-setup.exe`というファイル名でインストーラーが配布さ"
+"れています。インストーラーをダウンロードして実行しましょう。"
+msgstr ""
+"在 [Tftpd64 官方网站](https://pjo2.github.io/tftpd64/)的下载页面中，提供了文"
+"件名为 `Tftpd64-<版本>-setup.exe` 的安装程序。下载并运行该安装程序。"
+
+#. paragraph
+#: content/ja/blog/setup-tftp-server-on-windows-using-tftpd64/index.md:19
+msgid "![Tftpd64インストーラー](images/tftpd64-install1.webp)"
+msgstr "![Tftpd64 安装程序](images/tftpd64-install1.webp)"
+
+#. paragraph
+#: content/ja/blog/setup-tftp-server-on-windows-using-tftpd64/index.md:21
+msgid ""
+"ライセンスが表示されます。内容を確認し、「I Agree」を押して次へ進めましょう。"
+msgstr "界面上会显示许可协议。确认内容后，点击“I Agree”进入下一步。"
+
+#. paragraph
+#: content/ja/blog/setup-tftp-server-on-windows-using-tftpd64/index.md:23
+msgid "![Tftpd64インストーラー](images/tftpd64-install2.webp)"
+msgstr "![Tftpd64 安装程序](images/tftpd64-install2.webp)"
+
+#. paragraph
+#: content/ja/blog/setup-tftp-server-on-windows-using-tftpd64/index.md:25
+msgid ""
+"インストール条件を設定できます。設定後、「Next」を押して次へ進めましょう。"
+msgstr "可以设置安装选项。设置完成后，点击“Next”进入下一步。"
+
+#. paragraph
+#: content/ja/blog/setup-tftp-server-on-windows-using-tftpd64/index.md:27
+msgid "![Tftpd64インストーラー](images/tftpd64-install3.webp)"
+msgstr "![Tftpd64 安装程序](images/tftpd64-install3.webp)"
+
+#. paragraph
+#: content/ja/blog/setup-tftp-server-on-windows-using-tftpd64/index.md:29
+msgid ""
+"Tftpd64をインストールする場所を設定します。設定後、「Install」を押すことでイ"
+"ンストールが開始されます。"
+msgstr "设置 Tftpd64 的安装位置。设置完成后，点击“Install”开始安装。"
+
+#. paragraph
+#: content/ja/blog/setup-tftp-server-on-windows-using-tftpd64/index.md:31
+msgid "![Tftpd64インストーラー](images/tftpd64-install4.webp)"
+msgstr "![Tftpd64 安装程序](images/tftpd64-install4.webp)"
+
+#. paragraph
+#: content/ja/blog/setup-tftp-server-on-windows-using-tftpd64/index.md:33
+msgid ""
+"画面上に「Completed!」と表示されればインストール完了です。「Close」を押してイ"
+"ンストーラーを終了します。"
+msgstr "界面上显示“Completed!”即表示安装完成。点击“Close”退出安装程序。"
+
+#. heading (level 2)
+#: content/ja/blog/setup-tftp-server-on-windows-using-tftpd64/index.md:35
+msgid "Tftpd64の使い方"
+msgstr "Tftpd64 的使用方法"
+
+#. paragraph
+#: content/ja/blog/setup-tftp-server-on-windows-using-tftpd64/index.md:37
+msgid "インストールされた「tftpd64.exe」を実行してTftpd64を起動します。"
+msgstr "运行安装好的“tftpd64.exe”，启动 Tftpd64。"
+
+#. paragraph
+#: content/ja/blog/setup-tftp-server-on-windows-using-tftpd64/index.md:39
+msgid "![Tftpd64](images/tftpd64-usage1.webp)"
+msgstr "![Tftpd64](images/tftpd64-usage1.webp)"
+
+#. paragraph
+#: content/ja/blog/setup-tftp-server-on-windows-using-tftpd64/index.md:41
+msgid "Tftpd64を起動したら、最初に「Settings」を押して設定画面を開きましょう。"
+msgstr "启动 Tftpd64 后，首先点击“Settings”打开设置界面。"
+
+#. paragraph
+#: content/ja/blog/setup-tftp-server-on-windows-using-tftpd64/index.md:43
+msgid "![Tftpd64](images/tftpd64-usage2.webp)"
+msgstr "![Tftpd64](images/tftpd64-usage2.webp)"
+
+#. paragraph
+#: content/ja/blog/setup-tftp-server-on-windows-using-tftpd64/index.md:45
+msgid ""
+"設定画面の「GLOBAL」タブでは、Tftpd64全体に関わる設定を変更できます。今回は"
+"TFTPサーバーしか利用しないため、「TFTP Server」だけにチェックを付けましょう。"
+msgstr ""
+"在设置界面的“GLOBAL”选项卡中，可以修改与 Tftpd64 整体相关的设置。这次只使用 "
+"TFTP 服务器，因此只勾选“TFTP Server”。"
+
+#. paragraph
+#: content/ja/blog/setup-tftp-server-on-windows-using-tftpd64/index.md:47
+msgid "![Tftpd64](images/tftpd64-usage3.webp)"
+msgstr "![Tftpd64](images/tftpd64-usage3.webp)"
+
+#. paragraph
+#: content/ja/blog/setup-tftp-server-on-windows-using-tftpd64/index.md:49
+msgid ""
+"設定画面の「TFTP」タブでは、TFTPに関わる設定を変更出来ます。TFTPサーバーで公"
+"開するベースディレクトリを「Base Directory」で設定しましょう。"
+msgstr ""
+"在设置界面的“TFTP”选项卡中，可以修改与 TFTP 相关的设置。在“Base Directory”中"
+"设置 TFTP 服务器对外提供的基础目录。"
+
+#. paragraph
+#: content/ja/blog/setup-tftp-server-on-windows-using-tftpd64/index.md:51
+msgid ""
+"Tftpd64はデフォルトの状態では、全てのネットワークインターフェースでTFTPクライ"
+"アントからの通信を受け付けます。「Bind TFTP to this address」にチェックを入"
+"れ、IPアドレスを指定することで、サーバーを公開するIPアドレスを指定することが"
+"できます。"
+msgstr ""
+"默认情况下，Tftpd64 会在所有网络接口上接受来自 TFTP 客户端的通信。勾选“Bind "
+"TFTP to this address”并指定 IP 地址，即可指定服务器对外提供服务的 IP 地址。"
+
+#. paragraph
+#: content/ja/blog/setup-tftp-server-on-windows-using-tftpd64/index.md:53
+msgid "設定したら「OK」を押して設定を反映させてください。"
+msgstr "设置完成后，请点击“OK”使设置生效。"
+
+#. paragraph
+#: content/ja/blog/setup-tftp-server-on-windows-using-tftpd64/index.md:55
+msgid "![Tftpd64](images/tftpd64-usage4.webp)"
+msgstr "![Tftpd64](images/tftpd64-usage4.webp)"
+
+#. paragraph
+#: content/ja/blog/setup-tftp-server-on-windows-using-tftpd64/index.md:57
+msgid ""
+"確認のダイアログが表示されます。「OK」を押すことでTftpd64が再起動されます。以"
+"上でTFTPのセットアップは完了です。"
+msgstr ""
+"界面上会显示确认对话框。点击“OK”后，Tftpd64 将会重启。至此，TFTP 的设置完成。"
+
+#. paragraph
+#: content/ja/blog/setup-tftp-server-on-windows-using-tftpd64/index.md:59
+msgid ""
+"フォルダに適当なファイルを置いて、実際にTFTPクライアントから取得してみましょ"
+"う。"
+msgstr "在文件夹中放入任意文件，实际尝试从 TFTP 客户端获取。"
+
+#. paragraph
+#: content/ja/blog/setup-tftp-server-on-windows-using-tftpd64/index.md:61
+msgid "![Tftpd64](images/tftpd64-usage5.webp)"
+msgstr "![Tftpd64](images/tftpd64-usage5.webp)"
+
+#. paragraph
+#: content/ja/blog/setup-tftp-server-on-windows-using-tftpd64/index.md:63
+msgid "TFTPクライアントからアクセス出来ていることを確認できました。"
+msgstr "确认已经能够从 TFTP 客户端访问。"
+
+#. paragraph
+#: content/ja/blog/setup-tftp-server-on-windows-using-tftpd64/index.md:65
+msgid ""
+"アクセスできない場合はIPアドレスやポートの設定、セキュリティソフトでブロック"
+"されていないかを見直しましょう。"
+msgstr "如果无法访问，请检查 IP 地址和端口的设置，以及是否被安全软件拦截。"

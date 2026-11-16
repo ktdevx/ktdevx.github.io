@@ -1,0 +1,129 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-15 23:42+0000\n"
+"PO-Revision-Date: 2026-11-15 23:40+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/generate-ssh-key/index.md:2
+msgid "SSH鍵の生成方法"
+msgstr "How to Generate an SSH Key"
+
+#. paragraph
+#: content/ja/blog/generate-ssh-key/index.md:11
+msgid ""
+"SSHは、ネットワーク経由で安全にリモートコンピューターにログインしたり、ファイ"
+"ルの転送やコマンドの実行を行うためのプロトコルです。通信内容を暗号化して送信"
+"するため、通信内容が盗聴されることを防ぎ、安全性を確保することができます。"
+msgstr ""
+"SSH is a protocol for securely logging into remote computers, transferring "
+"files, and executing commands over a network. It encrypts communications, "
+"preventing eavesdropping and ensuring security."
+
+#. paragraph
+#: content/ja/blog/generate-ssh-key/index.md:13
+msgid "ここでは、SSHで使用する鍵を生成する手順について解説します。"
+msgstr "This guide explains how to generate keys for use with SSH."
+
+#. heading (level 2)
+#: content/ja/blog/generate-ssh-key/index.md:15
+msgid "暗号アルゴリズムと鍵長の設定"
+msgstr "Setting the Encryption Algorithm and Key Length"
+
+#. paragraph
+#: content/ja/blog/generate-ssh-key/index.md:17
+msgid ""
+"鍵は`ssh-keygen`コマンドを用いて生成することができます。以下の例では、RSAとい"
+"う暗号アルゴリズムで、鍵長が4096の鍵を生成しています。"
+msgstr ""
+"You can generate a key using the `ssh-keygen` command. The following example "
+"generates a key using the RSA encryption algorithm with a key length of 4096."
+
+#. paragraph
+#: content/ja/blog/generate-ssh-key/index.md:23
+msgid ""
+"暗号アルゴリズムは`-t`オプションで指定できます。指定できる暗号アルゴリズムは"
+"以下の通りです。"
+msgstr ""
+"The encryption algorithm can be specified with the `-t` option. Available "
+"algorithms include:"
+
+#. list item > paragraph
+#: content/ja/blog/generate-ssh-key/index.md:25
+msgid "RSA"
+msgstr "RSA"
+
+#. list item > paragraph
+#: content/ja/blog/generate-ssh-key/index.md:26
+msgid "DSA"
+msgstr "DSA"
+
+#. list item > paragraph
+#: content/ja/blog/generate-ssh-key/index.md:27
+msgid "ECDSA"
+msgstr "ECDSA"
+
+#. list item > paragraph
+#: content/ja/blog/generate-ssh-key/index.md:28
+msgid "Ed25519"
+msgstr "Ed25519"
+
+#. paragraph
+#: content/ja/blog/generate-ssh-key/index.md:30
+msgid "鍵長は`-b`オプションで指定できます。"
+msgstr "The key length can be specified with the `-b` option."
+
+#. heading (level 2)
+#: content/ja/blog/generate-ssh-key/index.md:32
+msgid "保存場所とファイル名の設定"
+msgstr "Setting the Save Location and File Name"
+
+#. paragraph
+#: content/ja/blog/generate-ssh-key/index.md:38
+msgid ""
+"鍵の保存場所とファイル名の入力が求められます。特に指定がなければデフォルトの"
+"ままEnterキーを押します。"
+msgstr ""
+"You will be prompted to enter a save location and file name for the key. "
+"Press Enter to accept the default location if you do not wish to specify one."
+
+#. heading (level 2)
+#: content/ja/blog/generate-ssh-key/index.md:40
+msgid "パスフレーズの設定"
+msgstr "Setting the Passphrase"
+
+#. paragraph
+#: content/ja/blog/generate-ssh-key/index.md:47
+msgid ""
+"パスフレーズを設定するように求められます。パスフレーズを設定することで秘密鍵"
+"を保護することができます。パスフレーズが不要の場合はそのままEnterキーを押しま"
+"す。"
+msgstr ""
+"You will be prompted to set a passphrase. Setting a passphrase protects the "
+"private key. If you do not want to set a passphrase, simply press Enter."
+
+#. heading (level 2)
+#: content/ja/blog/generate-ssh-key/index.md:49
+msgid "鍵の生成"
+msgstr "Key Generation"
+
+#. paragraph
+#: content/ja/blog/generate-ssh-key/index.md:60
+msgid ""
+"このように表示されれば鍵の生成は完了です。デフォルト設定の場合、`.ssh`ディレ"
+"クトリに`id_rsa`という名前の秘密鍵と、`id_rsa.pub`という名前の公開鍵が生成さ"
+"れます。公開鍵をリモートホストに登録することで、SSH接続を安全に行うことができ"
+"ます。"
+msgstr ""
+"If you see this message, the key generation is complete. By default, a "
+"private key named `id_rsa` and a public key named `id_rsa.pub` will be "
+"created in the `.ssh` directory. By registering the public key on the remote "
+"host, you can establish secure SSH connections."

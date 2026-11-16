@@ -22,6 +22,39 @@ jobs:
           tar -xzf ${{ runner.temp }}/hugo.tar.gz -C ${{ runner.temp }}
           sudo mv ${{ runner.temp }}/hugo /usr/local/bin
           hugo version
+      - name: Install monde
+        env:
+          MONDE_VERSION: "0.1.0"
+        run: |
+          dir=${{ runner.temp }}/monde
+          url=https://github.com/ktdevx/monde-private/releases/download/v${MONDE_VERSION}
+          mkdir -p "$dir"
+          cd "$dir"
+          curl -fsSLO "$url/monde-${MONDE_VERSION}-linux-x64.tar.gz"
+          curl -fsSLO "$url/SHA256SUMS"
+          sha256sum --check --ignore-missing SHA256SUMS
+          tar -xzf "monde-${MONDE_VERSION}-linux-x64.tar.gz"
+          sudo install "monde-${MONDE_VERSION}-linux-x64/monde" /usr/local/bin/monde
+          monde --version
+      - name: Check that the translation files are up to date
+        if: github.event_name == 'pull_request'
+        run: |
+          tools/l10n.sh update
+          if [ -n "$(git status --porcelain -- po)" ]; then
+            git status --short -- po
+            echo "::error::po/ is out of date with content/ja. Run 'tools/l10n.sh update' and commit the result."
+            exit 1
+          fi
+      - name: Report the translation status
+        run: |
+          {
+            echo '## Translation status'
+            echo '```'
+            tools/l10n.sh status | grep -v ' done$' || echo 'All pages are translated.'
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Build the translated pages
+        run: tools/l10n.sh build
       - name: Build with Hugo
         run: hugo --minify
       - name: Upload artifact
