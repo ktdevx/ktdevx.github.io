@@ -24,4 +24,4 @@ monde の実行ファイルを PATH に置くか、環境変数 `MONDE` でパ�
 
 各コマンドの後に言語（`en`、`zh-cn`）を指定すると、その言語だけを対象にします。言語を追加するときは、`tools/l10n.sh` の `L10N_LANGS`、`hugo.yml` の `languages`、`.gitignore` を変更します。
 
-CI では、PR で `po/` が `content/ja/` に追従しているかを検査し、`po/` から各言語のページを作ってからサイトをビルドします。CI が monde を Release から取得するため、リポジトリの Secret `MONDE_TOKEN` に `ktdevx/monde-private` の Contents を読める fine-grained personal access token を登録してください。
+CI では、PR で `po/` が `content/ja/` に追従しているかを検査し、`po/` から各言語のページを作ってからサイトをビルドします。CI は monde を [Release](https://github.com/ktdevx/monde-private/releases) から取得します。使う版は、ワークフローの `MONDE_VERSION` で指定します。
