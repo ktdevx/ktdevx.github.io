@@ -44,3 +44,4 @@ C99 向けのコマンドライン引数パーサーです。コマンドライ�
 
 - [【C言語】ArgXでコマンドライン引数を解析する](/blog/argx-usage)
 - [【C言語】ArgXでサブコマンドを持つCLIを作る](/blog/argx-subcommands)
+- [【C言語】ArgXのオプションの種類と値の型を使いこなす](/blog/argx-value-types)

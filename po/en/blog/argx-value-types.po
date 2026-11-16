@@ -1,0 +1,1008 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-16 16:59+0000\n"
+"PO-Revision-Date: 2026-11-16 16:57+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/blog/argx-value-types/index.md:2
+msgid "【C言語】ArgXのオプションの種類と値の型を使いこなす"
+msgstr "Make the Most of Option Kinds and Value Types in C with ArgX"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:13
+msgid ""
+"コマンドラインツールでは、`-vvv`のように重ねて指定するオプション、`--no-"
+"color`のように打ち消すオプション、`tar`か`zip`のように決まった値だけを受け付"
+"けるオプションがよく使われます。"
+msgstr ""
+"Command-line tools often use options that can be repeated, such as `-vvv`, "
+"options that can be turned off, such as `--no-color`, and options that "
+"accept only fixed values, such as `tar` or `zip`."
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:15
+msgid ""
+"ここでは、C99向けのコマンドライン引数パーサー「[ArgX](https://github.com/"
+"vabelorg/argx)」で、こうしたオプションの種類と値の型を使い分ける方法を解説し"
+"ます。ArgXの基本的な使い方（スキーマの定義、検証、解析、値の読み取り、破棄）"
+"は「[【C言語】ArgXでコマンドライン引数を解析する](/blog/argx-usage)」で解説し"
+"ているため、先にそちらを読んでおくと理解しやすくなります。"
+msgstr ""
+"This article explains how to use these kinds of options and value types with "
+"[ArgX](https://github.com/vabelorg/argx), a command-line argument parser for "
+"C99. The basics of ArgX (defining, validating and parsing a schema, reading "
+"values and destroying) are covered in [Parse Command-Line Arguments in C "
+"with ArgX](/blog/argx-usage), so reading that first will make this article "
+"easier to follow."
+
+#. heading (level 2)
+#: content/ja/blog/argx-value-types/index.md:17
+msgid "前提条件"
+msgstr "Prerequisites"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:19
+msgid "これまでの記事と同じく、次の環境を前提とします。"
+msgstr "As in the previous articles, this article assumes the following:"
+
+#. list item > paragraph
+#: content/ja/blog/argx-value-types/index.md:21
+msgid "CMake 3.21以上"
+msgstr "CMake 3.21 or later"
+
+#. list item > paragraph
+#: content/ja/blog/argx-value-types/index.md:22
+msgid "C99に対応したCコンパイラ（GCC、Clang、MSVCなど）"
+msgstr "A C compiler that supports C99 (GCC, Clang, MSVC, etc.)"
+
+#. list item > paragraph
+#: content/ja/blog/argx-value-types/index.md:23
+msgid "Git"
+msgstr "Git"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:25
+msgid ""
+"記事の手順はUbuntu 24.04、CMake 3.28、GCC 13で動作を確認しています。ArgXの"
+"バージョンは`v0.1.0`です。"
+msgstr ""
+"The steps in this article were tested on Ubuntu 24.04 with CMake 3.28 and "
+"GCC 13. The ArgX version is `v0.1.0`."
+
+#. heading (level 2)
+#: content/ja/blog/argx-value-types/index.md:27
+msgid "プロジェクトを準備する"
+msgstr "Setting Up the Project"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:29
+msgid "次の構成のプロジェクトを作ります。"
+msgstr "Create a project with this layout:"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:37
+msgid ""
+"`CMakeLists.txt`はこれまでの記事とほぼ同じで、実行ファイルの名前だけを`chunk`"
+"に変えています。"
+msgstr ""
+"`CMakeLists.txt` is almost the same as in the previous articles; only the "
+"name of the executable is changed to `chunk`."
+
+#. heading (level 2)
+#: content/ja/blog/argx-value-types/index.md:54
+msgid "作るプログラム"
+msgstr "The Program We Build"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:56
+msgid ""
+"この記事では、ファイルを決まった大きさの断片に分割する架空のツール`chunk`を作"
+"ります。実際にはファイルを読まず、受け取った設定とファイル名を表示するだけの"
+"プログラムです。受け付けるコマンドラインは次のとおりです。"
+msgstr ""
+"In this article, we build `chunk`, a made-up tool that splits files into "
+"pieces of a fixed size. It does not actually read the files; it only prints "
+"the settings and file names it receives. It accepts the following command "
+"line:"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:62
+msgid ""
+"| 引数 | 種類 | 意味 |\n"
+"| --- | --- | --- |\n"
+"| `-h`, `--help` | フラグ | ヘルプを表示する |\n"
+"| `-v`, `--verbose` | 回数を数えるオプション | 重ねるほど詳しく表示する |\n"
+"| `--color`, `--no-color` | 否定できるフラグ | 出力に色を付けるか。省略時はオ"
+"ン |\n"
+"| `--naming` | 値を取るオプション（選択肢） | 断片の名前の付け方。`numeric`か"
+"`alpha`。省略時は`numeric` |\n"
+"| `-s`, `--size` | 値を取るオプション（独自の型） | 断片の大きさ。`10K`や`4M`"
+"のように単位を付けられる。省略時は`1M` |\n"
+"| `--merge` | 値を取るオプション（浮動小数点数） | 最後の断片が`SIZE`のこの割"
+"合より小さければ、1つ前の断片に結合する。省略時は`0.1` |\n"
+"| `file` | 位置引数（1個以上） | 分割するファイル |"
+msgstr ""
+"| Argument | Kind | Meaning |\n"
+"| --- | --- | --- |\n"
+"| `-h`, `--help` | Flag | Print the help |\n"
+"| `-v`, `--verbose` | Count | Print more each time it is repeated |\n"
+"| `--color`, `--no-color` | Negatable flag | Whether to color the output; on "
+"if omitted |\n"
+"| `--naming` | Option with a value (choice) | How to name the pieces: "
+"`numeric` or `alpha`; `numeric` if omitted |\n"
+"| `-s`, `--size` | Option with a value (user-defined type) | The size of a "
+"piece, with an optional unit such as `10K` or `4M`; `1M` if omitted |\n"
+"| `--merge` | Option with a value (float) | Merge the last piece into the "
+"one before it if it is smaller than this fraction of `SIZE`; `0.1` if "
+"omitted |\n"
+"| `file` | Positional (one or more) | The files to split |"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:72
+msgid ""
+"以降では`main.c`の内容を順に説明します。コード全体は「[コード全体](#コード全"
+"体)」に掲載しています。エラー処理の`TRY`マクロ、ヘルプとエラーを出力する"
+"`print_help`と`print_parse_error`は、入門記事と同じです。"
+msgstr ""
+"The following sections walk through `main.c` piece by piece. The whole file "
+"is in [The Complete Code](#the-complete-code). The `TRY` macro for error "
+"handling and the `print_help` and `print_parse_error` functions that print "
+"the help and errors are the same as in the introductory article."
+
+#. heading (level 2)
+#: content/ja/blog/argx-value-types/index.md:74
+msgid "オプションの種類"
+msgstr "Kinds of Options"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:76
+msgid "ArgXのオプションには、次の4種類があります。"
+msgstr "ArgX has four kinds of options:"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:78
+msgid ""
+"| 種類 | 追加する関数 | 解析結果の読み取り |\n"
+"| --- | --- | --- |\n"
+"| フラグ | `argx_command_add_flag` | `argx_result_flag`（`bool`） |\n"
+"| 否定できるフラグ | `argx_command_add_negatable` | `argx_result_flag`"
+"（`bool`） |\n"
+"| 回数を数えるオプション | `argx_command_add_count` | `argx_result_count`"
+"（`size_t`） |\n"
+"| 値を取るオプション | `argx_command_add_value` | 値の型に応じた"
+"`argx_result_option_*` |"
+msgstr ""
+"| Kind | Function to add it | Reading the result |\n"
+"| --- | --- | --- |\n"
+"| Flag | `argx_command_add_flag` | `argx_result_flag` (`bool`) |\n"
+"| Negatable flag | `argx_command_add_negatable` | `argx_result_flag` "
+"(`bool`) |\n"
+"| Count | `argx_command_add_count` | `argx_result_count` (`size_t`) |\n"
+"| Option with a value | `argx_command_add_value` | The "
+"`argx_result_option_*` function for the value type |"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:85
+msgid ""
+"フラグと値を取るオプションは入門記事で扱いました。ここでは残りの2つを説明しま"
+"す。"
+msgstr ""
+"Flags and options with a value were covered in the introductory article. "
+"This section explains the other two."
+
+#. heading (level 3)
+#: content/ja/blog/argx-value-types/index.md:87
+msgid "回数を数えるオプション"
+msgstr "Counts"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:89
+msgid ""
+"`-v`を重ねた回数で表示の詳しさを変えるようなオプションは、"
+"`argx_command_add_count`で追加します。引数はフラグを追加する"
+"`argx_command_add_flag`と同じです。"
+msgstr ""
+"An option whose number of repetitions sets how much to print, like `-v`, is "
+"added with `argx_command_add_count`. It takes the same arguments as "
+"`argx_command_add_flag`, which adds a flag."
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:96
+msgid "解析後は、`argx_result_count`で指定された回数を取り出します。"
+msgstr ""
+"After parsing, `argx_result_count` gives the number of times it was given."
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:102
+msgid ""
+"`-v -v`、`-vv`、`--verbose --verbose`はどれも2になり、指定がなければ0になりま"
+"す。`-vvv -v`のように書き方を混ぜても、合計の4になります。"
+msgstr ""
+"`-v -v`, `-vv` and `--verbose --verbose` all give 2, and 0 if it is not "
+"given. Mixed forms such as `-vvv -v` give the total, 4."
+
+#. heading (level 3)
+#: content/ja/blog/argx-value-types/index.md:104
+msgid "否定できるフラグ"
+msgstr "Negatable Flags"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:106
+msgid ""
+"`--color`と`--no-color`のように、オンとオフを切り替えるフラグは"
+"`argx_command_add_negatable`で追加します。否定形の名前は`no-`と長い名前をつな"
+"げて自動で作られるため、**長い名前は必須**です。この例では短い名前を付けない"
+"ため、`'\\0'`を指定しています。"
+msgstr ""
+"A flag that switches something on and off, like `--color` and `--no-color`, "
+"is added with `argx_command_add_negatable`. The negated name is made "
+"automatically by putting `no-` in front of the long name, so **the long name "
+"is required**. This example has no short name, so it passes `'\\0'`."
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:114
+msgid ""
+"`argx_option_set_initial`は、どちらも指定されなかったときの状態（初期状態）を"
+"設定します。既定は`false`で、ここでは色付きを標準にするため`true`にしていま"
+"す。"
+msgstr ""
+"`argx_option_set_initial` sets the state used when neither form is given "
+"(the initial state). The default is `false`; here it is set to `true` so "
+"that the output is colored by default."
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:116
+msgid "値は普通のフラグと同じく`argx_result_flag`で読み取ります。"
+msgstr "The value is read with `argx_result_flag`, just like a plain flag."
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:122
+msgid ""
+"| コマンドライン | `argx_result_flag`の値 |\n"
+"| --- | --- |\n"
+"| どちらも指定しない | 初期状態（ここでは`true`） |\n"
+"| `--color` | `true` |\n"
+"| `--no-color` | `false` |\n"
+"| `--no-color --color` | `true`（最後に指定したほう） |"
+msgstr ""
+"| Command line | Value of `argx_result_flag` |\n"
+"| --- | --- |\n"
+"| Neither given | The initial state (`true` here) |\n"
+"| `--color` | `true` |\n"
+"| `--no-color` | `false` |\n"
+"| `--no-color --color` | `true` (the last one given) |"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:129
+msgid ""
+"否定形の名前は、ほかのオプションの名前と重複してはいけません。たとえば同じコ"
+"マンドに`no-color`という長い名前のオプションがあると、"
+"`argx_command_add_negatable`が`ARGX_ERROR_NAME_CONFLICT`を返します。"
+msgstr ""
+"The negated name must not clash with the names of other options. For "
+"example, if the same command already has an option with the long name `no-"
+"color`, `argx_command_add_negatable` returns `ARGX_ERROR_NAME_CONFLICT`."
+
+#. heading (level 2)
+#: content/ja/blog/argx-value-types/index.md:131
+msgid "値の型"
+msgstr "Value Types"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:133
+msgid ""
+"値を取るオプションと位置引数には、それぞれ1つの値の型を指定します。値の型は、"
+"コマンドラインの文字列を検査し、値に変換するものです。ArgXには次の値の型があ"
+"ります。"
+msgstr ""
+"Each option with a value and each positional has one value type. A value "
+"type checks a string from the command line and converts it to a value. ArgX "
+"has the following value types:"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:135
+msgid ""
+"| 値の型 | 取得・作成する関数 | 値のCの型 | 読み取る関数（オプション） |\n"
+"| --- | --- | --- | --- |\n"
+"| 文字列 | `argx_type_string()` | `const char *` | "
+"`argx_result_option_string` |\n"
+"| 整数 | `argx_type_int()` | `int64_t` | `argx_result_option_int` |\n"
+"| 浮動小数点数 | `argx_type_float()` | `double` | `argx_result_option_float` "
+"|\n"
+"| 選択肢 | `argx_type_create_choice()` | `size_t`（選択肢の番号） | "
+"`argx_result_option_choice` |\n"
+"| 独自の型 | `argx_type_create()` | 自分で決める | "
+"`argx_result_option_value` |"
+msgstr ""
+"| Value type | Function to get or create it | C type of the value | Function "
+"to read it (options) |\n"
+"| --- | --- | --- | --- |\n"
+"| String | `argx_type_string()` | `const char *` | "
+"`argx_result_option_string` |\n"
+"| Integer | `argx_type_int()` | `int64_t` | `argx_result_option_int` |\n"
+"| Float | `argx_type_float()` | `double` | `argx_result_option_float` |\n"
+"| Choice | `argx_type_create_choice()` | `size_t` (the index of the choice) "
+"| `argx_result_option_choice` |\n"
+"| User-defined | `argx_type_create()` | Your choice | "
+"`argx_result_option_value` |"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:143
+msgid ""
+"位置引数の値は、`_option_`を`_positional_`に変えた関数"
+"（`argx_result_positional_float`など）で読み取ります。"
+msgstr ""
+"Positional values are read with the same functions with `_option_` replaced "
+"by `_positional_` (`argx_result_positional_float` and so on)."
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:145
+msgid ""
+"文字列、整数、浮動小数点数の型はライブラリが持っているため、作成も破棄も不要"
+"です。選択肢と独自の型は自分で作成し、使い終わったら`argx_type_destroy`で破棄"
+"します。"
+msgstr ""
+"The string, integer and float types belong to the library, so you neither "
+"create nor destroy them. Choice and user-defined types are created by you "
+"and destroyed with `argx_type_destroy` when you are done with them."
+
+#. heading (level 3)
+#: content/ja/blog/argx-value-types/index.md:147
+msgid "浮動小数点数"
+msgstr "Floats"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:149
+msgid "`argx_type_float()`を指定すると、値を`double`で受け取れます。"
+msgstr "With `argx_type_float()`, the value is read as a `double`."
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:158
+msgid ""
+"受け付けるのは`1`、`.5`、`-1.5e-3`のような10進数の表記です。小数点は、ロケー"
+"ルにかかわらず常に`.`です。前後の空白、無限大、NaN、16進数の表記は受け付けま"
+"せん。"
+msgstr ""
+"It accepts decimal notation such as `1`, `.5` and `-1.5e-3`. The decimal "
+"point is always `.`, whatever the locale. Surrounding white space, infinity, "
+"NaN and hexadecimal notation are rejected."
+
+#. heading (level 3)
+#: content/ja/blog/argx-value-types/index.md:166
+msgid "選択肢"
+msgstr "Choices"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:168
+msgid ""
+"決まった値の中から1つを選ばせるときは、`argx_type_create_choice`で選択肢の型"
+"を作ります。"
+msgstr ""
+"To let the user pick one of a fixed set of values, create a choice type with "
+"`argx_type_create_choice`."
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:184
+msgid ""
+"`argx_type_create_choice`には、選択肢の文字列の配列と個数を渡します。文字列は"
+"コピーされるため、配列は型を作った後に解放しても問題ありません。選択肢が0個の"
+"場合や、同じ選択肢が2つある場合は`ARGX_ERROR_INVALID_DEFINITION`になります。"
+msgstr ""
+"`argx_type_create_choice` takes an array of choice strings and its length. "
+"The strings are copied, so the array may be freed after the type is created. "
+"Zero choices, or the same choice twice, give `ARGX_ERROR_INVALID_DEFINITION`."
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:186
+msgid ""
+"比較は大文字と小文字を区別する完全一致です。解析結果からは、一致した選択肢の"
+"**番号**を`size_t`で受け取ります。番号は配列の添字と同じなので、元の配列から"
+"文字列を引けます。"
+msgstr ""
+"Matching is exact and case-sensitive. The result gives the **index** of the "
+"matching choice as a `size_t`. The index is the same as the array subscript, "
+"so you can look up the string in the original array."
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:197
+msgid ""
+"文字列を`strcmp`で比べる代わりに番号で`switch`できるのも、選択肢の型を使う利"
+"点です。"
+msgstr ""
+"Another advantage of choice types is that you can `switch` on the index "
+"instead of comparing strings with `strcmp`."
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:199
+msgid ""
+"ヘルプには、選択肢の一覧が`[choices: numeric, alpha]`のように自動で表示されま"
+"す（後述の「[ヘルプを表示する](#ヘルプを表示する)」を参照）。"
+msgstr ""
+"The help lists the choices automatically, as in `[choices: numeric, alpha]` "
+"(see [Printing the Help](#printing-the-help) below)."
+
+#. heading (level 3)
+#: content/ja/blog/argx-value-types/index.md:201
+msgid "独自の型"
+msgstr "User-Defined Types"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:203
+msgid ""
+"`10K`や`4M`のように単位付きでサイズを受け取りたいときなど、組み込みの型で表せ"
+"ない値は、`argx_type_create`で独自の型を作ります。"
+msgstr ""
+"For values that the built-in types cannot express, such as sizes with a unit "
+"like `10K` or `4M`, create your own type with `argx_type_create`."
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:212
+msgid ""
+"| 引数 | 内容 |\n"
+"| --- | --- |\n"
+"| `name` | 型の名前。エラーメッセージの`(expected size)`などに使われる |\n"
+"| `value_size` | 変換後の値の大きさ（バイト数） |\n"
+"| `convert_fn` | 文字列を値に変換する関数 |\n"
+"| `release_fn` | 値を後始末する関数。不要なら`NULL` |\n"
+"| `context` | 2つの関数に渡されるユーザーデータ。不要なら`NULL` |"
+msgstr ""
+"| Argument | Contents |\n"
+"| --- | --- |\n"
+"| `name` | The type name, used in error messages such as `(expected size)` "
+"|\n"
+"| `value_size` | The size of the converted value in bytes |\n"
+"| `convert_fn` | The function that converts a string to a value |\n"
+"| `release_fn` | The function that cleans up a value, or `NULL` if not "
+"needed |\n"
+"| `context` | User data passed to both functions, or `NULL` if not needed |"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:220
+msgid ""
+"この記事では、サイズを`uint64_t`のバイト数に変換する型`size`を作ります。"
+msgstr ""
+"In this article, we create a type `size` that converts a size to a number of "
+"bytes as a `uint64_t`."
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:226
+msgid ""
+"変換関数`convert_size`は次のとおりです。数字の並びの後ろに、1024倍ごとの単位"
+"`K`、`M`、`G`（小文字も可）を1文字だけ付けられます。"
+msgstr ""
+"The conversion function `convert_size` is shown below. A run of digits may "
+"be followed by a single unit letter, `K`, `M` or `G` (lowercase also works), "
+"each 1024 times the previous one."
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:283
+msgid "変換関数を書くときの決まりは次のとおりです。"
+msgstr "The rules for writing a conversion function are:"
+
+#. list item > paragraph
+#: content/ja/blog/argx-value-types/index.md:285
+msgid ""
+"`text`を変換できたら、結果を`value`に書き込んで`ARGX_ERROR_NONE`を返します。"
+"`value`は、`value_size`バイト以上の大きさがあり、どの型にも合うように配置され"
+"たバッファーです。"
+msgstr ""
+"When `text` can be converted, write the result to `value` and return "
+"`ARGX_ERROR_NONE`. `value` is a buffer of at least `value_size` bytes, "
+"aligned for any type."
+
+#. list item > paragraph
+#: content/ja/blog/argx-value-types/index.md:286
+msgid ""
+"受け付けない文字列には`ARGX_ERROR_INVALID_VALUE`を返します。すると、解析は"
+"`invalid value ... (expected size)`という解析エラーになります。メモリ確保に失"
+"敗したときは`ARGX_ERROR_OUT_OF_MEMORY`を返します。"
+msgstr ""
+"Return `ARGX_ERROR_INVALID_VALUE` for a string you do not accept. Parsing "
+"then reports the parse error `invalid value ... (expected size)`. Return "
+"`ARGX_ERROR_OUT_OF_MEMORY` when an allocation fails."
+
+#. list item > paragraph
+#: content/ja/blog/argx-value-types/index.md:287
+msgid ""
+"**副作用を持たせてはいけません**。同じ入力には常に同じ結果を返す必要がありま"
+"す。変換関数は解析のときだけでなく、`argx_command_validate`でデフォルト値（こ"
+"こでは`1M`）を確認するときにも呼ばれるためです。"
+msgstr ""
+"**It must have no side effects.** It must always return the same result for "
+"the same input, because it is called not only while parsing, but also when "
+"`argx_command_validate` checks the default value (`1M` here)."
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:289
+msgid ""
+"この例では、`0`、桁あふれする値、`10X`のような未知の単位を受け付けないように"
+"しています。"
+msgstr ""
+"This example rejects `0`, values that overflow, and unknown units such as "
+"`10X`."
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:291
+msgid ""
+"値の中で文字列を複製するなど、変換のたびに後始末が必要な場合は`release_fn`を"
+"指定します。`release_fn`は、成功した変換1回につき1回だけ呼ばれます。上限値な"
+"どの設定を変換関数に渡したいときは、`context`にポインターを渡します。"
+"`context`は値の型を破棄するまで有効にしておく必要があります。"
+msgstr ""
+"If each conversion needs cleanup, for example because the value holds a "
+"copied string, pass a `release_fn`. It is called exactly once for each "
+"successful conversion. To pass settings such as an upper limit to the "
+"conversion function, pass a pointer as `context`. `context` must stay valid "
+"until the value type is destroyed."
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:293
+msgid ""
+"デフォルト値も検証で変換されるため、たとえば`argx_option_set_default(size, "
+"\"1X\")`のように変換できない値を設定すると、`argx_command_validate`が"
+"`ARGX_ERROR_INVALID_DEFAULT`を返します。"
+msgstr ""
+"Default values are also converted during validation, so setting a value that "
+"cannot be converted, such as `argx_option_set_default(size, \"1X\")`, makes "
+"`argx_command_validate` return `ARGX_ERROR_INVALID_DEFAULT`."
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:299
+msgid ""
+"独自の型の値は、`argx_result_option_value`で読み取ります。変換関数が書き込ん"
+"だバッファーへのポインターが返るため、自分で決めたCの型として読み取ります。"
+msgstr ""
+"A value of a user-defined type is read with `argx_result_option_value`. It "
+"returns a pointer to the buffer that the conversion function wrote, which "
+"you read as the C type you chose."
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:310
+msgid ""
+"値がない場合は`NULL`が返ります。この例ではデフォルト値があるため、解析に成功"
+"していれば必ず値があります。"
+msgstr ""
+"It returns `NULL` when there is no value. In this example the option has a "
+"default value, so after a successful parse it always has one."
+
+#. heading (level 2)
+#: content/ja/blog/argx-value-types/index.md:312
+msgid "複数の値を取る位置引数"
+msgstr "Positionals with Several Values"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:314
+msgid ""
+"位置引数の個数は、`argx_command_add_positional`の第4引数（arity）で指定しま"
+"す。"
+msgstr ""
+"The number of values a positional takes is set by the fourth argument of "
+"`argx_command_add_positional` (the arity)."
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:316
+msgid ""
+"| arity | 値の個数 |\n"
+"| --- | --- |\n"
+"| `ARGX_ARITY_REQUIRED` | ちょうど1個 |\n"
+"| `ARGX_ARITY_OPTIONAL` | 0個か1個 |\n"
+"| `ARGX_ARITY_ZERO_OR_MORE` | 0個以上 |\n"
+"| `ARGX_ARITY_ONE_OR_MORE` | 1個以上 |"
+msgstr ""
+"| Arity | Number of values |\n"
+"| --- | --- |\n"
+"| `ARGX_ARITY_REQUIRED` | Exactly one |\n"
+"| `ARGX_ARITY_OPTIONAL` | Zero or one |\n"
+"| `ARGX_ARITY_ZERO_OR_MORE` | Zero or more |\n"
+"| `ARGX_ARITY_ONE_OR_MORE` | One or more |"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:323
+msgid ""
+"`chunk`は分割するファイルを1つ以上受け取るため、`ARGX_ARITY_ONE_OR_MORE`を指"
+"定します。"
+msgstr ""
+"`chunk` takes one or more files to split, so it uses "
+"`ARGX_ARITY_ONE_OR_MORE`."
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:331
+msgid ""
+"値は`argx_result_positional_count`で個数を調べ、番号を指定して1つずつ取り出し"
+"ます。番号はコマンドラインに書かれた順に0から始まります。"
+msgstr ""
+"Get the number of values with `argx_result_positional_count`, then read them "
+"one by one by index. Indexes start at 0, in command-line order."
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:343
+msgid ""
+"複数の値を取る位置引数には、次の制約があります。違反すると"
+"`argx_command_validate`が`ARGX_ERROR_INVALID_DEFINITION`を返します。"
+msgstr ""
+"Positionals with several values have the following restrictions. Breaking "
+"them makes `argx_command_validate` return `ARGX_ERROR_INVALID_DEFINITION`."
+
+#. list item > paragraph
+#: content/ja/blog/argx-value-types/index.md:345
+msgid ""
+"`ARGX_ARITY_ZERO_OR_MORE`と`ARGX_ARITY_ONE_OR_MORE`の後ろには、位置引数を追加"
+"できません。"
+msgstr ""
+"No positional can be added after `ARGX_ARITY_ZERO_OR_MORE` or "
+"`ARGX_ARITY_ONE_OR_MORE`."
+
+#. list item > paragraph
+#: content/ja/blog/argx-value-types/index.md:346
+msgid ""
+"`ARGX_ARITY_OPTIONAL`と`ARGX_ARITY_ZERO_OR_MORE`の後ろには、"
+"`ARGX_ARITY_REQUIRED`と`ARGX_ARITY_ONE_OR_MORE`を追加できません。"
+msgstr ""
+"`ARGX_ARITY_REQUIRED` and `ARGX_ARITY_ONE_OR_MORE` cannot be added after "
+"`ARGX_ARITY_OPTIONAL` or `ARGX_ARITY_ZERO_OR_MORE`."
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:348
+msgid ""
+"`-`で始まるファイル名を渡したいときは、`--`の後ろに書くと、オプションではなく"
+"位置引数として扱われます。"
+msgstr ""
+"To pass a file name that starts with `-`, write it after `--`; it is then "
+"treated as a positional, not an option."
+
+#. heading (level 2)
+#: content/ja/blog/argx-value-types/index.md:350
+msgid "値の出どころを調べる"
+msgstr "Finding Where a Value Came From"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:352
+msgid ""
+"デフォルト値があるオプションは、解析に成功すれば必ず値を持ちます。そのため、"
+"値を読み取っただけでは、ユーザーが指定した値なのかデフォルト値なのかを区別で"
+"きません。これを調べるのが`argx_result_option_source`です。"
+msgstr ""
+"An option with a default value always has a value after a successful parse. "
+"So reading the value alone does not tell you whether the user gave it or it "
+"is the default. `argx_result_option_source` tells you."
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:358
+msgid "戻り値は`argx_source_t`で、次のいずれかです。"
+msgstr "It returns an `argx_source_t`, one of the following:"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:360
+msgid ""
+"| 値 | 意味 |\n"
+"| --- | --- |\n"
+"| `ARGX_SOURCE_COMMAND_LINE` | コマンドラインで指定された |\n"
+"| `ARGX_SOURCE_DEFAULT` | 指定されず、デフォルト値（フラグなどは初期状態）が"
+"使われた |\n"
+"| `ARGX_SOURCE_NONE` | 値がない（指定されず、デフォルト値もない） |"
+msgstr ""
+"| Value | Meaning |\n"
+"| --- | --- |\n"
+"| `ARGX_SOURCE_COMMAND_LINE` | Given on the command line |\n"
+"| `ARGX_SOURCE_DEFAULT` | Not given; the default value (the initial state "
+"for flags and the like) was used |\n"
+"| `ARGX_SOURCE_NONE` | No value (not given and no default value) |"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:366
+msgid ""
+"フラグ、否定できるフラグ、回数を数えるオプションは、指定がなくても`false`、初"
+"期状態、0という値を持つため、指定されなければ`ARGX_SOURCE_DEFAULT`になりま"
+"す。位置引数の出どころは`argx_result_positional_source`で調べられます。"
+msgstr ""
+"Flags, negatable flags and counts have a value (`false`, the initial state, "
+"0) even when not given, so they report `ARGX_SOURCE_DEFAULT` when not given. "
+"The source of a positional is found with `argx_result_positional_source`."
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:368
+msgid ""
+"サンプルでは、`argx_source_t`を表示用の文字列に変換する関数を用意しています。"
+"今後のバージョンで値が追加される可能性があるため、`switch`には`default`を書い"
+"ておきます。"
+msgstr ""
+"The sample has a function that turns an `argx_source_t` into text for "
+"printing. Later versions may add values, so the `switch` has a `default` "
+"label."
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:385
+msgid ""
+"`chunk`では、`-v`を指定したときだけ、各オプションの値の出どころを表示します。"
+msgstr ""
+"`chunk` prints where each option's value came from only when `-v` is given."
+
+#. heading (level 2)
+#: content/ja/blog/argx-value-types/index.md:387
+msgid "値の型を破棄する順序"
+msgstr "The Order of Destroying Value Types"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:389
+msgid ""
+"スキーマは、選択肢と独自の型を**借りている**だけで、コピーはしていません。そ"
+"のため、値の型はそれを使うスキーマよりも長く有効にしておく必要があります。破"
+"棄は次の順序で行います。"
+msgstr ""
+"The schema only **borrows** choice and user-defined types; it does not copy "
+"them. So a value type must stay valid longer than the schemas that use it. "
+"Destroy things in this order:"
+
+#. list item > paragraph
+#: content/ja/blog/argx-value-types/index.md:391
+msgid "解析結果（`argx_result_destroy`）"
+msgstr "The result (`argx_result_destroy`)"
+
+#. list item > paragraph
+#: content/ja/blog/argx-value-types/index.md:392
+msgid "スキーマ（`argx_command_destroy`）"
+msgstr "The schema (`argx_command_destroy`)"
+
+#. list item > paragraph
+#: content/ja/blog/argx-value-types/index.md:393
+msgid "値の型（`argx_type_destroy`）"
+msgstr "The value types (`argx_type_destroy`)"
+
+#. list item > paragraph
+#: content/ja/blog/argx-value-types/index.md:394
+msgid "値の型の`context`（使っている場合）"
+msgstr "The `context` of the value types (if used)"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:404
+msgid ""
+"順序を誤っても検出されず、解放済みのメモリを使う不具合になるため注意してくだ"
+"さい。作成は逆に、値の型を先、スキーマを後にします。"
+msgstr ""
+"A wrong order is not detected and leads to use of freed memory, so be "
+"careful. Creation goes the other way: value types first, then the schema."
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:406
+msgid ""
+"どの関数も`NULL`を渡すと何もしないため、途中で失敗した場合も同じ後始末で済み"
+"ます。`argx_type_int()`などの組み込みの型は`argx_type_destroy`に渡しても無視"
+"されますが、そもそも破棄する必要はありません。"
+msgstr ""
+"Every one of these functions does nothing when given `NULL`, so the same "
+"cleanup also works after a failure partway through. Built-in types such as "
+"`argx_type_int()` are ignored by `argx_type_destroy`, but there is no need "
+"to destroy them in the first place."
+
+#. heading (level 2)
+#: content/ja/blog/argx-value-types/index.md:408
+msgid "コード全体"
+msgstr "The Complete Code"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:410
+msgid "`main.c`の全体は次のとおりです。"
+msgstr "Here is the whole of `main.c`:"
+
+#. heading (level 2)
+#: content/ja/blog/argx-value-types/index.md:670
+msgid "ビルドして実行する"
+msgstr "Building and Running"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:672
+msgid "`chunk`ディレクトリで次のコマンドを実行し、ビルドします。"
+msgstr "Run the following commands in the `chunk` directory to build:"
+
+#. heading (level 3)
+#: content/ja/blog/argx-value-types/index.md:679
+msgid "オプションを省略する"
+msgstr "Omitting the Options"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:681
+msgid "オプションをすべて省略すると、デフォルト値と初期状態が使われます。"
+msgstr ""
+"When all options are omitted, the default values and initial states are used."
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:690
+msgid "`-v`を付けると、値がすべてデフォルト値から来ていることを確認できます。"
+msgstr "With `-v`, you can see that all values came from the defaults."
+
+#. heading (level 3)
+#: content/ja/blog/argx-value-types/index.md:702
+msgid "オプションを指定する"
+msgstr "Giving the Options"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:714
+msgid ""
+"`10K`が独自の型で10240バイトに変換され、値の出どころが`command line`に変わっ"
+"ています。値はほかのオプションと同じく`-s4m`や`--merge=.5`のようにも書けま"
+"す。"
+msgstr ""
+"The user-defined type converted `10K` to 10240 bytes, and the sources "
+"changed to `command line`. As with other options, values can also be written "
+"as `-s4m` or `--merge=.5`."
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:722
+msgid "否定できるフラグは、最後に指定したほうが使われます。"
+msgstr "For a negatable flag, the last one given wins."
+
+#. heading (level 3)
+#: content/ja/blog/argx-value-types/index.md:730
+msgid "ヘルプを表示する"
+msgstr "Printing the Help"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:752
+msgid "オプションの種類と値の型に応じて、ヘルプの表示も変わります。"
+msgstr "The help also changes with the kind of option and the value type."
+
+#. list item > paragraph
+#: content/ja/blog/argx-value-types/index.md:754
+msgid ""
+"回数を数えるオプションは`--verbose...`のように`...`が付き、重ねて指定できるこ"
+"とがわかります。"
+msgstr ""
+"A count is shown with `...`, as in `--verbose...`, which tells the user it "
+"can be repeated."
+
+#. list item > paragraph
+#: content/ja/blog/argx-value-types/index.md:755
+msgid ""
+"否定できるフラグは`--[no-]color`と表示され、初期状態が`[default: on]`で示され"
+"ます。"
+msgstr ""
+"A negatable flag is shown as `--[no-]color`, with its initial state in "
+"`[default: on]`."
+
+#. list item > paragraph
+#: content/ja/blog/argx-value-types/index.md:756
+msgid ""
+"選択肢は`[choices: numeric, alpha]`で一覧が示されます。値の名前を設定していな"
+"いため、値の部分には型の名前が`<choice>`と表示されています。"
+msgstr ""
+"A choice lists its choices in `[choices: numeric, alpha]`. No value name is "
+"set, so the value is shown with the type name, `<choice>`."
+
+#. list item > paragraph
+#: content/ja/blog/argx-value-types/index.md:757
+msgid "1つ以上の値を取る位置引数は`<file>...`と表示されます。"
+msgstr "A positional that takes one or more values is shown as `<file>...`."
+
+#. heading (level 3)
+#: content/ja/blog/argx-value-types/index.md:759
+msgid "誤ったコマンドライン"
+msgstr "Invalid Command Lines"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:761
+msgid ""
+"値の型に合わない値を渡すと、型の名前を含むエラーメッセージが表示され、終了"
+"コードは1になります。独自の型でも、変換関数が`ARGX_ERROR_INVALID_VALUE`を返す"
+"だけで同じ形式のメッセージになります。"
+msgstr ""
+"A value that does not fit the value type prints an error message that "
+"includes the type name, and the exit status is 1. A user-defined type gets a "
+"message in the same form just by having its conversion function return "
+"`ARGX_ERROR_INVALID_VALUE`."
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:785
+msgid ""
+"`--no-`の形は否定できるフラグにしかないため、`--no-verbose`は不明なオプション"
+"としてエラーになります。"
+msgstr ""
+"Only negatable flags have a `--no-` form, so `--no-verbose` is an error as "
+"an unknown option."
+
+#. heading (level 2)
+#: content/ja/blog/argx-value-types/index.md:794
+msgid "まとめ"
+msgstr "Conclusion"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:796
+msgid ""
+"ArgXのオプションの種類と値の型を使い分けるときのポイントは次のとおりです。"
+msgstr ""
+"The key points for using the kinds of options and value types of ArgX are:"
+
+#. list item > paragraph
+#: content/ja/blog/argx-value-types/index.md:798
+msgid ""
+"`-vvv`のように重ねるオプションは`argx_command_add_count`で追加し、"
+"`argx_result_count`で回数を読み取ります。"
+msgstr ""
+"Add options that are repeated like `-vvv` with `argx_command_add_count`, and "
+"read the number of times with `argx_result_count`."
+
+#. list item > paragraph
+#: content/ja/blog/argx-value-types/index.md:799
+msgid ""
+"`--color`と`--no-color`の組は`argx_command_add_negatable`で追加し、指定がない"
+"ときの状態を`argx_option_set_initial`で設定します。"
+msgstr ""
+"Add a `--color` and `--no-color` pair with `argx_command_add_negatable`, and "
+"set the state used when neither is given with `argx_option_set_initial`."
+
+#. list item > paragraph
+#: content/ja/blog/argx-value-types/index.md:800
+msgid ""
+"浮動小数点数は`argx_type_float()`で、ロケールに依存せずに`double`へ変換できま"
+"す。"
+msgstr ""
+"`argx_type_float()` converts floats to `double` independently of the locale."
+
+#. list item > paragraph
+#: content/ja/blog/argx-value-types/index.md:801
+msgid ""
+"決まった値から選ばせるときは`argx_type_create_choice`を使い、選択肢の番号で値"
+"を受け取ります。"
+msgstr ""
+"To let the user pick from fixed values, use `argx_type_create_choice` and "
+"read the index of the choice."
+
+#. list item > paragraph
+#: content/ja/blog/argx-value-types/index.md:802
+msgid ""
+"組み込みの型で表せない値は`argx_type_create`で独自の型にします。変換関数には"
+"副作用を持たせないようにします。"
+msgstr ""
+"Values that the built-in types cannot express get a user-defined type with "
+"`argx_type_create`. Keep the conversion function free of side effects."
+
+#. list item > paragraph
+#: content/ja/blog/argx-value-types/index.md:803
+msgid ""
+"複数の値を取る位置引数は、`argx_result_positional_count`で個数を調べて1つずつ"
+"取り出します。"
+msgstr ""
+"For a positional with several values, get the number of values with "
+"`argx_result_positional_count` and read them one by one."
+
+#. list item > paragraph
+#: content/ja/blog/argx-value-types/index.md:804
+msgid ""
+"値がコマンドラインで指定されたのかデフォルト値なのかは、"
+"`argx_result_option_source`で調べられます。"
+msgstr ""
+"`argx_result_option_source` tells whether a value was given on the command "
+"line or is the default."
+
+#. list item > paragraph
+#: content/ja/blog/argx-value-types/index.md:805
+msgid "自分で作った値の型は、解析結果、スキーマの後に破棄します。"
+msgstr "Destroy the value types you created after the result and the schema."
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:807
+msgid ""
+"各関数の詳細は、公式ドキュメントの[Value Types](https://github.com/vabelorg/"
+"argx/blob/main/docs/references/types.md)、[Schemas](https://github.com/"
+"vabelorg/argx/blob/main/docs/references/schema.md)、[Parsing](https://github."
+"com/vabelorg/argx/blob/main/docs/references/parse.md)を参照してください。サブ"
+"コマンドと組み合わせた例は、リポジトリの[examples/pack/pack.c](https://"
+"github.com/vabelorg/argx/blob/main/examples/pack/pack.c)にあります。サブコマ"
+"ンドの使い方は「[【C言語】ArgXでサブコマンドを持つCLIを作る](/blog/argx-"
+"subcommands)」で解説しています。"
+msgstr ""
+"For details on each function, see [Value Types](https://github.com/vabelorg/"
+"argx/blob/main/docs/references/types.md), [Schemas](https://github.com/"
+"vabelorg/argx/blob/main/docs/references/schema.md) and [Parsing](https://"
+"github.com/vabelorg/argx/blob/main/docs/references/parse.md) in the official "
+"documentation. An example combined with subcommands is in [examples/pack/"
+"pack.c](https://github.com/vabelorg/argx/blob/main/examples/pack/pack.c) in "
+"the repository. Subcommands are explained in [Build a CLI with Subcommands "
+"in C Using ArgX](/blog/argx-subcommands)."
