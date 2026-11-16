@@ -202,4 +202,4 @@ VS Codeでは、GitHub Copilotを使ってコード補完、チャットによ�
 
 Copilotは開発を支援するツールであり、生成結果を無条件に採用するものではありません。依頼内容と差分を確認し、テスト、静的解析、セキュリティ確認を行いながら活用しましょう。
 
-詳しいセットアップ方法は、[GitHub Copilotのセットアップ（GitHub Docs）](https://docs.github.com/en/copilot/how-tos/set-up)を参照してください。
+詳しいセットアップ方法は、[GitHub Copilotのセットアップ（GitHub Docs）](https://docs.github.com/ja/copilot/how-tos/set-up)を参照してください。

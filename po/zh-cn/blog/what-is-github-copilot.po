@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-15 23:58+0000\n"
+"POT-Creation-Date: 2026-11-16 01:11+0000\n"
 "PO-Revision-Date: 2026-11-15 23:56+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -356,10 +356,10 @@ msgstr "关于最新的价格、可用功能和支持的环境，请查看以下
 #. list item > paragraph
 #: content/ja/blog/what-is-github-copilot/index.md:102
 msgid ""
-"[GitHub Copilotの概要（GitHub Docs）](https://docs.github.com/en/copilot/"
+"[GitHub Copilotの概要（GitHub Docs）](https://docs.github.com/ja/copilot/"
 "about-github-copilot/what-is-github-copilot)"
 msgstr ""
-"[GitHub Copilot 概述（GitHub Docs）](https://docs.github.com/en/copilot/"
+"[GitHub Copilot 概述（GitHub Docs）](https://docs.github.com/zh/copilot/"
 "about-github-copilot/what-is-github-copilot)"
 
 #. list item > paragraph
@@ -370,10 +370,10 @@ msgstr "[GitHub Copilot 的价格套餐](https://github.com/features/copilot/pla
 #. list item > paragraph
 #: content/ja/blog/what-is-github-copilot/index.md:104
 msgid ""
-"[GitHub Copilotのセットアップ（GitHub Docs）](https://docs.github.com/en/"
+"[GitHub Copilotのセットアップ（GitHub Docs）](https://docs.github.com/ja/"
 "copilot/how-tos/set-up)"
 msgstr ""
-"[设置 GitHub Copilot（GitHub Docs）](https://docs.github.com/en/copilot/how-"
+"[设置 GitHub Copilot（GitHub Docs）](https://docs.github.com/zh/copilot/how-"
 "tos/set-up)"
 
 #. paragraph
