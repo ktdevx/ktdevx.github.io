@@ -1,0 +1,26 @@
+{{- /*
+  サイトの配色（ライト／ダーク）に合わせて画像を切り替える。
+  {{< themed-image light="images/logo-light.svg" dark="images/logo-dark.svg" alt="代替テキスト" width=240 >}}
+  light・dark は page bundle からの相対パス。
+*/ -}}
+{{- $light := .Page.Resources.Get (.Get "light") -}}
+{{- $dark := .Page.Resources.Get (.Get "dark") -}}
+{{- if not (and $light $dark) -}}
+  {{- errorf "themed-image: %s: light=%q または dark=%q が page bundle にありません" .Page.File.Path (.Get "light") (.Get "dark") -}}
+{{- end -}}
+{{- $alt := .Get "alt" -}}
+{{- $width := .Get "width" -}}
+{{- if not (.Page.Scratch.Get "themed-image-style") -}}
+  {{- .Page.Scratch.Set "themed-image-style" true -}}
+<style>
+.themed-image--dark{display:none}
+html[data-theme='dark'] .themed-image--light{display:none}
+html[data-theme='dark'] .themed-image--dark{display:block}
+@media (prefers-color-scheme:dark){
+  html:not([data-theme='light']) .themed-image--light{display:none}
+  html:not([data-theme='light']) .themed-image--dark{display:block}
+}
+</style>
+{{- end }}
+<img class="themed-image--light" src="{{ $light.RelPermalink }}" alt="{{ $alt }}"{{ with $width }} width="{{ . }}"{{ end }}>
+<img class="themed-image--dark" src="{{ $dark.RelPermalink }}" alt="{{ $alt }}"{{ with $width }} width="{{ . }}"{{ end }}>

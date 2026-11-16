@@ -24,6 +24,8 @@ C と C++ 向けのテストハーネスです。必要なのは C99 のコン�
 
 ## ArgX
 
+{{< themed-image light="images/argx-logo-light.svg" dark="images/argx-logo-dark.svg" alt="ArgX" width=240 >}}
+
 C99 向けのコマンドライン引数パーサーです。コマンドラインの仕様をスキーマとして一度定義するだけで、`argv` の解析、検証、値の型変換、ヘルプの生成までを行います。
 
 - **リポジトリ**：[vabelorg/argx](https://github.com/vabelorg/argx)
