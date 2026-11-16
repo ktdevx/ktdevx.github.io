@@ -1,0 +1,178 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-16 16:33+0000\n"
+"PO-Revision-Date: 2026-11-16 16:32+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. front matter: title
+#: content/ja/projects/index.md:2
+msgid "プロジェクト"
+msgstr "项目"
+
+#. paragraph
+#: content/ja/projects/index.md:7
+msgid ""
+"私が開発・公開しているオープンソースソフトウェア（OSS）を紹介します。いずれ"
+"も GitHub で公開しており、Issue や Pull Request を歓迎しています。"
+msgstr ""
+"这里介绍我开发并发布的开源软件（OSS）。它们都发布在 GitHub 上，欢迎提交 "
+"Issue 和 Pull Request。"
+
+#. heading (level 2)
+#: content/ja/projects/index.md:9
+msgid "Naos"
+msgstr "Naos"
+
+#. paragraph
+#: content/ja/projects/index.md:11
+msgid ""
+"C と C++ 向けのテストハーネスです。必要なのは C99 のコンパイラだけで、インス"
+"トールするライブラリもコンパイラ拡張も要りません。CMake でビルドし、どのビル"
+"ドシステムからも使えます。"
+msgstr ""
+"面向 C 和 C++ 的测试框架。只需要 C99 编译器，无需安装任何库，也不依赖编译器扩"
+"展。使用 CMake 构建，可以在任何构建系统中使用。"
+
+#. list item > paragraph
+#: content/ja/projects/index.md:13
+msgid "**リポジトリ**：[vabelorg/naos](https://github.com/vabelorg/naos)"
+msgstr "**仓库**：[vabelorg/naos](https://github.com/vabelorg/naos)"
+
+#. list item > paragraph
+#: content/ja/projects/index.md:14
+msgid "**言語**：C99（C++11 からも利用可能）"
+msgstr "**语言**：C99（也可在 C++11 中使用）"
+
+#. list item > paragraph
+#: content/ja/projects/index.md:15 content/ja/projects/index.md:33
+msgid "**ライセンス**：MIT"
+msgstr "**许可证**：MIT"
+
+#. list item > paragraph
+#: content/ja/projects/index.md:16
+msgid ""
+"**対応環境**：Linux（GCC、Clang）、macOS（Clang）、Windows（MSVC、MinGW-w64）"
+msgstr ""
+"**支持环境**：Linux（GCC、Clang）、macOS（Clang）、Windows（MSVC、MinGW-w64）"
+
+#. paragraph
+#: content/ja/projects/index.md:18 content/ja/projects/index.md:36
+msgid "主な特徴は次のとおりです。"
+msgstr "主要特点如下。"
+
+#. list item > paragraph
+#: content/ja/projects/index.md:20
+msgid ""
+"1 つの実行ファイルですべてのテストを実行し、結果を終了コードで返します。"
+msgstr "用一个可执行文件运行所有测试，并以退出码返回结果。"
+
+#. list item > paragraph
+#: content/ja/projects/index.md:21
+msgid ""
+"`naos_add_executable()` で各テストを CTest に登録すると、テストごとにプロセス"
+"を分けて並列に実行できます。"
+msgstr ""
+"使用 `naos_add_executable()` 将各个测试注册到 CTest 后，每个测试会在独立的进"
+"程中并行运行。"
+
+#. list item > paragraph
+#: content/ja/projects/index.md:22
+msgid ""
+"アサーションを 1 つも実行しなかったテストは失敗として扱うため、書きかけのテス"
+"トが成功に見えることがありません。"
+msgstr "没有执行任何断言的测试会被视为失败，因此未写完的测试不会被误认为通过。"
+
+#. list item > paragraph
+#: content/ja/projects/index.md:23
+msgid ""
+"失敗は `file:line: error: ...` の形式で出力され、エディターから該当行へ移動で"
+"きます。"
+msgstr ""
+"失败信息以 `file:line: error: ...` 的格式输出，可以在编辑器中直接跳转到对应"
+"行。"
+
+#. heading (level 2)
+#: content/ja/projects/index.md:25
+msgid "ArgX"
+msgstr "ArgX"
+
+#. paragraph
+#: content/ja/projects/index.md:27
+msgid ""
+"{{< themed-image light=\"images/argx-logo-light.svg\" dark=\"images/argx-"
+"logo-dark.svg\" alt=\"ArgX\" width=240 >}}"
+msgstr ""
+"{{< themed-image light=\"images/argx-logo-light.svg\" dark=\"images/argx-"
+"logo-dark.svg\" alt=\"ArgX\" width=240 >}}"
+
+#. paragraph
+#: content/ja/projects/index.md:29
+msgid ""
+"C99 向けのコマンドライン引数パーサーです。コマンドラインの仕様をスキーマとし"
+"て一度定義するだけで、`argv` の解析、検証、値の型変換、ヘルプの生成までを行い"
+"ます。"
+msgstr ""
+"面向 C99 的命令行参数解析器。只需将命令行规格作为模式（schema）定义一次，即可"
+"完成 `argv` 的解析、验证、值的类型转换以及帮助信息的生成。"
+
+#. list item > paragraph
+#: content/ja/projects/index.md:31
+msgid "**リポジトリ**：[vabelorg/argx](https://github.com/vabelorg/argx)"
+msgstr "**仓库**：[vabelorg/argx](https://github.com/vabelorg/argx)"
+
+#. list item > paragraph
+#: content/ja/projects/index.md:32
+msgid "**言語**：C99"
+msgstr "**语言**：C99"
+
+#. list item > paragraph
+#: content/ja/projects/index.md:34
+msgid ""
+"**対応環境**：Linux（GCC、Clang）、macOS（Clang）、Windows（MSVC、MinGW）"
+msgstr ""
+"**支持环境**：Linux（GCC、Clang）、macOS（Clang）、Windows（MSVC、MinGW）"
+
+#. list item > paragraph
+#: content/ja/projects/index.md:38
+msgid "C 標準ライブラリ以外に依存せず、コンパイラ拡張も使いません。"
+msgstr "除 C 标准库外没有任何依赖，也不使用编译器扩展。"
+
+#. list item > paragraph
+#: content/ja/projects/index.md:39
+msgid ""
+"フラグ、値を取るオプション、位置引数、入れ子のサブコマンドに対応しています。"
+msgstr "支持标志、带值的选项、位置参数以及嵌套的子命令。"
+
+#. list item > paragraph
+#: content/ja/projects/index.md:40
+msgid "文字列、整数、浮動小数点数、選択肢に加え、独自の値の型を定義できます。"
+msgstr "除字符串、整数、浮点数和选项值外，还可以定义自己的值类型。"
+
+#. list item > paragraph
+#: content/ja/projects/index.md:41
+msgid ""
+"ライブラリは何も出力せず、プロセスを終了させないため、アプリケーション側でエ"
+"ラー処理を制御できます。"
+msgstr "库本身不输出任何内容，也不会终止进程，因此错误处理完全由应用程序控制。"
+
+#. paragraph
+#: content/ja/projects/index.md:43
+msgid "関連記事："
+msgstr "相关文章："
+
+#. list item > paragraph
+#: content/ja/projects/index.md:45
+msgid "[【C言語】ArgXでコマンドライン引数を解析する](/blog/argx-usage)"
+msgstr "[【C语言】使用 ArgX 解析命令行参数](/blog/argx-usage)"
+
+#. list item > paragraph
+#: content/ja/projects/index.md:46
+msgid "[【C言語】ArgXでサブコマンドを持つCLIを作る](/blog/argx-subcommands)"
+msgstr "[【C语言】使用 ArgX 创建带子命令的 CLI](/blog/argx-subcommands)"
