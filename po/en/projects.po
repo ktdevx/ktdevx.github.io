@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-16 16:33+0000\n"
+"POT-Creation-Date: 2026-11-16 16:57+0000\n"
 "PO-Revision-Date: 2026-11-16 16:32+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -188,3 +188,11 @@ msgstr "[Parse Command-Line Arguments in C with ArgX](/blog/argx-usage)"
 #: content/ja/projects/index.md:46
 msgid "[【C言語】ArgXでサブコマンドを持つCLIを作る](/blog/argx-subcommands)"
 msgstr "[Build a CLI with Subcommands in C Using ArgX](/blog/argx-subcommands)"
+
+#. list item > paragraph
+#: content/ja/projects/index.md:47
+msgid ""
+"[【C言語】ArgXのオプションの種類と値の型を使いこなす](/blog/argx-value-types)"
+msgstr ""
+"[Make the Most of Option Kinds and Value Types in C with ArgX](/blog/argx-"
+"value-types)"
