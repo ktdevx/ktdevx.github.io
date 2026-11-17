@@ -10,7 +10,7 @@ params:
   toc: true
 ---
 
-コマンドラインツールでは、`-vvv`のように重ねて指定するオプション、`--no-color`のように打ち消すオプション、`tar`か`zip`のように決まった値だけを受け付けるオプションがよく使われます。
+コマンドラインツールでは、`-vvv`のように重ねて指定するオプション、`--no-color`のように打ち消すオプション、`-I a -I b`のように値を何個でも受け取るオプション、`tar`か`zip`のように決まった値だけを受け付けるオプションがよく使われます。
 
 ここでは、C99向けのコマンドライン引数パーサー「[ArgX](https://github.com/vabelorg/argx)」で、こうしたオプションの種類と値の型を使い分ける方法を解説します。ArgXの基本的な使い方（スキーマの定義、検証、解析、値の読み取り、破棄）は「[【C言語】ArgXでコマンドライン引数を解析する](/blog/argx-usage)」で解説しているため、先にそちらを読んでおくと理解しやすくなります。
 
@@ -22,7 +22,7 @@ params:
 - C99に対応したCコンパイラ（GCC、Clang、MSVCなど）
 - Git
 
-記事の手順はUbuntu 24.04、CMake 3.28、GCC 13で動作を確認しています。ArgXのバージョンは`v0.1.0`です。
+記事の手順はUbuntu 24.04、CMake 3.28、GCC 13で動作を確認しています。ArgXのバージョンは`v0.2.0`です。
 
 ## プロジェクトを準備する
 
@@ -43,7 +43,7 @@ project(chunk LANGUAGES C)
 include(FetchContent)
 FetchContent_Declare(ArgX
     GIT_REPOSITORY https://github.com/vabelorg/argx.git
-    GIT_TAG v0.1.0
+    GIT_TAG v0.2.0
 )
 FetchContent_MakeAvailable(ArgX)
 
@@ -56,7 +56,8 @@ target_link_libraries(chunk PRIVATE ArgX::argx)
 この記事では、ファイルを決まった大きさの断片に分割する架空のツール`chunk`を作ります。実際にはファイルを読まず、受け取った設定とファイル名を表示するだけのプログラムです。受け付けるコマンドラインは次のとおりです。
 
 ```
-chunk [-h] [-v]... [--color | --no-color] [--naming numeric|alpha] [-s SIZE] [--merge RATIO] <file>...
+chunk [-h] [-v]... [--color | --no-color] [--naming numeric|alpha] [-s SIZE] [--merge RATIO]
+      [-e PATTERN[,PATTERN...]]... <file>...
 ```
 
 | 引数 | 種類 | 意味 |
@@ -67,13 +68,14 @@ chunk [-h] [-v]... [--color | --no-color] [--naming numeric|alpha] [-s SIZE] [--
 | `--naming` | 値を取るオプション（選択肢） | 断片の名前の付け方。`numeric`か`alpha`。省略時は`numeric` |
 | `-s`, `--size` | 値を取るオプション（独自の型） | 断片の大きさ。`10K`や`4M`のように単位を付けられる。省略時は`1M` |
 | `--merge` | 値を取るオプション（浮動小数点数） | 最後の断片が`SIZE`のこの割合より小さければ、1つ前の断片に結合する。省略時は`0.1` |
+| `-e`, `--exclude` | リストオプション（文字列） | 分割しないファイルのパターン。何回でも指定でき、`,`で区切って複数書ける |
 | `file` | 位置引数（1個以上） | 分割するファイル |
 
-以降では`main.c`の内容を順に説明します。コード全体は「[コード全体](#コード全体)」に掲載しています。エラー処理の`TRY`マクロ、ヘルプとエラーを出力する`print_help`と`print_parse_error`は、入門記事と同じです。
+以降では`main.c`の内容を順に説明します。コード全体は「[コード全体](#コード全体)」に掲載しています。エラー処理の`TRY`マクロ、ヘルプとエラーを出力する`print_help`と`print_parse_error`、`-h`, `--help`を終端フラグにして解析結果を分岐する方法は、入門記事と同じです。
 
 ## オプションの種類
 
-ArgXのオプションには、次の4種類があります。
+ArgXのオプションには、次の5種類があります。
 
 | 種類 | 追加する関数 | 解析結果の読み取り |
 | --- | --- | --- |
@@ -81,8 +83,9 @@ ArgXのオプションには、次の4種類があります。
 | 否定できるフラグ | `argx_command_add_negatable` | `argx_result_flag`（`bool`） |
 | 回数を数えるオプション | `argx_command_add_count` | `argx_result_count`（`size_t`） |
 | 値を取るオプション | `argx_command_add_value` | 値の型に応じた`argx_result_option_*` |
+| リストオプション | `argx_command_add_list` | 値の型に応じた`argx_result_option_*_at` |
 
-フラグと値を取るオプションは入門記事で扱いました。ここでは残りの2つを説明します。
+フラグと値を取るオプションは入門記事で扱いました。ここでは回数を数えるオプションと否定できるフラグを説明します。リストオプションは値の型と組み合わせて使うため、後述の「[リストオプション](#リストオプション)」で説明します。
 
 ### 回数を数えるオプション
 
@@ -130,7 +133,7 @@ argx_result_flag(result, color) ? "on" : "off"
 
 ## 値の型
 
-値を取るオプションと位置引数には、それぞれ1つの値の型を指定します。値の型は、コマンドラインの文字列を検査し、値に変換するものです。ArgXには次の値の型があります。
+値を取るオプション、リストオプション、位置引数には、それぞれ1つの値の型を指定します。値の型は、コマンドラインの文字列を検査し、値に変換するものです。ArgXには次の値の型があります。
 
 | 値の型 | 取得・作成する関数 | 値のCの型 | 読み取る関数（オプション） |
 | --- | --- | --- | --- |
@@ -347,6 +350,46 @@ for (i = 0; i < argx_result_positional_count(result, files); ++i)
 
 `-`で始まるファイル名を渡したいときは、`--`の後ろに書くと、オプションではなく位置引数として扱われます。
 
+## リストオプション
+
+値を取るオプションを複数回指定すると、最後の値だけが使われます。`-I dir1 -I dir2`や`--exclude '*.log' --exclude '*.tmp'`のように、指定されたすべての値を使いたいときは、`argx_command_add_list`で**リストオプション**を追加します。引数は値を取るオプションを追加する`argx_command_add_value`と同じです。
+
+```c
+TRY(argx_command_add_list(root, 'e', "exclude", argx_type_string(), &exclude));
+TRY(argx_option_set_description(exclude, "Skip the files that match."));
+TRY(argx_option_set_value_name(exclude, "PATTERN"));
+TRY(argx_option_set_separator(exclude, ','));
+```
+
+`argx_option_set_separator`は、1つの値を複数の項目に分ける区切り文字を設定します。ここでは`,`を設定しているため、`-e '*.log' --exclude '*.tmp,*.bak'`は`*.log`、`*.tmp`、`*.bak`の3つの項目になります。区切り文字に使えるのはASCIIの記号だけで、設定しなければ値は分割されません。
+
+| コマンドライン（区切り文字`,`） | 項目 |
+| --- | --- |
+| `-e a -e b` | `a`、`b` |
+| `--exclude a,b -ec` | `a`、`b`、`c` |
+| 指定しない | なし（0個） |
+| `-e a,,b` | 解析エラー（空の項目がある） |
+
+項目はそれぞれ値の型で変換されます。たとえば`argx_type_int()`のリストオプションなら、`--ports 80,443`は2つの整数になります。
+
+解析後は、複数の値を取る位置引数と同じように、`argx_result_option_value_count`で個数を調べ、番号を指定して1つずつ取り出します。番号は、コマンドラインに書かれた順に0から始まります。
+
+```c
+for (i = 0; i < argx_result_option_value_count(result, exclude); ++i)
+{
+    const char *pattern = NULL;
+
+    if (argx_result_option_string_at(result, exclude, i, &pattern))
+    {
+        printf("  exclude %s\n", pattern);
+    }
+}
+```
+
+値を読み取る関数は、通常の関数の名前に`_at`を付けたもの（`argx_result_option_int_at`、`argx_result_option_value_at`など）です。リストオプションの値は、番号のない`argx_result_option_string`などでは読み取れません。
+
+リストオプションには、`argx_option_set_default`の代わりに`argx_option_add_default`でデフォルト値を1項目ずつ追加できます。デフォルト値は、コマンドラインで一度も指定されなかったときだけ使われ、指定されたときは追加ではなく置き換えになります。
+
 ## 値の出どころを調べる
 
 デフォルト値があるオプションは、解析に成功すれば必ず値を持ちます。そのため、値を読み取っただけでは、ユーザーが指定した値なのかデフォルト値なのかを区別できません。これを調べるのが`argx_result_option_source`です。
@@ -538,6 +581,7 @@ int main(int argc, char **argv)
     argx_option_t *naming = NULL;
     argx_option_t *size = NULL;
     argx_option_t *merge = NULL;
+    argx_option_t *exclude = NULL;
     argx_positional_t *files = NULL;
     argx_result_t *result = NULL;
     argx_error_t error;
@@ -552,6 +596,7 @@ int main(int argc, char **argv)
     TRY(argx_command_set_description(root, "Split files into pieces."));
     TRY(argx_command_add_flag(root, 'h', "help", &help));
     TRY(argx_option_set_description(help, "Print this help."));
+    TRY(argx_option_set_terminal(help, true));
 
     /* 回数を数えるオプション：-v、-vv、--verbose */
     TRY(argx_command_add_count(root, 'v', "verbose", &verbose));
@@ -578,6 +623,12 @@ int main(int argc, char **argv)
     TRY(argx_option_set_description(merge, "Merge a last piece smaller than RATIO of SIZE."));
     TRY(argx_option_set_value_name(merge, "RATIO"));
     TRY(argx_option_set_default(merge, "0.1"));
+
+    /* リストオプション：指定されたすべての値を集める。値は "," でも区切れる */
+    TRY(argx_command_add_list(root, 'e', "exclude", argx_type_string(), &exclude));
+    TRY(argx_option_set_description(exclude, "Skip the files that match."));
+    TRY(argx_option_set_value_name(exclude, "PATTERN"));
+    TRY(argx_option_set_separator(exclude, ','));
 
     /* 1つ以上の値を取る位置引数 */
     TRY(argx_command_add_positional(root, "file", argx_type_string(), ARGX_ARITY_ONE_OR_MORE,
@@ -622,6 +673,17 @@ int main(int argc, char **argv)
                            source_text(argx_result_option_source(result, merge)));
                 }
 
+                /* リストオプションの値は、番号を指定して1つずつ取り出す */
+                for (i = 0; i < argx_result_option_value_count(result, exclude); ++i)
+                {
+                    const char *pattern = NULL;
+
+                    if (argx_result_option_string_at(result, exclude, i, &pattern))
+                    {
+                        printf("  exclude %s\n", pattern);
+                    }
+                }
+
                 for (i = 0; i < argx_result_positional_count(result, files); ++i)
                 {
                     if (argx_result_positional_string(result, files, i, &file))
@@ -635,14 +697,7 @@ int main(int argc, char **argv)
         break;
 
     case ARGX_ERROR_INVALID_COMMAND_LINE:
-        if (argx_result_flag(result, help))
-        {
-            status = print_help(root);
-        }
-        else
-        {
-            print_parse_error(result);
-        }
+        print_parse_error(result);
         break;
 
     default:
@@ -727,6 +782,18 @@ size: 1048576 bytes, naming: numeric, merge: 0.10, color: on
   a.bin
 ```
 
+リストオプションは、指定したすべての値が、書いた順に`,`で分割されて取り出されます。
+
+```
+$ ./build/chunk -e '*.log' --exclude '*.tmp,*.bak' a.bin b.bin
+size: 1048576 bytes, naming: numeric, merge: 0.10, color: on
+  exclude *.log
+  exclude *.tmp
+  exclude *.bak
+  a.bin
+  b.bin
+```
+
 ### ヘルプを表示する
 
 ```
@@ -736,17 +803,19 @@ Usage: chunk [OPTIONS] <file>...
 Split files into pieces.
 
 Arguments:
-  <file>...              The files to split.
+  <file>...                     The files to split.
 
 Options:
-  -h, --help             Print this help.
-  -v, --verbose...       Print more; can be repeated.
-      --[no-]color       Color the output. [default: on]
-      --naming <choice>  How to name the pieces. [choices: numeric, alpha]
-                         [default: numeric]
-  -s, --size <SIZE>      The size of a piece. [default: 1M]
-      --merge <RATIO>    Merge a last piece smaller than RATIO of SIZE.
-                         [default: 0.1]
+  -h, --help                    Print this help.
+  -v, --verbose...              Print more; can be repeated.
+      --[no-]color              Color the output. [default: on]
+      --naming <choice>         How to name the pieces. [choices: numeric,
+                                alpha] [default: numeric]
+  -s, --size <SIZE>             The size of a piece. [default: 1M]
+      --merge <RATIO>           Merge a last piece smaller than RATIO of SIZE.
+                                [default: 0.1]
+  -e, --exclude <PATTERN>[,<PATTERN>...]
+                                Skip the files that match. [repeatable]
 ```
 
 オプションの種類と値の型に応じて、ヘルプの表示も変わります。
@@ -755,6 +824,9 @@ Options:
 - 否定できるフラグは`--[no-]color`と表示され、初期状態が`[default: on]`で示されます。
 - 選択肢は`[choices: numeric, alpha]`で一覧が示されます。値の名前を設定していないため、値の部分には型の名前が`<choice>`と表示されています。
 - 1つ以上の値を取る位置引数は`<file>...`と表示されます。
+- 区切り文字を設定したリストオプションは`<PATTERN>[,<PATTERN>...]`と表示され、何回でも指定できることが`[repeatable]`で示されます。
+
+`--exclude`の見出しは長いため、説明は次の行から始まっています。説明の列は最も長い見出しに合わせて右に寄りますが、上限があるため、上限を超える見出しの説明だけが次の行に回ります。
 
 ### 誤ったコマンドライン
 
@@ -773,6 +845,11 @@ For more information, try '--help'.
 
 $ ./build/chunk --merge 1e a.bin
 chunk: invalid value '1e' for option '--merge' (expected float)
+Usage: chunk [OPTIONS] <file>...
+For more information, try '--help'.
+
+$ ./build/chunk -e '*.log,,*.tmp' a.bin
+chunk: option '-e' has an empty item in '*.log,,*.tmp'
 Usage: chunk [OPTIONS] <file>...
 For more information, try '--help'.
 
@@ -801,6 +878,7 @@ ArgXのオプションの種類と値の型を使い分けるときのポイン�
 - 決まった値から選ばせるときは`argx_type_create_choice`を使い、選択肢の番号で値を受け取ります。
 - 組み込みの型で表せない値は`argx_type_create`で独自の型にします。変換関数には副作用を持たせないようにします。
 - 複数の値を取る位置引数は、`argx_result_positional_count`で個数を調べて1つずつ取り出します。
+- 指定されたすべての値を集めるオプションは`argx_command_add_list`で追加し、`argx_result_option_value_count`と`_at`の付いた関数で1つずつ取り出します。`argx_option_set_separator`で、1つの値を区切り文字で分けることもできます。
 - 値がコマンドラインで指定されたのかデフォルト値なのかは、`argx_result_option_source`で調べられます。
 - 自分で作った値の型は、解析結果、スキーマの後に破棄します。
 

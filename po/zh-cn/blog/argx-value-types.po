@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-16 16:59+0000\n"
+"POT-Creation-Date: 2026-11-16 23:18+0000\n"
 "PO-Revision-Date: 2026-11-16 16:57+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,11 +20,13 @@ msgstr "【C语言】灵活运用 ArgX 的选项种类与值类型"
 #: content/ja/blog/argx-value-types/index.md:13
 msgid ""
 "コマンドラインツールでは、`-vvv`のように重ねて指定するオプション、`--no-"
-"color`のように打ち消すオプション、`tar`か`zip`のように決まった値だけを受け付"
-"けるオプションがよく使われます。"
+"color`のように打ち消すオプション、`-I a -I b`のように値を何個でも受け取るオプ"
+"ション、`tar`か`zip`のように決まった値だけを受け付けるオプションがよく使われ"
+"ます。"
 msgstr ""
 "在命令行工具中，经常会用到像 `-vvv` 这样重复指定的选项、像 `--no-color` 这样"
-"用于取反的选项，以及像 `tar` 或 `zip` 这样只接受固定值的选项。"
+"用于取反的选项、像 `-I a -I b` 这样可以接收任意多个值的选项，以及像 `tar` 或 "
+"`zip` 这样只接受固定值的选项。"
 
 #. paragraph
 #: content/ja/blog/argx-value-types/index.md:15
@@ -69,10 +71,10 @@ msgstr "Git"
 #: content/ja/blog/argx-value-types/index.md:25
 msgid ""
 "記事の手順はUbuntu 24.04、CMake 3.28、GCC 13で動作を確認しています。ArgXの"
-"バージョンは`v0.1.0`です。"
+"バージョンは`v0.2.0`です。"
 msgstr ""
 "本文的步骤已在 Ubuntu 24.04、CMake 3.28、GCC 13 上验证。ArgX 的版本为 "
-"`v0.1.0`。"
+"`v0.2.0`。"
 
 #. heading (level 2)
 #: content/ja/blog/argx-value-types/index.md:27
@@ -108,7 +110,7 @@ msgstr ""
 "上并不读取文件，只是显示接收到的设置和文件名。它接受的命令行如下。"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:62
+#: content/ja/blog/argx-value-types/index.md:63
 msgid ""
 "| 引数 | 種類 | 意味 |\n"
 "| --- | --- | --- |\n"
@@ -122,6 +124,8 @@ msgid ""
 "のように単位を付けられる。省略時は`1M` |\n"
 "| `--merge` | 値を取るオプション（浮動小数点数） | 最後の断片が`SIZE`のこの割"
 "合より小さければ、1つ前の断片に結合する。省略時は`0.1` |\n"
+"| `-e`, `--exclude` | リストオプション（文字列） | 分割しないファイルのパター"
+"ン。何回でも指定でき、`,`で区切って複数書ける |\n"
 "| `file` | 位置引数（1個以上） | 分割するファイル |"
 msgstr ""
 "| 参数 | 种类 | 含义 |\n"
@@ -135,31 +139,35 @@ msgstr ""
 "这样带单位。省略时为 `1M` |\n"
 "| `--merge` | 带值的选项（浮点数） | 如果最后一个片段小于 `SIZE` 的这个比例，"
 "就将其合并到前一个片段。省略时为 `0.1` |\n"
+"| `-e`, `--exclude` | 列表选项（字符串） | 不进行分割的文件的匹配模式。可以指"
+"定任意次，也可以用 `,` 分隔写多个 |\n"
 "| `file` | 位置参数（1 个或以上） | 要分割的文件 |"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:72
+#: content/ja/blog/argx-value-types/index.md:74
 msgid ""
 "以降では`main.c`の内容を順に説明します。コード全体は「[コード全体](#コード全"
 "体)」に掲載しています。エラー処理の`TRY`マクロ、ヘルプとエラーを出力する"
-"`print_help`と`print_parse_error`は、入門記事と同じです。"
+"`print_help`と`print_parse_error`、`-h`, `--help`を終端フラグにして解析結果を"
+"分岐する方法は、入門記事と同じです。"
 msgstr ""
 "下面将按顺序说明 `main.c` 的内容。完整代码见“[完整代码](#完整代码)”。用于错误"
-"处理的 `TRY` 宏，以及输出帮助和错误的 `print_help` 和 `print_parse_error`，都"
-"与入门文章相同。"
+"处理的 `TRY` 宏，输出帮助和错误的 `print_help` 和 `print_parse_error`，以及"
+"将 `-h`, `--help` 设为终止标志并根据解析结果进行分支的方法，都与入门文章相"
+"同。"
 
 #. heading (level 2)
-#: content/ja/blog/argx-value-types/index.md:74
+#: content/ja/blog/argx-value-types/index.md:76
 msgid "オプションの種類"
 msgstr "选项的种类"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:76
-msgid "ArgXのオプションには、次の4種類があります。"
-msgstr "ArgX 的选项有以下 4 种。"
+#: content/ja/blog/argx-value-types/index.md:78
+msgid "ArgXのオプションには、次の5種類があります。"
+msgstr "ArgX 的选项有以下 5 种。"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:78
+#: content/ja/blog/argx-value-types/index.md:80
 msgid ""
 "| 種類 | 追加する関数 | 解析結果の読み取り |\n"
 "| --- | --- | --- |\n"
@@ -169,7 +177,9 @@ msgid ""
 "| 回数を数えるオプション | `argx_command_add_count` | `argx_result_count`"
 "（`size_t`） |\n"
 "| 値を取るオプション | `argx_command_add_value` | 値の型に応じた"
-"`argx_result_option_*` |"
+"`argx_result_option_*` |\n"
+"| リストオプション | `argx_command_add_list` | 値の型に応じた"
+"`argx_result_option_*_at` |"
 msgstr ""
 "| 种类 | 添加函数 | 读取解析结果 |\n"
 "| --- | --- | --- |\n"
@@ -178,22 +188,27 @@ msgstr ""
 "|\n"
 "| 计数选项 | `argx_command_add_count` | `argx_result_count`（`size_t`） |\n"
 "| 带值的选项 | `argx_command_add_value` | 与值类型对应的 "
-"`argx_result_option_*` |"
+"`argx_result_option_*` |\n"
+"| 列表选项 | `argx_command_add_list` | 与值类型对应的 "
+"`argx_result_option_*_at` |"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:85
+#: content/ja/blog/argx-value-types/index.md:88
 msgid ""
-"フラグと値を取るオプションは入門記事で扱いました。ここでは残りの2つを説明しま"
-"す。"
-msgstr "标志和带值的选项已在入门文章中介绍过。这里说明其余两种。"
+"フラグと値を取るオプションは入門記事で扱いました。ここでは回数を数えるオプ"
+"ションと否定できるフラグを説明します。リストオプションは値の型と組み合わせて"
+"使うため、後述の「[リストオプション](#リストオプション)」で説明します。"
+msgstr ""
+"标志和带值的选项已在入门文章中介绍过。这里说明计数选项和可取反的标志。列表选"
+"项需要与值类型配合使用，因此将在后述的“[列表选项](#列表选项)”中说明。"
 
 #. heading (level 3)
-#: content/ja/blog/argx-value-types/index.md:87
+#: content/ja/blog/argx-value-types/index.md:90
 msgid "回数を数えるオプション"
 msgstr "计数选项"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:89
+#: content/ja/blog/argx-value-types/index.md:92
 msgid ""
 "`-v`を重ねた回数で表示の詳しさを変えるようなオプションは、"
 "`argx_command_add_count`で追加します。引数はフラグを追加する"
@@ -204,12 +219,12 @@ msgstr ""
 "同。"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:96
+#: content/ja/blog/argx-value-types/index.md:99
 msgid "解析後は、`argx_result_count`で指定された回数を取り出します。"
 msgstr "解析后，使用 `argx_result_count` 取出指定的次数。"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:102
+#: content/ja/blog/argx-value-types/index.md:105
 msgid ""
 "`-v -v`、`-vv`、`--verbose --verbose`はどれも2になり、指定がなければ0になりま"
 "す。`-vvv -v`のように書き方を混ぜても、合計の4になります。"
@@ -218,12 +233,12 @@ msgstr ""
 "vvv -v` 这样混合使用不同写法，也会得到合计的 4。"
 
 #. heading (level 3)
-#: content/ja/blog/argx-value-types/index.md:104
+#: content/ja/blog/argx-value-types/index.md:107
 msgid "否定できるフラグ"
 msgstr "可取反的标志"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:106
+#: content/ja/blog/argx-value-types/index.md:109
 msgid ""
 "`--color`と`--no-color`のように、オンとオフを切り替えるフラグは"
 "`argx_command_add_negatable`で追加します。否定形の名前は`no-`と長い名前をつな"
@@ -235,7 +250,7 @@ msgstr ""
 "成，因此**长名称是必需的**。本例中不设置短名称，所以指定了 `'\\0'`。"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:114
+#: content/ja/blog/argx-value-types/index.md:117
 msgid ""
 "`argx_option_set_initial`は、どちらも指定されなかったときの状態（初期状態）を"
 "設定します。既定は`false`で、ここでは色付きを標準にするため`true`にしていま"
@@ -245,12 +260,12 @@ msgstr ""
 "`false`，这里为了默认启用着色而设为 `true`。"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:116
+#: content/ja/blog/argx-value-types/index.md:119
 msgid "値は普通のフラグと同じく`argx_result_flag`で読み取ります。"
 msgstr "值与普通标志一样，使用 `argx_result_flag` 读取。"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:122
+#: content/ja/blog/argx-value-types/index.md:125
 msgid ""
 "| コマンドライン | `argx_result_flag`の値 |\n"
 "| --- | --- |\n"
@@ -267,7 +282,7 @@ msgstr ""
 "| `--no-color --color` | `true`（以最后指定的为准） |"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:129
+#: content/ja/blog/argx-value-types/index.md:132
 msgid ""
 "否定形の名前は、ほかのオプションの名前と重複してはいけません。たとえば同じコ"
 "マンドに`no-color`という長い名前のオプションがあると、"
@@ -278,22 +293,22 @@ msgstr ""
 "`ARGX_ERROR_NAME_CONFLICT`。"
 
 #. heading (level 2)
-#: content/ja/blog/argx-value-types/index.md:131
+#: content/ja/blog/argx-value-types/index.md:134
 msgid "値の型"
 msgstr "值类型"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:133
+#: content/ja/blog/argx-value-types/index.md:136
 msgid ""
-"値を取るオプションと位置引数には、それぞれ1つの値の型を指定します。値の型は、"
-"コマンドラインの文字列を検査し、値に変換するものです。ArgXには次の値の型があ"
-"ります。"
+"値を取るオプション、リストオプション、位置引数には、それぞれ1つの値の型を指定"
+"します。値の型は、コマンドラインの文字列を検査し、値に変換するものです。ArgX"
+"には次の値の型があります。"
 msgstr ""
-"带值的选项和位置参数各自需要指定一个值类型。值类型负责检查命令行中的字符串，"
-"并将其转换为值。ArgX 提供以下值类型。"
+"带值的选项、列表选项和位置参数各自需要指定一个值类型。值类型负责检查命令行中"
+"的字符串，并将其转换为值。ArgX 提供以下值类型。"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:135
+#: content/ja/blog/argx-value-types/index.md:138
 msgid ""
 "| 値の型 | 取得・作成する関数 | 値のCの型 | 読み取る関数（オプション） |\n"
 "| --- | --- | --- | --- |\n"
@@ -318,7 +333,7 @@ msgstr ""
 "| 自定义类型 | `argx_type_create()` | 自行决定 | `argx_result_option_value` |"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:143
+#: content/ja/blog/argx-value-types/index.md:146
 msgid ""
 "位置引数の値は、`_option_`を`_positional_`に変えた関数"
 "（`argx_result_positional_float`など）で読み取ります。"
@@ -327,7 +342,7 @@ msgstr ""
 "`argx_result_positional_float`）读取。"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:145
+#: content/ja/blog/argx-value-types/index.md:148
 msgid ""
 "文字列、整数、浮動小数点数の型はライブラリが持っているため、作成も破棄も不要"
 "です。選択肢と独自の型は自分で作成し、使い終わったら`argx_type_destroy`で破棄"
@@ -337,17 +352,17 @@ msgstr ""
 "定义类型需要自己创建，使用完毕后用 `argx_type_destroy` 销毁。"
 
 #. heading (level 3)
-#: content/ja/blog/argx-value-types/index.md:147
+#: content/ja/blog/argx-value-types/index.md:150
 msgid "浮動小数点数"
 msgstr "浮点数"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:149
+#: content/ja/blog/argx-value-types/index.md:152
 msgid "`argx_type_float()`を指定すると、値を`double`で受け取れます。"
 msgstr "指定 `argx_type_float()` 后，就能以 `double` 接收值。"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:158
+#: content/ja/blog/argx-value-types/index.md:161
 msgid ""
 "受け付けるのは`1`、`.5`、`-1.5e-3`のような10進数の表記です。小数点は、ロケー"
 "ルにかかわらず常に`.`です。前後の空白、無限大、NaN、16進数の表記は受け付けま"
@@ -357,12 +372,12 @@ msgstr ""
 "数点始终是 `.`。不接受前后的空白、无穷大、NaN 以及十六进制写法。"
 
 #. heading (level 3)
-#: content/ja/blog/argx-value-types/index.md:166
+#: content/ja/blog/argx-value-types/index.md:169
 msgid "選択肢"
 msgstr "可选值"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:168
+#: content/ja/blog/argx-value-types/index.md:171
 msgid ""
 "決まった値の中から1つを選ばせるときは、`argx_type_create_choice`で選択肢の型"
 "を作ります。"
@@ -370,7 +385,7 @@ msgstr ""
 "要从固定的值中选择一个时，使用 `argx_type_create_choice` 创建可选值类型。"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:184
+#: content/ja/blog/argx-value-types/index.md:187
 msgid ""
 "`argx_type_create_choice`には、選択肢の文字列の配列と個数を渡します。文字列は"
 "コピーされるため、配列は型を作った後に解放しても問題ありません。選択肢が0個の"
@@ -381,7 +396,7 @@ msgstr ""
 "会返回 `ARGX_ERROR_INVALID_DEFINITION`。"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:186
+#: content/ja/blog/argx-value-types/index.md:189
 msgid ""
 "比較は大文字と小文字を区別する完全一致です。解析結果からは、一致した選択肢の"
 "**番号**を`size_t`で受け取ります。番号は配列の添字と同じなので、元の配列から"
@@ -391,7 +406,7 @@ msgstr ""
 "**序号**。序号与数组的下标相同，因此可以从原数组中查到对应的字符串。"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:197
+#: content/ja/blog/argx-value-types/index.md:200
 msgid ""
 "文字列を`strcmp`で比べる代わりに番号で`switch`できるのも、選択肢の型を使う利"
 "点です。"
@@ -400,7 +415,7 @@ msgstr ""
 "的优点。"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:199
+#: content/ja/blog/argx-value-types/index.md:202
 msgid ""
 "ヘルプには、選択肢の一覧が`[choices: numeric, alpha]`のように自動で表示されま"
 "す（後述の「[ヘルプを表示する](#ヘルプを表示する)」を参照）。"
@@ -409,12 +424,12 @@ msgstr ""
 "的“[显示帮助](#显示帮助)”）。"
 
 #. heading (level 3)
-#: content/ja/blog/argx-value-types/index.md:201
+#: content/ja/blog/argx-value-types/index.md:204
 msgid "独自の型"
 msgstr "自定义类型"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:203
+#: content/ja/blog/argx-value-types/index.md:206
 msgid ""
 "`10K`や`4M`のように単位付きでサイズを受け取りたいときなど、組み込みの型で表せ"
 "ない値は、`argx_type_create`で独自の型を作ります。"
@@ -423,7 +438,7 @@ msgstr ""
 "用 `argx_type_create` 创建自定义类型。"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:212
+#: content/ja/blog/argx-value-types/index.md:215
 msgid ""
 "| 引数 | 内容 |\n"
 "| --- | --- |\n"
@@ -442,13 +457,13 @@ msgstr ""
 "| `context` | 传给这两个函数的用户数据。不需要时为 `NULL` |"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:220
+#: content/ja/blog/argx-value-types/index.md:223
 msgid ""
 "この記事では、サイズを`uint64_t`のバイト数に変換する型`size`を作ります。"
 msgstr "本文将创建一个类型 `size`，把大小转换为 `uint64_t` 的字节数。"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:226
+#: content/ja/blog/argx-value-types/index.md:229
 msgid ""
 "変換関数`convert_size`は次のとおりです。数字の並びの後ろに、1024倍ごとの単位"
 "`K`、`M`、`G`（小文字も可）を1文字だけ付けられます。"
@@ -457,12 +472,12 @@ msgstr ""
 "单位字符 `K`、`M`、`G`（也可以是小写）。"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:283
+#: content/ja/blog/argx-value-types/index.md:286
 msgid "変換関数を書くときの決まりは次のとおりです。"
 msgstr "编写转换函数时的规则如下。"
 
 #. list item > paragraph
-#: content/ja/blog/argx-value-types/index.md:285
+#: content/ja/blog/argx-value-types/index.md:288
 msgid ""
 "`text`を変換できたら、結果を`value`に書き込んで`ARGX_ERROR_NONE`を返します。"
 "`value`は、`value_size`バイト以上の大きさがあり、どの型にも合うように配置され"
@@ -472,7 +487,7 @@ msgstr ""
 "是一个大小至少为 `value_size` 字节、并按照适合任何类型的方式对齐的缓冲区。"
 
 #. list item > paragraph
-#: content/ja/blog/argx-value-types/index.md:286
+#: content/ja/blog/argx-value-types/index.md:289
 msgid ""
 "受け付けない文字列には`ARGX_ERROR_INVALID_VALUE`を返します。すると、解析は"
 "`invalid value ... (expected size)`という解析エラーになります。メモリ確保に失"
@@ -483,7 +498,7 @@ msgstr ""
 "`ARGX_ERROR_OUT_OF_MEMORY`。"
 
 #. list item > paragraph
-#: content/ja/blog/argx-value-types/index.md:287
+#: content/ja/blog/argx-value-types/index.md:290
 msgid ""
 "**副作用を持たせてはいけません**。同じ入力には常に同じ結果を返す必要がありま"
 "す。変換関数は解析のときだけでなく、`argx_command_validate`でデフォルト値（こ"
@@ -494,14 +509,14 @@ msgstr ""
 "被调用。"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:289
+#: content/ja/blog/argx-value-types/index.md:292
 msgid ""
 "この例では、`0`、桁あふれする値、`10X`のような未知の単位を受け付けないように"
 "しています。"
 msgstr "本例中不接受 `0`、溢出的值，以及像 `10X` 这样的未知单位。"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:291
+#: content/ja/blog/argx-value-types/index.md:294
 msgid ""
 "値の中で文字列を複製するなど、変換のたびに後始末が必要な場合は`release_fn`を"
 "指定します。`release_fn`は、成功した変換1回につき1回だけ呼ばれます。上限値な"
@@ -513,7 +528,7 @@ msgstr ""
 "`context` 传入指针。`context` 必须在值类型被销毁之前一直保持有效。"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:293
+#: content/ja/blog/argx-value-types/index.md:296
 msgid ""
 "デフォルト値も検証で変換されるため、たとえば`argx_option_set_default(size, "
 "\"1X\")`のように変換できない値を設定すると、`argx_command_validate`が"
@@ -524,7 +539,7 @@ msgstr ""
 "`ARGX_ERROR_INVALID_DEFAULT`。"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:299
+#: content/ja/blog/argx-value-types/index.md:302
 msgid ""
 "独自の型の値は、`argx_result_option_value`で読み取ります。変換関数が書き込ん"
 "だバッファーへのポインターが返るため、自分で決めたCの型として読み取ります。"
@@ -533,7 +548,7 @@ msgstr ""
 "缓冲区的指针，因此按照自己决定的 C 类型来读取。"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:310
+#: content/ja/blog/argx-value-types/index.md:313
 msgid ""
 "値がない場合は`NULL`が返ります。この例ではデフォルト値があるため、解析に成功"
 "していれば必ず値があります。"
@@ -541,12 +556,12 @@ msgstr ""
 "没有值时返回 `NULL`。本例中设置了默认值，因此只要解析成功，就一定有值。"
 
 #. heading (level 2)
-#: content/ja/blog/argx-value-types/index.md:312
+#: content/ja/blog/argx-value-types/index.md:315
 msgid "複数の値を取る位置引数"
 msgstr "接收多个值的位置参数"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:314
+#: content/ja/blog/argx-value-types/index.md:317
 msgid ""
 "位置引数の個数は、`argx_command_add_positional`の第4引数（arity）で指定しま"
 "す。"
@@ -554,7 +569,7 @@ msgstr ""
 "位置参数的个数由 `argx_command_add_positional` 的第 4 个参数（arity）指定。"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:316
+#: content/ja/blog/argx-value-types/index.md:319
 msgid ""
 "| arity | 値の個数 |\n"
 "| --- | --- |\n"
@@ -571,7 +586,7 @@ msgstr ""
 "| `ARGX_ARITY_ONE_OR_MORE` | 1 个或以上 |"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:323
+#: content/ja/blog/argx-value-types/index.md:326
 msgid ""
 "`chunk`は分割するファイルを1つ以上受け取るため、`ARGX_ARITY_ONE_OR_MORE`を指"
 "定します。"
@@ -579,7 +594,7 @@ msgstr ""
 "`chunk` 接收 1 个或以上要分割的文件，因此指定 `ARGX_ARITY_ONE_OR_MORE`。"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:331
+#: content/ja/blog/argx-value-types/index.md:334
 msgid ""
 "値は`argx_result_positional_count`で個数を調べ、番号を指定して1つずつ取り出し"
 "ます。番号はコマンドラインに書かれた順に0から始まります。"
@@ -588,7 +603,7 @@ msgstr ""
 "号按照在命令行中出现的顺序从 0 开始。"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:343
+#: content/ja/blog/argx-value-types/index.md:346
 msgid ""
 "複数の値を取る位置引数には、次の制約があります。違反すると"
 "`argx_command_validate`が`ARGX_ERROR_INVALID_DEFINITION`を返します。"
@@ -597,7 +612,7 @@ msgstr ""
 "`ARGX_ERROR_INVALID_DEFINITION`。"
 
 #. list item > paragraph
-#: content/ja/blog/argx-value-types/index.md:345
+#: content/ja/blog/argx-value-types/index.md:348
 msgid ""
 "`ARGX_ARITY_ZERO_OR_MORE`と`ARGX_ARITY_ONE_OR_MORE`の後ろには、位置引数を追加"
 "できません。"
@@ -606,7 +621,7 @@ msgstr ""
 "参数。"
 
 #. list item > paragraph
-#: content/ja/blog/argx-value-types/index.md:346
+#: content/ja/blog/argx-value-types/index.md:349
 msgid ""
 "`ARGX_ARITY_OPTIONAL`と`ARGX_ARITY_ZERO_OR_MORE`の後ろには、"
 "`ARGX_ARITY_REQUIRED`と`ARGX_ARITY_ONE_OR_MORE`を追加できません。"
@@ -615,7 +630,7 @@ msgstr ""
 "`ARGX_ARITY_REQUIRED` 和 `ARGX_ARITY_ONE_OR_MORE`。"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:348
+#: content/ja/blog/argx-value-types/index.md:351
 msgid ""
 "`-`で始まるファイル名を渡したいときは、`--`の後ろに書くと、オプションではなく"
 "位置引数として扱われます。"
@@ -624,12 +639,102 @@ msgstr ""
 "选项处理。"
 
 #. heading (level 2)
-#: content/ja/blog/argx-value-types/index.md:350
+#: content/ja/blog/argx-value-types/index.md:353
+msgid "リストオプション"
+msgstr "列表选项"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:355
+msgid ""
+"値を取るオプションを複数回指定すると、最後の値だけが使われます。`-I dir1 -I "
+"dir2`や`--exclude '*.log' --exclude '*.tmp'`のように、指定されたすべての値を"
+"使いたいときは、`argx_command_add_list`で**リストオプション**を追加します。引"
+"数は値を取るオプションを追加する`argx_command_add_value`と同じです。"
+msgstr ""
+"多次指定带值的选项时，只会使用最后一个值。如果想像 `-I dir1 -I dir2` 或 `--"
+"exclude '*.log' --exclude '*.tmp'` 这样使用所有指定的值，就用 "
+"`argx_command_add_list` 添加**列表选项**。参数与添加带值选项的 "
+"`argx_command_add_value` 相同。"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:364
+msgid ""
+"`argx_option_set_separator`は、1つの値を複数の項目に分ける区切り文字を設定し"
+"ます。ここでは`,`を設定しているため、`-e '*.log' --exclude '*.tmp,*.bak'`は"
+"`*.log`、`*.tmp`、`*.bak`の3つの項目になります。区切り文字に使えるのはASCIIの"
+"記号だけで、設定しなければ値は分割されません。"
+msgstr ""
+"`argx_option_set_separator` 用于设置将一个值拆分为多个项的分隔符。这里设置的"
+"是 `,`，因此 `-e '*.log' --exclude '*.tmp,*.bak'` 会成为 `*.log`、`*.tmp`、"
+"`*.bak` 这 3 个项。分隔符只能使用 ASCII 符号，如果不设置，值就不会被拆分。"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:366
+msgid ""
+"| コマンドライン（区切り文字`,`） | 項目 |\n"
+"| --- | --- |\n"
+"| `-e a -e b` | `a`、`b` |\n"
+"| `--exclude a,b -ec` | `a`、`b`、`c` |\n"
+"| 指定しない | なし（0個） |\n"
+"| `-e a,,b` | 解析エラー（空の項目がある） |"
+msgstr ""
+"| 命令行（分隔符 `,`） | 项 |\n"
+"| --- | --- |\n"
+"| `-e a -e b` | `a`、`b` |\n"
+"| `--exclude a,b -ec` | `a`、`b`、`c` |\n"
+"| 不指定 | 无（0 个） |\n"
+"| `-e a,,b` | 解析错误（存在空项） |"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:373
+msgid ""
+"項目はそれぞれ値の型で変換されます。たとえば`argx_type_int()`のリストオプショ"
+"ンなら、`--ports 80,443`は2つの整数になります。"
+msgstr ""
+"每个项都会按值类型进行转换。例如，如果是 `argx_type_int()` 的列表选项，`--"
+"ports 80,443` 会成为 2 个整数。"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:375
+msgid ""
+"解析後は、複数の値を取る位置引数と同じように、"
+"`argx_result_option_value_count`で個数を調べ、番号を指定して1つずつ取り出しま"
+"す。番号は、コマンドラインに書かれた順に0から始まります。"
+msgstr ""
+"解析后，与接收多个值的位置参数一样，先用 `argx_result_option_value_count` 获"
+"取个数，再指定序号逐个取出。序号按照在命令行中出现的顺序从 0 开始。"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:389
+msgid ""
+"値を読み取る関数は、通常の関数の名前に`_at`を付けたもの"
+"（`argx_result_option_int_at`、`argx_result_option_value_at`など）です。リス"
+"トオプションの値は、番号のない`argx_result_option_string`などでは読み取れませ"
+"ん。"
+msgstr ""
+"读取值的函数，是在普通函数名后加上 `_at` 的函数（如 "
+"`argx_result_option_int_at`、`argx_result_option_value_at`）。列表选项的值无"
+"法通过不带序号的 `argx_result_option_string` 等函数读取。"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:391
+msgid ""
+"リストオプションには、`argx_option_set_default`の代わりに"
+"`argx_option_add_default`でデフォルト値を1項目ずつ追加できます。デフォルト値"
+"は、コマンドラインで一度も指定されなかったときだけ使われ、指定されたときは追"
+"加ではなく置き換えになります。"
+msgstr ""
+"对于列表选项，可以使用 `argx_option_add_default` 代替 "
+"`argx_option_set_default`，逐项添加默认值。默认值仅在命令行中一次也没有指定时"
+"使用；一旦指定，就会替换默认值，而不是追加到默认值之后。"
+
+#. heading (level 2)
+#: content/ja/blog/argx-value-types/index.md:393
 msgid "値の出どころを調べる"
 msgstr "查询值的来源"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:352
+#: content/ja/blog/argx-value-types/index.md:395
 msgid ""
 "デフォルト値があるオプションは、解析に成功すれば必ず値を持ちます。そのため、"
 "値を読み取っただけでは、ユーザーが指定した値なのかデフォルト値なのかを区別で"
@@ -639,12 +744,12 @@ msgstr ""
 "的值还是默认值。用于查询这一点的就是 `argx_result_option_source`。"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:358
+#: content/ja/blog/argx-value-types/index.md:401
 msgid "戻り値は`argx_source_t`で、次のいずれかです。"
 msgstr "返回值为 `argx_source_t`，是以下值之一。"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:360
+#: content/ja/blog/argx-value-types/index.md:403
 msgid ""
 "| 値 | 意味 |\n"
 "| --- | --- |\n"
@@ -660,7 +765,7 @@ msgstr ""
 "| `ARGX_SOURCE_NONE` | 没有值（未指定，也没有默认值） |"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:366
+#: content/ja/blog/argx-value-types/index.md:409
 msgid ""
 "フラグ、否定できるフラグ、回数を数えるオプションは、指定がなくても`false`、初"
 "期状態、0という値を持つため、指定されなければ`ARGX_SOURCE_DEFAULT`になりま"
@@ -671,7 +776,7 @@ msgstr ""
 "`argx_result_positional_source` 查询。"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:368
+#: content/ja/blog/argx-value-types/index.md:411
 msgid ""
 "サンプルでは、`argx_source_t`を表示用の文字列に変換する関数を用意しています。"
 "今後のバージョンで値が追加される可能性があるため、`switch`には`default`を書い"
@@ -681,18 +786,18 @@ msgstr ""
 "能会增加新的值，因此在 `switch` 中写上 `default`。"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:385
+#: content/ja/blog/argx-value-types/index.md:428
 msgid ""
 "`chunk`では、`-v`を指定したときだけ、各オプションの値の出どころを表示します。"
 msgstr "在 `chunk` 中，只有指定了 `-v` 时，才会显示各选项值的来源。"
 
 #. heading (level 2)
-#: content/ja/blog/argx-value-types/index.md:387
+#: content/ja/blog/argx-value-types/index.md:430
 msgid "値の型を破棄する順序"
 msgstr "销毁值类型的顺序"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:389
+#: content/ja/blog/argx-value-types/index.md:432
 msgid ""
 "スキーマは、選択肢と独自の型を**借りている**だけで、コピーはしていません。そ"
 "のため、値の型はそれを使うスキーマよりも長く有効にしておく必要があります。破"
@@ -702,27 +807,27 @@ msgstr ""
 "的模式存活得更久。请按以下顺序销毁。"
 
 #. list item > paragraph
-#: content/ja/blog/argx-value-types/index.md:391
+#: content/ja/blog/argx-value-types/index.md:434
 msgid "解析結果（`argx_result_destroy`）"
 msgstr "解析结果（`argx_result_destroy`）"
 
 #. list item > paragraph
-#: content/ja/blog/argx-value-types/index.md:392
+#: content/ja/blog/argx-value-types/index.md:435
 msgid "スキーマ（`argx_command_destroy`）"
 msgstr "模式（`argx_command_destroy`）"
 
 #. list item > paragraph
-#: content/ja/blog/argx-value-types/index.md:393
+#: content/ja/blog/argx-value-types/index.md:436
 msgid "値の型（`argx_type_destroy`）"
 msgstr "值类型（`argx_type_destroy`）"
 
 #. list item > paragraph
-#: content/ja/blog/argx-value-types/index.md:394
+#: content/ja/blog/argx-value-types/index.md:437
 msgid "値の型の`context`（使っている場合）"
 msgstr "值类型的 `context`（如果使用）"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:404
+#: content/ja/blog/argx-value-types/index.md:447
 msgid ""
 "順序を誤っても検出されず、解放済みのメモリを使う不具合になるため注意してくだ"
 "さい。作成は逆に、値の型を先、スキーマを後にします。"
@@ -731,7 +836,7 @@ msgstr ""
 "相反，先创建值类型，后创建模式。"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:406
+#: content/ja/blog/argx-value-types/index.md:449
 msgid ""
 "どの関数も`NULL`を渡すと何もしないため、途中で失敗した場合も同じ後始末で済み"
 "ます。`argx_type_int()`などの組み込みの型は`argx_type_destroy`に渡しても無視"
@@ -742,47 +847,47 @@ msgstr ""
 "本来也无需销毁它们。"
 
 #. heading (level 2)
-#: content/ja/blog/argx-value-types/index.md:408
+#: content/ja/blog/argx-value-types/index.md:451
 msgid "コード全体"
 msgstr "完整代码"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:410
+#: content/ja/blog/argx-value-types/index.md:453
 msgid "`main.c`の全体は次のとおりです。"
 msgstr "`main.c` 的完整内容如下。"
 
 #. heading (level 2)
-#: content/ja/blog/argx-value-types/index.md:670
+#: content/ja/blog/argx-value-types/index.md:725
 msgid "ビルドして実行する"
 msgstr "构建并运行"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:672
+#: content/ja/blog/argx-value-types/index.md:727
 msgid "`chunk`ディレクトリで次のコマンドを実行し、ビルドします。"
 msgstr "在 `chunk` 目录中执行以下命令进行构建。"
 
 #. heading (level 3)
-#: content/ja/blog/argx-value-types/index.md:679
+#: content/ja/blog/argx-value-types/index.md:734
 msgid "オプションを省略する"
 msgstr "省略选项"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:681
+#: content/ja/blog/argx-value-types/index.md:736
 msgid "オプションをすべて省略すると、デフォルト値と初期状態が使われます。"
 msgstr "省略所有选项时，会使用默认值和初始状态。"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:690
+#: content/ja/blog/argx-value-types/index.md:745
 msgid "`-v`を付けると、値がすべてデフォルト値から来ていることを確認できます。"
 msgstr "加上 `-v` 后，可以确认所有值都来自默认值。"
 
 #. heading (level 3)
-#: content/ja/blog/argx-value-types/index.md:702
+#: content/ja/blog/argx-value-types/index.md:757
 msgid "オプションを指定する"
 msgstr "指定选项"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:714
+#: content/ja/blog/argx-value-types/index.md:769
 msgid ""
 "`10K`が独自の型で10240バイトに変換され、値の出どころが`command line`に変わっ"
 "ています。値はほかのオプションと同じく`-s4m`や`--merge=.5`のようにも書けま"
@@ -792,36 +897,43 @@ msgstr ""
 "其他选项一样，值也可以写成 `-s4m` 或 `--merge=.5` 的形式。"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:722
+#: content/ja/blog/argx-value-types/index.md:777
 msgid "否定できるフラグは、最後に指定したほうが使われます。"
 msgstr "可取反的标志以最后指定的为准。"
 
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:785
+msgid ""
+"リストオプションは、指定したすべての値が、書いた順に`,`で分割されて取り出され"
+"ます。"
+msgstr "列表选项会按书写顺序，将所有指定的值用 `,` 拆分后取出。"
+
 #. heading (level 3)
-#: content/ja/blog/argx-value-types/index.md:730
+#: content/ja/blog/argx-value-types/index.md:797
 msgid "ヘルプを表示する"
 msgstr "显示帮助"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:752
+#: content/ja/blog/argx-value-types/index.md:821
 msgid "オプションの種類と値の型に応じて、ヘルプの表示も変わります。"
 msgstr "帮助的显示也会根据选项的种类和值类型而变化。"
 
 #. list item > paragraph
-#: content/ja/blog/argx-value-types/index.md:754
+#: content/ja/blog/argx-value-types/index.md:823
 msgid ""
 "回数を数えるオプションは`--verbose...`のように`...`が付き、重ねて指定できるこ"
 "とがわかります。"
 msgstr "计数选项会像 `--verbose...` 这样带有 `...`，表示可以重复指定。"
 
 #. list item > paragraph
-#: content/ja/blog/argx-value-types/index.md:755
+#: content/ja/blog/argx-value-types/index.md:824
 msgid ""
 "否定できるフラグは`--[no-]color`と表示され、初期状態が`[default: on]`で示され"
 "ます。"
 msgstr "可取反的标志显示为 `--[no-]color`，初始状态以 `[default: on]` 表示。"
 
 #. list item > paragraph
-#: content/ja/blog/argx-value-types/index.md:756
+#: content/ja/blog/argx-value-types/index.md:825
 msgid ""
 "選択肢は`[choices: numeric, alpha]`で一覧が示されます。値の名前を設定していな"
 "いため、値の部分には型の名前が`<choice>`と表示されています。"
@@ -830,17 +942,36 @@ msgstr ""
 "为类型名称 `<choice>`。"
 
 #. list item > paragraph
-#: content/ja/blog/argx-value-types/index.md:757
+#: content/ja/blog/argx-value-types/index.md:826
 msgid "1つ以上の値を取る位置引数は`<file>...`と表示されます。"
 msgstr "接收 1 个或以上值的位置参数显示为 `<file>...`。"
 
+#. list item > paragraph
+#: content/ja/blog/argx-value-types/index.md:827
+msgid ""
+"区切り文字を設定したリストオプションは`<PATTERN>[,<PATTERN>...]`と表示され、"
+"何回でも指定できることが`[repeatable]`で示されます。"
+msgstr ""
+"设置了分隔符的列表选项显示为 `<PATTERN>[,<PATTERN>...]`，并以 `[repeatable]` "
+"表示可以指定任意次。"
+
+#. paragraph
+#: content/ja/blog/argx-value-types/index.md:829
+msgid ""
+"`--exclude`の見出しは長いため、説明は次の行から始まっています。説明の列は最も"
+"長い見出しに合わせて右に寄りますが、上限があるため、上限を超える見出しの説明"
+"だけが次の行に回ります。"
+msgstr ""
+"由于 `--exclude` 这一项的标题较长，其说明从下一行开始。说明列会随最长的标题向"
+"右移，但有上限，因此只有超过上限的标题，其说明才会换到下一行。"
+
 #. heading (level 3)
-#: content/ja/blog/argx-value-types/index.md:759
+#: content/ja/blog/argx-value-types/index.md:831
 msgid "誤ったコマンドライン"
 msgstr "错误的命令行"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:761
+#: content/ja/blog/argx-value-types/index.md:833
 msgid ""
 "値の型に合わない値を渡すと、型の名前を含むエラーメッセージが表示され、終了"
 "コードは1になります。独自の型でも、変換関数が`ARGX_ERROR_INVALID_VALUE`を返す"
@@ -850,7 +981,7 @@ msgstr ""
 "类型，只要转换函数返回 `ARGX_ERROR_INVALID_VALUE`，就会得到相同格式的消息。"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:785
+#: content/ja/blog/argx-value-types/index.md:862
 msgid ""
 "`--no-`の形は否定できるフラグにしかないため、`--no-verbose`は不明なオプション"
 "としてエラーになります。"
@@ -858,18 +989,18 @@ msgstr ""
 "只有可取反的标志才有 `--no-` 形式，因此 `--no-verbose` 会作为未知选项而报错。"
 
 #. heading (level 2)
-#: content/ja/blog/argx-value-types/index.md:794
+#: content/ja/blog/argx-value-types/index.md:871
 msgid "まとめ"
 msgstr "总结"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:796
+#: content/ja/blog/argx-value-types/index.md:873
 msgid ""
 "ArgXのオプションの種類と値の型を使い分けるときのポイントは次のとおりです。"
 msgstr "区分使用 ArgX 的选项种类和值类型时，要点如下。"
 
 #. list item > paragraph
-#: content/ja/blog/argx-value-types/index.md:798
+#: content/ja/blog/argx-value-types/index.md:875
 msgid ""
 "`-vvv`のように重ねるオプションは`argx_command_add_count`で追加し、"
 "`argx_result_count`で回数を読み取ります。"
@@ -878,7 +1009,7 @@ msgstr ""
 "`argx_result_count` 读取次数。"
 
 #. list item > paragraph
-#: content/ja/blog/argx-value-types/index.md:799
+#: content/ja/blog/argx-value-types/index.md:876
 msgid ""
 "`--color`と`--no-color`の組は`argx_command_add_negatable`で追加し、指定がない"
 "ときの状態を`argx_option_set_initial`で設定します。"
@@ -887,7 +1018,7 @@ msgstr ""
 "`argx_option_set_initial` 设置未指定时的状态。"
 
 #. list item > paragraph
-#: content/ja/blog/argx-value-types/index.md:800
+#: content/ja/blog/argx-value-types/index.md:877
 msgid ""
 "浮動小数点数は`argx_type_float()`で、ロケールに依存せずに`double`へ変換できま"
 "す。"
@@ -895,7 +1026,7 @@ msgstr ""
 "浮点数可以通过 `argx_type_float()`，不受区域设置影响地转换为 `double`。"
 
 #. list item > paragraph
-#: content/ja/blog/argx-value-types/index.md:801
+#: content/ja/blog/argx-value-types/index.md:878
 msgid ""
 "決まった値から選ばせるときは`argx_type_create_choice`を使い、選択肢の番号で値"
 "を受け取ります。"
@@ -904,7 +1035,7 @@ msgstr ""
 "值。"
 
 #. list item > paragraph
-#: content/ja/blog/argx-value-types/index.md:802
+#: content/ja/blog/argx-value-types/index.md:879
 msgid ""
 "組み込みの型で表せない値は`argx_type_create`で独自の型にします。変換関数には"
 "副作用を持たせないようにします。"
@@ -913,7 +1044,7 @@ msgstr ""
 "有副作用。"
 
 #. list item > paragraph
-#: content/ja/blog/argx-value-types/index.md:803
+#: content/ja/blog/argx-value-types/index.md:880
 msgid ""
 "複数の値を取る位置引数は、`argx_result_positional_count`で個数を調べて1つずつ"
 "取り出します。"
@@ -922,7 +1053,18 @@ msgstr ""
 "出。"
 
 #. list item > paragraph
-#: content/ja/blog/argx-value-types/index.md:804
+#: content/ja/blog/argx-value-types/index.md:881
+msgid ""
+"指定されたすべての値を集めるオプションは`argx_command_add_list`で追加し、"
+"`argx_result_option_value_count`と`_at`の付いた関数で1つずつ取り出します。"
+"`argx_option_set_separator`で、1つの値を区切り文字で分けることもできます。"
+msgstr ""
+"收集所有指定值的选项使用 `argx_command_add_list` 添加，并通过 "
+"`argx_result_option_value_count` 和带 `_at` 的函数逐个取出。使用 "
+"`argx_option_set_separator`，还可以用分隔符拆分一个值。"
+
+#. list item > paragraph
+#: content/ja/blog/argx-value-types/index.md:882
 msgid ""
 "値がコマンドラインで指定されたのかデフォルト値なのかは、"
 "`argx_result_option_source`で調べられます。"
@@ -930,12 +1072,12 @@ msgstr ""
 "值是在命令行中指定的还是默认值，可以用 `argx_result_option_source` 查询。"
 
 #. list item > paragraph
-#: content/ja/blog/argx-value-types/index.md:805
+#: content/ja/blog/argx-value-types/index.md:883
 msgid "自分で作った値の型は、解析結果、スキーマの後に破棄します。"
 msgstr "自己创建的值类型，要在解析结果和模式之后销毁。"
 
 #. paragraph
-#: content/ja/blog/argx-value-types/index.md:807
+#: content/ja/blog/argx-value-types/index.md:885
 msgid ""
 "各関数の詳細は、公式ドキュメントの[Value Types](https://github.com/vabelorg/"
 "argx/blob/main/docs/references/types.md)、[Schemas](https://github.com/"
@@ -953,3 +1095,8 @@ msgstr ""
 "用的示例位于仓库的 [examples/pack/pack.c](https://github.com/vabelorg/argx/"
 "blob/main/examples/pack/pack.c)。子命令的用法在“[【C语言】使用 ArgX 创建带子"
 "命令的 CLI](/blog/argx-subcommands)”中有介绍。"
+
+#~ msgid ""
+#~ "フラグと値を取るオプションは入門記事で扱いました。ここでは残りの2つを説明"
+#~ "します。"
+#~ msgstr "标志和带值的选项已在入门文章中介绍过。这里说明其余两种。"
